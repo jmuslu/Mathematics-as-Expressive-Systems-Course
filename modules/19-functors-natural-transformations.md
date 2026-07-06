@@ -78,12 +78,12 @@ Functors formalize representation changes: text to graph, graph to embedding, sc
 
 ### Problem 19.1: Functor from schema to sets
 
-A schema has objects `Claim` and `Source`, and morphism `citedBy: Claim -> Source`. An instance sends:
+A notebook schema has objects `Bullet` and `Heading`, and morphism `under: Bullet -> Heading`. An instance sends:
 
 ```text
-Claim -> {c1,c2}
-Source -> {s1}
-citedBy(c1)=s1, citedBy(c2)=s1
+Bullet -> {b1,b2}
+Heading -> {h1}
+under(b1)=h1, under(b2)=h1
 ```
 
 Why is this a functor-like assignment?
@@ -95,32 +95,32 @@ Answer check: it sends objects to sets and arrows to functions while preserving 
 For the same schema instance, identify:
 
 ```text
-F(Claim)
-F(Source)
-F(citedBy)
+F(Bullet)
+F(Heading)
+F(under)
 ```
 
 Answer check:
 
 ```text
-F(Claim) = {c1,c2}
-F(Source) = {s1}
-F(citedBy): {c1,c2} -> {s1}
+F(Bullet) = {b1,b2}
+F(Heading) = {h1}
+F(under): {b1,b2} -> {h1}
 ```
 
 A functor translates both objects and arrows.
 
 ### Problem 19.3: Preserve identity
 
-What must a functor do to `id_Claim`?
+What must a functor do to `id_Bullet`?
 
 Answer check:
 
 ```text
-F(id_Claim) = id_{F(Claim)}
+F(id_Bullet) = id_{F(Bullet)}
 ```
 
-The identity in the schema becomes the identity function on the claim set.
+The identity in the schema becomes the identity function on the bullet set.
 
 ### Problem 19.4: Preserve composition
 
@@ -154,48 +154,48 @@ Free constructions add the structure required by the target category without add
 
 ### Problem 19.7: Natural transformation square
 
-Suppose F and G are two memory encodings of the same schema. A natural transformation gives maps from F(X) to G(X). What condition must hold for every arrow `f: X -> Y`?
+Suppose F and G are two app encodings of the same note schema. A natural transformation gives maps from F(X) to G(X). What condition must hold for every arrow `f: X -> Y`?
 
 Answer check: `G(f) o eta_X = eta_Y o F(f)`.
 
 ### Problem 19.8: Translation test
 
-Explain in words what naturality means for migrating memories.
+Explain in words what naturality means for moving notes from a notebook app to a flashcard app.
 
-Answer check: translating before following a relationship should equal following the relationship before translating.
+Answer check: translating a bullet into a card and then asking for its deck should equal first asking which heading the bullet belonged to and then translating that heading into the deck.
 
 ### Problem 19.9: Check a naturality square with tiny sets
 
-Let schema arrow `madeBy: Claim -> Source`. Encoding F has:
+Let schema arrow `under: Bullet -> Heading`. Encoding F is the notebook app:
 
 ```text
-F(Claim) = {c1}
-F(Source) = {s1}
-F(madeBy)(c1) = s1
+F(Bullet) = {b1}
+F(Heading) = {h1}
+F(under)(b1) = h1
 ```
 
-Encoding G has:
+Encoding G is the flashcard app:
 
 ```text
-G(Claim) = {claim-1}
-G(Source) = {source-1}
-G(madeBy)(claim-1) = source-1
+G(Bullet) = {card-1}
+G(Heading) = {deck-1}
+G(under)(card-1) = deck-1
 ```
 
 Let:
 
 ```text
-eta_Claim(c1)=claim-1
-eta_Source(s1)=source-1
+eta_Bullet(b1)=card-1
+eta_Heading(h1)=deck-1
 ```
 
-Check naturality for `madeBy`.
+Check naturality for `under`.
 
 Answer check:
 
 ```text
-G(madeBy)(eta_Claim(c1)) = G(madeBy)(claim-1) = source-1
-eta_Source(F(madeBy)(c1)) = eta_Source(s1) = source-1
+G(under)(eta_Bullet(b1)) = G(under)(card-1) = deck-1
+eta_Heading(F(under)(b1)) = eta_Heading(h1) = deck-1
 ```
 
 Both paths agree.
@@ -205,7 +205,7 @@ Both paths agree.
 Use the same setup as Problem 19.9, but set:
 
 ```text
-eta_Source(s1)=source-2
+eta_Heading(h1)=deck-2
 ```
 
 Does naturality hold?
@@ -214,8 +214,8 @@ Answer check:
 
 ```text
 No.
-Following madeBy after translation gives source-1.
-Translating the source after following madeBy gives source-2.
+Following under after translation gives deck-1.
+Translating the heading after following under gives deck-2.
 ```
 
 The object-level maps exist, but they do not coherently preserve the relationship.

@@ -582,6 +582,67 @@ Schema migration must preserve relationships coherently, not just rename rows.
 
 Standalone analogy for natural transformations.
 
+## 19.naturality.notes-to-flashcards.a
+
+```text
+Module: 19
+Topic: naturality square
+Role: derivation / computation
+Status: promoted
+Source use: original, source-informed
+Source note: Inspired by functorial data migration sources where schemas are categories, instances are Set-valued functors, and coherent instance maps are natural transformations.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A notebook app encoding `F` has:
+
+```text
+F(Bullet) = {b1}
+F(Heading) = {h1}
+F(under)(b1) = h1
+```
+
+A flashcard app encoding `G` has:
+
+```text
+G(Bullet) = {card-1}
+G(Heading) = {deck-1}
+G(under)(card-1) = deck-1
+```
+
+Let:
+
+```text
+eta_Bullet(b1)=card-1
+eta_Heading(h1)=deck-1
+```
+
+Check naturality for `under: Bullet -> Heading`.
+
+## Answer Check
+
+```text
+G(under)(eta_Bullet(b1)) = G(under)(card-1) = deck-1
+eta_Heading(F(under)(b1)) = eta_Heading(h1) = deck-1
+```
+
+Both paths agree.
+
+## Intuition
+
+Move the bullet first and then find its deck, or find its heading first and then move that heading. A coherent translation makes those paths match.
+
+## Modeling Implication
+
+Data migration should preserve relationships between records, not just rename records one object at a time.
+
+## Reserve Notes
+
+Promoted into Module 19 to align the naturality computation with the notebook-to-flashcards running example.
+
 ## 19.forgetful.lost-equations.a
 
 ```text
