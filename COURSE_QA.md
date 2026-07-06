@@ -23,6 +23,8 @@ Every lecture module after orientation should also expose the depth spine:
 
 Module 00 is the orientation exception: it teaches the spine rather than using it as an ordinary lecture topic.
 
+The structured question bank should have at least four reserve entries for every module from 01 through 31.
+
 Current status:
 
 ```text
@@ -75,11 +77,12 @@ The script checks:
 - problem numbering/module-prefix consistency,
 - live-module cross-references to `Problem M.N`,
 - question-bank README index coverage,
+- minimum structured bank coverage of four entries per module,
 - structured question-bank entry metadata and answer-check presence.
 
 The cross-reference check catches stale references after problem edits. The question-bank index check catches new reserve files that have not been listed in `question-bank/README.md`, and README entries whose files no longer exist.
 
-The structured bank-entry check applies to reserve entries named like `## 25.factor-to-variable.table.a`. Each such entry must include source-use, license-note, verification-status, and answer-check sections. The older Module 06 pilot trail remains as an archive, while `module-06-tensors-typed-relations-bank.md` is the structured bank used by the website.
+The structured bank-entry check applies to reserve entries named like `## 25.factor-to-variable.table.a`. Each such entry must include source-use, license-note, verification-status, and answer-check sections. The coverage check prevents any module from falling below four structured reserve entries. The older Module 06 pilot trail remains as an archive, while `module-06-tensors-typed-relations-bank.md` is the structured bank used by the website.
 
 ## Current Progress Map
 

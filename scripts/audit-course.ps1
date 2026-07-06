@@ -113,6 +113,7 @@ foreach ($file in $moduleFiles) {
 
 $questionBankReadme = "question-bank\README.md"
 $bankEntryCount = 0
+$bankEntryCountsByModule = @{}
 if (-not (Test-Path $questionBankReadme)) {
   $issues.Add("question-bank: missing README.md")
 } else {
@@ -152,6 +153,14 @@ if (-not (Test-Path $questionBankReadme)) {
     $entryMatches = [regex]::Matches($bankContent, '(?m)^## \d{2}\.[^\r\n]+')
     $bankEntryCount += $entryMatches.Count
 
+    foreach ($entryMatch in $entryMatches) {
+      $entryModule = [regex]::Match($entryMatch.Value, '^## (\d{2})\.').Groups[1].Value
+      if (-not $bankEntryCountsByModule.ContainsKey($entryModule)) {
+        $bankEntryCountsByModule[$entryModule] = 0
+      }
+      $bankEntryCountsByModule[$entryModule]++
+    }
+
     for ($i = 0; $i -lt $entryMatches.Count; $i++) {
       $entryStart = $entryMatches[$i].Index
       $entryEnd = if ($i + 1 -lt $entryMatches.Count) {
@@ -167,6 +176,19 @@ if (-not (Test-Path $questionBankReadme)) {
           $issues.Add("$($file.Name): $entryName missing required bank field matching $requiredPattern")
         }
       }
+    }
+  }
+
+  for ($moduleIndex = 1; $moduleIndex -le 31; $moduleIndex++) {
+    $moduleKey = "{0:D2}" -f $moduleIndex
+    $moduleBankCount = if ($bankEntryCountsByModule.ContainsKey($moduleKey)) {
+      $bankEntryCountsByModule[$moduleKey]
+    } else {
+      0
+    }
+
+    if ($moduleBankCount -lt 4) {
+      $issues.Add("question-bank: Module $moduleKey expected at least 4 structured reserve entries, found $moduleBankCount")
     }
   }
 }
@@ -197,4 +219,4 @@ if ($issues.Count -gt 0) {
   exit 1
 }
 
-Write-Output "Course audit passed: $($moduleFiles.Count) modules, depth headings for modules 01-31, 12 problems and answer checks each, with valid problem references, question-bank index, bank metadata, and QA counts."
+Write-Output "Course audit passed: $($moduleFiles.Count) modules, depth headings for modules 01-31, 12 problems and answer checks each, at least 4 structured bank entries per module, with valid problem references, question-bank index, bank metadata, and QA counts."
