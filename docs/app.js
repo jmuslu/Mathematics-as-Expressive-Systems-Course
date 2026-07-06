@@ -2,7 +2,7 @@ const modules = [
   ["00", "How To Work This Course", "modules/00-orientation.md", "Learn by base cases, operations, invariants, and failure modes."],
   ["01", "Scalars and Closure", "modules/01-number-systems.md", "What can one coordinate express, and which operations stay valid?"],
   ["02", "Vector Spaces and Friendship Profiles", "modules/02-vectors-and-spaces.md", "Represent multi-trait profiles and reachable combinations."],
-  ["03", "Linear Maps and Change", "modules/03-linear-maps-and-change.md", "Treat update, propagation, and rewrite rules as transformations."],
+  ["03", "Linear Maps and Change", "modules/03-linear-maps-and-change.md", "Treat perspective shifts and state changes as transformations."],
   ["04", "Projection, Error, and Approximation", "modules/04-projection-error-approximation.md", "Measure best available representation and residual error."],
   ["05", "Duality and Measurement", "modules/05-duality-and-measurement.md", "Understand scores, constraints, and validation tests as covectors."],
   ["06", "Tensors and Typed Relations", "modules/06-tensors-typed-relations.md", "Represent multi-way relations and typed evidence bundles."],

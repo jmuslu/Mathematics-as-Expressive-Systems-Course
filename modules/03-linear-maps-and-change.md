@@ -11,7 +11,7 @@ You will understand transformations as mathematical objects, not just procedures
 
 ## Why The Old Object Fails
 
-A vector describes a state. A second-brain system needs rules that move one state to another: update, rewrite, validate, propagate, decay.
+A vector describes a state. But relationships, interpretations, and plans change. We need rules that move one state to another: update, rotate perspective, amplify, dampen, project, or erase.
 
 ## Base Case
 
@@ -65,21 +65,21 @@ T(alpha u) = alpha T(u)
 
 1. Compute A(2, 3).
 2. Find the kernel of a simple 2 by 2 matrix.
-3. Give a memory update rule that is linear and one that is not.
+3. Give a relationship-state update rule that is linear and one that is not.
 
-## Memory-System Connection
+## Design Connection
 
-Graph evolution rules are transformations. The first design question is what they preserve.
+State-change rules are transformations. The first design question is what they preserve.
 
 ## Hand Problem Trail
 
-### Problem 3.1: A rewrite rule as a matrix
+### Problem 3.1: Advice as a matrix
 
-A memory state has two coordinates `x = (claim_strength, contradiction_strength)`. The update rule sends:
+A relationship state has two coordinates `x = (confidence, outside_perspective)`. A friend's advice sends:
 
 ```text
-new_claim = claim_strength - contradiction_strength
-new_contradiction = contradiction_strength
+new_confidence = confidence - outside_perspective
+new_outside_perspective = outside_perspective
 ```
 
 Write the matrix A such that `Ax` gives the new state.
@@ -286,10 +286,10 @@ The map scales area by a factor of 6.
 
 ### Problem 3.12: Transformation design
 
-A state update deletes the contradiction coordinate:
+A state update deletes the uncertainty coordinate:
 
 ```text
-(claim, contradiction) -> (claim, 0)
+(confidence, uncertainty) -> (confidence, 0)
 ```
 
 Is this invertible?
@@ -297,7 +297,7 @@ Is this invertible?
 Answer check:
 
 ```text
-No. The original contradiction value cannot be recovered.
+No. The original uncertainty value cannot be recovered.
 ```
 
 Some transformations are useful but irreversible.
