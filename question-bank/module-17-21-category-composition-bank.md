@@ -527,7 +527,7 @@ Good direct computation for Module 19.
 Module: 19
 Topic: naturality square
 Role: derivation
-Status: reserve
+Status: promoted in Module 19 Problem 19.7
 Source use: original, source-informed
 Source note: Inspired by natural transformations as coherent maps between functors.
 License note: No source problem text copied.

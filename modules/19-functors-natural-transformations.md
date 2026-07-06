@@ -180,11 +180,41 @@ empty string, a, b, aa, ab, ba are all examples.
 
 Free constructions add the structure required by the target category without adding extra equations.
 
-### Problem 19.7: Natural transformation square
+### Problem 19.7: Restaurant labels as a naturality square
 
-Suppose F and G are two app encodings of the same note schema. A natural transformation gives maps from F(X) to G(X). What condition must hold for every arrow `f: X -> Y`?
+A restaurant has two menu encodings. Encoding `F` uses short names:
 
-Answer check: `G(f) o eta_X = eta_Y o F(f)`.
+```text
+F(Dish) = {v}
+F(Category) = {veg}
+F(type)(v)=veg
+```
+
+Encoding `G` uses full names:
+
+```text
+G(Dish) = {veggie-bowl}
+G(Category) = {vegetarian}
+G(type)(veggie-bowl)=vegetarian
+```
+
+Let:
+
+```text
+eta_Dish(v)=veggie-bowl
+eta_Category(veg)=vegetarian
+```
+
+Check naturality for `type: Dish -> Category`.
+
+Answer check:
+
+```text
+G(type)(eta_Dish(v)) = G(type)(veggie-bowl) = vegetarian
+eta_Category(F(type)(v)) = eta_Category(veg) = vegetarian
+```
+
+Both paths agree, so the component maps form a coherent comparison between the two menu encodings for this arrow.
 
 ### Problem 19.8: Translation test
 
