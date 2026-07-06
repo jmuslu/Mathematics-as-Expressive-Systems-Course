@@ -1,4 +1,4 @@
-# Module 01: Scalars, Coordinates, and Expressive Power
+# Module 01: Scalars, Coordinates, and Friendship Intensity
 
 ## Lecture Promise
 

@@ -1,4 +1,4 @@
-# Module 05: Duality and Measurement
+# Module 05: Duality, Measurement, and Dating Standards
 
 ## Lecture Promise
 

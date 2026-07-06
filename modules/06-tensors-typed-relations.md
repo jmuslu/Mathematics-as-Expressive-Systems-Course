@@ -1,4 +1,4 @@
-# Module 06: Tensors and Typed Relations
+# Module 06: Tensors and Dinner Table Relations
 
 ## Lecture Promise
 
