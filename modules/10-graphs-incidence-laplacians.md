@@ -52,9 +52,9 @@ The graph Laplacian measures disagreement across edges.
 2. Find its zero eigenvector.
 3. Explain why diffusion smooths node values.
 
-## Memory-System Connection
+## Design Connection
 
-Validation, propagation, and decay are graph flows.
+Friendship influence, disagreement, and smoothing can be modeled as graph flows.
 
 ## Hand Problem Trail
 
