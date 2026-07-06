@@ -199,7 +199,7 @@ Could replace or extend the simpler diagonal phase example in Module 08.
 Module: 08
 Topic: Hermitian matrix structure
 Role: conceptual check
-Status: lecture candidate
+Status: promoted in Module 08 Problem 8.5
 Source use: original, source-informed
 Source note: Inspired by the standard condition `A* = A`.
 License note: No source problem text copied.

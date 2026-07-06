@@ -91,15 +91,15 @@ Non-degenerate Hermitian forms add geometric structure to a complex vector space
 ## Problem Ladder
 
 1. Compute <(1+i), (2-i)> with conjugation.
-2. Show that a 1 by 1 Hermitian matrix contains a real number.
-3. Explain why phase-aware memory edges may need complex geometry.
+2. Find the entry conditions that make a complex matrix Hermitian.
+3. Explain why phase-aware taste profiles may need complex geometry.
 4. Compute v^T v and v* v for v = (1, i, 1 - i).
 5. Show that if U is unitary, then ||Uv|| = ||v||.
-6. Give a memory-design example where phase could encode direction, time offset, uncertainty rotation, or relation polarity.
+6. Give a modeling example where phase could encode timing, direction, rotation, or relation polarity.
 
-## Memory-System Connection
+## Representation Design Connection
 
-Hermitian structure is the serious version of "geometry still works after enriching scalars." If a future memory architecture uses complex embeddings, Fourier features, phase-coded relations, or unitary dynamics, this module is the reason its notion of similarity and stability remains mathematically coherent.
+Hermitian structure is the serious version of "geometry still works after enriching scalars." If a model uses complex embeddings, Fourier features, phase-coded relations, or unitary dynamics, this module is the reason its notion of similarity and stability remains mathematically coherent.
 
 ## Hand Problem Trail
 
@@ -171,25 +171,27 @@ B = [1 i]
 
 Answer check: A is Hermitian. B is not Hermitian because conjugate transpose changes the off-diagonal entries.
 
-### Problem 8.5: A 1 by 1 Hermitian matrix is real
+### Problem 8.5: Build the Hermitian conditions
 
 Let:
 
 ```text
-H = [a + bi]
+H = [a+bi   2+3i]
+    [c+di   5]
 ```
 
-What condition makes `H` Hermitian?
+where `a`, `b`, `c`, and `d` are real numbers. Find the conditions that make `H` Hermitian.
 
 Answer check:
 
 ```text
-H* = [a - bi]
-H* = H means a - bi = a + bi
-so b = 0
+Diagonal entries must be real, so b = 0.
+Off-diagonal entries must be conjugates:
+c + di = 2 - 3i
+so c = 2 and d = -3.
 ```
 
-A one-dimensional Hermitian measurement must be a real number.
+Hermitian symmetry is ordinary symmetry plus conjugation. A self-adjoint measurement can carry complex interaction terms, but its diagonal self-scores must be real.
 
 ### Problem 8.6: A Hermitian quadratic form is real
 
@@ -334,9 +336,9 @@ v* v = 1 + 1 + conjugate(1-i)(1-i)
 
 Without conjugation, squared length can become non-real.
 
-### Problem 8.12: Phase interpretation
+### Problem 8.12: Playlist timing interpretation
 
-If a playlist relation has magnitude as taste strength and phase as temporal offset, why must similarity use conjugation?
+A dinner playlist model records magnitude as taste strength and phase as when that feature matters during the night: early, middle, or late. Why must similarity use conjugation?
 
 Answer check:
 
