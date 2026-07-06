@@ -103,7 +103,7 @@ If `x_{t+1}=0.9x_t` and `x0=100`, compute `x3`.
 
 Answer check: `x3 = 0.9^3*100 = 72.9`.
 
-### Problem 28.4: Decay with reinforcement
+### Problem 28.4: Decay with reinforcement and a fixed point
 
 A song's playlist attention decays between weeks, but replaying it after dinner adds reinforcement:
 
@@ -112,7 +112,7 @@ w_{t+1} = 0.8 w_t + 1
 w_0 = 0
 ```
 
-Compute `w1`, `w2`, and `w3`.
+Compute `w1`, `w2`, and `w3`. Then solve for the steady attention level.
 
 Answer check:
 
@@ -120,9 +120,14 @@ Answer check:
 w1 = 1
 w2 = 0.8(1)+1 = 1.8
 w3 = 0.8(1.8)+1 = 2.44
+
+fixed point:
+w = 0.8w + 1
+0.2w = 1
+w = 5
 ```
 
-Reinforcement can counteract decay.
+Reinforcement can counteract decay. Because `|0.8| < 1`, repeated replay pushes the attention weight toward the steady level instead of growing without bound.
 
 ### Problem 28.5: Fixed point
 

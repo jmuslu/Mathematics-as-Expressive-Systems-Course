@@ -18,7 +18,7 @@ Source posture: original course problems inspired by public sources on dynamic g
 Module: 28
 Topic: decay with constant reinforcement
 Role: derivation
-Status: lecture candidate
+Status: promoted in Module 28 Problem 28.4
 Source use: original, source-informed
 Source note: Inspired by dynamic graph update models and discrete-time systems.
 License note: No source problem text copied.
@@ -30,7 +30,7 @@ Verification status: checked by hand
 An edge weight updates by:
 
 ```text
-w_{t+1} = 0.6w_t + 2
+w_{t+1} = 0.8w_t + 1
 w_0 = 0
 ```
 
@@ -39,13 +39,13 @@ Compute `w1`, `w2`, `w3`, and the fixed point.
 ## Answer Check
 
 ```text
-w1 = 2
-w2 = 0.6(2)+2 = 3.2
-w3 = 0.6(3.2)+2 = 3.92
+w1 = 1
+w2 = 0.8(1)+1 = 1.8
+w3 = 0.8(1.8)+1 = 2.44
 
 Fixed point:
-w = 0.6w + 2
-0.4w = 2
+w = 0.8w + 1
+0.2w = 1
 w = 5
 ```
 
