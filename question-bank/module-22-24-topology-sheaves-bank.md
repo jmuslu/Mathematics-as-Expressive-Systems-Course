@@ -511,7 +511,7 @@ Decay, confidence, and retrieval thresholds can be studied as filtrations if the
 
 ## Reserve Notes
 
-Good memory-adjacent problem that remains mathematically clean.
+Good threshold-oriented problem that remains mathematically clean.
 
 ## 24.sheaf.equalizer.two-edge.a
 
@@ -665,7 +665,7 @@ Approximate consistency can be measured by how far overlap restrictions disagree
 
 ## Modeling Implication
 
-Knowledge graph embeddings can be viewed as approximate global sections when exact consistency is too strict.
+Structured embeddings can be viewed as approximate global sections when exact consistency is too strict.
 
 ## Reserve Notes
 
@@ -727,7 +727,7 @@ Promoted into Module 24 as the witness-story base case for local gluing.
 Module: 24
 Topic: bad restriction map
 Role: failure mode
-Status: lecture candidate
+Status: promoted in Module 24 Problem 24.12
 Source use: original
 Source note: Original failure-mode variant aligned with the current module.
 License note: No source problem text copied.

@@ -20,7 +20,7 @@ Do local claims agree when they overlap?
 
 This is a sheaf question.
 
-A graph says which pieces touch. A sheaf says what data lives on each piece and how that data must agree when pieces overlap. That distinction matters because a memory system can retrieve many locally plausible fragments that fail to form a coherent global belief.
+A graph says which pieces touch. A sheaf says what data lives on each piece and how that data must agree when pieces overlap. That distinction matters because many locally plausible reports can fail to form a coherent global story.
 
 ## Base Case
 
@@ -74,14 +74,14 @@ Bad restriction maps create false peace. Overly strict restriction maps create f
 
 1. Draw a two-node sheaf with an overlap.
 2. Give compatible and incompatible local sections.
-3. Explain global section as coherent belief state.
+3. Explain global section as a coherent local-to-global assignment.
 4. Design two different restriction maps for the same two-source example and compare the contradictions they detect.
-5. Explain why vector retrieval can find related passages while sheaf consistency can still fail.
-6. Describe how decay or reinforcement might act on a global section rather than on isolated chunks.
+5. Explain why finding related reports is weaker than checking sheaf consistency.
+6. Describe how an update might act on a global section rather than on isolated reports.
 
-## Memory-System Connection
+## Representation Design Connection
 
-Sheaves are the mature model for multi-hop validation: local contexts patch into global belief only when restrictions agree.
+Sheaves are the mature model for local-to-global consistency: local contexts patch into a global assignment only when restrictions agree.
 
 ## Hand Problem Trail
 
@@ -251,11 +251,11 @@ No. It proves compatibility under the chosen restrictions, not truth.
 
 Sheaf consistency is coherence, not omniscience.
 
-### Problem 24.10: Retrieval versus sheaf failure
+### Problem 24.10: Finding reports versus gluing reports
 
-What is the difference between retrieval failure and sheaf failure?
+What is the difference between failing to find related reports and failing to glue related reports?
 
-Answer check: retrieval failure means the relevant local pieces were not found. Sheaf failure means local pieces were found but do not consistently glue.
+Answer check: the first failure means the relevant local reports were not found. The second means local reports were found but do not consistently glue.
 
 ### Problem 24.11: Global section on a triangle
 
@@ -283,12 +283,20 @@ Every local pair is compatible, so the whole assignment glues.
 
 ### Problem 24.12: Failure mode - false peace
 
-A sheaf overlap records only document title, not publication date. Two notes cite the same title but different editions with conflicting claims. What can go wrong?
+Two study groups cite a textbook title:
+
+```text
+Group A: title=Calculus, edition=2, theorem=corrected
+Group B: title=Calculus, edition=1, theorem=uncorrected
+```
+
+The overlap records only `title`. Do the reports glue under this sheaf, and what is the danger?
 
 Answer check:
 
 ```text
-The local sections may glue because the title agrees, even though the edition/date distinction matters.
+Both restrict to title=Calculus, so they glue under the title-only sheaf.
+Danger: the edition distinction matters and has been erased.
 ```
 
-Bad restriction maps can hide contradictions that the model needed to expose.
+Compatibility can be too weak if the overlap forgets the field where the contradiction lives. Restriction design controls which contradictions are visible.
