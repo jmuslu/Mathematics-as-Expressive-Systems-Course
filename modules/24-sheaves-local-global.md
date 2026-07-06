@@ -15,7 +15,7 @@ You will understand sheaves as the natural language for patching local informati
 Graph traversal can move information, but validation requires consistency:
 
 ```text
-Do local claims agree when they overlap?
+Do local reports agree on the details they share?
 ```
 
 This is a sheaf question.
@@ -24,7 +24,7 @@ A graph says which pieces touch. A sheaf says what data lives on each piece and 
 
 ## Base Case
 
-Two nodes hold local claims about the same entity. An edge stores the overlap condition. If the claims agree on the overlap, they can be glued.
+Two nodes hold local reports about the same shared situation. An edge stores the overlap condition. If the reports agree on the overlap, they can be glued.
 
 ## Running Example: Witness Stories
 
@@ -60,9 +60,9 @@ when the local data are compatible.
 
 ## Worked Example
 
-If node A says "source S supports claim C" and node B says "source S contradicts claim C," their overlap exposes inconsistency.
+If node A says "Rae is eating at 7" and node B says "Rae is eating at 8," their overlap exposes inconsistency if the overlap records the dinner time.
 
-If the overlap only tracks the source identity, the two claims may glue. If the overlap tracks both source identity and stance, they do not. The sheaf is therefore part of the model design: it declares which agreements matter.
+If the overlap only tracks the guest identity, the two reports may glue. If the overlap tracks both guest identity and dinner time, they do not. The sheaf is therefore part of the model design: it declares which agreements matter.
 
 ## Failure Mode
 
@@ -75,9 +75,9 @@ Bad restriction maps create false peace. Overly strict restriction maps create f
 1. Draw a two-node sheaf with an overlap.
 2. Give compatible and incompatible local sections.
 3. Explain global section as a coherent local-to-global assignment.
-4. Design two different restriction maps for the same two-source example and compare the contradictions they detect.
+4. Design two different restriction maps for the same two-report example and compare the contradictions they detect.
 5. Explain why finding related reports is weaker than checking sheaf consistency.
-6. Describe how an update might act on a global section rather than on isolated reports.
+6. Describe how an update might act on a global section rather than on isolated local plans.
 
 ## Representation Design Connection
 
@@ -224,29 +224,29 @@ Approximate consistency can be measured by how far overlap restrictions disagree
 Two nodes store:
 
 ```text
-A: (s1, support)
-B: (s1, contradict)
+A: (guest=Rae, time=7)
+B: (guest=Rae, time=8)
 ```
 
-Do they glue if the overlap records only source? Do they glue if it records `(source, stance)`?
+Do they glue if the overlap records only `guest`? Do they glue if it records `(guest, time)`?
 
 Answer check:
 
 ```text
-Source-only overlap: yes, both restrict to s1.
-Source-and-stance overlap: no, the stances differ.
+Guest-only overlap: yes, both restrict to Rae.
+Guest-and-time overlap: no, the times differ.
 ```
 
 The sheaf is part of the model, not an afterthought.
 
-### Problem 24.9: Local agreement does not mean truth
+### Problem 24.9: Local agreement does not mean reality
 
-Three nodes all agree that a claim is `support`. Does the existence of a global section prove the claim is true?
+Three friends all copied the same dinner time into their calendars. Does the existence of a global section prove the restaurant is actually open at that time?
 
 Answer check:
 
 ```text
-No. It proves compatibility under the chosen restrictions, not truth.
+No. It proves compatibility under the chosen restrictions, not truth about the outside world.
 ```
 
 Sheaf consistency is coherence, not omniscience.
@@ -255,7 +255,7 @@ Sheaf consistency is coherence, not omniscience.
 
 What is the difference between failing to find related reports and failing to glue related reports?
 
-Answer check: the first failure means the relevant local reports were not found. The second means local reports were found but do not consistently glue.
+Answer check: the first failure means the relevant local reports were not found. The second means local reports were found but their shared details do not consistently glue.
 
 ### Problem 24.11: Global section on a triangle
 
