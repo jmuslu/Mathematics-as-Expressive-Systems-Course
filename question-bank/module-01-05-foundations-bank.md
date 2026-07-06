@@ -316,7 +316,7 @@ Promoted into Module 03 to correct and document the projection fixed-point calcu
 Module: 04
 Topic: projection and residual error
 Role: computation
-Status: lecture candidate
+Status: promoted in Module 04 Problem 4.5
 Source use: original, source-informed
 Source note: Inspired by the local projection/misunderstanding lecture and MIT OCW projection material.
 License note: No source problem text copied.

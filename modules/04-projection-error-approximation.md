@@ -127,16 +127,39 @@ The coefficient says how much of direction `u` is used.
 
 ### Problem 4.5: Misunderstanding model
 
-A user asks for `y = (accuracy=8, speed=2)`. Your system can only optimize along `u = (1,1)`. Compute the projection and error.
+A friend asks for a place that is:
+
+```text
+quiet = 3
+cheap = 1
+```
+
+Your simple recommender only understands the combined direction:
+
+```text
+u = (1,1)
+```
+
+Project `d=(3,1)` onto `span(u)` and compute the residual.
 
 Answer check:
 
 ```text
-y dot u = 10, u dot u = 2, projection = (5,5)
-error = (3,-3)
+proj_u(d) = ((d dot u)/(u dot u))u
+          = ((3+1)/(1+1))(1,1)
+          = 2(1,1)
+          = (2,2)
+
+residual = d - proj_u(d) = (3,1) - (2,2) = (1,-1)
 ```
 
-The system over-supplies speed and under-supplies accuracy relative to the request.
+Check:
+
+```text
+residual dot u = (1,-1) dot (1,1) = 0
+```
+
+The best available answer still misses "more quiet, less cheap" because the model only has one blended direction.
 
 ### Problem 4.6: Idempotence of projection
 
