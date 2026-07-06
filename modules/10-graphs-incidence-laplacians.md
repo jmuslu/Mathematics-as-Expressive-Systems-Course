@@ -1,4 +1,4 @@
-# Module 10: Graphs, Incidence, and Laplacians
+# Module 10: Graphs, Incidence, and Party Tension
 
 ## Lecture Promise
 

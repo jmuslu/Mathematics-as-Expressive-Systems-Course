@@ -1,4 +1,4 @@
-# Module 03: Linear Maps and Change
+# Module 03: Linear Maps and Changing Perspective
 
 ## Lecture Promise
 

@@ -1,4 +1,4 @@
-# Module 11: Algebraic Graph Theory
+# Module 11: Algebraic Graph Theory and Detective Boards
 
 ## Lecture Promise
 

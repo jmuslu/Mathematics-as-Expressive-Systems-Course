@@ -1,4 +1,4 @@
-# Module 08: Inner Products and Hermitian Structure
+# Module 08: Hermitian Structure and Playlist Phase
 
 ## Lecture Promise
 

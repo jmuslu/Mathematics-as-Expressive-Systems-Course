@@ -1,4 +1,4 @@
-# Module 09: Spectral Theory
+# Module 09: Spectral Theory and Friendship Moods
 
 ## Lecture Promise
 

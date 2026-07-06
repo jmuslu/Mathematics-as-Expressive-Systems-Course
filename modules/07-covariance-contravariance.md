@@ -1,4 +1,4 @@
-# Module 07: Covariance and Contravariance
+# Module 07: Covariance, Contravariance, and Budget Units
 
 ## Lecture Promise
 
