@@ -199,21 +199,27 @@ merge them and preserve both original IDs as provenance.
 
 Rewrite rules should include guards and provenance behavior.
 
-### Problem 31.11: Define an evaluation panel
+### Problem 31.11: Match promises to evaluation tests
 
-Name five evaluation tests for the architecture.
+An architecture promises:
+
+```text
+permutation-invariant graph scores
+sheaf-based consistency
+decay-aware retrieval paths
+```
+
+Name one evaluation test for each promise.
 
 Answer check example:
 
 ```text
-retrieval recall
-path contradiction test
-permutation invariance test
-sheaf gluing test
-decay stress test
+permutation-invariant graph scores: relabel nodes and compare graph-level score
+sheaf-based consistency: test whether local restrictions agree on overlaps
+decay-aware retrieval paths: decay edge weights and check whether valid paths survive
 ```
 
-Evaluation should match the mathematical promises in the design.
+Evaluation should match the mathematical promises in the design. A promise without a test is just decoration.
 
 ### Problem 31.12: Audit the mathematical contract
 

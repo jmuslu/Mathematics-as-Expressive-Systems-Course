@@ -844,7 +844,7 @@ Promoted into Module 31 as the final mathematical-contract audit.
 Module: 31
 Topic: evaluation alignment
 Role: conceptual check
-Status: reserve
+Status: promoted in Module 31 Problem 31.11
 Source use: original
 Source note: Original architecture-studio audit problem.
 License note: No source problem text copied.
