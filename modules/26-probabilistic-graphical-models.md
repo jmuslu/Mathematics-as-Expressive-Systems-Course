@@ -2,7 +2,7 @@
 
 ## Lecture Promise
 
-You will understand graphical models as structured probability distributions over claims, evidence, and hidden states.
+You will understand graphical models as structured probability distributions over uncertain variables, observations, and hidden causes.
 
 ## Prerequisites
 
@@ -19,11 +19,11 @@ A typed graph tells you relationships. It does not tell you uncertainty.
 Let:
 
 ```text
-Claim truth -> Evidence observation
-Source reliability -> Evidence observation
+Restaurant quality -> Friend recommendation
+Viral review -> Friend recommendation
 ```
 
-The evidence depends on both truth and source reliability.
+The recommendation depends on both the restaurant and the shared information source.
 
 ## Running Example: Two Friends, One Source
 
@@ -55,12 +55,12 @@ Conditional independence assumptions can be wrong. A graph may understate hidden
 ## Problem Ladder
 
 1. Factorize a 3-node chain.
-2. Draw a hidden-source variable for two claims.
-3. Explain how correlated evidence breaks naive validation.
+2. Draw a hidden-source variable for two recommendations.
+3. Explain how correlated observations break naive confirmation.
 
-## Memory-System Connection
+## Representation Design Connection
 
-Graphical models give math for belief, uncertainty, source reliability, and evidence conflict.
+Graphical models give math for belief, uncertainty, hidden causes, correlated observations, and independence assumptions.
 
 ## Hand Problem Trail
 
@@ -140,12 +140,12 @@ Marginalization sums out variables you are not asking about.
 Suppose:
 
 ```text
-P(Claim true)=0.6
-P(Evidence positive | true)=0.8
-P(Evidence positive | false)=0.3
+P(Restaurant good)=0.6
+P(Recommendation positive | good)=0.8
+P(Recommendation positive | not good)=0.3
 ```
 
-Compute `P(true | positive)`.
+Compute `P(good | positive recommendation)`.
 
 Answer check:
 
@@ -157,13 +157,13 @@ posterior = 0.8
 
 ### Problem 26.6: Posterior with negative evidence
 
-Using the same model as Problem 26.5, compute `P(true | evidence negative)`.
+Using the same model as Problem 26.5, compute `P(good | negative recommendation)`.
 
 Answer check:
 
 ```text
-P(negative | true)=0.2
-P(negative | false)=0.7
+P(negative | good)=0.2
+P(negative | not good)=0.7
 
 numerator = 0.2*0.6 = 0.12
 denominator = 0.12 + 0.7*0.4 = 0.40
@@ -201,12 +201,12 @@ If sprinkler is known to be on, rain becomes less necessary as an explanation.
 
 ### Problem 26.8: Hidden common cause
 
-Two claims both cite similar evidence. A hidden variable `SharedSource` influences both pieces of evidence. What goes wrong if the model omits `SharedSource`?
+Two friends both recommend the same restaurant. A hidden variable `ViralReview` influences both recommendations. What goes wrong if the model omits `ViralReview`?
 
 Answer check:
 
 ```text
-The evidence may be treated as independent when it is actually correlated through the shared source.
+The recommendations may be treated as independent when they are actually correlated through the shared review.
 ```
 
 Hidden common causes are a major source of false confidence.
@@ -280,16 +280,16 @@ This assumption may be useful even when imperfect, but it is still a modeling co
 A model has:
 
 ```text
-SourceQuality -> EvidenceAccuracy
-ClaimTruth -> EvidenceAccuracy
+ViralReview -> FriendRecommendation
+RestaurantQuality -> FriendRecommendation
 ```
 
-but no edge from `SourceQuality` to `ClaimTruth`. What assumption is the model making before observing evidence?
+but no edge from `ViralReview` to `RestaurantQuality`. What assumption is the model making before observing the recommendation?
 
 Answer check:
 
 ```text
-It assumes SourceQuality and ClaimTruth are independent a priori, unless connected through other variables.
+It assumes ViralReview and RestaurantQuality are independent a priori, unless connected through other variables.
 ```
 
 An absent edge is not just a blank space. It encodes a simplifying assumption that should be documented.
