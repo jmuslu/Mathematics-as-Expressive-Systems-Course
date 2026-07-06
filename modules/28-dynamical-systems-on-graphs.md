@@ -12,7 +12,7 @@ You will understand reinforcement, decay, and consolidation as dynamics on graph
 
 ## Why The Old Object Fails
 
-A memory graph is not static. It evolves.
+A weighted graph is not static. Its weights, edges, and states can evolve.
 
 ## Base Case
 
@@ -53,8 +53,8 @@ Linear systems use F(x)=Ax. Nonlinear systems use richer update rules.
 Dynamics can converge to bad attractors:
 
 - popularity loops
-- stale beliefs
-- self-reinforcing false paths
+- stale moods
+- self-reinforcing weak playlists
 - collapsed diversity
 
 ## Problem Ladder
@@ -63,15 +63,15 @@ Dynamics can converge to bad attractors:
 2. Find a fixed point of x_{t+1}=0.5x_t+2.
 3. Explain reinforcement as path-level, not just node-level.
 
-## Memory-System Connection
+## Representation Design Connection
 
-Decay and reinforcement should operate on nodes, edges, paths, motifs, and sheaf consistency, not only raw facts.
+Decay and reinforcement can operate on nodes, edges, paths, motifs, and consistency scores, not only isolated scalar facts.
 
 ## Hand Problem Trail
 
 ### Problem 28.1: Linear update
 
-A two-node memory state updates by:
+A two-song attention state updates by:
 
 ```text
 x_{t+1} = A x_t, A = [0.8 0.1]
@@ -213,24 +213,24 @@ Averaging creates agreement but erases contrast.
 
 ### Problem 28.10: Path-level reinforcement
 
-A path `A -> B -> C` succeeds in validation. Name three possible places reinforcement could be applied.
+A playlist path `Song A -> Song B -> Song C` works well during a dinner. Name three possible places reinforcement could be applied.
 
 Answer check:
 
 ```text
-node A/B/C weights, edge A-B and B-C weights, the whole path motif A-B-C
+node A/B/C attention weights, transition edges A-B and B-C, the whole path motif A-B-C
 ```
 
 Reinforcement is a design choice about what object gets stronger.
 
 ### Problem 28.11: Bad attractor
 
-What is a bad attractor in a memory graph dynamic?
+What is a bad attractor in a playlist dynamic?
 
 Answer check:
 
 ```text
-A stable state the system tends to return to even though it is epistemically poor, such as a stale belief or self-reinforcing false path.
+A stable state the system tends to return to even though it is musically poor, such as replaying the same stale mood because early popularity keeps reinforcing itself.
 ```
 
 Convergence is not automatically correctness.
