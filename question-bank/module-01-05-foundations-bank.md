@@ -500,7 +500,7 @@ Promoted into Module 05 as the opening covector computation.
 Module: 05
 Topic: annihilators and blind spots
 Role: slightly harder hand calculation
-Status: reserve
+Status: promoted in Module 05 Problem 5.9
 Source use: original
 Source note: Course-style measurement analogy.
 License note: No source problem text copied.

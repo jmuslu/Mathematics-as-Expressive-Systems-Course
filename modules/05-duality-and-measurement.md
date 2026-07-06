@@ -220,18 +220,35 @@ e2*(4,7)=7
 
 Dual basis covectors read coordinates.
 
-### Problem 5.9: Annihilator of a subspace
+### Problem 5.9: Annihilator as a blind spot
 
-Let `W=span((1,1))` in `R^2`. Find a nonzero covector that annihilates W.
+A group-chat mood vector has coordinates:
+
+```text
+serious, playful, chaotic
+```
+
+A moderator only cares about the total balance:
+
+```text
+f = [1,1,1]
+```
+
+Find two linearly independent mood changes that are invisible to `f`.
 
 Answer check:
 
 ```text
-phi=[1,-1]
-phi(1,1)=0
+f(w) = w_1 + w_2 + w_3 = 0
+
+w1 = (1,-1,0)
+w2 = (1,0,-1)
+
+f(w1)=0
+f(w2)=0
 ```
 
-An annihilator contains measurements that vanish on a subspace.
+The two changes are not scalar multiples, so they span part of the measurement's blind spot.
 
 ### Problem 5.10: Pairing should produce a scalar
 
