@@ -63,6 +63,24 @@ A category has:
 - Identity morphisms
 - Associative composition
 
+## Legal Operations
+
+The legal moves in a category are typed arrow moves:
+
+- compose arrows only when the target of one matches the source of the next
+- insert an identity arrow before or after any compatible arrow
+- reassociate a chain of compositions without changing its meaning
+- name a composite arrow as a legitimate arrow in the same category
+- compare two paths only when they have the same source and target
+
+For the group project workflow, you may compose:
+
+```text
+Idea -> Draft -> Slides
+```
+
+because the intermediate types match. You may not compose "Slides -> Presentation" after "Idea -> Draft" unless the missing `Draft -> Slides` step is supplied.
+
 ## Worked Derivation
 
 If:
@@ -80,6 +98,29 @@ h o (g o f) = (h o g) o f
 ```
 
 This is the rule that makes multi-step workflows composable.
+
+In the project example:
+
+```text
+draft: Idea -> Draft
+outline: Draft -> Slides
+present: Slides -> Presentation
+```
+
+the two parenthesized workflows agree:
+
+```text
+present o (outline o draft)
+= (present o outline) o draft
+```
+
+The invariant is not the amount of work done at each stage. The invariant is that the whole typed path from idea to presentation is well-defined no matter how the legal compositions are parenthesized.
+
+## Invariants
+
+Category calculations preserve source and target types. Every composite has a definite domain and codomain, and identities preserve objects without changing their type.
+
+Associativity is the main workflow invariant: if the arrows are composable in sequence, different parentheses do not create different composite processes.
 
 ## Failure Mode
 

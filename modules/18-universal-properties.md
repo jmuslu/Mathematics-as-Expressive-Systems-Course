@@ -50,6 +50,18 @@ Universal properties help you avoid confusing "both fields at once" with "one of
 
 A universal property defines an object by a unique mapping behavior.
 
+## Legal Operations
+
+The legal moves in a universal-property argument are:
+
+- identify the candidate construction and its structure maps
+- take any competing object with the same kind of structure maps
+- build the unique comparison map forced by the property
+- verify that the comparison map makes the diagram commute
+- use uniqueness to show that two candidates with the same universal role are equivalent
+
+The point is not to memorize one chosen implementation. The point is to recognize the role an object must play in every compatible situation.
+
 ## Worked Example
 
 If a project record must expose both:
@@ -60,6 +72,36 @@ deadline status
 ```
 
 then a product-like construction packages both while preserving projections.
+
+## Worked Derivation
+
+For lunch tickets, let a purchase record `X` have:
+
+```text
+person: X -> Person
+meal: X -> Meal
+```
+
+The product property of `Person x Meal` says there is a unique map:
+
+```text
+<person,meal>: X -> Person x Meal
+```
+
+such that:
+
+```text
+pi_Person o <person,meal> = person
+pi_Meal   o <person,meal> = meal
+```
+
+So a ticket is product-like when every valid record can be inspected as both a person and a meal, and those inspections determine the packaged pair.
+
+## Invariants
+
+Universal properties preserve mapping behavior. If two objects satisfy the same universal property, they may look different internally, but they are equivalent in the only way that matters for the surrounding category.
+
+For products, the invariant is the pair of projections plus the unique factorization property. For coproducts, it is the pair of injections plus the unique case-analysis map.
 
 ## Failure Mode
 

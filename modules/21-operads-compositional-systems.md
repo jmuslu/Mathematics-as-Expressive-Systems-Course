@@ -48,6 +48,18 @@ The second operation cannot accept just any output; it needs a shortlist in the 
 
 An operad describes operations with multiple inputs and one output, plus rules for composing operations.
 
+## Legal Operations
+
+The legal moves in an operad are typed plug-in moves:
+
+- name the input slots and output type of an operation
+- plug one operation's output into a compatible input slot of another operation
+- keep track of the remaining open slots after plugging
+- compose operation trees associatively
+- respect slot order or symmetry rules, depending on the operad
+
+The point is stricter than "combine these things." You must say which procedure is being plugged into which typed slot.
+
 ## Products Versus Composition
 
 Not every way of combining things is the same.
@@ -66,6 +78,47 @@ When designing a compositional process, "combine" can mean concatenate, multiply
 ## Worked Example
 
 If one operation chooses a restaurant shortlist and another turns a shortlist into a dinner plan, operad composition describes the combined process.
+
+## Worked Derivation
+
+Let:
+
+```text
+chooseRestaurant: Preferences x Budget x Neighborhood -> Shortlist
+makePlan: Shortlist x Time x Transport -> DinnerPlan
+```
+
+Plug `chooseRestaurant` into the first slot of `makePlan`:
+
+```text
+makePlan(chooseRestaurant(Preferences,Budget,Neighborhood), Time, Transport)
+```
+
+The composite operation has open slots:
+
+```text
+Preferences, Budget, Neighborhood, Time, Transport
+```
+
+and output:
+
+```text
+DinnerPlan
+```
+
+So its type is:
+
+```text
+Preferences x Budget x Neighborhood x Time x Transport -> DinnerPlan
+```
+
+The shortlist does not disappear. It becomes an internal wire in the composite operation tree.
+
+## Invariants
+
+Operadic composition preserves typed slot structure. If an operation requires a `Shortlist`, only an output of type `Shortlist` can legally fill that slot.
+
+Associativity of substitution is the key invariant: plugging operations into smaller subtrees first or into the larger tree later should describe the same final operation tree when the slots match.
 
 ## Failure Mode
 

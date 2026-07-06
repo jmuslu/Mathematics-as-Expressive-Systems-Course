@@ -51,9 +51,69 @@ If Jo belongs to the debate team, the roster should not treat "debate team" as a
 
 A schema can be modeled as a category. An instance is a functor from the schema category to Set.
 
+## Legal Operations
+
+The legal moves in a categorical database are schema-respecting moves:
+
+- assign a set of rows to each schema object
+- assign a function to each schema arrow
+- compose arrows to form path queries
+- impose path equations when two routes should agree
+- migrate data along a schema map when the migration preserves structure
+
+The schema is not decoration. It determines which joins, projections, and consistency checks are meaningful before any particular table is filled.
+
 ## Worked Example
 
 If a member maps to a team and a payment status, then every concrete member row must carry compatible team and payment data.
+
+## Worked Derivation
+
+For the club roster schema:
+
+```text
+Member --team--> Team --captain--> Captain
+Captain --email--> Email
+Team --contact--> Email
+```
+
+an instance sends objects to sets:
+
+```text
+Member -> {jo,kai}
+Team -> {debate,robotics}
+Captain -> {ana,ben}
+Email -> {ana@northeastern.edu, debate-club@northeastern.edu, ...}
+```
+
+and arrows to functions:
+
+```text
+team(jo)=debate
+captain(debate)=ana
+email(ana)=ana@northeastern.edu
+contact(debate)=debate-club@northeastern.edu
+```
+
+The path query:
+
+```text
+email o captain o team
+```
+
+asks for Jo's team captain email. A path equation:
+
+```text
+email o captain = contact
+```
+
+says the captain email and official team contact must agree for every team.
+
+## Invariants
+
+A categorical instance preserves typing: arrows become total functions between the row sets assigned to their source and target objects.
+
+Path equations are invariants of valid data. If the schema declares two paths equal, every instance that satisfies the schema must make the resulting functions equal on every relevant row.
 
 ## Failure Mode
 

@@ -60,6 +60,69 @@ while preserving identities and composition.
 
 Given functors F, G: C -> D, a natural transformation compares F and G in a way compatible with every morphism in C.
 
+## Legal Operations
+
+The legal moves for functors and natural transformations are:
+
+- map each source object to a target object
+- map each source arrow to a target arrow with matching source and target
+- preserve identity arrows
+- preserve composition of arrows
+- compare two functors by components that commute with every source arrow
+
+A translation is functorial only if it translates both things and relationships. Copying note text without preserving heading membership is not a functorial migration of the note structure.
+
+## Worked Derivation
+
+Let the notebook category contain:
+
+```text
+Bullet --under--> Heading
+```
+
+A flashcard functor `F` sends:
+
+```text
+F(Bullet)=Card
+F(Heading)=Deck
+F(under)=inDeck: Card -> Deck
+```
+
+Composition preservation says that if the notebook has:
+
+```text
+Bullet --under--> Heading --on--> Page
+```
+
+then:
+
+```text
+F(on o under) = F(on) o F(under)
+```
+
+Translating the whole relation at once must agree with translating each step and then following the translated arrows.
+
+For a natural transformation between two export tools `F` and `G`, each object gets a comparison map:
+
+```text
+eta_Bullet: F(Bullet) -> G(Bullet)
+eta_Heading: F(Heading) -> G(Heading)
+```
+
+Naturality requires:
+
+```text
+G(under) o eta_Bullet = eta_Heading o F(under)
+```
+
+So changing export format before following `under` gives the same result as following `under` before changing export format.
+
+## Invariants
+
+A functor preserves categorical structure: identities remain identities, and composites remain composites.
+
+A natural transformation preserves coherent comparison. Its components may change records, labels, or formats, but every square built from a source arrow must commute.
+
 ## Failure Mode
 
 Bad translations lose structure. For example, a migration may keep tables while forgetting labels, directions, equations, or consistency constraints.
