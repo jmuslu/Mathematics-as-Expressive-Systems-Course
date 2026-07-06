@@ -74,27 +74,27 @@ f(g.x) = g.f(x)
 
 Invariant means the output ignores the transformation. Equivariant means the output transforms predictably.
 
-## Graph Relabeling Example
+## Seating-Chart Relabeling Example
 
-Let A be an adjacency matrix and P be a permutation matrix. Relabeling graph nodes sends:
+Let A be the adjacency matrix for a seating chart and P be a permutation matrix. Relabeling seats sends:
 
 ```text
 A -> P A P^T
 ```
 
-A graph-level summary should usually be invariant:
+A whole-table summary should usually be invariant:
 
 ```text
 f(P A P^T) = f(A)
 ```
 
-A node-level embedding should usually be equivariant:
+A per-seat or per-person output should usually be equivariant:
 
 ```text
 H(P A P^T) = P H(A)
 ```
 
-The summary does not care what arbitrary node IDs were used. The node embeddings still move with the nodes.
+The summary does not care what arbitrary seat labels were used. The per-seat outputs still move with the seats.
 
 ## Product Compatibility
 
@@ -114,16 +114,16 @@ Invariance can erase information. Equivariance can preserve too much structure.
 
 For structured models, you must decide:
 
-- Should relabeling nodes change the output? No.
-- Should changing a node-level feature change a node-level output? Usually yes, but predictably.
+- Should relabeling seats change the whole-table output? No.
+- Should changing a per-seat feature change a per-seat output? Usually yes, but predictably.
 
 ## Problem Ladder
 
 1. Verify that a 90-degree rotation matrix represents C4.
-2. Give one invariant graph output and one equivariant graph output.
-3. Explain why graph node embeddings should be permutation equivariant.
+2. Give one invariant seating-chart output and one equivariant per-seat output.
+3. Explain why per-seat outputs should be permutation equivariant.
 4. Compute P A P^T for a relabeled three-node path.
-5. Compare a node-level equivariant output with a graph-level invariant summary.
+5. Compare a per-seat equivariant output with a whole-table invariant summary.
 6. Explain how a tensor product representation acts on a pair of features.
 
 ## Representation Design Connection
