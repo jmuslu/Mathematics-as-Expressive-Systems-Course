@@ -217,7 +217,7 @@ Simple human analogy for reversible versus irreversible morphisms.
 Module: 18
 Topic: product universal property
 Role: warm-up
-Status: lecture candidate
+Status: promoted in Module 18 Problem 18.2
 Source use: original, source-informed
 Source note: Inspired by products in Set from applied category theory sources.
 License note: No source problem text copied.

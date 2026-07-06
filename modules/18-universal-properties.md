@@ -99,13 +99,27 @@ The product packages two pieces while keeping legal ways to inspect each one.
 
 ### Problem 18.2: Pairing map
 
-If `f: X -> A` and `g: X -> B`, what map from X to `A x B` is forced by the product property?
+A theater ticket must expose both:
+
+```text
+seat: Ticket -> Seat
+show: Ticket -> Show
+```
+
+If a purchase record `P` has maps:
+
+```text
+s: P -> Seat
+t: P -> Show
+```
+
+what unique map into `Seat x Show` is forced by the product property?
 
 Answer check:
 
 ```text
-<f,g>: X -> A x B
-x -> (f(x), g(x))
+<s,t>: P -> Seat x Show
+p -> (s(p), t(p))
 ```
 
 The product is the canonical place where both outputs can live together.
