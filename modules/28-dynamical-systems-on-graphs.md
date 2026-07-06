@@ -105,7 +105,7 @@ Answer check: `x3 = 0.9^3*100 = 72.9`.
 
 ### Problem 28.4: Decay with reinforcement
 
-Let:
+A song's playlist attention decays between weeks, but replaying it after dinner adds reinforcement:
 
 ```text
 w_{t+1} = 0.8 w_t + 1
@@ -132,7 +132,7 @@ Answer check: `0.5x=4`, so `x=8`.
 
 ### Problem 28.6: Fixed point of decay with reinforcement
 
-Solve the fixed point of:
+Solve the steady playlist-attention level for:
 
 ```text
 w_{t+1} = 0.8w_t + 1
@@ -170,7 +170,7 @@ The multiplier controls stability in the one-dimensional case.
 
 ### Problem 28.8: Popularity loop
 
-A node's score updates by:
+A song's popularity score updates by:
 
 ```text
 x_{t+1} = 1.2 x_t

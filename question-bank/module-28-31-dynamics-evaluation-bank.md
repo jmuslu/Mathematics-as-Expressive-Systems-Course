@@ -153,6 +153,54 @@ Decay rules should be tested for when they break paths, not just how they change
 
 Good bridge from Module 28 to evaluation stress tests.
 
+## 28.playlist-attention.recurrence.a
+
+```text
+Module: 28
+Topic: decay with replay reinforcement
+Role: warm-up / computation
+Status: promoted
+Source use: original, source-informed
+Source note: Inspired by discrete-time dynamic graph/state update examples where state evolves by decay plus new input.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A song's playlist attention decays between weeks, but replaying it after dinner adds reinforcement:
+
+```text
+w_{t+1} = 0.8w_t + 1
+w_0 = 0
+```
+
+Compute `w1`, `w2`, and `w3`, then find the fixed point.
+
+## Answer Check
+
+```text
+w1 = 1
+w2 = 0.8(1)+1 = 1.8
+w3 = 0.8(1.8)+1 = 2.44
+
+w = 0.8w + 1
+0.2w = 1
+w = 5
+```
+
+## Intuition
+
+Decay pulls the attention weight down, while repeated replay pushes it up toward a steady level.
+
+## Modeling Implication
+
+Dynamic systems should report both transient updates and long-run behavior.
+
+## Reserve Notes
+
+Promoted into Module 28 to align the recurrence arithmetic with the playlist-attention running example.
+
 ## 28.attractor.bad-loop.a
 
 ```text
