@@ -1,8 +1,8 @@
-# Module 04: Projection, Error, and Approximation
+# Module 04: Projection, Error, and Misunderstanding
 
 ## Lecture Promise
 
-You will understand projection as best available approximation and residual error.
+You will understand projection as best available approximation, and residual error as the part of a request your model failed to capture.
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ You will understand projection as best available approximation and residual erro
 
 ## Why The Old Object Fails
 
-Memory rarely contains the exact thing needed. The system must return the closest available representation and know what remains unexplained.
+A person rarely receives exactly the request they can express. If your model only understands a few directions, it can give the closest available response while still missing something important.
 
 ## Base Case
 
@@ -62,11 +62,11 @@ Projection is the nearest point in a subspace under a chosen geometry.
 
 1. Project (2, 4) onto (1, 0).
 2. Derive the scalar projection formula.
-3. Explain what residual error means for failed retrieval.
+3. Explain what residual error means for a misunderstood request.
 
-## Memory-System Connection
+## Design Connection
 
-Approximation quality matters more than nearest-neighbor confidence.
+Approximation quality matters more than sounding close. The residual tells you what the available representation could not say.
 
 ## Hand Problem Trail
 
@@ -252,12 +252,12 @@ The residual is orthogonal to the fitted subspace.
 
 ### Problem 4.12: Approximation failure
 
-Name one reason the closest vector in an embedding space can still be the wrong answer.
+Name one reason the closest vector in a representation space can still be the wrong answer.
 
 Answer check:
 
 ```text
-The embedding geometry may omit task context, source reliability, negation, time, or contradiction.
+The geometry may omit context, priorities, negation, timing, or a constraint the person cared about.
 ```
 
-Projection and nearest-neighbor methods optimize within a chosen geometry; they do not guarantee semantic truth.
+Projection and nearest-neighbor methods optimize within a chosen geometry; they do not guarantee that the request was understood.
