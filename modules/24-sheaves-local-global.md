@@ -87,9 +87,28 @@ Sheaves are the mature model for multi-hop validation: local contexts patch into
 
 ### Problem 24.1: Two-node sheaf
 
-Node A stores stance `support`; node B stores stance `support`. The edge overlap records stance. Do the local sections glue?
+Witness A records:
 
-Answer check: yes, both restrict to `support`.
+```text
+(person=Rae, dish=pasta)
+```
+
+Witness B records:
+
+```text
+(person=Rae, seat=window)
+```
+
+The edge overlap records only `person`. Do the local sections glue?
+
+Answer check:
+
+```text
+A restricts to person=Rae.
+B restricts to person=Rae.
+```
+
+Yes, they glue with respect to the person-only overlap.
 
 ### Problem 24.2: Write the restriction equation
 
@@ -105,15 +124,34 @@ A global section is a set of local choices satisfying all such equations.
 
 ### Problem 24.3: Contradiction on overlap
 
-Now node A stores `support`, node B stores `contradict`, and the edge overlap records stance. Do they glue?
+Now Witness A records:
 
-Answer check: no. The restrictions disagree.
+```text
+(person=Rae, dish=pasta)
+```
+
+Witness B records:
+
+```text
+(person=Rae, dish=soup)
+```
+
+The edge overlap records `(person, dish)`. Do they glue?
+
+Answer check:
+
+```text
+A restricts to (Rae, pasta).
+B restricts to (Rae, soup).
+```
+
+No. The restrictions disagree on the dish.
 
 ### Problem 24.4: Change the restriction map
 
-Suppose the edge overlap records only source identity, not stance. A and B cite the same source but disagree in stance. Do they glue under this weaker sheaf?
+Use the same two reports from Problem 24.3, but change the edge overlap so it records only `person`, not dish. Do they glue under this weaker sheaf?
 
-Answer check: yes with respect to source identity. This may be a bad model if stance matters.
+Answer check: yes with respect to person identity, because both reports restrict to `person=Rae`. This may be a bad model if the dish matters.
 
 ### Problem 24.5: Global section
 

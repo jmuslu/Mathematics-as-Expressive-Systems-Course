@@ -677,7 +677,7 @@ Bridge to sheaf Laplacians and approximate global sections without requiring mat
 Module: 24
 Topic: overlap agreement as matching
 Role: computation
-Status: reserve
+Status: promoted
 Source use: original, source-informed
 Source note: Inspired by sheaf gluing and pullback-like compatibility conditions.
 License note: No source problem text copied.
@@ -719,7 +719,7 @@ Restriction maps decide which agreement matters for gluing.
 
 ## Reserve Notes
 
-Natural human analogy for local-to-global consistency.
+Promoted into Module 24 as the witness-story base case for local gluing.
 
 ## 24.sheaf.false-peace.edition.a
 
