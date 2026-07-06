@@ -32,6 +32,7 @@ $moduleFiles = Get-ChildItem -Path "modules" -Filter "*.md" | Sort-Object Name
 $issues = New-Object System.Collections.Generic.List[string]
 $definedProblems = @{}
 $moduleContents = @{}
+$runningExampleCount = 0
 
 foreach ($file in $moduleFiles) {
   $moduleMatch = [regex]::Match($file.Name, '^(\d+)')
@@ -43,6 +44,7 @@ foreach ($file in $moduleFiles) {
   $moduleNumber = [int]$moduleMatch.Groups[1].Value
   $content = Get-Content -LiteralPath $file.FullName
   $moduleContents[$file.Name] = $content
+  $runningExampleCount += ($content | Select-String -Pattern '^## Running Example:' ).Count
 
   if (-not ($content | Select-String -Pattern '^## Hand Problem Trail' -Quiet)) {
     $issues.Add("$($file.Name): missing ## Hand Problem Trail")
@@ -94,6 +96,7 @@ foreach ($file in $moduleFiles) {
 }
 
 $questionBankReadme = "question-bank\README.md"
+$bankEntryCount = 0
 if (-not (Test-Path $questionBankReadme)) {
   $issues.Add("question-bank: missing README.md")
 } else {
@@ -131,6 +134,7 @@ if (-not (Test-Path $questionBankReadme)) {
 
     $bankContent = Get-Content -LiteralPath $file.FullName -Raw
     $entryMatches = [regex]::Matches($bankContent, '(?m)^## \d{2}\.[^\r\n]+')
+    $bankEntryCount += $entryMatches.Count
 
     for ($i = 0; $i -lt $entryMatches.Count; $i++) {
       $entryStart = $entryMatches[$i].Index
@@ -151,9 +155,30 @@ if (-not (Test-Path $questionBankReadme)) {
   }
 }
 
+$courseQaPath = "COURSE_QA.md"
+if (Test-Path $courseQaPath) {
+  $courseQaText = Get-Content -LiteralPath $courseQaPath -Raw
+
+  $runningExampleMatch = [regex]::Match($courseQaText, '(?m)^(\d+) running examples in lecture modules$')
+  if (-not $runningExampleMatch.Success) {
+    $issues.Add("COURSE_QA.md: missing running examples count in Current status")
+  } elseif ([int]$runningExampleMatch.Groups[1].Value -ne $runningExampleCount) {
+    $issues.Add("COURSE_QA.md: running examples count is $($runningExampleMatch.Groups[1].Value), expected $runningExampleCount")
+  }
+
+  $bankEntryMatch = [regex]::Match($courseQaText, '(?m)^(\d+) bank problem/reserve entries$')
+  if (-not $bankEntryMatch.Success) {
+    $issues.Add("COURSE_QA.md: missing bank problem/reserve entries count in Current status")
+  } elseif ([int]$bankEntryMatch.Groups[1].Value -ne $bankEntryCount) {
+    $issues.Add("COURSE_QA.md: bank problem/reserve entries count is $($bankEntryMatch.Groups[1].Value), expected $bankEntryCount")
+  }
+} else {
+  $issues.Add("missing COURSE_QA.md")
+}
+
 if ($issues.Count -gt 0) {
   $issues | ForEach-Object { Write-Error $_ }
   exit 1
 }
 
-Write-Output "Course audit passed: $($moduleFiles.Count) modules, 12 problems and answer checks each, with valid problem references, question-bank index, and bank metadata."
+Write-Output "Course audit passed: $($moduleFiles.Count) modules, 12 problems and answer checks each, with valid problem references, question-bank index, bank metadata, and QA counts."

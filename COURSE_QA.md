@@ -19,7 +19,7 @@ Current status:
 32 modules
 12 hand problems per module
 384 total module hand problems
-29 running examples in lecture modules
+30 running examples in lecture modules
 11 question-bank markdown files, including the template
 127 bank problem/reserve entries
 ```
