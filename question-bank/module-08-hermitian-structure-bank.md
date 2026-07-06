@@ -406,7 +406,7 @@ Useful if Module 08 is tied back to Module 04 projection.
 Module: 08
 Topic: phase interpretation
 Role: modeling interpretation
-Status: reserve
+Status: promoted
 Source use: original
 Source note: Course-style standalone analogy.
 License note: No source problem text copied.
@@ -435,4 +435,4 @@ The analogy is ordinary first: taste strength plus timing. The design lesson is 
 
 ## Reserve Notes
 
-Potential lecture analogy if Module 08 needs a less architecture-heavy human frame.
+Promoted into Module 08 as the phase-interpretation answer check.

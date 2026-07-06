@@ -336,6 +336,13 @@ Without conjugation, squared length can become non-real.
 
 ### Problem 8.12: Phase interpretation
 
-If a complex relation has magnitude as strength and phase as temporal offset, why must similarity use conjugation?
+If a playlist relation has magnitude as taste strength and phase as temporal offset, why must similarity use conjugation?
 
-Answer check: without conjugation, nonzero vectors can have zero or non-real length, so similarity no longer behaves like geometry.
+Answer check:
+
+```text
+Without conjugation, a nonzero complex coordinate z can produce zz, which may be non-real.
+With conjugation, conjugate(z)z = |z|^2 is real and nonnegative.
+```
+
+Phase is allowed to matter when comparing different profiles, but self-similarity should remain a meaningful length.
