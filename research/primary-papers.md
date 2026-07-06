@@ -24,11 +24,13 @@ Problem hooks:
 ## Groups, Actions, Representations, And Averaging
 
 - [Groups and Group Actions Lecture Notes](https://www.maths.ox.ac.uk/system/files/attachments/Groups%20and%20Group%20Actions%20Lecture%20Notes.pdf) - group actions, orbits, stabilizers, and orbit-stabilizer as the finite-group backbone for modules 13-14.
+- [MIT RES.18-011 Lecture 17: Group Actions](https://ocw.mit.edu/courses/res-18-011-algebra-i-student-notes-fall-2021/mit18_701f21_lect17.pdf) - student notes with action laws, coset actions, and orbit-stabilizer examples.
 - [Group Actions](https://kconrad.math.uconn.edu/blurbs/grouptheory/gpaction.pdf) - Keith Conrad's compact account of actions, cosets, conjugacy, and stabilizers.
 - [Math 4107: Group Actions](https://austinchristian.math.gatech.edu/teaching/4107-f23/group-actions.pdf) - concise definitions of orbits, fixed points, and stabilizers for additional hand examples.
 - [Introduction to Representation Theory](https://math.mit.edu/~etingof/replect.pdf) - public graduate-level representation theory notes for modules 15-16.
 - [Representation Theory](https://math.berkeley.edu/~teleman/math/RepThry.pdf) - groups as symmetries realized by linear transformations, useful for representation-theory motivation.
 - [Basic Group and Representation Theory](https://people.math.ethz.ch/~wilthoma/rep_theory/master.pdf) - actions, orbit-stabilizer, and representations as linear realizations of abstract symmetry.
+- [Representation Theory of Finite Groups](https://web.math.princeton.edu/~charchan/RepresentationTheoryFiniteGroupsNotes.pdf) - concise finite-group notes on invariant subspaces, irreducibility, direct sums, and characters.
 - [Universal Invariant and Equivariant Graph Neural Networks](https://papers.neurips.cc/paper/8931-universal-invariant-and-equivariant-graph-neural-networks.pdf) - invariant graph-level outputs and equivariant node-level outputs as design constraints.
 - [Invariant and Equivariant Graph Networks](https://openreview.net/forum?id=Syx72jC9tm) - characterizes permutation-invariant and permutation-equivariant linear layers for graph data.
 - [Invariant and Equivariant Reynolds Networks](https://www.jmlr.org/papers/volume25/22-0891/22-0891.pdf) - Reynolds operators as group averages that convert functions into invariant or equivariant forms.

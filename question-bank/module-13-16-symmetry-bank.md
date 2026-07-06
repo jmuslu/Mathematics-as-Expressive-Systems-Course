@@ -5,10 +5,12 @@ Source posture: original course problems inspired by public notes and papers on 
 ## Source Anchors
 
 - [Groups and Group Actions Lecture Notes](https://www.maths.ox.ac.uk/system/files/attachments/Groups%20and%20Group%20Actions%20Lecture%20Notes.pdf)
+- [MIT RES.18-011 Lecture 17: Group Actions](https://ocw.mit.edu/courses/res-18-011-algebra-i-student-notes-fall-2021/mit18_701f21_lect17.pdf)
 - [Group Actions](https://kconrad.math.uconn.edu/blurbs/grouptheory/gpaction.pdf)
 - [Math 4107: Group Actions](https://austinchristian.math.gatech.edu/teaching/4107-f23/group-actions.pdf)
 - [Introduction to Representation Theory](https://math.mit.edu/~etingof/replect.pdf)
 - [Representation Theory](https://math.berkeley.edu/~teleman/math/RepThry.pdf)
+- [Representation Theory of Finite Groups](https://web.math.princeton.edu/~charchan/RepresentationTheoryFiniteGroupsNotes.pdf)
 - [Universal Invariant and Equivariant Graph Neural Networks](https://papers.neurips.cc/paper/8931-universal-invariant-and-equivariant-graph-neural-networks.pdf)
 - [Invariant and Equivariant Graph Networks](https://openreview.net/forum?id=Syx72jC9tm)
 - [Lecture 16: Reynolds Operator and Finite Generation of Invariant Rings](https://cs.uwaterloo.ca/~r5olivei/courses/2021-winter-cs487/lecture16-post.pdf)
@@ -758,3 +760,459 @@ Invariant features can be built from non-invariant ingredients, but the construc
 ## Reserve Notes
 
 Good graduate-style bridge to invariant rings without requiring full invariant theory.
+
+## 13.dinner-rotation.c4.table.a
+
+```text
+Module: 13
+Topic: cyclic group composition
+Role: computation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by standard cyclic-group examples in public group-action notes.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+Four friends rotate dinner-planning responsibility weekly:
+
+```text
+Ari -> Bea -> Cy -> Dev -> Ari
+```
+
+Let `r` mean "advance responsibility by one week." Compute:
+
+```text
+r^2 r^3
+r^3 r^3
+```
+
+in the group `C4 = {e, r, r^2, r^3}`.
+
+## Answer Check
+
+Exponents add modulo 4:
+
+```text
+r^2 r^3 = r^5 = r
+r^3 r^3 = r^6 = r^2
+```
+
+## Intuition
+
+The symbol `r^k` records how many rotations have happened, but only modulo the cycle length.
+
+## Modeling Implication
+
+When a process is truly cyclic and reversible, group notation keeps long sequences of actions compact and checkable.
+
+## Reserve Notes
+
+Good human-scale warm-up before using less familiar symmetry groups.
+
+## 13.friendship-transform.noncommute.a
+
+```text
+Module: 13
+Topic: noncommutative composition
+Role: counterexample
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by group composition examples; scenario follows the course's friendship-profile style.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A profile has two coordinates:
+
+```text
+(trust, humor)
+```
+
+Let:
+
+```text
+s(trust, humor) = (humor, trust)
+t(trust, humor) = (trust + 1, humor)
+```
+
+Compute `s(t(2,5))` and `t(s(2,5))`. Do `s` and `t` commute?
+
+## Answer Check
+
+First do `t`, then `s`:
+
+```text
+t(2,5) = (3,5)
+s(3,5) = (5,3)
+```
+
+First do `s`, then `t`:
+
+```text
+s(2,5) = (5,2)
+t(5,2) = (6,2)
+```
+
+The results differ, so `s` and `t` do not commute.
+
+## Intuition
+
+Order matters when one operation changes a coordinate that the other operation moves.
+
+## Modeling Implication
+
+Transformation systems need composition laws, not just a menu of named edits.
+
+## Reserve Notes
+
+Useful warning before assuming symmetry groups are always abelian like small rotation cycles.
+
+## 14.dating-profile.orbit-duplicates.a
+
+```text
+Module: 14
+Topic: orbit-stabilizer with repeated entries
+Role: computation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by orbit-stabilizer examples in public group-action notes.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A dating-profile comparison stores three preference tags:
+
+```text
+(coffee, books, books)
+```
+
+The group `S3` permutes tag positions. Find the orbit size and stabilizer size.
+
+## Answer Check
+
+The distinct orbit elements are:
+
+```text
+(coffee, books, books)
+(books, coffee, books)
+(books, books, coffee)
+```
+
+So:
+
+```text
+|orbit| = 3
+```
+
+The stabilizer has size `2`: the identity and the swap of the two identical `books` positions.
+
+Check:
+
+```text
+|orbit| * |stabilizer| = 3 * 2 = 6 = |S3|
+```
+
+## Intuition
+
+Repeated entries make some relabelings invisible.
+
+## Modeling Implication
+
+Counting distinct presentations requires accounting for redundant symmetries, not just counting all permutations.
+
+## Reserve Notes
+
+Good local analogy for orbit-stabilizer without relying on abstract badges.
+
+## 14.seating-action.law-check.a
+
+```text
+Module: 14
+Topic: action law
+Role: conceptual check
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by the action axioms in public group-action notes.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+Suppose `S3` acts on a three-seat dinner chart by permuting seats. Let:
+
+```text
+x = (Ari, Bea, Cy)
+g = swap seats 1 and 2
+h = swap seats 2 and 3
+```
+
+Explain why a valid action must satisfy:
+
+```text
+g.(h.x) = (gh).x
+```
+
+What would go wrong if the two sides gave different seating charts?
+
+## Answer Check
+
+The left side means:
+
+```text
+first apply h to the chart, then apply g
+```
+
+The right side means:
+
+```text
+compose the two permutations as one group element, then apply that element
+```
+
+A valid action requires these to agree. If they differ, the group composition is not faithfully controlling the object transformation.
+
+## Intuition
+
+An action is a promise that abstract moves and concrete moves compose the same way.
+
+## Modeling Implication
+
+If a data augmentation rule fails the action law, it is not a symmetry action; it is an inconsistent transformation pipeline.
+
+## Reserve Notes
+
+Good graduate-depth check because it asks for the axiom behind the computation.
+
+## 15.permutation-representation.seating.a
+
+```text
+Module: 15
+Topic: permutation representation
+Role: computation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by representation theory notes where group elements are realized as matrices.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+Let `s` swap seats 1 and 2 while leaving seat 3 fixed. Its permutation representation is:
+
+```text
+rho(s) = [0 1 0]
+         [1 0 0]
+         [0 0 1]
+```
+
+Apply `rho(s)` to the seating-score vector:
+
+```text
+x = (10, 4, 7)
+```
+
+Then verify that `rho(s)^2 x = x`.
+
+## Answer Check
+
+The first application swaps the first two coordinates:
+
+```text
+rho(s)x = (4,10,7)
+```
+
+Apply it again:
+
+```text
+rho(s)^2 x = rho(s)(4,10,7) = (10,4,7) = x
+```
+
+## Intuition
+
+A representation turns a group move into a linear map that acts on vectors.
+
+## Modeling Implication
+
+Once a symmetry is represented by matrices, ordinary linear algebra can enforce or test the symmetry.
+
+## Reserve Notes
+
+Good bridge from group actions to representation matrices.
+
+## 15.invariant-subspace.shared-vs-contrast.a
+
+```text
+Module: 15
+Topic: invariant subspaces
+Role: derivation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by finite-group representation notes on invariant subspaces.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+Let the swap matrix act on two reviewer scores:
+
+```text
+S = [0 1]
+    [1 0]
+```
+
+Show that the two lines:
+
+```text
+Shared line: span{(1,1)}
+Contrast line: span{(1,-1)}
+```
+
+are invariant under `S`.
+
+## Answer Check
+
+Apply `S` to each basis vector:
+
+```text
+S(1,1) = (1,1)
+S(1,-1) = (-1,1) = -(1,-1)
+```
+
+Each vector stays inside its own span, so both lines are invariant subspaces.
+
+## Intuition
+
+The swap does not mix shared agreement with reviewer contrast; it preserves those modes separately.
+
+## Modeling Implication
+
+Invariant subspaces identify feature directions that can be analyzed independently under a symmetry.
+
+## Reserve Notes
+
+Good depth problem for decomposing a representation into simple modes.
+
+## 16.character.trace.swap.a
+
+```text
+Module: 16
+Topic: character as trace
+Role: computation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by finite-group representation notes introducing characters as traces.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+For the two-seat swap representation:
+
+```text
+rho(e) = [1 0]
+         [0 1]
+
+rho(s) = [0 1]
+         [1 0]
+```
+
+compute the character values:
+
+```text
+chi(e) = trace(rho(e))
+chi(s) = trace(rho(s))
+```
+
+## Answer Check
+
+```text
+chi(e) = 1 + 1 = 2
+chi(s) = 0 + 0 = 0
+```
+
+The identity fixes both coordinate directions; the swap has no fixed coordinate basis direction.
+
+## Intuition
+
+The trace records how much of the representation remains aligned with itself under the group move.
+
+## Modeling Implication
+
+Characters compress matrix actions into class-level summaries, but they hide coordinate-level detail.
+
+## Reserve Notes
+
+Compact graduate-style bridge from representation matrices to character theory.
+
+## 16.reynolds.disagreement.loss.a
+
+```text
+Module: 16
+Topic: Reynolds averaging and information loss
+Role: failure mode
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by finite-group Reynolds averaging notes and the course's reviewer-disagreement analogy.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+Two reviewers score a dinner plan:
+
+```text
+x = (9,1)
+```
+
+The group `C2` swaps the reviewers. Apply the Reynolds average:
+
+```text
+R(x) = (x + Sx)/2
+```
+
+where `S(a,b)=(b,a)`. What part of the original signal is erased?
+
+## Answer Check
+
+Swap:
+
+```text
+Sx = (1,9)
+```
+
+Average:
+
+```text
+R(x) = ((9,1) + (1,9))/2 = (5,5)
+```
+
+The average level is preserved, but the disagreement direction:
+
+```text
+(4,-4)
+```
+
+is erased.
+
+## Intuition
+
+Reynolds averaging projects onto the invariant part and removes the anti-invariant contrast.
+
+## Modeling Implication
+
+Symmetry can make a feature fairer or more stable, but it can also erase disagreement that mattered.
+
+## Reserve Notes
+
+Good failure-mode reserve for deciding when invariance is too strong.
