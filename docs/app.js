@@ -77,7 +77,7 @@ async function loadModule(id, updateHash, scrollToReader) {
   moduleReader.innerHTML = `<h2>${moduleId}. ${escapeHtml(title)}</h2><p>Loading lecture...</p>`;
 
   try {
-    const response = await fetch(file);
+    const response = await fetch(versionedModuleUrl(file), { cache: "no-store" });
     if (!response.ok) throw new Error(`Could not load ${file}`);
     const markdown = await response.text();
     moduleReader.innerHTML = renderMarkdown(mathifyMarkdown(markdown));
@@ -102,6 +102,12 @@ async function loadModule(id, updateHash, scrollToReader) {
       <a href="${file}">${file}</a>.</p>
     `;
   }
+}
+
+function versionedModuleUrl(file) {
+  const version = new URLSearchParams(location.search).get("v");
+  if (!version) return file;
+  return `${file}?v=${encodeURIComponent(version)}`;
 }
 
 function mathifyMarkdown(markdown) {
