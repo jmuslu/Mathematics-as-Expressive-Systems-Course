@@ -19,7 +19,7 @@ Source posture: original course problems inspired by public notes and papers on 
 Module: 13
 Topic: closure and inverses
 Role: counterexample
-Status: lecture candidate
+Status: promoted in Module 13 Problem 13.7
 Source use: original, source-informed
 Source note: Inspired by group-as-symmetry examples in group action notes.
 License note: No source problem text copied.

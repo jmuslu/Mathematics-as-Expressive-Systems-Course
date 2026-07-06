@@ -183,17 +183,27 @@ Answer check:
  s s e
 ```
 
-### Problem 13.7: A move with no inverse
+### Problem 13.7: Partial moves are not a group
 
-A graph operation deletes a node and all edges touching it. Is this operation a group symmetry?
+A board-game token can be rotated by:
+
+```text
+0 degrees, 90 degrees, 180 degrees
+```
+
+but the rulebook forgot to include `270 degrees`. Under composition of rotations, is this set a group?
 
 Answer check:
 
 ```text
-No. Once the node and incident edges are deleted, the original graph cannot be recovered from the result alone.
+No.
+
+90 + 180 = 270 degrees
 ```
 
-Useful operations can fail to be symmetries.
+The result is not in the listed set, so closure fails. Also, the inverse of a 90-degree rotation is a 270-degree rotation, which is missing.
+
+A group is not just a collection of useful moves. It must be closed under doing moves after moves and under undoing them.
 
 ### Problem 13.8: A reversible relabeling
 
