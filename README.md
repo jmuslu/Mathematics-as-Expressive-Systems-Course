@@ -27,6 +27,7 @@ The destination is broader than RAG or vector search. Those are applications. Th
 - [Lecture Lens](LECTURE_LENS.md)
 - [Source Pedagogy](SOURCE_PEDAGOGY.md)
 - [Website Design Notes](WEBSITE_DESIGN_NOTES.md)
+- [Course QA](COURSE_QA.md)
 - [Primary Paper Trail](research/primary-papers.md)
 - [Question Bank Source Policy](QUESTION_BANK_SOURCE_POLICY.md)
 - [Question Bank](question-bank/README.md)
