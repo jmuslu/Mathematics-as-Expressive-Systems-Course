@@ -558,3 +558,515 @@ A one-dimensional score can erase many distinct changes in the underlying repres
 ## Reserve Notes
 
 Useful if Module 05 later expands annihilators beyond one-line examples.
+
+## 01.scalar.system.choice.a
+
+```text
+Module: 01
+Topic: choosing a scalar system
+Role: conceptual check
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by local vector/norm lecture framing and public applied linear algebra sources.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A friendship-intensity app stores one score `s`.
+
+For each interpretation below, choose a reasonable scalar system:
+
+```text
+A. number of times two people studied together
+B. signed change in trust after a disagreement
+C. normalized compatibility score between 0 and 1
+D. phase-coded playlist timing for when the friendship feels most active
+```
+
+Possible systems:
+
+```text
+natural numbers, integers, real interval [0,1], complex numbers
+```
+
+## Answer Check
+
+```text
+A -> natural numbers
+B -> integers or real numbers
+C -> real interval [0,1]
+D -> complex numbers
+```
+
+The exact choice for B depends on whether changes are discrete or continuous. The important point is that different meanings require different scalar systems.
+
+## Intuition
+
+A scalar is not just a number. It is a number with legal operations and a meaning.
+
+## Modeling Implication
+
+Choosing the wrong scalar system can make ordinary operations impossible, misleading, or too coarse.
+
+## Reserve Notes
+
+Good warm-up for Module 01 before norms or coordinate systems.
+
+## 01.normalization.loses.intensity.a
+
+```text
+Module: 01
+Topic: normalization and lost magnitude
+Role: counterexample
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by local vector/norm lecture framing and public applied linear algebra sources.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+Two friendship profiles are:
+
+```text
+a = (1,2)
+b = (10,20)
+```
+
+Normalize both vectors using the L2 norm. What information survives, and what information is erased?
+
+## Answer Check
+
+```text
+||a|| = sqrt(1^2+2^2) = sqrt(5)
+||b|| = sqrt(10^2+20^2) = sqrt(500) = 10sqrt(5)
+
+a_hat = (1/sqrt(5), 2/sqrt(5))
+b_hat = (10/(10sqrt(5)), 20/(10sqrt(5)))
+      = (1/sqrt(5), 2/sqrt(5))
+```
+
+The normalized vectors are equal.
+
+## Intuition
+
+Normalization preserves direction but erases intensity.
+
+## Modeling Implication
+
+If intensity matters, normalized similarity alone is not enough.
+
+## Reserve Notes
+
+Useful companion to `01.norms.friendship.profile.a`.
+
+## 02.basis.coordinates.friendship.a
+
+```text
+Module: 02
+Topic: basis coordinates
+Role: computation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by local vector-space and Gaussian-elimination lecture framing.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A friendship profile is expressed using two basis directions:
+
+```text
+r = (1,0)  reliable routines
+s = (1,1)  shared spontaneity
+```
+
+Write:
+
+```text
+v = (5,2)
+```
+
+as:
+
+```text
+v = ar + bs
+```
+
+## Answer Check
+
+```text
+ar + bs = a(1,0) + b(1,1) = (a+b,b)
+```
+
+Set:
+
+```text
+a+b = 5
+b = 2
+```
+
+So:
+
+```text
+b=2
+a=3
+v = 3r + 2s
+```
+
+## Intuition
+
+Coordinates depend on the basis directions used to describe the profile.
+
+## Modeling Implication
+
+A representation should state its basis or feature grammar; otherwise the same vector may be misread.
+
+## Reserve Notes
+
+Good bridge from span to coordinate systems.
+
+## 02.rank.redundant.traits.a
+
+```text
+Module: 02
+Topic: rank and redundant features
+Role: conceptual check
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by local span/rank lecture framing.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A profile model uses three feature directions:
+
+```text
+u = (1,0)
+v = (0,1)
+w = (2,2)
+```
+
+Is `w` adding a new dimension to the span of `u` and `v`?
+
+## Answer Check
+
+```text
+w = 2u + 2v
+```
+
+So `w` is already in `span(u,v)` and does not add a new dimension.
+
+## Intuition
+
+More features do not automatically mean more expressive directions.
+
+## Modeling Implication
+
+Rank detects whether a representation has genuinely new directions or redundant labels.
+
+## Reserve Notes
+
+Useful before rank-nullity or feature compression.
+
+## 03.kernel.lost-distinction.a
+
+```text
+Module: 03
+Topic: kernel and lost information
+Role: counterexample
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by local Gaussian-elimination and linear-map lectures.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A perspective update sends:
+
+```text
+A = [1 1]
+    [0 0]
+```
+
+so:
+
+```text
+A(x,y) = (x+y,0)
+```
+
+Find one nonzero vector in the kernel. What distinction does the update erase?
+
+## Answer Check
+
+Solve:
+
+```text
+x+y=0
+0=0
+```
+
+One nonzero solution is:
+
+```text
+(1,-1)
+```
+
+Check:
+
+```text
+A(1,-1) = (0,0)
+```
+
+## Intuition
+
+The map keeps only the total `x+y` and erases the contrast between the two coordinates.
+
+## Modeling Implication
+
+A nontrivial kernel is a precise warning that different states collapse to the same output.
+
+## Reserve Notes
+
+Good failure-mode problem for Module 03.
+
+## 04.projection.wrong-subspace.a
+
+```text
+Module: 04
+Topic: projection residual
+Role: modeling interpretation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by local projection/misunderstanding lecture and public projection references.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A friend asks for a restaurant that is:
+
+```text
+quiet, cheap = (4,1)
+```
+
+The recommendation model can only represent the direction:
+
+```text
+u = (1,1)
+```
+
+Project the request onto `span(u)` and compute the residual.
+
+## Answer Check
+
+```text
+c = ((4,1) dot (1,1))/((1,1) dot (1,1))
+  = 5/2
+
+projection = (5/2)(1,1) = (2.5,2.5)
+residual = (4,1) - (2.5,2.5) = (1.5,-1.5)
+```
+
+Check:
+
+```text
+residual dot u = 1.5 - 1.5 = 0
+```
+
+## Intuition
+
+The model can answer along the quiet-and-cheap-together direction, but it misses the asymmetry of "very quiet, only mildly cheap."
+
+## Modeling Implication
+
+Projection can be optimal inside a bad subspace while still misunderstanding the request.
+
+## Reserve Notes
+
+Useful variant of the existing misunderstanding example.
+
+## 04.normal-equation.two-feature.a
+
+```text
+Module: 04
+Topic: least squares normal equations
+Role: derivation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by public projection and least-squares references.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A tiny model predicts a request vector using one feature direction:
+
+```text
+u = (1,2)
+y = (4,1)
+```
+
+Find the best scalar `c` minimizing:
+
+```text
+||y - cu||^2
+```
+
+using the normal equation:
+
+```text
+u^T u c = u^T y
+```
+
+## Answer Check
+
+```text
+u^T u = 1^2 + 2^2 = 5
+u^T y = 1(4) + 2(1) = 6
+
+5c = 6
+c = 6/5
+```
+
+So:
+
+```text
+cu = (6/5, 12/5)
+```
+
+## Intuition
+
+The normal equation makes the residual orthogonal to the feature direction.
+
+## Modeling Implication
+
+Least squares is projection onto the model's expressible directions.
+
+## Reserve Notes
+
+Good for adding more derivation depth to Module 04 if needed.
+
+## 05.two-tests.same-profile.a
+
+```text
+Module: 05
+Topic: multiple covector measurements
+Role: computation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by local duality and measurement framing.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A dating profile is:
+
+```text
+v = (kindness, humor, availability) = (3,4,2)
+```
+
+Two standards are:
+
+```text
+f = [1,1,0]
+g = [2,-1,3]
+```
+
+Compute `f(v)` and `g(v)`. What do the two tests see differently?
+
+## Answer Check
+
+```text
+f(v)=3+4=7
+g(v)=2(3)-4+3(2)=6-4+6=8
+```
+
+`f` ignores availability. `g` rewards kindness and availability but penalizes humor under this particular standard.
+
+## Intuition
+
+The same vector can score differently under different covectors because the questions are different.
+
+## Modeling Implication
+
+Changing the measurement changes the claim being made about the object.
+
+## Reserve Notes
+
+Good warm-up before kernels and annihilators.
+
+## 05.constraint.as.covector.a
+
+```text
+Module: 05
+Topic: constraints as covectors
+Role: conceptual check
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by local decision-making and duality lecture framing.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A dinner plan vector is:
+
+```text
+v = (cost, travel_time, spice_level)
+```
+
+A hard budget-and-travel test is:
+
+```text
+phi = [1,2,0]
+```
+
+The rule says:
+
+```text
+phi(v) <= 20
+```
+
+For:
+
+```text
+v = (12,3,5)
+w = (8,7,1)
+```
+
+which plan passes the test?
+
+## Answer Check
+
+```text
+phi(v)=12+2(3)+0(5)=18
+phi(w)=8+2(7)+0(1)=22
+```
+
+So `v` passes and `w` fails.
+
+## Intuition
+
+A linear constraint is a covector plus a threshold.
+
+## Modeling Implication
+
+Duality turns scoring and feasibility tests into explicit mathematical objects.
+
+## Reserve Notes
+
+Good bridge from duality to constrained optimization.

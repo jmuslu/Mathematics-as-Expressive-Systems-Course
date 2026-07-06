@@ -40,6 +40,7 @@ jobs:
           cp -R docs/. _site/
           cp -R modules _site/modules
           cp -R research _site/research
+          cp -R question-bank _site/question-bank
           touch _site/.nojekyll
 
       - name: Upload site artifact

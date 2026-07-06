@@ -33,6 +33,19 @@ const modules = [
   ["31", "Evidence Board Architecture Studio", "modules/31-architecture-studio.md", "Assemble the course into a debate evidence-board design."]
 ];
 
+const questionBanks = [
+  { modules: ["01", "02", "03", "04", "05"], file: "question-bank/module-01-05-foundations-bank.md", label: "Foundations Reserve Bank" },
+  { modules: ["06"], file: "question-bank/module-06-tensors-typed-relations-pilot.md", label: "Tensor Pilot Questions", pilot: true },
+  { modules: ["07"], file: "question-bank/module-07-covariance-contravariance-bank.md", label: "Covariance Reserve Bank" },
+  { modules: ["08"], file: "question-bank/module-08-hermitian-structure-bank.md", label: "Hermitian Reserve Bank" },
+  { modules: ["09", "10", "11", "12"], file: "question-bank/module-09-12-spectral-graphs-bank.md", label: "Spectral And Graph Reserve Bank" },
+  { modules: ["13", "14", "15", "16"], file: "question-bank/module-13-16-symmetry-bank.md", label: "Symmetry Reserve Bank" },
+  { modules: ["17", "18", "19", "20", "21"], file: "question-bank/module-17-21-category-composition-bank.md", label: "Category And Composition Reserve Bank" },
+  { modules: ["22", "23", "24"], file: "question-bank/module-22-24-topology-sheaves-bank.md", label: "Topology And Sheaves Reserve Bank" },
+  { modules: ["25", "26", "27"], file: "question-bank/module-25-27-inference-optimization-bank.md", label: "Inference And Optimization Reserve Bank" },
+  { modules: ["28", "29", "30", "31"], file: "question-bank/module-28-31-dynamics-evaluation-bank.md", label: "Dynamics And Evaluation Reserve Bank" }
+];
+
 const tocList = document.querySelector("#tocList");
 const lectureList = document.querySelector("#lectureList");
 const moduleReader = document.querySelector("#moduleReader");
@@ -58,6 +71,14 @@ lectureList.addEventListener("click", (event) => {
   loadModule(button.dataset.moduleId, true, true);
 });
 
+moduleReader.addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-topic-module-id]");
+  if (!button) return;
+  const panel = moduleReader.querySelector("[data-topic-panel]");
+  if (!panel) return;
+  loadTopicQuestions(button.dataset.topicModuleId, panel, button);
+});
+
 window.addEventListener("hashchange", () => {
   const match = location.hash.match(/^#read-(\d{2})$/);
   if (match) loadModule(match[1], false, true);
@@ -80,7 +101,7 @@ async function loadModule(id, updateHash, scrollToReader) {
     const response = await fetch(versionedModuleUrl(file), { cache: "no-store" });
     if (!response.ok) throw new Error(`Could not load ${file}`);
     const markdown = await response.text();
-    moduleReader.innerHTML = renderMarkdown(mathifyMarkdown(markdown));
+    moduleReader.innerHTML = `${renderMarkdown(mathifyMarkdown(markdown))}${renderTopicQuestionShell(moduleId)}`;
     moduleReader.querySelectorAll("a").forEach((link) => {
       if (link.hostname && link.hostname !== location.hostname) {
         link.rel = "noreferrer";
@@ -102,6 +123,109 @@ async function loadModule(id, updateHash, scrollToReader) {
       <a href="${file}">${file}</a>.</p>
     `;
   }
+}
+
+async function loadTopicQuestions(moduleId, panel, button) {
+  const bank = questionBanks.find((candidate) => candidate.modules.includes(moduleId));
+  if (!bank) return;
+
+  const isExpanded = button.getAttribute("aria-expanded") === "true";
+  if (isExpanded) {
+    button.setAttribute("aria-expanded", "false");
+    panel.hidden = true;
+    return;
+  }
+
+  button.setAttribute("aria-expanded", "true");
+  panel.hidden = false;
+
+  if (panel.dataset.loaded === "true") return;
+
+  panel.innerHTML = `<p>Loading additional questions...</p>`;
+
+  try {
+    const response = await fetch(versionedModuleUrl(bank.file), { cache: "no-store" });
+    if (!response.ok) throw new Error(`Could not load ${bank.file}`);
+    const markdown = await response.text();
+    const extracted = bank.pilot ? extractPilotQuestionBank(markdown, moduleId, bank) : extractStructuredQuestionBank(markdown, moduleId, bank);
+    panel.innerHTML = renderMarkdown(mathifyMarkdown(extracted));
+    panel.dataset.loaded = "true";
+
+    if (window.MathJax?.typesetPromise) {
+      await window.MathJax.typesetPromise([panel]);
+    }
+  } catch (error) {
+    panel.innerHTML = `
+      <p>Could not load additional questions. The source file is available here:
+      <a href="${bank.file}">${bank.file}</a>.</p>
+    `;
+  }
+}
+
+function renderTopicQuestionShell(moduleId) {
+  const bank = questionBanks.find((candidate) => candidate.modules.includes(moduleId));
+  if (!bank) return "";
+
+  return `
+    <aside class="topic-questions">
+      <button type="button" class="topic-toggle" data-topic-module-id="${moduleId}" aria-expanded="false">
+        Additional Topic Questions
+      </button>
+      <a class="topic-bank-link" href="${bank.file}">Open full bank</a>
+      <div class="topic-question-panel" data-topic-panel hidden></div>
+    </aside>
+  `;
+}
+
+function extractStructuredQuestionBank(markdown, moduleId, bank) {
+  const lines = markdown.split("\n");
+  const chunks = [];
+  let current = [];
+  let capturing = false;
+
+  for (const line of lines) {
+    const heading = line.match(/^## (\d{2})\./);
+    if (heading) {
+      if (capturing && current.length) {
+        chunks.push(current.join("\n").trimEnd());
+      }
+      capturing = heading[1] === moduleId;
+      current = capturing ? [line] : [];
+      continue;
+    }
+
+    if (capturing) {
+      current.push(line);
+    }
+  }
+
+  if (capturing && current.length) {
+    chunks.push(current.join("\n").trimEnd());
+  }
+
+  if (!chunks.length) {
+    return `## Additional Topic Questions\n\nNo structured reserve entries are available yet for Module ${moduleId} in ${bank.label}.`;
+  }
+
+  return [
+    `## Additional Topic Questions`,
+    ``,
+    `Source: ${bank.label}`,
+    ``,
+    ...chunks
+  ].join("\n");
+}
+
+function extractPilotQuestionBank(markdown, moduleId, bank) {
+  const start = markdown.indexOf("## Problem Trail");
+  const body = start >= 0 ? markdown.slice(start) : markdown;
+  return [
+    `## Additional Topic Questions`,
+    ``,
+    `Source: ${bank.label}`,
+    ``,
+    body.trim()
+  ].join("\n");
 }
 
 function versionedModuleUrl(file) {

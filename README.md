@@ -77,6 +77,7 @@ New-Item -ItemType Directory -Force _site | Out-Null
 Copy-Item -Recurse -Force docs\* _site\
 Copy-Item -Recurse -Force modules _site\modules
 Copy-Item -Recurse -Force research _site\research
+Copy-Item -Recurse -Force question-bank _site\question-bank
 New-Item -ItemType File -Force _site\.nojekyll | Out-Null
 ```
 

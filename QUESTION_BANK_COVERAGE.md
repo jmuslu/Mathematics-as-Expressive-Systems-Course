@@ -11,11 +11,11 @@ Run:
 ## Current Structured Counts
 
 ```text
-01: 1
-02: 1
-03: 3
-04: 2
-05: 2
+01: 3
+02: 3
+03: 4
+04: 4
+05: 4
 06: 0 (14 pilot problems, not structured reserve entries)
 07: 8
 08: 9
