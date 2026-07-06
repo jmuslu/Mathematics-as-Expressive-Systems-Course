@@ -1,4 +1,4 @@
-# Module 15: Representations and Equivariance
+# Module 15: Representations, Equivariance, and Dance Moves
 
 ## Lecture Promise
 

@@ -1,4 +1,4 @@
-# Module 16: Invariant Operators and Reynolds Averaging
+# Module 16: Invariant Operators and Reviewer Averaging
 
 ## Lecture Promise
 

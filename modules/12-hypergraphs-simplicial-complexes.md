@@ -1,4 +1,4 @@
-# Module 12: Hypergraphs and Simplicial Complexes
+# Module 12: Hypergraphs, Simplicial Complexes, and Group Commitments
 
 ## Lecture Promise
 

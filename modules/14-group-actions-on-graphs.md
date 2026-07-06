@@ -1,4 +1,4 @@
-# Module 14: Group Actions on Sets and Graphs
+# Module 14: Group Actions and Seating Chart Relabeling
 
 ## Lecture Promise
 

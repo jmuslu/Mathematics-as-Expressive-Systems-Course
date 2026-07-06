@@ -1,4 +1,4 @@
-# Module 13: Groups and Symmetry
+# Module 13: Groups, Symmetry, and Party-Game Moves
 
 ## Lecture Promise
 
