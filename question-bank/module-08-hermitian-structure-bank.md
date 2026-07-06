@@ -244,7 +244,7 @@ Good bridge from 1-by-1 Hermitian matrices to full matrices.
 Module: 08
 Topic: Hermitian quadratic form
 Role: harder calculation
-Status: reserve
+Status: promoted in Module 08 Problem 8.6
 Source use: original, source-informed
 Source note: Inspired by Hermitian matrix/operator notes.
 License note: No source problem text copied.

@@ -196,9 +196,9 @@ A one-dimensional Hermitian measurement must be a real number.
 Let:
 
 ```text
-H = [2  i]
-    [-i 3]
-v = (1, i)
+H = [3   1+i]
+    [1-i 2]
+v = (1+i, 2)
 ```
 
 Compute `v* H v`.
@@ -206,15 +206,15 @@ Compute `v* H v`.
 Answer check:
 
 ```text
-H v = [2  i; -i 3](1,i)
-    = (2 + i^2, -i + 3i)
-    = (1, 2i)
+Hv = [3(1+i) + (1+i)2, (1-i)(1+i) + 2(2)]
+   = [5 + 5i, 2 + 4]
+   = [5 + 5i, 6]
 
-v* = [1, -i]
-v* H v = [1, -i](1, 2i)
-       = 1 + (-i)(2i)
-       = 1 + 2
-       = 3
+v* = [1-i, 2]
+
+v*Hv = (1-i)(5+5i) + 2(6)
+     = 10 + 12
+     = 22
 ```
 
 Hermitian forms behave like real-valued measurements even when the vectors have phase.
