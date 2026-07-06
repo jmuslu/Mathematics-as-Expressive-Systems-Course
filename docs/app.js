@@ -22,7 +22,7 @@ const modules = [
   ["20", "Categorical Databases and Schemas", "modules/20-categorical-databases.md", "Treat typed roster schemas as categories."],
   ["21", "Operads and Compositional Systems", "modules/21-operads-compositional-systems.md", "Compose typed multi-input dinner-planning operations."],
   ["22", "Topology, Neighborhoods, and Continuity", "modules/22-topology-neighborhoods-continuity.md", "Study structure that survives deformation."],
-  ["23", "Persistent Homology", "modules/23-persistent-homology.md", "Track what survives across thresholds, decay, and scale."],
+  ["23", "Persistent Homology", "modules/23-persistent-homology.md", "Track what survives across friendship thresholds and scale."],
   ["24", "Sheaves and Local-to-Global Consistency", "modules/24-sheaves-local-global.md", "Patch local claims into coherent global belief."],
   ["25", "Message Passing and Belief Propagation", "modules/25-message-passing-belief-propagation.md", "Model validation loops as local graph updates."],
   ["26", "Probabilistic Graphical Models", "modules/26-probabilistic-graphical-models.md", "Represent uncertainty over structured memory."],

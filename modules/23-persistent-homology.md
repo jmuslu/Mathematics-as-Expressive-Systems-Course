@@ -2,7 +2,7 @@
 
 ## Lecture Promise
 
-You will understand persistence as a way to measure which structures survive across scale, decay, or confidence thresholds.
+You will understand persistence as a way to measure which structures survive across scale and friendship thresholds.
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ You will understand persistence as a way to measure which structures survive acr
 
 ## Why The Old Object Fails
 
-A node-level decay score does not tell you which reasoning paths or clusters collapse.
+A single thresholded social graph does not tell you which groups, bridges, or loops are stable.
 
 Persistence asks what survives as a threshold changes.
 
@@ -38,21 +38,21 @@ Features have birth and death times.
 
 ## Worked Example
 
-A memory cluster that appears at low threshold and survives for many thresholds is more structurally stable than one that appears briefly.
+A friendship cluster that appears early and survives for many thresholds is more structurally stable than one that appears briefly.
 
 ## Failure Mode
 
-Persistence can find shape without meaning. A persistent cluster may be an artifact of embedding geometry.
+Persistence can find shape without meaning. A persistent cluster may be an artifact of the chosen score or embedding geometry.
 
 ## Problem Ladder
 
 1. Build a filtration from three points on a line.
 2. Identify when connected components merge.
-3. Explain how decay could be modeled as a filtration.
+3. Explain how a friendship threshold can be modeled as a filtration.
 
-## Memory-System Connection
+## Design Connection
 
-Persistent features can guide consolidation: keep structures that survive perturbation, decay, or threshold changes.
+Persistent features help separate stable social structure from artifacts of one arbitrary cutoff.
 
 ## Hand Problem Trail
 
@@ -202,9 +202,9 @@ It may be a short-lived artifact or noise feature, unless the domain gives a rea
 
 Persistence does not remove judgment; it gives a structured signal for judgment.
 
-### Problem 23.11: Decay as filtration
+### Problem 23.11: Friendship threshold as filtration
 
-A graph keeps only edges with confidence at least `t`. As `t` decreases from high to low, more edges appear. Is this a filtration?
+A social graph keeps only friendship edges with score at least `t`. As `t` decreases from high to low, more edges appear. Is this a filtration?
 
 Answer check:
 
@@ -213,16 +213,16 @@ Yes, if the direction is high threshold to low threshold.
 Edges are added as t decreases.
 ```
 
-Decay and confidence thresholds can be turned into nested graph sequences.
+Friendship-score thresholds can be turned into nested graph sequences.
 
 ### Problem 23.12: Failure mode - persistent but meaningless
 
-Give a reason a persistent cluster might still be semantically bad.
+Give a reason a persistent friendship cluster might still be misleading.
 
 Answer check:
 
 ```text
-It may reflect embedding artifacts, duplicated text, shared boilerplate, or a feature irrelevant to the intended concept.
+It may reflect a bad scoring rule, shared schedule constraints, seating proximity, or a feature irrelevant to actual friendship.
 ```
 
 Persistent homology finds stable shape. It does not guarantee meaningful interpretation.
