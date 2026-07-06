@@ -204,7 +204,11 @@ Every edge requires equality. Is this a global section?
 Answer check:
 
 ```text
-Yes. All edge restrictions agree.
+edge (1,2): red = red
+edge (2,3): red = red
+edge (1,3): red = red
+
+Yes.
 ```
 
 Every local pair is compatible, so the whole assignment glues.

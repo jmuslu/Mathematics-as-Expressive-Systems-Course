@@ -157,12 +157,15 @@ Homology treats filled boundaries as no longer holes.
 
 ### Problem 23.9: Simple persistence pair
 
-For the loop in Problems 23.7 and 23.8, write its birth-death interval.
+For the loop in Problems 23.7 and 23.8, write its birth-death interval and lifetime.
 
 Answer check:
 
 ```text
-[1,2]
+birth = 1
+death = 2
+interval = [1,2]
+lifetime = 2 - 1 = 1
 ```
 
 The loop existed after the boundary appeared and before the face filled it.

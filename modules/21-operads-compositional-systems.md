@@ -122,7 +122,15 @@ summarize: ValidatedClaim x Context -> Summary
 
 Write the composite operation type after plugging validate into summarize's first slot.
 
-Answer check: `Claim x Evidence x Context -> Summary`.
+Answer check:
+
+```text
+summarize(validate(Claim, Evidence), Context)
+
+Claim x Evidence x Context -> Summary
+```
+
+The output of `validate` fills the first typed slot of `summarize`.
 
 ### Problem 21.4: Draw the operation tree
 
@@ -216,6 +224,9 @@ Answer check:
 
 ```text
 Yes. Its output type is Evidence, which matches the second input slot of validate.
+
+validate(Claim, extractEvidence(Passage)):
+Claim x Passage -> ValidatedClaim
 ```
 
 Operadic composition is type-checked plugging.
