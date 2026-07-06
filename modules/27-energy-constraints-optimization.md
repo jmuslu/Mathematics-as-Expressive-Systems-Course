@@ -165,12 +165,24 @@ For the constraint `x <= 2`, write it as:
 g(x) = x - 2 <= 0
 ```
 
-At the solution `x=2`, is the constraint active?
+At the solution `x=2`, is the constraint active? Using the convention:
+
+```text
+L = (x-3)^2 + mu(x-2)
+```
+
+find `mu` from stationarity.
 
 Answer check:
 
 ```text
 g(2)=0, so the constraint is active.
+
+dL/dx = 2(x-3) + mu
+0 = 2(2-3) + mu
+mu = 2
+
+mu >= 0 and mu*g(2)=2*0=0
 ```
 
 Complementary slackness says inactive constraints should have zero multiplier.

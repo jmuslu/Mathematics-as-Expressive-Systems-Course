@@ -186,13 +186,17 @@ B receives one message leaning toward 0 and one message leaning toward 1.
 
 ### Problem 25.9: Combine incoming messages at B
 
-Using Problem 25.8 and `psi_B=(1,1)`, compute B's unnormalized belief.
+Using Problem 25.8 and `psi_B=(1,1)`, compute B's unnormalized and normalized belief.
 
 Answer check:
 
 ```text
 b_B(0)=1*1.9*1.4 = 2.66
 b_B(1)=1*1.1*1.6 = 1.76
+
+total = 2.66 + 1.76 = 4.42
+normalized = (2.66/4.42, 1.76/4.42)
+           approx (0.602, 0.398)
 ```
 
 After normalization, B leans toward 0 because A's strong support dominates C's weaker pressure.

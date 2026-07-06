@@ -160,16 +160,24 @@ Two causes can explain one observation:
 Rain -> WetGrass <- Sprinkler
 ```
 
-If you learn the grass is wet, are Rain and Sprinkler generally independent after conditioning on WetGrass?
+If you learn the grass is wet, are Rain and Sprinkler generally independent after conditioning on WetGrass? Use this toy comparison:
+
+```text
+P(Rain | WetGrass) = 0.6
+P(Rain | WetGrass, Sprinkler on) = 0.2
+```
 
 Answer check:
 
 ```text
-No. Conditioning on the shared effect can make the causes dependent.
-If sprinkler is known to be on, rain becomes less necessary as an explanation.
+No. The probability of Rain changes after learning Sprinkler is on:
+
+0.6 != 0.2
 ```
 
 Graphical models encode subtle conditional independence patterns.
+
+If sprinkler is known to be on, rain becomes less necessary as an explanation.
 
 ### Problem 26.8: Hidden common cause
 
