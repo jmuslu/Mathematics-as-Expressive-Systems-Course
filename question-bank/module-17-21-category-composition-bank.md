@@ -1105,7 +1105,7 @@ Typed composition prevents semantically plausible but invalid pipeline connectio
 
 ## Reserve Notes
 
-Good operational bridge from operads to validation pipelines.
+Good operational bridge from operads to typed process pipelines.
 
 ## 21.dinner-wiring.type-check.a
 

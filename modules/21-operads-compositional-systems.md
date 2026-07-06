@@ -2,7 +2,7 @@
 
 ## Lecture Promise
 
-You will understand operads as a way to model operations with many inputs and one output, which is essential for composing validation and reasoning steps.
+You will understand operads as a way to model operations with many inputs and one output, which is essential for typed compositional design.
 
 ## Prerequisites
 
@@ -12,18 +12,18 @@ You will understand operads as a way to model operations with many inputs and on
 
 ## Why The Old Object Fails
 
-Categories handle one-input one-output arrows well. Reasoning systems often combine many inputs:
+Categories handle one-input one-output arrows well. Many planning and design systems combine many inputs:
 
 ```text
-evidence_1, evidence_2, rule -> validated claim
+preferences, budget, neighborhood -> restaurant shortlist
 ```
 
 ## Base Case
 
-A validation operation might take:
+A planning operation might take:
 
 ```text
-claim, source, counterclaim -> status
+shortlist, reservation time, transportation -> dinner plan
 ```
 
 This is not just an edge. It is a typed multi-input process.
@@ -61,11 +61,11 @@ operadic composition: plug operations into operation slots
 matrix composition: apply one transformation after another
 ```
 
-When designing memory architecture, "combine evidence" can mean concatenate, multiply, contract, average, compose, glue, join, or validate. Those are different mathematical commitments.
+When designing a compositional process, "combine" can mean concatenate, multiply, contract, average, compose, glue, join, vote, filter, or negotiate. Those are different mathematical commitments.
 
 ## Worked Example
 
-If one operation validates a claim and another consolidates validated claims into a summary, operad composition describes the combined process.
+If one operation chooses a restaurant shortlist and another turns a shortlist into a dinner plan, operad composition describes the combined process.
 
 ## Failure Mode
 
@@ -73,16 +73,16 @@ If multi-input operations are flattened into pairwise edges, the system can lose
 
 ## Problem Ladder
 
-1. Draw a binary operation tree for combining two pieces of evidence.
-2. Model a three-input validation rule.
+1. Draw a binary operation tree for combining two dinner preferences.
+2. Model a three-input dinner-planning rule.
 3. Explain why hyperedges and operads are related but not identical.
-4. Classify a memory operation as product, contraction, composition, or gluing.
-5. Explain why "combine two retrieved passages" is underspecified until the operation is named.
-6. Design a typed validation operation whose output can feed another operation.
+4. Classify a planning operation as product, contraction, composition, or gluing.
+5. Explain why "combine two dinner preferences" is underspecified until the operation is named.
+6. Design a typed planning operation whose output can feed another operation.
 
-## Memory-System Connection
+## Representation Design Connection
 
-Validation loops are compositional operations, not merely graph traversals.
+Typed design loops are compositional operations, not merely graph traversals.
 
 ## Hand Problem Trail
 
@@ -151,7 +151,7 @@ Operads remember dependency shape, not merely input count.
 
 Classify each as product-like or composition-like.
 
-1. Pair a claim with a source.
+1. Pair a restaurant with a neighborhood.
 2. Choose a main dish, then pair a drink with it.
 3. Build a joint feature space from text and graph features.
 4. Plug one dinner-planning operation into another.
