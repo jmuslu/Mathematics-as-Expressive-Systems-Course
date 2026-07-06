@@ -102,7 +102,50 @@ v^T v = 1^2 + i^2 = 0
 v* v = conjugate(1)1 + conjugate(i)i = 1 + (-i)i = 2
 ```
 
-### Problem 8.2: Hermitian or not?
+### Problem 8.2: A complex similarity score
+
+Let:
+
+```text
+u = (1+i, 2)
+v = (3, 1-i)
+```
+
+Using the convention:
+
+```text
+<u,v> = conjugate(u1)v1 + conjugate(u2)v2
+```
+
+compute `<u,v>`.
+
+Answer check:
+
+```text
+<u,v> = (1-i)3 + 2(1-i)
+      = 3 - 3i + 2 - 2i
+      = 5 - 5i
+```
+
+Complex inner products may be complex when the two inputs differ. Lengths are the special case that must be real and nonnegative.
+
+### Problem 8.3: Check conjugate symmetry
+
+Using the same `u` and `v`, compute `<v,u>` and compare it with `<u,v>`.
+
+Answer check:
+
+```text
+<v,u> = conjugate(3)(1+i) + conjugate(1-i)2
+      = 3(1+i) + (1+i)2
+      = 5 + 5i
+
+<v,u> = conjugate(<u,v>)
+```
+
+The order matters, but in a controlled way.
+
+### Problem 8.4: Hermitian or not?
 
 Decide whether each matrix is Hermitian.
 
@@ -116,7 +159,55 @@ B = [1 i]
 
 Answer check: A is Hermitian. B is not Hermitian because conjugate transpose changes the off-diagonal entries.
 
-### Problem 8.3: Unitary preservation
+### Problem 8.5: A 1 by 1 Hermitian matrix is real
+
+Let:
+
+```text
+H = [a + bi]
+```
+
+What condition makes `H` Hermitian?
+
+Answer check:
+
+```text
+H* = [a - bi]
+H* = H means a - bi = a + bi
+so b = 0
+```
+
+A one-dimensional Hermitian measurement must be a real number.
+
+### Problem 8.6: A Hermitian quadratic form is real
+
+Let:
+
+```text
+H = [2  i]
+    [-i 3]
+v = (1, i)
+```
+
+Compute `v* H v`.
+
+Answer check:
+
+```text
+H v = [2  i; -i 3](1,i)
+    = (2 + i^2, -i + 3i)
+    = (1, 2i)
+
+v* = [1, -i]
+v* H v = [1, -i](1, 2i)
+       = 1 + (-i)(2i)
+       = 1 + 2
+       = 3
+```
+
+Hermitian forms behave like real-valued measurements even when the vectors have phase.
+
+### Problem 8.7: Unitary preservation
 
 Let `U = [0 1; 1 0]`. Show `U*U = I` and compute `||U(3,4)||`.
 
@@ -127,7 +218,111 @@ U*U = I
 U(3,4) = (4,3), norm = 5
 ```
 
-### Problem 8.4: Memory interpretation
+### Problem 8.8: A phase rotation is unitary
+
+Let:
+
+```text
+U = [i 0]
+    [0 1]
+v = (2,3)
+```
+
+Compute `Uv` and compare `||Uv||^2` with `||v||^2` using the Hermitian norm.
+
+Answer check:
+
+```text
+Uv = (2i,3)
+||Uv||^2 = conjugate(2i)(2i) + 3*3
+          = (-2i)(2i) + 9
+          = 4 + 9
+          = 13
+
+||v||^2 = 2^2 + 3^2 = 13
+```
+
+Multiplying by a complex phase changes direction in the complex plane but preserves length.
+
+### Problem 8.9: Orthogonality with phase
+
+Let:
+
+```text
+u = (1, i)
+v = (1, i)
+w = (1, -i)
+```
+
+Compute `<u,w>`.
+
+Answer check:
+
+```text
+<u,w> = conjugate(1)1 + conjugate(i)(-i)
+      = 1 + (-i)(-i)
+      = 1 - 1
+      = 0
+```
+
+The vector `w` is not visually orthogonal in the real-coordinate sense, but it is Hermitian-orthogonal to `u`.
+
+### Problem 8.10: Projection in a complex line
+
+Project:
+
+```text
+y = (1, i)
+```
+
+onto the line spanned by:
+
+```text
+u = (1, 0)
+```
+
+using:
+
+```text
+proj_u(y) = (<u,y>/<u,u>) u
+```
+
+Answer check:
+
+```text
+<u,y> = 1
+<u,u> = 1
+proj_u(y) = (1)(1,0) = (1,0)
+```
+
+Projection still works over complex scalars, but only after the geometry uses conjugation.
+
+### Problem 8.11: Failure mode - using transpose instead of conjugate transpose
+
+Let:
+
+```text
+v = (1, i, 1-i)
+```
+
+Compute `v^T v` and `v* v`.
+
+Answer check:
+
+```text
+v^T v = 1^2 + i^2 + (1-i)^2
+      = 1 - 1 + (1 - 2i + i^2)
+      = -2i
+
+v* v = 1 + 1 + conjugate(1-i)(1-i)
+     = 2 + (1+i)(1-i)
+     = 2 + 2
+     = 4
+```
+
+Without conjugation, squared length can become non-real.
+
+### Problem 8.12: Phase interpretation
 
 If a complex relation has magnitude as strength and phase as temporal offset, why must similarity use conjugation?
 

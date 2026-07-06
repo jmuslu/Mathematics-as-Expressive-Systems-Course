@@ -19,6 +19,22 @@ Problem hooks:
 - Decide when inner, outer, tensor, wedge, and categorical products are the right way to combine objects.
 - Find two non-isomorphic graphs that a weak message passing scheme cannot distinguish.
 
+## Linear Algebra, Tensors, And Hermitian Structure
+
+- [Multilinear Algebra Notes for 18.101](https://ocw.mit.edu/courses/18-101-analysis-ii-fall-2005/4aa13eec01f3f70bd6eeeb7820d861a9_classnotesfall04.pdf) - public MIT OCW notes for multilinear maps, tensor products, alternating forms, and exterior algebra.
+- [Notes on Tensor Products and the Exterior Algebra](https://www.math.uwaterloo.ca/~kpurbhoo/spring2012-math245/tensor.pdf) - a compact tensor/exterior algebra reference that emphasizes different products answering different construction problems.
+- [Exterior Powers](https://kconrad.math.uconn.edu/blurbs/linmultialg/extmod.pdf) - Keith Conrad's notes on exterior powers as a way to detect linear dependence and study subspace geometry.
+- [The Dual of a Vector Space](https://people.math.osu.edu/gerlach.1/math5451/TensorCalculus/DualOfAVectorSpace.pdf) - a useful warning that covariant and contravariant language is about components and transformation laws, not magic kinds of arrays.
+- [Lecture Notes on Manifolds, Tangent Vectors and Covectors](https://bohr.physics.berkeley.edu/classes/222/lectures/Lecture.2004.02.24.pdf) - concrete tangent/cotangent transformation laws and the vector/covector pairing.
+
+Problem hooks:
+
+- Turn a bilinear dinner-preference score into a tensor slot problem.
+- Compute a wedge product and explain when it vanishes because two directions are dependent.
+- Preserve a scalar pairing under a change of units by transforming covector components in the opposite direction.
+- Lower a vector index with a metric and explain why this is extra geometric structure.
+- Show why complex geometry needs conjugation by producing a nonzero vector with invalid transpose-only length.
+
 ## Category Theory, Schemas, And Provenance
 
 - [Seven Sketches in Compositionality](https://arxiv.org/abs/1803.05316) - applied category theory through databases, orders, circuits, dynamical systems, and sheaves.

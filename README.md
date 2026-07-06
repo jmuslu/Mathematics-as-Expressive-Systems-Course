@@ -28,6 +28,7 @@ The destination is broader than RAG or vector search. Those are applications. Th
 - [Source Pedagogy](SOURCE_PEDAGOGY.md)
 - [Website Design Notes](WEBSITE_DESIGN_NOTES.md)
 - [Primary Paper Trail](research/primary-papers.md)
+- [Question Bank Source Policy](QUESTION_BANK_SOURCE_POLICY.md)
 - [Interactive Course Site](docs/index.html)
 
 ## Modules
@@ -53,6 +54,12 @@ concrete problem -> base case -> operation -> definition -> derivation -> failur
 ```
 
 No coding assignments are required. Problems are mathematical and architectural.
+
+## License And Source Use
+
+This repository is released under the [MIT License](LICENSE).
+
+Question-bank development should follow the [Question Bank Source Policy](QUESTION_BANK_SOURCE_POLICY.md): use public and institutional sources for orientation, track provenance, and write original course problems unless a source license clearly allows direct reuse.
 
 ## Local Website Preview
 
