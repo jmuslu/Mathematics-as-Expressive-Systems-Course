@@ -304,9 +304,9 @@ Good bridge from hand graph matrices to spectral graph theory.
 Module: 11
 Topic: relabeling invariance of spectrum
 Role: conceptual check
-Status: lecture candidate
+Status: promoted variant in Module 11 Problems 11.4 and 11.6
 Source use: original, source-informed
-Source note: Inspired by algebraic graph theory and the live detective-board running example.
+Source note: Inspired by algebraic graph theory sources on permutation similarity and the live detective-board running example.
 License note: No source problem text copied.
 Verification status: checked by hand
 ```

@@ -87,9 +87,26 @@ P = [0 0 1]
 
 ### Problem 11.4: Verify graph symmetry
 
-Using the adjacency matrix of the path, verify `P A P^T = A`.
+Using the adjacency matrix of the path, verify `P A P^T = A`. Interpret this as swapping two interchangeable witness labels on the detective board.
 
-Answer check: direct multiplication returns the same adjacency matrix, so P is an automorphism.
+Answer check:
+
+```text
+A = [0 1 0]
+    [1 0 1]
+    [0 1 0]
+
+P = [0 0 1]
+    [0 1 0]
+    [1 0 0]
+
+P A P^T = [0 1 0]
+          [1 0 1]
+          [0 1 0]
+        = A
+```
+
+The board changes names, but not structure. So P is an automorphism.
 
 ### Problem 11.5: Non-automorphism
 
@@ -107,7 +124,16 @@ Not every permutation is a graph symmetry.
 
 Explain why eigenvalues of A are unchanged by relabeling.
 
-Answer check: relabeling gives `PAP^T`, which is similar to A because `P^T = P^{-1}`. Similar matrices have the same eigenvalues.
+Answer check:
+
+```text
+relabeling gives P A P^T
+P^T = P^{-1}
+so P A P^T is similar to A
+similar matrices have the same eigenvalues
+```
+
+The spectrum sees the detective-board structure, not the arbitrary node names.
 
 ### Problem 11.7: Regular graph check
 
