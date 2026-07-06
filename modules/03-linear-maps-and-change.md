@@ -224,9 +224,11 @@ For the same A, solve `Ax = x`.
 Answer check:
 
 ```text
-(x1 - x2, x2) = (x1, x2)
-So x2 = 0. All states (t, 0) survive unchanged.
+A(x,y) = (x,0)
+(x,0) = (x,y) means y = 0.
 ```
+
+All states `(t,0)` survive unchanged.
 
 ### Problem 3.11: Determinant intuition
 

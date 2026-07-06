@@ -265,6 +265,51 @@ Contradiction detection is a structural task, not merely a confidence-ranking ta
 
 Good failure-mode companion to the previous problem.
 
+## 03.fixed-point.projection.a
+
+```text
+Module: 03
+Topic: fixed points of a projection map
+Role: computation
+Status: promoted
+Source use: original, source-informed
+Source note: Inspired by standard linear-map checks for image, kernel, and fixed subspaces.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+Let:
+
+```text
+A = [1 0]
+    [0 0]
+```
+
+Solve `Ax = x`.
+
+## Answer Check
+
+```text
+A(x,y) = (x,0)
+(x,0) = (x,y) means y = 0
+```
+
+So every vector `(t,0)` is fixed.
+
+## Intuition
+
+The projection keeps the visible coordinate and deletes the invisible coordinate. A state is fixed exactly when it already has nothing in the deleted direction.
+
+## Modeling Implication
+
+Fixed points reveal which states survive an update unchanged.
+
+## Reserve Notes
+
+Promoted into Module 03 to correct and document the projection fixed-point calculation.
+
 ## 04.projection.misunderstood.request.a
 
 ```text
