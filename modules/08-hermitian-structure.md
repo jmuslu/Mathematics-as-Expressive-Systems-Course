@@ -26,6 +26,18 @@ conjugate(z) z = (1 - i)(1 + i) = 2
 
 The norm is real and nonnegative.
 
+## Running Example: Playlist Phase
+
+Imagine a playlist profile where magnitude means how strongly someone likes a feature, and phase means when that feature matters:
+
+```text
+early night, late night, nostalgic, energetic
+```
+
+Two people can have the same strength of preference but different timing. If similarity ignores conjugation, a nonzero phase-coded preference can produce a zero or non-real "length." That is not a usable geometry.
+
+Hermitian structure says: phase can matter when comparing different profiles, but self-length must still be real and nonnegative.
+
 ## Formal Object
 
 A Hermitian inner product satisfies:

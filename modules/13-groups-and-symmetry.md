@@ -39,6 +39,20 @@ r^2 r^3 = r^5 = r
 
 Closure is what makes this a transformation system rather than a list of moves.
 
+## Running Example: Party-Game Moves
+
+In a party game, a legal move might rotate the seating chart one seat clockwise. If you can rotate once, rotate twice, rotate three times, and do nothing, then doing legal moves after legal moves stays legal.
+
+You can also undo every rotation:
+
+```text
+clockwise once is undone by clockwise three times
+```
+
+But "remove a player from the game" is different. It may be useful, but it is not a symmetry if the removed player cannot be recovered from the new state.
+
+Groups are the math of reversible legal moves, not the math of every possible update.
+
 ## Formal Object
 
 A group G is a set with an operation satisfying:

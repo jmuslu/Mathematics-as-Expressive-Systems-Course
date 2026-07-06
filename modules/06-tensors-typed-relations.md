@@ -28,6 +28,24 @@ B(u, v)
 
 A tensor generalizes this to structured multi-input relations.
 
+## Running Example: Dinner Table Relations
+
+At a dinner table, "Ari likes tacos" is a two-slot relation:
+
+```text
+person, dish -> score
+```
+
+But dinner planning often needs more slots:
+
+```text
+person, dish, occasion -> score
+```
+
+Bea might like tacos for late-night food, dislike them for a formal dinner, and feel neutral about them at lunch. A matrix can store person-by-dish preferences, but it cannot remember the occasion slot without flattening something meaningful.
+
+The tensor lesson is simple: some relationships need several typed slots at once. The number only means something after the slots are named.
+
 ## Product Atlas
 
 Different products answer different design questions. Product is not one operation; it is a family of ways to combine objects.

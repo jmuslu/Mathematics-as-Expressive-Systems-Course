@@ -26,6 +26,25 @@ phi(v)
 
 should not depend on coordinates.
 
+## Running Example: Budget Units
+
+Suppose a weekend plan records spending as:
+
+```text
+food units, transit units
+```
+
+If food is first measured in ten-dollar units and later in twenty-dollar units, the coordinate for the same spending gets cut in half. The price-weight for that coordinate must double if the total score is supposed to mean the same thing.
+
+The spending vector and the scoring covector move in opposite directions because they have different jobs:
+
+```text
+state coordinates change with the ruler
+measurement weights compensate for the ruler
+```
+
+That is covariance and contravariance in a form you can feel before you memorize the notation.
+
 ## Formal Object
 
 Covariant and contravariant components transform oppositely so geometric meaning is preserved.
