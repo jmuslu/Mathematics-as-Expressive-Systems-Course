@@ -134,6 +134,8 @@ Multipliers are shadow prices for constraints.
 
 ### Problem 27.7: Inequality constraint by inspection
 
+Let `x` be the chosen dinner cost in tens of dollars. The group's unconstrained favorite has:
+
 Minimize:
 
 ```text
@@ -151,7 +153,7 @@ What is the minimizer?
 Answer check:
 
 ```text
-The unconstrained minimizer is x=3, but it violates x<=2.
+The unconstrained minimizer is x=3, meaning 30 dollars, but it violates the 20 dollar budget cap x<=2.
 The best feasible point is x=2.
 ```
 
@@ -159,7 +161,7 @@ Constraints can move the optimum to a boundary.
 
 ### Problem 27.8: KKT complementary slackness intuition
 
-For the constraint `x <= 2`, write it as:
+For the dinner-budget constraint `x <= 2`, write it as:
 
 ```text
 g(x) = x - 2 <= 0
@@ -185,9 +187,13 @@ mu = 2
 mu >= 0 and mu*g(2)=2*0=0
 ```
 
+The budget cap is active: it is exactly what prevents the group from choosing the unconstrained 30 dollar option.
+
 Complementary slackness says inactive constraints should have zero multiplier.
 
 ### Problem 27.9: Inactive constraint
+
+Now suppose the group's budget cap is loose:
 
 Minimize:
 
@@ -210,7 +216,7 @@ The minimizer is x=3.
 The constraint is inactive because 3 < 5.
 ```
 
-The constraint exists but does not shape the optimum.
+The 50 dollar budget cap exists but does not shape the optimum because the preferred 30 dollar choice is already feasible.
 
 ### Problem 27.10: Penalty method
 

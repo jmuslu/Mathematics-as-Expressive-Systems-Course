@@ -688,6 +688,58 @@ Trust, budget, or consistency constraints can force a model away from the score 
 
 Good direct KKT intuition.
 
+## 27.dinner-budget.kkt.active.a
+
+```text
+Module: 27
+Topic: active and inactive inequality constraints
+Role: computation / modeling interpretation
+Status: promoted
+Source use: original, source-informed
+Source note: Inspired by KKT examples where active constraints bind at equality and inactive constraints have zero multiplier.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+Let `x` be dinner cost in tens of dollars and let:
+
+```text
+E(x) = (x - 3)^2
+```
+
+Compare two budget caps:
+
+```text
+A. x <= 2
+B. x <= 5
+```
+
+For each cap, find the minimizer and say whether the budget constraint is active.
+
+## Answer Check
+
+```text
+A. The unconstrained minimizer x=3 violates x<=2, so the best feasible point is x=2.
+   The constraint is active.
+
+B. The unconstrained minimizer x=3 satisfies x<=5, so the minimizer is x=3.
+   The constraint is inactive.
+```
+
+## Intuition
+
+An active constraint actually shapes the chosen optimum. An inactive constraint is present but not binding at the solution.
+
+## Modeling Implication
+
+Optimization diagnostics should report which human requirements shaped the result, not only the final score.
+
+## Reserve Notes
+
+Promoted into Module 27 to tie KKT active/inactive constraints to the dinner-planning running example.
+
 ## 27.kkt.inactive.multiplier.a
 
 ```text
