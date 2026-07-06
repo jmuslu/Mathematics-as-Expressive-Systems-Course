@@ -4,7 +4,7 @@ const modules = [
     title: "Orientation",
     object: "Mathematics as expressive design",
     move: "structure",
-    file: "../modules/00-orientation.md",
+    file: "modules/00-orientation.md",
     summary: "Learn the six-question lens and the three design moves.",
     operations: ["Ask what failed before the object existed", "Track operations and invariants", "Build object cards"]
   },
@@ -13,7 +13,7 @@ const modules = [
     title: "Numbers",
     object: "Number systems",
     move: "scalars",
-    file: "../modules/01-number-systems.md",
+    file: "modules/01-number-systems.md",
     summary: "Follow N, Z, Q, R, C, and H as increasingly expressive scalar systems.",
     operations: ["Subtract", "Divide", "Take limits", "Solve polynomial equations", "Handle noncommutative multiplication"]
   },
@@ -22,7 +22,7 @@ const modules = [
     title: "Vectors and Spaces",
     object: "Vector spaces",
     move: "space",
-    file: "../modules/02-vectors-and-spaces.md",
+    file: "modules/02-vectors-and-spaces.md",
     summary: "Move from quantities to directions, combinations, spans, and bases.",
     operations: ["Add vectors", "Scale vectors", "Form spans", "Change basis"]
   },
@@ -31,7 +31,7 @@ const modules = [
     title: "Matrices",
     object: "Linear maps",
     move: "operation",
-    file: "../modules/03-linear-maps-and-matrices.md",
+    file: "modules/03-linear-maps-and-matrices.md",
     summary: "Treat matrices as machines that transform vector spaces.",
     operations: ["Transform", "Compose", "Invert", "Solve systems"]
   },
@@ -40,7 +40,7 @@ const modules = [
     title: "Invariants",
     object: "Stable features",
     move: "structure",
-    file: "../modules/04-invariants.md",
+    file: "modules/04-invariants.md",
     summary: "Ask what survives when coordinates or transformations change.",
     operations: ["Classify", "Compare", "Detect preserved directions"]
   },
@@ -49,7 +49,7 @@ const modules = [
     title: "Complex Geometry",
     object: "Complex vector spaces",
     move: "scalars",
-    file: "../modules/05-complex-geometry.md",
+    file: "modules/05-complex-geometry.md",
     summary: "Let scaling include phase, rotation, conjugation, and Hermitian geometry.",
     operations: ["Rotate by scaling", "Conjugate", "Use Hermitian inner products", "Preserve geometry with unitary maps"]
   },
@@ -58,7 +58,7 @@ const modules = [
     title: "Rings, Fields, Quotients",
     object: "Arithmetic rule systems",
     move: "structure",
-    file: "../modules/06-rings-fields-quotients.md",
+    file: "modules/06-rings-fields-quotients.md",
     summary: "Separate the rules of arithmetic from any single number system.",
     operations: ["Add", "Multiply", "Invert when allowed", "Quotient by a rule"]
   },
@@ -67,7 +67,7 @@ const modules = [
     title: "Algebras",
     object: "Vector spaces with multiplication",
     move: "operation",
-    file: "../modules/07-algebras.md",
+    file: "modules/07-algebras.md",
     summary: "Give objects internal multiplication and study the consequences.",
     operations: ["Add", "Scale", "Multiply", "Track commutativity"]
   },
@@ -76,7 +76,7 @@ const modules = [
     title: "Tensors",
     object: "Multilinear constructions",
     move: "operation",
-    file: "../modules/08-tensors.md",
+    file: "modules/08-tensors.md",
     summary: "Represent several inputs interacting simultaneously.",
     operations: ["Tensor spaces", "Represent bilinear maps", "Track type and symmetry"]
   },
@@ -85,7 +85,7 @@ const modules = [
     title: "Duality and Constraints",
     object: "Dual spaces",
     move: "space",
-    file: "../modules/09-duality-and-constraints.md",
+    file: "modules/09-duality-and-constraints.md",
     summary: "Study covectors, measurement, constraints, and primal-dual thinking.",
     operations: ["Evaluate", "Constrain", "Pair", "Take adjoints"]
   },
@@ -94,7 +94,7 @@ const modules = [
     title: "Groups",
     object: "Legal moves",
     move: "structure",
-    file: "../modules/10-groups.md",
+    file: "modules/10-groups.md",
     summary: "Describe symmetries as composable and reversible moves.",
     operations: ["Compose", "Invert", "Act", "Classify by orbit"]
   },
@@ -103,7 +103,7 @@ const modules = [
     title: "Representation Theory",
     object: "Symmetry as linear action",
     move: "operation",
-    file: "../modules/11-representation-theory.md",
+    file: "modules/11-representation-theory.md",
     summary: "Turn abstract symmetries into matrices and operators.",
     operations: ["Represent", "Decompose", "Compute characters", "Find fixed spaces"]
   },
@@ -112,7 +112,7 @@ const modules = [
     title: "Category Theory",
     object: "Structure-preserving systems",
     move: "structure",
-    file: "../modules/12-category-theory.md",
+    file: "modules/12-category-theory.md",
     summary: "Compare whole mathematical worlds through objects and arrows.",
     operations: ["Compose arrows", "Use functors", "State universal properties"]
   },
@@ -121,7 +121,7 @@ const modules = [
     title: "Capstone",
     object: "Your chosen object",
     move: "structure",
-    file: "../modules/13-capstone.md",
+    file: "modules/13-capstone.md",
     summary: "Design a mini-lecture around one mathematical object and the limitation it solves.",
     operations: ["Create an object card", "Work an example", "Name the design move"]
   }
