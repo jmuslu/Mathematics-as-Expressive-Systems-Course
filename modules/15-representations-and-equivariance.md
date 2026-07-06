@@ -132,7 +132,41 @@ R^3 = [0 1; -1 0]
 R^4 = I
 ```
 
-### Problem 15.2: Invariant function
+### Problem 15.2: Representation law check
+
+For the same `R`, verify:
+
+```text
+rho(r^2) = rho(r) rho(r)
+```
+
+Answer check:
+
+```text
+rho(r)rho(r) = R^2 = [-1 0; 0 -1]
+rho(r^2) = R^2
+```
+
+A representation respects the group multiplication table.
+
+### Problem 15.3: Apply a rotation to a point
+
+Compute `R(2,1)` for:
+
+```text
+R = [0 -1]
+    [1  0]
+```
+
+Answer check:
+
+```text
+R(2,1) = (-1,2)
+```
+
+The abstract 90-degree rotation becomes a matrix acting on coordinates.
+
+### Problem 15.4: Invariant function
 
 Let C2 swap coordinates. Test whether each function is invariant.
 
@@ -148,7 +182,25 @@ Answer check:
 f1 invariant, f2 not invariant, f3 invariant
 ```
 
-### Problem 15.3: Equivariant map
+### Problem 15.5: Anti-invariant function
+
+Let `s` swap coordinates. Show that:
+
+```text
+f(x,y) = x - y
+```
+
+is not invariant, but changes sign under the swap.
+
+Answer check:
+
+```text
+f(s.(x,y)) = f(y,x) = y - x = -(x-y)
+```
+
+Some quantities are not mistakes just because they change. They may transform predictably.
+
+### Problem 15.6: Equivariant map
 
 Let `F(x,y)=(2x,2y)`. Is F equivariant under coordinate swap?
 
@@ -161,8 +213,114 @@ s.F(x,y) = s.(2x,2y) = (2y,2x)
 
 Yes.
 
-### Problem 15.4: Tensor product representation
+### Problem 15.7: A non-equivariant map
+
+Let C2 swap coordinates and let:
+
+```text
+F(x,y) = (x+y, 0)
+```
+
+Is `F` equivariant under the swap?
+
+Answer check:
+
+```text
+F(s.(x,y)) = F(y,x) = (x+y,0)
+s.F(x,y) = s.(x+y,0) = (0,x+y)
+```
+
+These are not equal in general, so F is not equivariant.
+
+### Problem 15.8: Graph-level invariant
+
+For an adjacency matrix `A`, let:
+
+```text
+f(A) = trace(A^2)
+```
+
+If relabeling sends `A` to `PAP^T`, explain why `f` is invariant.
+
+Answer check:
+
+```text
+trace((PAP^T)^2)
+= trace(P A P^T P A P^T)
+= trace(P A^2 P^T)
+= trace(A^2)
+```
+
+This counts closed length-2 walks, so names of nodes do not matter.
+
+### Problem 15.9: Node-level equivariance
+
+Let a node feature vector be:
+
+```text
+x = (1,4,9)
+```
+
+and let `P` swap nodes 1 and 3. A layer is:
+
+```text
+F(x) = 2x
+```
+
+Check equivariance:
+
+```text
+F(Px) = P F(x)
+```
+
+Answer check:
+
+```text
+Px = (9,4,1)
+F(Px) = (18,8,2)
+
+F(x) = (2,8,18)
+P F(x) = (18,8,2)
+```
+
+The output moves with the relabeled nodes.
+
+### Problem 15.10: Tensor product representation
 
 If g acts by `rho(g)` on V and by `tau(g)` on W, write how it acts on `v tensor w`.
 
 Answer check: `g.(v tensor w) = rho(g)v tensor tau(g)w`.
+
+### Problem 15.11: Tensor product dimension
+
+If `V` is 2-dimensional and `W` is 3-dimensional, what is the dimension of `V tensor W`?
+
+Answer check:
+
+```text
+dim(V tensor W) = 2 * 3 = 6
+```
+
+Tensor products build compound spaces by pairing basis slots.
+
+### Problem 15.12: Invariant or equivariant?
+
+Classify each output type for a graph with arbitrary node labels:
+
+```text
+A. total number of triangles
+B. embedding vector for each node
+C. sorted degree sequence
+D. raw feature of node 1
+```
+
+Answer check:
+
+```text
+A. invariant
+B. equivariant
+C. invariant
+D. neither, unless node 1 has semantic identity beyond its label
+```
+
+The question is not "does it change?" The question is "how should it change?"

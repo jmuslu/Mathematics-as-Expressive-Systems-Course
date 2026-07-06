@@ -103,13 +103,61 @@ Answer check:
 yes, yes, no, yes
 ```
 
-### Problem 13.2: Symmetries of a two-node edge
+### Problem 13.2: Why integers under multiplication fail
+
+Explain which group rule fails for the integers under multiplication.
+
+Answer check:
+
+```text
+Most integers do not have integer multiplicative inverses.
+For example, 2 would need 1/2, but 1/2 is not an integer.
+```
+
+Closure holds and associativity holds, but inverses fail.
+
+### Problem 13.3: Rotation closure for a square
+
+Let `r` be a 90-degree rotation. Simplify:
+
+```text
+r^2 r^3
+r^3 r^3
+r^5
+```
+
+Answer check:
+
+```text
+r^2 r^3 = r^5 = r
+r^3 r^3 = r^6 = r^2
+r^5 = r
+```
+
+All exponents are reduced modulo 4.
+
+### Problem 13.4: Inverse rotations
+
+For the square rotation group `{e, r, r^2, r^3}`, find the inverse of each element.
+
+Answer check:
+
+```text
+e^{-1} = e
+r^{-1} = r^3
+(r^2)^{-1} = r^2
+(r^3)^{-1} = r
+```
+
+The inverse is the move that undoes the rotation.
+
+### Problem 13.5: Symmetries of a two-node edge
 
 A graph has nodes `{1,2}` and one edge between them. List all node permutations that preserve adjacency.
 
 Answer check: identity and swap. This group is isomorphic to C2.
 
-### Problem 13.3: Cayley table for C2
+### Problem 13.6: Cayley table for C2
 
 Let elements be `e` and `s`, where `s^2=e`. Write the multiplication table.
 
@@ -121,8 +169,78 @@ Answer check:
  s s e
 ```
 
-### Problem 13.4: Invariant question
+### Problem 13.7: A move with no inverse
+
+A graph operation deletes a node and all edges touching it. Is this operation a group symmetry?
+
+Answer check:
+
+```text
+No. Once the node and incident edges are deleted, the original graph cannot be recovered from the result alone.
+```
+
+Useful operations can fail to be symmetries.
+
+### Problem 13.8: A reversible relabeling
+
+A graph operation swaps node labels 1 and 2. Is this operation invertible?
+
+Answer check:
+
+```text
+Yes. Applying the same swap again restores the original labels.
+```
+
+Relabeling is a symmetry when labels are names rather than content.
+
+### Problem 13.9: Invariant question
 
 A feature returns the number of edges in a graph. Is it invariant under node relabeling?
 
 Answer check: yes. Relabeling changes names, not the number of edges.
+
+### Problem 13.10: Non-invariant question
+
+A feature returns "the degree of node 1." Is it invariant under arbitrary node relabeling?
+
+Answer check:
+
+```text
+No. If node labels are swapped, the old node 1 may now have a different name.
+```
+
+The feature may be meaningful only if node 1 has semantic identity beyond its storage label.
+
+### Problem 13.11: Symmetry of an equilateral triangle
+
+How many rotational symmetries does an equilateral triangle have? List them using `r` for a 120-degree rotation.
+
+Answer check:
+
+```text
+e, r, r^2
+```
+
+There are 3 rotational symmetries. If reflections are included, the full symmetry group has 6 elements.
+
+### Problem 13.12: Symmetry versus dynamics
+
+Classify each operation as a likely symmetry or a likely non-invertible dynamic:
+
+```text
+A. relabel nodes
+B. rotate a square embedding by 90 degrees
+C. decay every score by 10 percent
+D. merge two duplicate nodes and forget which was original
+```
+
+Answer check:
+
+```text
+A. symmetry
+B. symmetry
+C. not a symmetry if exact previous scores cannot be recovered
+D. not a symmetry if provenance is forgotten
+```
+
+Groups are for legal reversible transformations. They are not a model for every process.

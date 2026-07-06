@@ -18,6 +18,25 @@ Problem hooks:
 - Compare invariance, equivariance, and covariance on one three-node graph.
 - Decide when inner, outer, tensor, wedge, and categorical products are the right way to combine objects.
 - Find two non-isomorphic graphs that a weak message passing scheme cannot distinguish.
+- Compute an orbit and stabilizer for a small group action.
+- Build a Reynolds average over a two-element or three-element group and identify what information it erases.
+
+## Groups, Actions, Representations, And Averaging
+
+- [Groups and Group Actions Lecture Notes](https://www.maths.ox.ac.uk/system/files/attachments/Groups%20and%20Group%20Actions%20Lecture%20Notes.pdf) - group actions, orbits, stabilizers, and orbit-stabilizer as the finite-group backbone for modules 13-14.
+- [Group Actions](https://kconrad.math.uconn.edu/blurbs/grouptheory/gpaction.pdf) - Keith Conrad's compact account of actions, cosets, conjugacy, and stabilizers.
+- [Basic Group and Representation Theory](https://people.math.ethz.ch/~wilthoma/rep_theory/master.pdf) - actions, orbit-stabilizer, and representations as linear realizations of abstract symmetry.
+- [Universal Invariant and Equivariant Graph Neural Networks](https://papers.neurips.cc/paper/8931-universal-invariant-and-equivariant-graph-neural-networks.pdf) - invariant graph-level outputs and equivariant node-level outputs as design constraints.
+- [Invariant and Equivariant Reynolds Networks](https://www.jmlr.org/papers/volume25/22-0891/22-0891.pdf) - Reynolds operators as group averages that convert functions into invariant or equivariant forms.
+- [Lecture 16: Reynolds Operator and Finite Generation of Invariant Rings](https://cs.uwaterloo.ca/~r5olivei/courses/2021-winter-cs487/lecture16-post.pdf) - explicit invariant-theory framing of Reynolds averaging.
+
+Problem hooks:
+
+- List the symmetry group of a square or triangle and compute inverses.
+- Relabel a graph by `PAP^T` and distinguish invariant graph summaries from equivariant node data.
+- Test whether a coordinate function is invariant, anti-invariant, equivariant, or neither.
+- Average over a finite group action and verify the result is fixed by the group.
+- Give a concrete case where averaging removes direction, provenance, or asymmetry that should have been preserved.
 
 ## Linear Algebra, Tensors, And Hermitian Structure
 
