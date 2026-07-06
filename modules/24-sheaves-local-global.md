@@ -26,6 +26,19 @@ A graph says which pieces touch. A sheaf says what data lives on each piece and 
 
 Two nodes hold local claims about the same entity. An edge stores the overlap condition. If the claims agree on the overlap, they can be glued.
 
+## Running Example: Witness Stories
+
+Two witnesses describe the same dinner.
+
+```text
+Witness A: Rae ordered pasta.
+Witness B: Rae sat by the window.
+```
+
+If the overlap only asks who both stories mention, the reports agree on `Rae` and can be patched together. If the overlap asks for the exact dish, then Witness B has no dish information to compare. If Witness B says "Rae ordered soup," then a dish-level overlap exposes disagreement.
+
+The sheaf lesson is that agreement is not vague. The restriction maps decide which part of each local story must match on the overlap.
+
 ## Formal Object
 
 A sheaf assigns data to local regions and restriction maps to overlaps, satisfying gluing and locality conditions.

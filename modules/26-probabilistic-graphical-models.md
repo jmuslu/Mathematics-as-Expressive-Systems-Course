@@ -25,6 +25,19 @@ Source reliability -> Evidence observation
 
 The evidence depends on both truth and source reliability.
 
+## Running Example: Two Friends, One Source
+
+Two friends recommend the same restaurant. At first this sounds like two independent signals.
+
+But if both friends read the same viral review, their recommendations share a hidden cause:
+
+```text
+ViralReview -> FriendARecommendation
+ViralReview -> FriendBRecommendation
+```
+
+A graphical model makes that dependency explicit. Without the hidden source, the model may treat copied enthusiasm as independent confirmation.
+
 ## Formal Object
 
 A graphical model factorizes a joint distribution according to graph structure.

@@ -24,6 +24,14 @@ A -> B -> C
 
 Evidence at A should affect belief at C through messages.
 
+## Running Example: Rumor Chain
+
+Suppose Ari tells Bea a rumor, and Bea tells Cy.
+
+Cy should not receive Ari's entire memory. Cy receives a message shaped by Bea's trust in Ari, Bea's own uncertainty, and the relation between the claims.
+
+If Cy later sends the rumor back through another path and the system treats it as new independent evidence, confidence can inflate for the wrong reason. That is why message passing needs graph structure: local summaries are useful, but loops can echo.
+
 ## Formal Object
 
 Belief propagation passes local messages that summarize neighboring evidence.

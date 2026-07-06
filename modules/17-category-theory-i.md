@@ -36,6 +36,24 @@ In the category of vector spaces:
 - Objects are vector spaces.
 - Morphisms are linear maps.
 
+## Running Example: Group Project Workflow
+
+In a group project, you might have:
+
+```text
+Idea -> Draft -> Slides -> Presentation
+```
+
+Each arrow is a process that preserves enough structure to keep the work meaningful. Turning an idea into a draft should preserve the topic. Turning a draft into slides should preserve the argument. Turning slides into a presentation should preserve the order of claims.
+
+Category theory asks the simple but strict question:
+
+```text
+what kind of thing is each stage, and what must each arrow preserve?
+```
+
+Without that, a "workflow" is just a list of verbs.
+
 ## Formal Object
 
 A category has:

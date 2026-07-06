@@ -27,6 +27,25 @@ pi_B: A x B -> B
 
 and the fact that any object X with maps to A and B factors uniquely through A x B.
 
+## Running Example: Lunch Orders
+
+A lunch ticket that records both a person and a meal is product-like:
+
+```text
+Ticket -> Person
+Ticket -> Meal
+```
+
+It is useful because every ticket can be inspected in two legal ways: who ordered and what they ordered.
+
+But a lunch choice that is either a sandwich or a salad is not product-like. It is a tagged alternative:
+
+```text
+SandwichOrder + SaladOrder
+```
+
+Universal properties help you avoid confusing "both fields at once" with "one of several typed options." The construction is defined by the role it plays, not by the database layout you happened to use.
+
 ## Formal Object
 
 A universal property defines an object by a unique mapping behavior.
