@@ -153,12 +153,6 @@ External memory systems are scalar systems everywhere:
 
 Before choosing an algorithm, ask what each coordinate is allowed to mean.
 
-## Research Bridge
-
-- kNN-LM uses scalar interpolation between parametric and non-parametric probability estimates.
-- RAG marginalizes over retrieved documents using probability weights.
-- Attention uses real-valued compatibility scores and softmax probabilities.
-
 ## Hand Problem Trail
 
 ### Problem 1.1: Closure pressure

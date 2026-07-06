@@ -143,12 +143,6 @@ A memory slot is not merely stored text. It is a vector representation plus a se
 
 The design question is: what vector space should memory live in?
 
-## Research Bridge
-
-- Dense Passage Retrieval uses vector representations for questions and passages.
-- ColBERT changes the representation from one vector per passage to many contextual token vectors.
-- Product quantization compresses vector memory by decomposing it into subspaces.
-
 ## Hand Problem Trail
 
 ### Problem 2.1: Memory as a vector

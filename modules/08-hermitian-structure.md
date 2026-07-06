@@ -67,7 +67,7 @@ The same vector now has a valid squared norm.
 
 The point is not quantum mechanics specifically. The point is that once representation includes phase, the legal geometry changes.
 
-Jeevanjee frames non-degenerate Hermitian forms as part of the tiered structure of linear algebra: vector space first, dual space next, then the extra geometric structure that identifies vectors with dual vectors in a controlled way. This matters here because memory scores, similarity, and validation tests should not quietly assume an identification that the representation has not earned.
+Non-degenerate Hermitian forms add geometric structure to a complex vector space. They identify vectors with dual vectors in a controlled way, so scores, similarities, and validation tests do not quietly assume an identification that the representation has not earned.
 
 ## Invariants
 

@@ -45,10 +45,6 @@ Benchmarks can reward shallow retrieval and miss structural collapse.
 
 Evaluation should test the mathematical promises of the architecture, not just the final answer string.
 
-## Research Bridge
-
-GraphRAG-style systems, RAG evaluation, and knowledge graph reasoning all need stronger structural evaluation.
-
 ## Hand Problem Trail
 
 ### Problem 30.1: Retrieval metrics

@@ -83,10 +83,6 @@ What structure must the maps preserve?
 
 Category theory is the language for comparing memory states, schemas, retrieval strategies, and validation pipelines.
 
-## Research Bridge
-
-Seven Sketches in Compositionality develops applied category theory through databases, circuits, and systems.
-
 ## Hand Problem Trail
 
 ### Problem 17.1: Small category from a workflow

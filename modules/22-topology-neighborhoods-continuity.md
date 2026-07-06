@@ -46,10 +46,6 @@ Topology can ignore metric magnitude. Geometry can ignore persistent structure. 
 
 Topology helps detect whether reasoning paths and memory clusters survive decay or threshold changes.
 
-## Research Bridge
-
-Topological data analysis studies persistent structure in data across scales.
-
 ## Hand Problem Trail
 
 ### Problem 22.1: Open neighborhood intuition

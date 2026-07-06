@@ -58,10 +58,6 @@ Overly rigid schemas block discovery. Overly loose schemas make validation impos
 
 Typed memory is the difference between a pile of facts and an epistemic graph.
 
-## Research Bridge
-
-David Spivak's categorical database work gives a formal language for schemas, data migration, and compositional data integration.
-
 ## Hand Problem Trail
 
 ### Problem 20.1: Schema as category

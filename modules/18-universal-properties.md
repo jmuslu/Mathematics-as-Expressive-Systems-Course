@@ -56,10 +56,6 @@ Universal properties are precise but abstract. If you skip examples, they become
 
 Universal properties help identify canonical constructions: products, sums, pullbacks, pushouts, limits, and colimits.
 
-## Research Bridge
-
-Categorical databases and compositional systems rely on universal constructions to combine schemas and data.
-
 ## Hand Problem Trail
 
 ### Problem 18.1: Product object intuition

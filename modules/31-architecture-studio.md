@@ -6,7 +6,7 @@ You will assemble the mathematical objects into a design specification for a dyn
 
 ## Prerequisites
 
-- The full course sequence
+- All previous modules
 
 ## Design Target
 
@@ -62,11 +62,7 @@ If the architecture cannot state what it preserves, it cannot be trusted as a se
 
 ## Memory-System Connection
 
-This is where the course becomes design practice.
-
-## Research Bridge
-
-This module synthesizes applied category theory, algebraic graph theory, sheaf theory, graphical models, and dynamical systems.
+This is where the mathematics becomes design practice.
 
 ## Hand Problem Trail
 

@@ -45,7 +45,7 @@ operadic composition: plug operations into operation slots
 matrix composition: apply one transformation after another
 ```
 
-This distinction is one of the course's recurring themes. When you design memory architecture, "combine evidence" can mean concatenate, multiply, contract, average, compose, glue, join, or validate. Those are different mathematical commitments.
+When designing memory architecture, "combine evidence" can mean concatenate, multiply, contract, average, compose, glue, join, or validate. Those are different mathematical commitments.
 
 ## Worked Example
 
@@ -67,10 +67,6 @@ If multi-input operations are flattened into pairwise edges, the system can lose
 ## Memory-System Connection
 
 Validation loops are compositional operations, not merely graph traversals.
-
-## Research Bridge
-
-Applied category theory uses operads to model wiring diagrams, systems, and compositional processes.
 
 ## Hand Problem Trail
 

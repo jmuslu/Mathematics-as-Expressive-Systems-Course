@@ -89,10 +89,6 @@ For a graph-level contradiction score, invariance is often right. For a node-lev
 
 Invariant operators create features that ignore arbitrary graph presentation while preserving structural meaning.
 
-## Research Bridge
-
-The G-invariance tutorial constructs invariant neural weights as an eigenspace of a Reynolds operator.
-
 ## Hand Problem Trail
 
 ### Problem 16.1: Reynolds operator for a swap

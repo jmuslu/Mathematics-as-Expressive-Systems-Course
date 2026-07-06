@@ -46,10 +46,6 @@ Loops can double-count evidence. Correlated sources can produce false confidence
 
 Validation is not a scalar confidence score. It is a dynamic process over a graph.
 
-## Research Bridge
-
-Mezard and Montanari's work on information, physics, and computation develops message passing and graphical models deeply.
-
 ## Hand Problem Trail
 
 ### Problem 25.1: Chain messages

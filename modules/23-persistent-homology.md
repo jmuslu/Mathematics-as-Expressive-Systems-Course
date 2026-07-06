@@ -48,10 +48,6 @@ Persistence can find shape without meaning. A persistent cluster may be an artif
 
 Persistent features can guide consolidation: keep structures that survive perturbation, decay, or threshold changes.
 
-## Research Bridge
-
-TDA for machine learning uses persistence to detect robust geometric/topological structure.
-
 ## Hand Problem Trail
 
 ### Problem 23.1: Threshold graph

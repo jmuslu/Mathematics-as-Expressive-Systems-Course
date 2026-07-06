@@ -26,7 +26,7 @@ The course returns to these questions repeatedly:
 
 ## Product Atlas Thread
 
-The original coursework made matrix operations, projections, covariance, SVD, and optimization feel concrete by forcing the learner to ask what each operation actually does. This course keeps that habit and expands it into a recurring product atlas:
+The product atlas forces a concrete question before every operation: what does this operation actually do, and what does it allow us to express?
 
 | Operation | What it asks |
 | --- | --- |
@@ -41,7 +41,7 @@ The original coursework made matrix operations, projections, covariance, SVD, an
 | Operadic composition | How do typed operations plug into one another? |
 | Sheaf gluing | When do local pieces form a coherent global object? |
 
-This thread is one of the main callbacks to Jeevanjee's *An Introduction to Tensors and Group Theory for Physicists*: the course borrows the discipline of slots, dual spaces, non-degenerate Hermitian forms, active/passive transformations, tensor products, symmetric and antisymmetric tensors, representation tensor products, contractions, and invariants, but aims it at external memory systems rather than a quantum-mechanics specialization.
+The product thread emphasizes slots, dual spaces, non-degenerate Hermitian forms, active/passive transformations, tensor products, symmetric and antisymmetric tensors, representation tensor products, contractions, and invariants.
 
 ## Vertical Progression
 
@@ -103,4 +103,4 @@ For each module, produce:
 - One graph/memory design implication
 - One completed hand problem trail with answer checks
 
-This course should feel like the original slide sequence: concrete problem first, abstraction second, design implication last.
+The intended rhythm is concrete problem first, abstraction second, design implication last.

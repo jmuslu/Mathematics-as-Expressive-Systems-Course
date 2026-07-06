@@ -53,10 +53,6 @@ Dynamics can converge to bad attractors:
 
 Decay and reinforcement should operate on nodes, edges, paths, motifs, and sheaf consistency, not only raw facts.
 
-## Research Bridge
-
-Dynamical systems and spectral graph theory explain convergence, stability, and attractors.
-
 ## Hand Problem Trail
 
 ### Problem 28.1: Linear update

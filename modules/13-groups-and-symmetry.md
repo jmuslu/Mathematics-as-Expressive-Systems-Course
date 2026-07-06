@@ -72,7 +72,7 @@ Not every useful operation is a group operation.
 - Summarization may lose information.
 - Consolidation may merge nodes irreversibly.
 
-That means some memory operations are not symmetries. The course will distinguish reversible transformations from irreversible dynamics.
+Some memory operations are not symmetries. Reversible transformations and irreversible dynamics must be distinguished.
 
 ## Problem Ladder
 
@@ -83,10 +83,6 @@ That means some memory operations are not symmetries. The course will distinguis
 ## Memory-System Connection
 
 Groups answer: what transformations preserve the meaning of the memory graph?
-
-## Research Bridge
-
-The G-invariance tutorial uses groups to define transformations under which a neural representation should be invariant or equivariant.
 
 ## Hand Problem Trail
 

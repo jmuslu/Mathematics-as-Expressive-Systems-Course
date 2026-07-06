@@ -30,7 +30,7 @@ A tensor generalizes this to structured multi-input relations.
 
 ## Product Atlas
 
-Different products answer different design questions. This module is where the course starts treating "product" as a family of mathematical moves, not one operation.
+Different products answer different design questions. Product is not one operation; it is a family of ways to combine objects.
 
 | Product | Question it answers | Base example |
 | --- | --- | --- |
@@ -43,7 +43,7 @@ Different products answer different design questions. This module is where the c
 | Wedge product | What oriented area, volume, or antisymmetric relation is generated? | `u wedge v` |
 | Contraction | How does a tensor reduce by pairing a vector with a covector? | `T^i_j v^j` |
 
-The original ML math course leaned heavily on matrix products, inner products, projections, SVD, covariance, and optimization. This course keeps those, then adds the missing mature products: tensor product for typed joint state, wedge product for oriented antisymmetric structure, and categorical products for structural composition.
+Tensor product gives a typed joint state. Wedge product gives oriented antisymmetric structure. Categorical products describe universal ways of combining structure. Each product has a different legal meaning.
 
 ## Formal Object
 
@@ -60,7 +60,7 @@ u wedge u = 0
 
 Geometrically, `u wedge v` represents an oriented area element. In higher dimensions, wedge products build oriented volumes and differential forms.
 
-Jeevanjee opens tensor intuition with the Levi-Civita symbol and the volume tensor: an object that eats three vectors and returns oriented volume. That is the exact style this course should imitate. The object is introduced because ordinary vectors and matrices do not directly express oriented multi-vector content.
+The Levi-Civita symbol can be understood as the components of a volume tensor: an object that eats three vectors and returns oriented volume. Ordinary vectors and matrices do not directly express this kind of oriented multi-vector content.
 
 Why this belongs here:
 
@@ -69,9 +69,9 @@ Why this belongs here:
 - It gives mature intuition for flux, circulation, constraints, and "joint evidence with orientation."
 - It prepares you for topology and cohomology without requiring a physics specialization.
 
-## Physicist's Tensor Intuition, Without The Physics Detour
+## Tensor Discipline
 
-The useful part of the physicist's tensor style is the discipline around:
+The useful discipline is to track:
 
 - what kind of object this is,
 - what slots it accepts,
@@ -79,7 +79,7 @@ The useful part of the physicist's tensor style is the discipline around:
 - what contractions are legal,
 - which quantities are coordinate-free.
 
-That is why the course later emphasizes covariance, contravariance, Hermitian structure, exterior/wedge products, and invariants. The goal is not quantum mechanics. The goal is mathematical maturity about representation.
+Covariance, contravariance, Hermitian structure, exterior products, and invariants all enforce the same habit: know the object, know its slots, and know which quantities are coordinate-free.
 
 ## Invariants
 

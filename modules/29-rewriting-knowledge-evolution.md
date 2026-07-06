@@ -48,10 +48,6 @@ Rewrite rules can fail to terminate, fail to be confluent, or erase important di
 
 Knowledge evolution needs legal graph edits, not just append-only memory.
 
-## Research Bridge
-
-Graph rewriting and categorical rewriting give formal tools for structured state evolution.
-
 ## Hand Problem Trail
 
 ### Problem 29.1: Rewrite rule

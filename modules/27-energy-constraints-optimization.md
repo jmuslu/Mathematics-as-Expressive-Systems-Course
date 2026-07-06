@@ -42,10 +42,6 @@ The objective may reward the wrong behavior: overconfidence, oversmoothing, or s
 
 Energy functions make validation rules explicit and debuggable.
 
-## Research Bridge
-
-Constraint optimization, graphical models, and statistical physics all contribute to this design layer.
-
 ## Hand Problem Trail
 
 ### Problem 27.1: Simple energy minimum

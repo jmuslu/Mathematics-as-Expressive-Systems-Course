@@ -49,10 +49,6 @@ Conditional independence assumptions can be wrong. A graph may understate hidden
 
 Graphical models give math for belief, uncertainty, source reliability, and evidence conflict.
 
-## Research Bridge
-
-Koller and Friedman is the deep reference for probabilistic graphical models.
-
 ## Hand Problem Trail
 
 ### Problem 26.1: Factorization

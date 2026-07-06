@@ -81,10 +81,6 @@ For memory graphs, that means a validation rule could accidentally depend on sto
 
 Node identities often carry implementation details. Group actions separate real structure from naming accidents.
 
-## Research Bridge
-
-Permutation invariance and equivariance are central in graph neural networks and G-invariant architectures.
-
 ## Hand Problem Trail
 
 ### Problem 14.1: Action on a vector

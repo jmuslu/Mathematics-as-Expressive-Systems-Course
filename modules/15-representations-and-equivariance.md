@@ -94,7 +94,7 @@ rho_{V tensor W}(g)(v tensor w) = rho_V(g)v tensor rho_W(g)w
 
 This is one reason tensor products show up everywhere in mature symmetry arguments. They let you build compound representations from simpler ones.
 
-This is also why Jeevanjee's representation-theory chapters return to tensor product representations, symmetric tensor product representations, antisymmetric tensor product representations, direct sums, irreducibility, and complexification. Those are not physics-only details. They are ways of asking how compound structure transforms and whether it decomposes into simpler invariant pieces.
+Tensor product representations, symmetric and antisymmetric tensor powers, direct sums, irreducibility, and complexification all ask the same structural question: how does compound structure transform, and can it decompose into simpler invariant pieces?
 
 ## Failure Mode
 
@@ -117,10 +117,6 @@ For memory systems, you must decide:
 ## Memory-System Connection
 
 Equivariance is the mature version of "safe transformation." It tells you how memory states should change when the underlying graph changes.
-
-## Research Bridge
-
-The G-invariance tutorial builds invariant neurons by constraining weights to invariant subspaces.
 
 ## Hand Problem Trail
 

@@ -10,21 +10,15 @@ By the end of this module, you should know how to read every later lecture: not 
 - Basic vectors and matrices
 - Willingness to work examples by hand before naming the abstraction
 
-## Why The First Scaffold Failed
+## Why This Method Matters
 
-The first version of this course correctly identified the organizing question:
+Mathematical maturity comes from seeing why an object had to be invented. A definition should arrive after a concrete pressure point, not before it.
 
-> Do mathematicians enlarge the space, enrich the scalars, or invent a new operation?
+The working rhythm is:
 
-But it was too horizontal. It named many objects without making you struggle through the base cases that give those objects meaning.
-
-The source ML math lectures were better because they did three things:
-
-1. They started from a concrete problem.
-2. They showed the smallest case where intuition breaks.
-3. They made the learner manipulate the object until the definition felt earned.
-
-This course now follows that pattern.
+1. Start from a concrete problem.
+2. Find the smallest case where intuition breaks.
+3. Manipulate the object until the definition feels earned.
 
 ## The Course Method
 
@@ -130,7 +124,7 @@ A robust LLM memory system must decide:
 - How to update it
 - How to evaluate whether it helped
 
-This course is the math underneath those decisions.
+The modules that follow build the mathematical judgment underneath those decisions.
 
 ## Hand Problem Trail
 
@@ -154,7 +148,7 @@ Answer check:
 5. sheaf
 ```
 
-### Problem 0.2: Use the lecture worksheet
+### Problem 0.2: Use the object worksheet
 
 Pick the object `projection`. Fill this in by hand:
 

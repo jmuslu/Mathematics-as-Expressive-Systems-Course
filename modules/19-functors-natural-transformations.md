@@ -54,10 +54,6 @@ Bad translations lose structure. For example, embedding a typed graph into vecto
 
 Functors formalize representation changes: text to graph, graph to embedding, schema to database, local evidence to global belief.
 
-## Research Bridge
-
-Seven Sketches uses functors and natural transformations to describe compositional structure across applied systems.
-
 ## Hand Problem Trail
 
 ### Problem 19.1: Functor from schema to sets

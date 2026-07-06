@@ -70,10 +70,6 @@ Bad restriction maps create false peace. Overly strict restriction maps create f
 
 Sheaves are the mature model for multi-hop validation: local contexts patch into global belief only when restrictions agree.
 
-## Research Bridge
-
-Justin Curry's sheaf work and applied sheaf theory give tools for consistency over networks.
-
 ## Hand Problem Trail
 
 ### Problem 24.1: Two-node sheaf

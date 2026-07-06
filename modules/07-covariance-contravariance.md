@@ -40,7 +40,7 @@ vector tensor covector -> linear operator
 2-form(vector, vector) -> scalar
 ```
 
-This is the same instinct you see in serious tensor-focused physics texts: do not memorize arrays; track the legal pairings and transformation laws. For this course, the payoff is architectural rather than physical. A typed memory system should know which combinations preserve meaning and which combinations are category errors.
+Do not memorize arrays; track legal pairings and transformation laws. A typed memory system should know which combinations preserve meaning and which combinations are category errors.
 
 ## Wedge Product And Coordinate Change
 
