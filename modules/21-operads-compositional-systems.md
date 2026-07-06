@@ -172,24 +172,30 @@ Answer check: it can hide that the safety decision depends on all three inputs j
 
 ### Problem 21.7: Binary operation associativity is extra structure
 
-Let `combine(a,b)` mean "average two scores." Compute:
+Let:
 
 ```text
-combine(combine(2,10), 10)
-combine(2, combine(10,10))
+combine(a,b) = 0.75a + 0.25b
+```
+
+This weighted rule gives more influence to the left input. Compute:
+
+```text
+combine(combine(0,8), 8)
+combine(0, combine(8,8))
 ```
 
 Answer check:
 
 ```text
-combine(2,10) = 6
-combine(6,10) = 8
+combine(0,8) = 0.75(0) + 0.25(8) = 2
+combine(2,8) = 0.75(2) + 0.25(8) = 3.5
 
-combine(10,10) = 10
-combine(2,10) = 6
+combine(8,8) = 8
+combine(0,8) = 2
 ```
 
-The operation is not associative. Parentheses matter.
+The operation is not associative. The same leaves arranged in different operation trees can produce different results.
 
 ### Problem 21.8: Associative operation example
 

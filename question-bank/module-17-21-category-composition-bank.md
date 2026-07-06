@@ -1017,9 +1017,9 @@ Natural analogy for Module 21 without forcing memory-system framing.
 Module: 21
 Topic: parenthesization matters
 Role: computation
-Status: lecture candidate
+Status: promoted in Module 21 Problem 21.7
 Source use: original
-Source note: Course-style operation example.
+Source note: Course-style operation example aligned with operadic tree-shape dependence.
 License note: No source problem text copied.
 Verification status: checked by hand
 ```
