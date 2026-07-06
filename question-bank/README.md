@@ -10,6 +10,8 @@ base case -> by-hand manipulation -> answer check -> intuition -> modeling impli
 
 Reserve exercises can be broader, harder, more technical, or more source-adjacent, as long as provenance is tracked.
 
+Use [Problem Trail Style](../PROBLEM_TRAIL_STYLE.md) for analogy rules, bank roles, and promotion criteria.
+
 ## Files
 
 - `module-06-tensors-typed-relations-pilot.md` - first reviewed pilot using the dinner-table analogy.

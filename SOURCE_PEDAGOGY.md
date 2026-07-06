@@ -63,8 +63,8 @@ For this course, each module should include:
 - A formal definition
 - A worked derivation
 - A failure case
-- A problem ladder
-- A research-level extension
+- A 12-problem hand trail
+- A design interpretation
 
 ## 5. They Keep Prerequisites Explicit
 
@@ -84,7 +84,7 @@ Each module in this repo should follow this structure:
 8. Failure mode
 9. Invariants
 10. Problem ladder
-11. Memory-system connection
-12. Research bridge
+11. Design connection
+12. Source or reserve bank notes
 
 The goal is not to be shorter. The goal is to make the learner reason.

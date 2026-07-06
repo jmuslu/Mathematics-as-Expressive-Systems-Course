@@ -15,8 +15,8 @@ Each lecture should contain these pieces.
 7. Derivation: one formula or theorem worked through by hand.
 8. Failure mode: when the object misleads, breaks, or becomes expensive.
 9. Invariants: what survives transformation or approximation.
-10. Problem ladder: direct, transfer, and research-style problems.
-11. Memory-system connection: why this matters for LLM external memory.
+10. Problem ladder: direct, transfer, interpretation, and failure-mode problems.
+11. Design connection: why the local mathematical move matters for structured knowledge systems.
 
 ## The Three Design Moves
 
@@ -88,7 +88,7 @@ Derivation:
 
 Failure mode:
 
-Memory-system connection:
+Design connection:
 
-Research paper bridge:
+Source or reserve bank notes:
 ```

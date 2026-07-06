@@ -28,6 +28,7 @@ The destination is broader than RAG or vector search. Those are applications. Th
 - [Source Pedagogy](SOURCE_PEDAGOGY.md)
 - [Website Design Notes](WEBSITE_DESIGN_NOTES.md)
 - [Course QA](COURSE_QA.md)
+- [Problem Trail Style](PROBLEM_TRAIL_STYLE.md)
 - [Primary Paper Trail](research/primary-papers.md)
 - [Question Bank Source Policy](QUESTION_BANK_SOURCE_POLICY.md)
 - [Question Bank](question-bank/README.md)
@@ -56,6 +57,8 @@ concrete problem -> base case -> operation -> definition -> derivation -> failur
 ```
 
 No coding assignments are required. Problems are mathematical and architectural.
+
+Each module currently has a 12-problem hand trail with answer checks. The central question bank can grow much larger, but lecture modules should only promote the problems that teach the local idea cleanly.
 
 ## License And Source Use
 

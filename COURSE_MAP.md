@@ -101,6 +101,7 @@ For each module, produce:
 - One invariant
 - One failure mode
 - One graph/memory design implication
-- One completed hand problem trail with answer checks
+- One completed 12-problem hand trail with answer checks
+- At least one interpretation problem that connects the calculation back to the motivating scenario
 
 The intended rhythm is concrete problem first, abstraction second, design implication last.
