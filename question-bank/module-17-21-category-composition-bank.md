@@ -975,7 +975,7 @@ Good reserve for source-policy style: original but anchored in functorial migrat
 Module: 21
 Topic: operation tree
 Role: warm-up
-Status: lecture candidate
+Status: promoted in Module 21 Problem 21.3
 Source use: original, source-informed
 Source note: Inspired by operads and wiring diagrams as typed multi-input composition.
 License note: No source problem text copied.

@@ -111,7 +111,7 @@ No. The same input types appear, but the first two slots have different meanings
 
 Operadic typing tracks slots, not just a bag of inputs.
 
-### Problem 21.3: Compose operations
+### Problem 21.3: Dinner operation tree
 
 Suppose:
 
@@ -120,13 +120,14 @@ chooseMain: Guest x Budget -> MainDish
 pairDrink: MainDish x Preference -> DrinkPairing
 ```
 
-Write the composite operation type after plugging `chooseMain` into `pairDrink`'s first slot.
+Plug `chooseMain` into the first slot of `pairDrink`. What are the remaining open input slots, and what is the composite operation type?
 
 Answer check:
 
 ```text
 pairDrink(chooseMain(Guest, Budget), Preference)
 
+open slots: Guest, Budget, Preference
 Guest x Budget x Preference -> DrinkPairing
 ```
 
