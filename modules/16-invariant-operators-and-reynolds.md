@@ -266,18 +266,24 @@ Answer check:
 
 This fixes label sensitivity by averaging over the label symmetry, though it may be expensive for large groups.
 
-### Problem 16.11: Idempotence as "averaging twice changes nothing"
+### Problem 16.11: Idempotence on an already invariant feature
 
-Explain why applying Reynolds averaging twice to `(3,7)` gives the same result as applying it once.
+From the cyclic-rotation average in Problem 16.7, suppose a feature has already been symmetrized to:
+
+```text
+R(f) = (x + y + z)/3
+```
+
+Apply the same Reynolds operator again. What is `R(R(f))`?
 
 Answer check:
 
 ```text
-R(3,7) = (5,5)
-R(5,5) = (5,5)
+R(f) is already invariant under cyclic rotation.
+So R(R(f)) = R(f) = (x+y+z)/3.
 ```
 
-Once an object is in the invariant subspace, more averaging does not move it.
+Once a feature is in the invariant subspace, more averaging does not move it or recover anything already erased.
 
 ### Problem 16.12: Failure mode - averaging away direction
 

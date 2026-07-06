@@ -269,7 +269,7 @@ D. {1-2, 1-3}
 
 ```text
 A. fixed: edges swap with each other
-B. not fixed: 1-2 becomes 3-2
+B. not fixed: 1-2 becomes 2-3
 C. fixed: 1-3 remains 3-1, the same undirected edge
 D. not fixed: 1-2 becomes 2-3, missing from D
 ```
@@ -635,7 +635,7 @@ Good function-level complement to vector averaging.
 Module: 16
 Topic: idempotence
 Role: derivation
-Status: reserve
+Status: promoted in Module 16 Problem 16.11
 Source use: original, source-informed
 Source note: Inspired by Reynolds-operator projection properties.
 License note: No source problem text copied.
