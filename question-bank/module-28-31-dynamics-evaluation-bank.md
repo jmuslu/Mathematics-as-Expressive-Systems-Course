@@ -666,7 +666,7 @@ Promoted into Module 30 as the debate-card component evaluation problem.
 Module: 30
 Topic: calibration and expected calibration error
 Role: computation
-Status: lecture candidate
+Status: promoted in Module 30 Problem 30.10
 Source use: original, source-informed
 Source note: Inspired by calibration papers using reliability diagrams and expected calibration error.
 License note: No source problem text copied.

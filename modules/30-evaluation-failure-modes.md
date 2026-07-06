@@ -224,8 +224,8 @@ ECE = sum_bins (bin_size / total_size) * |accuracy - confidence|
 Answer check:
 
 ```text
-bin 1 contribution = (4/10)|0.50 - 0.60| = 0.04
-bin 2 contribution = (6/10)|0.75 - 0.90| = 0.09
+bin 1 contribution = (4/10)|0.50 - 0.60| = 0.4 * 0.10 = 0.04
+bin 2 contribution = (6/10)|0.75 - 0.90| = 0.6 * 0.15 = 0.09
 
 ECE = 0.04 + 0.09 = 0.13
 ```
