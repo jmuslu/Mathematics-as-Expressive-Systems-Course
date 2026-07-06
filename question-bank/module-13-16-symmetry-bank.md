@@ -292,7 +292,7 @@ Good for preventing a common fixed-point misconception.
 Module: 14
 Topic: permutation artifact
 Role: failure mode
-Status: lecture candidate
+Status: promoted in Module 14 Problem 14.12
 Source use: original, source-informed
 Source note: Inspired by permutation-invariance/equivariance requirements in graph-network papers.
 License note: No source problem text copied.

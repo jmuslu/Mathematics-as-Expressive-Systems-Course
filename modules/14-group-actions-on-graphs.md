@@ -12,9 +12,9 @@ You will understand group actions as the bridge between abstract symmetries and 
 
 ## Why The Old Object Fails
 
-Saying "the symmetric group exists" is not enough. You need to know how a permutation acts on your graph representation.
+Saying "the symmetric group exists" is not enough. You need to know how a permutation acts on your stored representation.
 
-For graph memory, this matters because node IDs should often be arbitrary. Relabeling nodes should not change the system's meaning.
+For graphs, this matters because node IDs are often arbitrary. Relabeling nodes should not change the underlying structure.
 
 ## Base Case
 
@@ -83,15 +83,15 @@ This changes names of nodes but preserves graph structure.
 
 If a graph algorithm depends on arbitrary node ordering, it is learning an artifact.
 
-For memory graphs, that means a validation rule could accidentally depend on storage order instead of relational structure.
+That means a rule can accidentally depend on storage order instead of relational structure.
 
 ## Problem Ladder
 
 1. Relabel a 3-node path graph using a permutation matrix.
 2. Show that degree sequence survives relabeling.
-3. Give a memory-graph feature that should be permutation invariant.
+3. Give a graph-level feature that should be permutation invariant.
 
-## Memory-System Connection
+## Representation Design Connection
 
 Node identities often carry implementation details. Group actions separate real structure from naming accidents.
 
@@ -275,12 +275,25 @@ Fixed does not mean every part stays in place. It means the whole object returns
 
 ### Problem 14.12: Failure mode - learning storage order
 
-A graph rule says "always trust the first listed neighbor more than the second listed neighbor." Why is this not permutation invariant?
+A node rule says:
+
+```text
+output = feature of the first neighbor in the stored adjacency list
+```
+
+A node has neighbors with features:
+
+```text
+10, 30
+```
+
+What happens if the storage order changes from `(10, 30)` to `(30, 10)`?
 
 Answer check:
 
 ```text
-Changing the storage order of neighbors can change the output even when the graph is the same.
+Original output = 10
+Reordered output = 30
 ```
 
-An action tells you which changes are merely presentation changes and should not affect meaning.
+The graph relation did not change, but the rule changed its output. The rule learned presentation order, not graph structure.
