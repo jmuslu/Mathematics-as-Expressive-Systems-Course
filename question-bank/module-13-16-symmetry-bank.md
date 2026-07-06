@@ -62,7 +62,7 @@ Good early failure case before Cayley tables.
 Module: 13
 Topic: symmetry versus irreversible update
 Role: conceptual check
-Status: reserve
+Status: promoted in Module 13 Problem 13.12
 Source use: original
 Source note: Course-style standalone analogy.
 License note: No source problem text copied.

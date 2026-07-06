@@ -2,7 +2,7 @@
 
 ## Lecture Promise
 
-You will understand groups as legal transformations that preserve some structure, and why this is the first serious language for safe graph evolution.
+You will understand groups as legal transformations that preserve some structure, and why this is the first serious language for reversible change.
 
 ## Prerequisites
 
@@ -14,10 +14,10 @@ You will understand groups as legal transformations that preserve some structure
 
 Graph theory can tell you what is connected. It does not automatically tell you which transformations preserve meaning.
 
-For a second-brain system, you need to ask:
+For any structured representation, you need to ask:
 
 - Can I relabel nodes without changing the system?
-- Can I merge or rotate a representation safely?
+- Can I rename, reorder, or rotate a representation safely?
 - Which edits preserve validation?
 - Which transformations break the state space?
 
@@ -86,7 +86,7 @@ Not every useful operation is a group operation.
 - Summarization may lose information.
 - Consolidation may merge nodes irreversibly.
 
-Some memory operations are not symmetries. Reversible transformations and irreversible dynamics must be distinguished.
+Some useful operations are not symmetries. Reversible transformations and irreversible dynamics must be distinguished.
 
 ## Problem Ladder
 
@@ -94,9 +94,9 @@ Some memory operations are not symmetries. Reversible transformations and irreve
 2. Give a graph edit that has an inverse and one that does not.
 3. Explain why node relabeling should preserve graph meaning.
 
-## Memory-System Connection
+## Representation Design Connection
 
-Groups answer: what transformations preserve the meaning of the memory graph?
+Groups answer: which transformations preserve the object, and which transformations actually change it?
 
 ## Hand Problem Trail
 
@@ -256,24 +256,24 @@ r^2   r^2  e    r
 
 There are 3 rotational symmetries. Multiplication is exponent addition modulo 3. If reflections are included, the full symmetry group has 6 elements.
 
-### Problem 13.12: Symmetry versus dynamics
+### Problem 13.12: Playlist symmetry versus dynamics
 
-Classify each operation as a likely symmetry or a likely non-invertible dynamic:
+A playlist app allows these operations:
 
 ```text
-A. relabel nodes
-B. rotate a square embedding by 90 degrees
-C. decay every score by 10 percent
-D. merge two duplicate nodes and forget which was original
+A. reorder songs
+B. reverse the order of the whole playlist
+C. delete every skipped song
+D. rename a playlist without changing songs
 ```
 
 Answer check:
 
 ```text
-A. symmetry
-B. symmetry
-C. not a symmetry if exact previous scores cannot be recovered
-D. not a symmetry if provenance is forgotten
+A. symmetry if only order is presentation, not content
+B. symmetry if order direction is presentation
+C. irreversible dynamic unless skipped songs are recoverable
+D. symmetry of contents
 ```
 
-Groups are for legal reversible transformations. They are not a model for every process.
+Groups are for legal reversible transformations. Deletion, decay, and consolidation may be useful, but they are not symmetries unless the lost state can be recovered.
