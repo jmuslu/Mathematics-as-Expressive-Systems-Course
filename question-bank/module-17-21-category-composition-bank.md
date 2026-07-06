@@ -473,7 +473,7 @@ Small base-case candidate for coproducts.
 Module: 19
 Topic: functor preserving composition
 Role: computation
-Status: lecture candidate
+Status: promoted in Module 19 Problem 19.4
 Source use: original, source-informed
 Source note: Inspired by functor definitions in applied category theory sources.
 License note: No source problem text copied.

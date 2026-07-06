@@ -124,9 +124,37 @@ The identity in the schema becomes the identity function on the bullet set.
 
 ### Problem 19.4: Preserve composition
 
-If category C has `A -> B -> C`, what must a functor F do to the composite?
+A tiny category has:
 
-Answer check: `F(g o f) = F(g) o F(f)`.
+```text
+A --f--> B --g--> C
+```
+
+A functor `F` sends:
+
+```text
+F(A) = {1,2}
+F(B) = {x,y}
+F(C) = {done}
+
+F(f)(1)=x
+F(f)(2)=y
+F(g)(x)=done
+F(g)(y)=done
+```
+
+Compute `F(g o f)(1)` and `F(g o f)(2)`.
+
+Answer check:
+
+```text
+F(g o f) = F(g) o F(f)
+
+F(g o f)(1) = F(g)(F(f)(1)) = F(g)(x) = done
+F(g o f)(2) = F(g)(F(f)(2)) = F(g)(y) = done
+```
+
+A functor translates a path into a composed function, not just isolated object names.
 
 ### Problem 19.5: Forgetful functor
 
