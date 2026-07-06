@@ -12,15 +12,14 @@ You will understand schemas as categories and data instances as structure-preser
 
 ## Why The Old Object Fails
 
-Plain graph memory can become semantically loose. You need types:
+Plain tables can become semantically loose. You need types:
 
-- Claim
-- Evidence
-- Source
-- Agent
-- Time
-- Validation
-- Contradiction
+- Member
+- Team
+- Captain
+- PaymentStatus
+- Conflict
+- Meeting
 
 Categorical databases give a mathematical way to treat schema as structure.
 
@@ -29,9 +28,9 @@ Categorical databases give a mathematical way to treat schema as structure.
 A tiny schema:
 
 ```text
-Claim -> Source
-Claim -> Topic
-Claim -> ValidationState
+Member -> Team
+Team -> Captain
+Member -> PaymentStatus
 ```
 
 This is not just a table. It is a typed structure of relationships.
@@ -54,7 +53,7 @@ A schema can be modeled as a category. An instance is a functor from the schema 
 
 ## Worked Example
 
-If a claim maps to a source and a topic, then every concrete claim record must carry compatible source and topic data.
+If a member maps to a team and a payment status, then every concrete member row must carry compatible team and payment data.
 
 ## Failure Mode
 
@@ -62,13 +61,13 @@ Overly rigid schemas block discovery. Overly loose schemas make validation impos
 
 ## Problem Ladder
 
-1. Draw a schema for Claim, Evidence, Source, and Validation.
-2. Add a contradiction relation.
+1. Draw a schema for Member, Team, Captain, and PaymentStatus.
+2. Add a scheduling conflict relation.
 3. Explain what a schema migration should preserve.
 
-## Memory-System Connection
+## Representation Design Connection
 
-Typed memory is the difference between a pile of facts and an epistemic graph.
+Typed schemas are the difference between a pile of rows and a structure whose relationships can be checked.
 
 ## Hand Problem Trail
 
@@ -178,7 +177,7 @@ Why are path equations stronger than informal field names?
 
 Answer check: they make consistency constraints explicit and checkable.
 
-### Problem 20.7: Add a contradiction relation
+### Problem 20.7: Add a scheduling conflict relation
 
 Extend the roster schema with a scheduling conflict relation between members:
 
@@ -274,16 +273,16 @@ Many joins are pullbacks in disguise.
 Old schema:
 
 ```text
-Claim -> Source
-Claim -> Topic
-Claim -> Confidence
+Member -> Team
+Member -> PaymentStatus
+Member -> ShirtSize
 ```
 
 New schema:
 
 ```text
-Claim -> Source
-Claim -> Topic
+Member -> Team
+Member -> PaymentStatus
 ```
 
 Is moving old data to the new schema mainly forgetting information or adding information?
@@ -291,7 +290,7 @@ Is moving old data to the new schema mainly forgetting information or adding inf
 Answer check:
 
 ```text
-It forgets information: Confidence is dropped.
+It forgets information: ShirtSize is dropped.
 ```
 
 Schema maps can induce data migration, but the direction and information flow must be tracked carefully.
@@ -310,7 +309,7 @@ Answer check:
 
 ```text
 The system may be flexible, but consistency constraints become informal.
-It becomes harder to check source compatibility, provenance, contradiction, and schema migration.
+It becomes harder to check team compatibility, payment status, conflicts, and schema migration.
 ```
 
 Loose data is easy to ingest and hard to reason about.
