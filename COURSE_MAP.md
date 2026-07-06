@@ -1,65 +1,61 @@
 # Course Map
 
-## The Spine
+## Destination
 
-Mathematics grows by solving expression failures.
+The course is aimed at one applied research goal:
 
-Sometimes we enlarge the space. Sometimes we enrich the scalars. Sometimes we invent a new operation. Often a mature theory combines all three.
+> Build the mathematical judgment needed to design robust external memory systems for LLMs.
 
-| Stage | Object | New question it makes natural |
-| --- | --- | --- |
-| 0 | Numbers | How much? |
-| 1 | Vectors | In what direction? |
-| 2 | Matrices | How does it transform? |
-| 3 | Eigenvectors | What survives transformation? |
-| 4 | Complex numbers | What if scaling includes phase? |
-| 5 | Hermitian operators | How do we preserve geometry over complex scalars? |
-| 6 | Rings and fields | What rules must arithmetic obey? |
-| 7 | Algebras | How do objects interact multiplicatively? |
-| 8 | Tensors | How do several objects interact simultaneously? |
-| 9 | Dual spaces | What does it mean to measure an object? |
-| 10 | Groups | What symmetries exist? |
-| 11 | Representations | How can symmetry become computation? |
-| 12 | Categories | What is common to structure-preserving systems? |
+That requires more than "vectors plus cosine similarity." It requires linear algebra, spectral methods, probability, information theory, optimization, metric geometry, approximate nearest neighbor search, attention, dense retrieval, and evaluation under failure.
+
+## The Two Axes
+
+### Vertical Depth
+
+For each object, go from base case to formalism:
+
+```text
+small example -> operation -> derivation -> invariant -> failure mode -> harder example
+```
+
+### Horizontal Application
+
+For each object, ask how it appears in memory systems:
+
+```text
+representation -> retrieval -> indexing -> compression -> update -> evaluation
+```
 
 ## Route Through The Course
 
-### Part I: Coordinates Become Expressive
+| Module | Mathematical object | Memory-system question |
+| --- | --- | --- |
+| 00 | Lecture method | How should I learn this without turning it into buzzwords? |
+| 01 | Scalars and coordinate systems | What can one coordinate express? |
+| 02 | Vector spaces | What is a memory slot allowed to contain? |
+| 03 | Projection and error | What does it mean for retrieved context to be the closest available approximation? |
+| 04 | Orthogonality and SVD | How can memory be compressed without losing the important directions? |
+| 05 | Spectral structure and graphs | What are the stable modes of a similarity graph or transition system? |
+| 06 | Complex scalars and kernels | How do phase, frequency, and feature maps enrich similarity? |
+| 07 | Probability and information | How should uncertainty over memory contents be represented? |
+| 08 | Optimization and duality | How do constraints shape retrieval and ranking? |
+| 09 | Metric geometry | What geometry does an embedding model impose? |
+| 10 | Approximate nearest neighbor search | What must be sacrificed to retrieve fast at scale? |
+| 11 | Attention | How is soft retrieval different from hard lookup? |
+| 12 | Contrastive learning | How are useful memory keys learned? |
+| 13 | Memory-augmented models | What changes when memory is explicit rather than parametric? |
+| 14 | RAG and RETRO | How should generation condition on retrieved evidence? |
+| 15 | Long-context memory | What should be stored, forgotten, consolidated, or refreshed? |
+| 16 | Robustness and evaluation | How do we detect and reduce memory failure? |
 
-- Module 00: Learn the lecture lens.
-- Module 01: See number systems as progressively stronger coordinate languages.
-- Module 02: Move from quantities to spaces of possible combinations.
+## Study Output
 
-### Part II: Transformations Become Objects
+For every module, produce:
 
-- Module 03: Treat matrices as machines, not tables.
-- Module 04: Ask what remains stable under a machine.
-- Module 05: Let scaling include rotation and phase.
+- A worked base case
+- A derivation page
+- A failure-mode page
+- A problem ladder with at least three solved problems
+- A memory-system design note
 
-### Part III: Operations Become The Subject
-
-- Module 06: Separate the rules of addition, multiplication, division, and quotienting.
-- Module 07: Study vector spaces with internal multiplication.
-- Module 08: Build objects that accept several inputs at once.
-- Module 09: Understand duality, constraints, and measurement.
-
-### Part IV: Structure Becomes Portable
-
-- Module 10: Describe legal moves abstractly.
-- Module 11: Turn abstract moves into matrices and operators.
-- Module 12: Compare whole mathematical worlds.
-- Module 13: Design a new object using the course lens.
-
-## What To Produce As You Study
-
-For each module, write a one-page object card:
-
-- Limitation
-- New object
-- Legal operations
-- Invariants
-- One worked example
-- One dependency
-- One sentence explaining whether the construction enlarged the space, enriched the scalars, invented an operation, or combined these moves
-
-These object cards are the real course notes.
+The goal is not to finish quickly. The goal is to build taste: knowing which mathematical object is the right tool for a memory failure.

@@ -1,49 +1,133 @@
-# Module 00: Mathematics as Expressive Design
+# Module 00: How To Work This Course
 
-## Core Question
+## Lecture Promise
 
-What if mathematics is not just a catalog of truths, but a history of better construction kits?
+By the end of this module, you should know how to read every later lecture: not as a topic summary, but as a sequence of mathematical pressure points that force new objects to exist.
 
-## Limitation
+## Prerequisites
 
-When learning math topic by topic, it is easy to miss why a new object exists. The course begins by making the invention pattern explicit.
+- Comfort with algebraic manipulation
+- Basic vectors and matrices
+- Willingness to work examples by hand before naming the abstraction
 
-## New Object
+## Why The First Scaffold Failed
 
-The main object is not a number or a theorem. It is a reading lens:
+The first version of this course correctly identified the organizing question:
 
-> A mathematical object is introduced because some previous language could not express a useful situation naturally.
+> Do mathematicians enlarge the space, enrich the scalars, or invent a new operation?
 
-## Legal Operations
+But it was too horizontal. It named many objects without making you struggle through the base cases that give those objects meaning.
 
-For every new topic, you are allowed to ask:
+The source ML math lectures were better because they did three things:
 
-- What can this object represent?
-- What operations does it make legal?
-- What stays unchanged under those operations?
-- What future theory becomes easier after this object exists?
+1. They started from a concrete problem.
+2. They showed the smallest case where intuition breaks.
+3. They made the learner manipulate the object until the definition felt earned.
 
-## Invariants
+This course now follows that pattern.
 
-The invariant of this course is the six-question object card. The subject matter changes, but the card stays stable.
+## The Course Method
 
-## Concrete Example
+For each lecture, make three pages of your own notes.
 
-Integers can count, but they cannot divide evenly. Rationals solve that limitation. Reals handle limits and continuity. Complex numbers make every nonconstant polynomial over the complex numbers split into linear factors.
+### Page 1: The Base Case
 
-The point is not "more dimensions." The point is more expressive coordinates.
+Write the smallest concrete problem where the new object becomes necessary.
 
-## Hand Exercises
+Example:
 
-1. Pick one object you already know: vector, matrix, derivative, probability, or eigenvector.
-2. Write the limitation it solved.
-3. Name one operation that became legal because of it.
-4. Name one invariant attached to it.
+```text
+Problem: I have a query vector q and three memory vectors m1, m2, m3.
+Question: Which memory is closest, and what does "closest" mean?
+```
 
-## Depends On
+Do not start with "metric space." Start with numbers.
 
-Comfort with basic algebra and the willingness to treat definitions as design choices.
+### Page 2: The Derivation
 
-## Supports Later
+Derive one operation by hand.
 
-Every module.
+Example:
+
+```text
+cos(q, m) = (q^T m) / (||q|| ||m||)
+```
+
+Then ask what changes if all vectors are normalized.
+
+```text
+cos(q, m) = q^T m
+```
+
+Now cosine retrieval has become maximum inner product search.
+
+### Page 3: The Failure Mode
+
+Ask when the object becomes dangerous.
+
+Example:
+
+- The nearest vector may be semantically wrong.
+- Approximate search may miss the true neighbor.
+- A retrieved memory may be correct but irrelevant to the current reasoning step.
+- A long context may contain the answer but the model may ignore it.
+
+## The Vertical And Horizontal Axes
+
+Vertical depth means:
+
+```text
+base case -> formal object -> derivation -> invariant -> failure mode
+```
+
+Horizontal application means:
+
+```text
+representation -> retrieval -> indexing -> compression -> update -> evaluation
+```
+
+Every module should touch both axes.
+
+## What Counts As Understanding
+
+You understand a mathematical object when you can answer:
+
+- What problem forced it to exist?
+- What operation did it make legal?
+- What invariant does it preserve?
+- What failure mode does it introduce?
+- Where does it appear in an external memory system?
+
+## Problem Ladder
+
+### Direct Problems
+
+1. Pick one object you know, such as matrix multiplication. Write the base case that forces it to exist.
+2. For cosine similarity, compute the score between q = (1, 2) and m = (3, 4).
+3. Normalize q and m, then recompute the inner product.
+
+### Transfer Problems
+
+1. Explain how "projection error" and "retrieval error" are related.
+2. Explain why a vector database is not just a storage table but a geometric object.
+3. Explain how attention can be interpreted as soft retrieval.
+
+### Research-Style Problems
+
+1. Read the abstract of a retrieval paper and identify its mathematical object, operation, invariant, and failure mode.
+2. Design a two-memory example where nearest-neighbor retrieval returns the wrong memory.
+3. Design a two-evidence example where the retrieved evidence conflicts with the model's parametric prior.
+
+## Memory-System Connection
+
+A robust LLM memory system must decide:
+
+- What to store
+- How to represent it
+- How to retrieve it
+- How to rank it
+- How to compress it
+- How to update it
+- How to evaluate whether it helped
+
+This course is the math underneath those decisions.

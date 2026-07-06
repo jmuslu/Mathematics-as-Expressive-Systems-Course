@@ -1,15 +1,22 @@
 # Lecture Lens
 
-Use this checklist for every chapter, lecture, or mathematical object.
+Use this checklist for every chapter, lecture, paper, or mathematical object.
 
-## The Six Questions
+## The Lecture Contract
 
-1. What limitation forced this object to exist?
-2. What is the new object?
-3. What operations are now legal?
-4. What new invariants appear?
-5. Can I work with one or two concrete examples until they feel natural?
-6. Which later theories depend on this object?
+Each lecture should contain these pieces.
+
+1. Lecture promise: what you will be able to reason about afterward.
+2. Prerequisites: what must already feel natural.
+3. Concrete failure: the old object cannot express or solve something.
+4. Base case: the smallest example where the failure is visible.
+5. Formal object: the definition that repairs the failure.
+6. Legal operations: what manipulations are now allowed.
+7. Derivation: one formula or theorem worked through by hand.
+8. Failure mode: when the object misleads, breaks, or becomes expensive.
+9. Invariants: what survives transformation or approximation.
+10. Problem ladder: direct, transfer, and research-style problems.
+11. Memory-system connection: why this matters for LLM external memory.
 
 ## The Three Design Moves
 
@@ -74,4 +81,14 @@ Depends on:
 Supports later:
 
 Design move:
+
+Base case:
+
+Derivation:
+
+Failure mode:
+
+Memory-system connection:
+
+Research paper bridge:
 ```

@@ -39,6 +39,7 @@ jobs:
           mkdir -p _site
           cp -R docs/. _site/
           cp -R modules _site/modules
+          cp -R research _site/research
           touch _site/.nojekyll
 
       - name: Upload site artifact

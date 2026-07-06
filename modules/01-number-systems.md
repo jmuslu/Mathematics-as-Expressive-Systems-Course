@@ -1,55 +1,160 @@
-# Module 01: Numbers - Extending What One Coordinate Can Say
+# Module 01: Scalars, Coordinates, and Expressive Power
 
-## Core Question
+## Lecture Promise
 
-What can a single coordinate express?
+You will understand number systems as changes in what one coordinate can express, then connect that idea to embedding coordinates, similarity scores, probabilities, and memory weights.
 
-## Limitation
+## Prerequisites
 
-Natural numbers count, but they do not express debt. Integers express debt, but they do not express division. Rationals express ratios, but they do not express all limits. Reals express limits, but they do not solve equations like x^2 + 1 = 0.
+- Algebra with equations
+- Familiarity with integers, rationals, reals, and complex numbers
+- Basic vector notation
 
-## New Object
+## Why The Old Object Fails
 
-A chain of scalar systems:
+Natural numbers count objects, but memory systems do not merely count. They score relevance, uncertainty, distance, confidence, decay, and interpolation. One coordinate may need to express:
+
+- A count
+- A signed difference
+- A fraction
+- A continuous score
+- A probability
+- A phase or frequency component
+- A log-odds value
+
+The scalar system determines which operations are legal.
+
+## Base Case
+
+Suppose a memory retriever assigns a score to each memory:
 
 ```text
-N -> Z -> Q -> R -> C -> H
+m1: 7
+m2: 2
+m3: 0
 ```
 
-Each step changes the expressive power of one coordinate.
+Natural numbers are enough if scores are only counts. But now suppose a feedback step says m2 should be penalized by 3.
+
+```text
+2 - 3 = -1
+```
+
+Natural numbers fail. Integers are forced.
+
+Now suppose a ranker interpolates two scores:
+
+```text
+new_score = 0.7 * retriever_score + 0.3 * recency_score
+```
+
+Integers fail. Real scalars are forced.
+
+## Formal Object
+
+A scalar field is a system where addition, subtraction, multiplication, and division by nonzero elements are legal. Common examples:
+
+```text
+Q: rational numbers
+R: real numbers
+C: complex numbers
+```
+
+Not every useful scalar system is a field. Integers are not a field because division is not always legal. Quaternions enrich multiplication but lose commutativity.
 
 ## Legal Operations
 
-- Z makes subtraction closed.
-- Q makes division by nonzero numbers closed.
-- R supports limits, order, continuity, and geometry.
-- C supports algebraic closure for polynomial equations.
-- H supports richer rotation-like multiplication, but loses commutativity.
+With richer scalars, you can:
+
+- Interpolate scores
+- Normalize vectors
+- Take limits
+- Define inner products
+- Represent phase
+- Express uncertainty with probabilities or log-probabilities
+
+## Worked Derivation: Log-Odds As A Coordinate Change
+
+Probabilities live in [0, 1]. That interval is awkward for additive evidence. Define odds:
+
+```text
+odds(p) = p / (1 - p)
+```
+
+Then define log-odds:
+
+```text
+logit(p) = log(p / (1 - p))
+```
+
+If p = 0.8:
+
+```text
+odds = 0.8 / 0.2 = 4
+logit = log(4)
+```
+
+Why is this useful? Because evidence often adds more naturally in log space than in probability space.
+
+```text
+posterior_log_odds = prior_log_odds + evidence_log_likelihood_ratio
+```
+
+This is a scalar enrichment: the coordinate has changed from probability to additive evidence.
+
+## Failure Mode
+
+The wrong scalar representation can make a simple operation hard or misleading.
+
+- Raw probabilities saturate near 0 and 1.
+- Dot products are scale-sensitive unless norms are controlled.
+- Cosine similarity throws away magnitude.
+- Complex phase is powerful, but interpreting it as ordinary 2D geometry can hide the scalar role.
 
 ## Invariants
 
-- Closure: do operations stay inside the system?
-- Order: can values be compared?
-- Completeness: do Cauchy sequences converge?
-- Commutativity: does ab = ba?
-- Solvability: which equations always have solutions?
+- Field closure
+- Order, when available
+- Norm or magnitude
+- Sign
+- Phase
+- Monotonic transformations of scores
 
-## Concrete Example
+## Problem Ladder
 
-The equation 2x = 1 has no integer solution, so Q is forced if division is meant to be legal.
+### Direct Problems
 
-The equation x^2 + 1 = 0 has no real solution, so C is forced if every polynomial equation of positive degree should have a root.
+1. Find the smallest familiar number system where each equation has a solution: x + 5 = 2, 3x = 1, x^2 = 2, x^2 = -1.
+2. Convert p = 0.2, 0.5, and 0.8 into odds and log-odds.
+3. If q and m are normalized, prove that cosine similarity equals q^T m.
 
-## Hand Exercises
+### Transfer Problems
 
-1. For each equation, name the smallest familiar number system where it has a solution: x + 5 = 2, 3x = 1, x^2 = 2, x^2 = -1.
-2. Explain why complex numbers enrich scalars instead of merely adding another spatial dimension.
-3. Give an example where quaternion multiplication is not commutative.
+1. Explain why a probability is not the same kind of scalar as an embedding coordinate.
+2. Explain why taking logs turns multiplication of probabilities into addition.
+3. Give an example where normalizing vectors changes the retrieval ranking.
 
-## Depends On
+### Research-Style Problems
 
-Algebra, equations, and basic function notation.
+1. In kNN-LM, probabilities from a language model are interpolated with probabilities from a datastore. Write the interpolation formula and identify the scalar system.
+2. In attention, softmax turns arbitrary real scores into a probability distribution. Show by example that adding the same constant to every score does not change the softmax output.
+3. Suppose a retriever score and a recency score use different scales. Design a normalization rule and state what invariant it preserves.
 
-## Supports Later
+## Memory-System Connection
 
-Complex geometry, Hermitian operators, algebras, representation theory, and quantum-mechanics-adjacent mathematics.
+External memory systems are scalar systems everywhere:
+
+- Similarity scores
+- Retrieval probabilities
+- Attention weights
+- Recency decay
+- Confidence estimates
+- Calibration curves
+
+Before choosing an algorithm, ask what each coordinate is allowed to mean.
+
+## Research Bridge
+
+- kNN-LM uses scalar interpolation between parametric and non-parametric probability estimates.
+- RAG marginalizes over retrieved documents using probability weights.
+- Attention uses real-valued compatibility scores and softmax probabilities.

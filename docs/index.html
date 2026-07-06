@@ -9,164 +9,146 @@
   <body>
     <header class="topbar">
       <div>
-        <p class="eyebrow">Self-paced course</p>
+        <p class="eyebrow">Applied math course</p>
         <h1>Mathematics as Expressive Systems</h1>
       </div>
-      <nav class="nav" aria-label="Course views">
-        <a href="#modules">Modules</a>
-        <a href="#lens">Lens</a>
-        <a href="#object-card">Object Card</a>
+      <nav class="nav" aria-label="Course navigation">
+        <a href="#preface">Preface</a>
+        <a href="#modules">Lectures</a>
+        <a href="#lens">Method</a>
+        <a href="#worksheet">Worksheet</a>
       </nav>
     </header>
 
-    <main>
-      <section class="course-board" aria-labelledby="course-title">
-        <div class="intro-panel">
-          <p class="eyebrow">Guiding question</p>
-          <h2 id="course-title">When math needs more expressive power, what changes?</h2>
+    <main class="tutorial-shell">
+      <aside class="toc-panel" aria-label="Course table of contents">
+        <p class="eyebrow">Course path</p>
+        <nav id="tocList" class="toc-list"></nav>
+      </aside>
+
+      <article class="tutorial-main">
+        <section id="preface" class="preface">
+          <p class="eyebrow">Preface</p>
+          <h2>Applied mathematics for robust external memory in LLM systems</h2>
           <p>
-            Mathematicians can enlarge the space, enrich the scalars, invent a new operation,
-            or combine these moves into a new construction kit.
+            This course is built from a simple pressure: a language model with external memory
+            must represent, retrieve, rank, compress, update, forget, and evaluate information.
+            Each lecture introduces a mathematical object because a previous object fails at one
+            of those jobs.
           </p>
-          <div class="move-tabs" role="tablist" aria-label="Design moves">
-            <button class="move-tab active" data-move="all" type="button">All</button>
-            <button class="move-tab" data-move="space" type="button">Space</button>
-            <button class="move-tab" data-move="scalars" type="button">Scalars</button>
-            <button class="move-tab" data-move="operation" type="button">Operation</button>
-            <button class="move-tab" data-move="structure" type="button">Structure</button>
+          <div class="premise-grid" aria-label="Course promises">
+            <div>
+              <strong>Vertical depth</strong>
+              <span>Base case, derivation, invariant, failure mode.</span>
+            </div>
+            <div>
+              <strong>Horizontal application</strong>
+              <span>Representation, retrieval, indexing, memory, evaluation.</span>
+            </div>
+            <div>
+              <strong>No coding assignments</strong>
+              <span>Math-first problems and design reasoning.</span>
+            </div>
           </div>
-        </div>
+        </section>
 
-        <div class="map-panel" aria-label="Expressive systems map">
-          <svg viewBox="0 0 720 420" role="img" aria-labelledby="map-title map-desc">
-            <title id="map-title">Course progression map</title>
-            <desc id="map-desc">A map from numbers to vectors, matrices, tensors, groups, representations, and categories.</desc>
-            <defs>
-              <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
-                <path d="M0,0 L0,6 L9,3 z" fill="#243447"></path>
-              </marker>
-            </defs>
-            <path class="map-line" d="M70 90 C180 40 240 145 340 96 S540 58 635 112"></path>
-            <path class="map-line warm" d="M80 255 C180 180 278 302 376 238 S560 198 645 310"></path>
-            <g class="node" transform="translate(68 90)">
-              <rect x="-42" y="-24" width="84" height="48"></rect>
-              <text y="5">Numbers</text>
-            </g>
-            <g class="node" transform="translate(202 112)">
-              <rect x="-38" y="-24" width="76" height="48"></rect>
-              <text y="5">Vectors</text>
-            </g>
-            <g class="node" transform="translate(342 96)">
-              <rect x="-42" y="-24" width="84" height="48"></rect>
-              <text y="5">Matrices</text>
-            </g>
-            <g class="node" transform="translate(498 84)">
-              <rect x="-50" y="-24" width="100" height="48"></rect>
-              <text y="5">Invariants</text>
-            </g>
-            <g class="node" transform="translate(635 112)">
-              <rect x="-48" y="-24" width="96" height="48"></rect>
-              <text y="5">Complex</text>
-            </g>
-            <g class="node amber" transform="translate(82 255)">
-              <rect x="-44" y="-24" width="88" height="48"></rect>
-              <text y="5">Algebras</text>
-            </g>
-            <g class="node amber" transform="translate(228 242)">
-              <rect x="-38" y="-24" width="76" height="48"></rect>
-              <text y="5">Tensors</text>
-            </g>
-            <g class="node amber" transform="translate(376 238)">
-              <rect x="-36" y="-24" width="72" height="48"></rect>
-              <text y="5">Duality</text>
-            </g>
-            <g class="node amber" transform="translate(520 258)">
-              <rect x="-34" y="-24" width="68" height="48"></rect>
-              <text y="5">Groups</text>
-            </g>
-            <g class="node amber" transform="translate(645 310)">
-              <rect x="-58" y="-24" width="116" height="48"></rect>
-              <text y="5">Categories</text>
-            </g>
-          </svg>
-        </div>
-      </section>
+        <section id="modules" class="section">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Lectures</p>
+              <h2>Work the base case before naming the abstraction</h2>
+            </div>
+            <label class="search">
+              <span>Search</span>
+              <input id="searchInput" type="search" placeholder="e.g. attention, HNSW, entropy" />
+            </label>
+          </div>
 
-      <section id="modules" class="section">
-        <div class="section-head">
+          <div class="phase-tabs" role="tablist" aria-label="Course phases">
+            <button class="phase-tab active" data-phase="all" type="button">All</button>
+            <button class="phase-tab" data-phase="foundations" type="button">Foundations</button>
+            <button class="phase-tab" data-phase="geometry" type="button">Geometry</button>
+            <button class="phase-tab" data-phase="retrieval" type="button">Retrieval</button>
+            <button class="phase-tab" data-phase="memory" type="button">Memory</button>
+            <button class="phase-tab" data-phase="evaluation" type="button">Evaluation</button>
+          </div>
+
+          <div id="moduleGrid" class="module-list" aria-live="polite"></div>
+        </section>
+
+        <section id="lens" class="section split">
           <div>
-            <p class="eyebrow">Course modules</p>
-            <h2>One new capability at a time</h2>
+            <p class="eyebrow">Lecture method</p>
+            <h2>The lecture contract</h2>
+            <ol class="lens-list">
+              <li>Lecture promise</li>
+              <li>Prerequisites</li>
+              <li>Concrete failure</li>
+              <li>Base case</li>
+              <li>Formal object</li>
+              <li>Legal operations</li>
+              <li>Worked derivation</li>
+              <li>Failure mode</li>
+              <li>Invariants</li>
+              <li>Problem ladder</li>
+              <li>Memory-system connection</li>
+            </ol>
           </div>
-          <label class="search">
-            <span>Search</span>
-            <input id="searchInput" type="search" placeholder="e.g. tensor, symmetry, scalar" />
-          </label>
-        </div>
-        <div id="moduleGrid" class="module-grid" aria-live="polite"></div>
-      </section>
-
-      <section id="lens" class="section split">
-        <div>
-          <p class="eyebrow">Lecture lens</p>
-          <h2>Six questions for every object</h2>
-          <ol class="lens-list">
-            <li>What limitation forced this object to exist?</li>
-            <li>What is the new object?</li>
-            <li>What operations are now legal?</li>
-            <li>What new invariants appear?</li>
-            <li>Which concrete examples make it feel natural?</li>
-            <li>Which later theories depend on it?</li>
-          </ol>
-        </div>
-        <div class="active-module" id="activeModule">
-          <p class="eyebrow">Selected module</p>
-          <h3>Choose a module</h3>
-          <p>The selected lecture summary will appear here.</p>
-        </div>
-      </section>
-
-      <section id="object-card" class="section object-workspace">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Object card</p>
-            <h2>Build your own mathematical construction note</h2>
+          <div class="active-module" id="activeModule">
+            <p class="eyebrow">Selected lecture</p>
+            <h3>Choose a lecture</h3>
+            <p>The selected lecture preview will appear here.</p>
           </div>
-          <button id="copyCard" class="primary-action" type="button">Copy Markdown</button>
-        </div>
-        <form id="cardForm" class="object-form">
-          <label>
-            <span>Object</span>
-            <input name="object" type="text" placeholder="e.g. tensor product" />
-          </label>
-          <label>
-            <span>Limitation</span>
-            <textarea name="limitation" rows="3"></textarea>
-          </label>
-          <label>
-            <span>Legal operations</span>
-            <textarea name="operations" rows="3"></textarea>
-          </label>
-          <label>
-            <span>Invariants</span>
-            <textarea name="invariants" rows="3"></textarea>
-          </label>
-          <label>
-            <span>Concrete example</span>
-            <textarea name="example" rows="3"></textarea>
-          </label>
-          <label>
-            <span>Design move</span>
-            <select name="move">
-              <option>Enlarge the space</option>
-              <option>Enrich the scalars</option>
-              <option>Invent a new operation</option>
-              <option>Combine several moves</option>
-            </select>
-          </label>
-        </form>
-        <pre id="cardOutput" class="card-output" aria-live="polite"></pre>
-      </section>
+        </section>
+
+        <section id="worksheet" class="section worksheet">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Study worksheet</p>
+              <h2>Turn a lecture into working notes</h2>
+            </div>
+            <button id="copyCard" class="primary-action" type="button">Copy Markdown</button>
+          </div>
+          <form id="cardForm" class="worksheet-form">
+            <label>
+              <span>Lecture or object</span>
+              <input name="object" type="text" placeholder="e.g. attention as soft retrieval" />
+            </label>
+            <label>
+              <span>Concrete failure</span>
+              <textarea name="limitation" rows="3"></textarea>
+            </label>
+            <label>
+              <span>Base case</span>
+              <textarea name="basecase" rows="3"></textarea>
+            </label>
+            <label>
+              <span>Worked derivation</span>
+              <textarea name="derivation" rows="3"></textarea>
+            </label>
+            <label>
+              <span>Failure mode</span>
+              <textarea name="failure" rows="3"></textarea>
+            </label>
+            <label>
+              <span>Memory-system connection</span>
+              <textarea name="memory" rows="3"></textarea>
+            </label>
+          </form>
+          <pre id="cardOutput" class="card-output" aria-live="polite"></pre>
+        </section>
+
+        <section class="section references">
+          <p class="eyebrow">Research spine</p>
+          <h2>Primary papers supply the hard problems</h2>
+          <p>
+            The course uses RAG, REALM, kNN-LM, RETRO, Memorizing Transformers, LongMem,
+            Neural Turing Machines, HNSW, FAISS, product quantization, DPR, ColBERT,
+            BEIR, RAGAS, and long-context failure papers as sources of mathematical pressure.
+          </p>
+          <p><a href="research/primary-papers.md">Open the primary paper trail</a></p>
+        </section>
+      </article>
     </main>
 
     <script src="app.js"></script>

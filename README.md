@@ -1,23 +1,24 @@
 # Mathematics as Expressive Systems
 
-A self-paced mathematics course about why new mathematical objects are invented.
+A self-paced applied mathematics course for designing robust external memory systems for LLMs.
 
 The guiding question:
 
 > When mathematicians need more expressive power, do they enlarge the space, enrich the scalars, or invent a new operation?
 
-This course treats mathematics as a sequence of construction kits. Each new object exists because an older object could not express something naturally enough.
+This course treats mathematics as a sequence of construction kits. Each new object exists because an older object could not express something naturally enough. The destination is not quantum mechanics or pure abstraction for its own sake. The destination is memory: representations, retrieval, indexing, compression, uncertainty, and evaluation.
 
 ## How This Course Works
 
-Each module follows the same rhythm:
+Each module follows a source-slide-inspired rhythm:
 
-1. What limitation forced this object to exist?
-2. What is the new object?
-3. What operations are now legal?
-4. What new invariants appear?
-5. What concrete examples make the object feel natural?
-6. Which later theories depend on this object?
+1. Start from a concrete failure.
+2. Work a base case by hand.
+3. Introduce the formal object only after the need is visible.
+4. Derive the key operation.
+5. Study a failure mode.
+6. Build a problem ladder.
+7. Connect the object to external memory systems.
 
 This is intentionally math-first. There are no programming assignments.
 
@@ -25,35 +26,51 @@ This is intentionally math-first. There are no programming assignments.
 
 - [Course Map](COURSE_MAP.md)
 - [Lecture Lens](LECTURE_LENS.md)
+- [Source Pedagogy](SOURCE_PEDAGOGY.md)
+- [Primary Paper Trail](research/primary-papers.md)
 - [Interactive Course Site](docs/index.html)
 
 ## Modules
 
-1. [Orientation: Mathematics as Expressive Design](modules/00-orientation.md)
-2. [Numbers: Extending What One Coordinate Can Say](modules/01-number-systems.md)
-3. [Vectors and Spaces: Direction, Combination, Reachability](modules/02-vectors-and-spaces.md)
-4. [Matrices: Machines That Move Vectors](modules/03-linear-maps-and-matrices.md)
-5. [Invariants: What Survives Transformation](modules/04-invariants.md)
-6. [Complex Geometry: Scaling with Phase](modules/05-complex-geometry.md)
-7. [Rings, Fields, and Quotients: Algebraic Construction Rules](modules/06-rings-fields-quotients.md)
-8. [Algebras: When Objects Multiply](modules/07-algebras.md)
-9. [Tensors: Several Inputs at Once](modules/08-tensors.md)
-10. [Duality and Constraints: What Measures What](modules/09-duality-and-constraints.md)
-11. [Groups: The Legal Moves](modules/10-groups.md)
-12. [Representation Theory: Symmetry as Computation](modules/11-representation-theory.md)
-13. [Category Theory: Structure-Preserving Systems](modules/12-category-theory.md)
-14. [Capstone: Design a Mathematical Object](modules/13-capstone.md)
+1. [How To Work This Course](modules/00-orientation.md)
+2. [Scalars, Coordinates, and Expressive Power](modules/01-number-systems.md)
+3. [Vector Spaces, Reachability, and Memory Slots](modules/02-vectors-and-spaces.md)
+4. [Linear Systems, Projection, and Error](modules/03-projection-and-error.md)
+5. [Bases, Orthogonality, SVD, and Compression](modules/04-svd-and-compression.md)
+6. [Spectral Structure, Graphs, and Stable Modes](modules/05-spectral-structure.md)
+7. [Complex Scalars, Phase, Fourier Features, and Kernels](modules/06-complex-fourier-kernels.md)
+8. [Probability, Information, and Uncertainty](modules/07-probability-information.md)
+9. [Optimization, Duality, and Constraints](modules/08-optimization-duality.md)
+10. [Metric Geometry and Embedding Spaces](modules/09-metric-geometry.md)
+11. [Nearest Neighbor Search and Vector Indexes](modules/10-nearest-neighbor-indexes.md)
+12. [Attention as Soft Retrieval](modules/11-attention-soft-retrieval.md)
+13. [Contrastive Learning and Dense Retrieval](modules/12-contrastive-dense-retrieval.md)
+14. [Memory-Augmented Models and Non-Parametric Memory](modules/13-memory-augmented-models.md)
+15. [RAG, RETRO, and Retrieval-Conditioned Generation](modules/14-rag-and-retro.md)
+16. [Long Context, Recency, Consolidation, and Forgetting](modules/15-long-context-memory.md)
+17. [Robustness, Evaluation, and Memory System Design](modules/16-robustness-evaluation.md)
 
 ## Format Notes
 
-The structure is inspired by the supplied ML mathematics lecture PDFs: short conceptual lectures, a motivating metaphor, concrete hand calculations, and a clear dependency chain. The topic direction is different: instead of preparing for machine learning, this course follows the expansion of mathematical expressiveness.
+The structure is inspired by the supplied ML mathematics lecture PDFs: prerequisites, motivating problems, worked base cases, derivations, and problem ladders. The topic direction is now specific: applied math for external memory in LLM systems.
 
 ## Local Website Preview
 
-Open `docs/index.html` directly in a browser, or run a simple static server from the repo root:
+Stage the same static artifact GitHub Pages receives:
 
 ```powershell
-python -m http.server 4173 -d docs
+Remove-Item -Recurse -Force _site -ErrorAction SilentlyContinue
+New-Item -ItemType Directory -Force _site | Out-Null
+Copy-Item -Recurse -Force docs\* _site\
+Copy-Item -Recurse -Force modules _site\modules
+Copy-Item -Recurse -Force research _site\research
+New-Item -ItemType File -Force _site\.nojekyll | Out-Null
+```
+
+Then run a simple static server:
+
+```powershell
+python -m http.server 4173 -d _site
 ```
 
 Then visit `http://localhost:4173`.
