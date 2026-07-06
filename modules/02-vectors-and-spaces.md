@@ -163,7 +163,38 @@ Answer check:
 ||m||_infinity = 12
 ```
 
-### Problem 2.2: Normalize before comparing
+### Problem 2.2: Add two state vectors
+
+Let:
+
+```text
+a = (relevance=3, recency=1)
+b = (relevance=1, recency=4)
+```
+
+Compute `a+b`.
+
+Answer check:
+
+```text
+a+b = (4,5)
+```
+
+Vector addition combines coordinates slot by slot.
+
+### Problem 2.3: Scale a vector
+
+For `a=(3,1)`, compute `0.5a`.
+
+Answer check:
+
+```text
+0.5a = (1.5,0.5)
+```
+
+Scalar multiplication changes magnitude without changing the coordinate grammar.
+
+### Problem 2.4: Normalize before comparing
 
 Let `a = (3, 4)` and `b = (6, 8)`. Compute both L2 norms and normalize both vectors.
 
@@ -176,7 +207,7 @@ ahat = bhat = (3/5, 4/5)
 
 They point in the same direction but have different magnitudes.
 
-### Problem 2.3: Span as reachable memory
+### Problem 2.5: Span as reachable memory
 
 Let `u = (1, 0, 1)` and `v = (0, 1, 1)`. Can `(2, 3, 5)` be written as `a u + b v`?
 
@@ -189,8 +220,102 @@ Set a=2, b=3, then a+b=5. Yes.
 
 Can `(2, 3, 7)` be written that way? No, because the third coordinate would have to be `2 + 3 = 5`.
 
-### Problem 2.4: Basis choice
+### Problem 2.6: Solve a 2D span problem
+
+Can `(3,5)` be written using:
+
+```text
+u=(1,1)
+v=(1,-1)
+```
+
+Answer check:
+
+```text
+a(1,1)+b(1,-1)=(a+b,a-b)=(3,5)
+a+b=3
+a-b=5
+2a=8, so a=4
+b=-1
+```
+
+Yes: `(3,5)=4u-v`.
+
+### Problem 2.7: Linear dependence
+
+Are these vectors linearly independent?
+
+```text
+(1,2,0), (2,4,0), (0,0,1)
+```
+
+Answer check:
+
+```text
+(2,4,0)=2(1,2,0), so the set is dependent.
+```
+
+One vector repeats information already present in another.
+
+### Problem 2.8: Basis choice
 
 Give a basis for `S = {(x, y, z) : z = x + y}`.
 
 Answer check: one valid basis is `{(1,0,1), (0,1,1)}`.
+
+### Problem 2.9: Dimension of a subspace
+
+What is the dimension of `S = {(x,y,z): z=x+y}`?
+
+Answer check:
+
+```text
+S has basis {(1,0,1),(0,1,1)}, so dim(S)=2.
+```
+
+The constraint removes one degree of freedom from `R^3`.
+
+### Problem 2.10: Coordinate meaning
+
+Two vectors are close:
+
+```text
+a=(9,1)
+b=(8,2)
+```
+
+Name one reason closeness might still be misleading.
+
+Answer check:
+
+```text
+The coordinates may be poorly scaled or not semantically meaningful.
+For example, a one-unit change in recency may not be comparable to a one-unit change in relevance.
+```
+
+Geometry is only as meaningful as the representation.
+
+### Problem 2.11: Subspace membership
+
+Is `(1,2,4)` in the subspace `S = {(x,y,z): z=x+y}`?
+
+Answer check:
+
+```text
+x+y = 1+2 = 3, but z=4.
+No.
+```
+
+Subspace membership is a legal-state test.
+
+### Problem 2.12: Compression intuition
+
+If memory vectors in `R^100` all lie near a 2D plane, what does that suggest?
+
+Answer check:
+
+```text
+The data may be compressible to a low-dimensional representation with small projection error.
+```
+
+Low-dimensional structure is a mathematical reason compression might work.

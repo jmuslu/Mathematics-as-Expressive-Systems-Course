@@ -148,7 +148,26 @@ Answer check:
 5. sheaf
 ```
 
-### Problem 0.2: Use the object worksheet
+### Problem 0.2: Concrete before formal
+
+A student begins a solution with:
+
+```text
+Let (X,d) be a metric space...
+```
+
+but the problem only asks which of three vectors is closest to `q=(1,2)`. What should they compute first?
+
+Answer check:
+
+```text
+Compute the actual distances or similarities to the three candidate vectors.
+Name the metric-space abstraction only after the concrete comparison is clear.
+```
+
+The course rhythm is numbers first, abstraction second.
+
+### Problem 0.3: Use the object worksheet
 
 Pick the object `projection`. Fill this in by hand:
 
@@ -172,7 +191,7 @@ Failure mode: projection can erase meaningful out-of-subspace signal.
 Later dependency: least squares, SVD, regression, compression.
 ```
 
-### Problem 0.3: Decide vertical versus horizontal
+### Problem 0.4: Decide vertical versus horizontal
 
 For the object `group action`, classify each question.
 
@@ -182,3 +201,131 @@ For the object `group action`, classify each question.
 4. What would break if the graph summary changed under relabeling?
 
 Answer check: 1 and 3 are vertical. 2 and 4 are horizontal/application questions.
+
+### Problem 0.5: Base case for matrix multiplication
+
+Give a base case that forces matrix multiplication to exist.
+
+Answer check example:
+
+```text
+One transformation sends x -> Bx.
+A second transformation sends y -> Ay.
+Doing B first and then A sends x -> A(Bx), so the composite transformation is AB.
+```
+
+Matrix multiplication is composition of linear transformations.
+
+### Problem 0.6: Find the invariant
+
+A graph is relabeled by a permutation. Which should stay invariant?
+
+```text
+A. number of edges
+B. raw node label "node 1"
+C. triangle count
+D. adjacency matrix entries in the same order
+```
+
+Answer check:
+
+```text
+A and C should stay invariant.
+B and D can change under relabeling.
+```
+
+An invariant is what survives the allowed transformation.
+
+### Problem 0.7: Find the failure mode
+
+Nearest-neighbor retrieval returns the vector closest to the query. Name two ways this can still fail.
+
+Answer check:
+
+```text
+Possible answers: embedding geometry may not match meaning, relevant item may be missing, top result may conflict with other evidence, approximation may miss the true nearest neighbor.
+```
+
+A mathematical operation always comes with a failure mode.
+
+### Problem 0.8: Normalize and compare
+
+Let:
+
+```text
+q = (3,4)
+m = (6,8)
+```
+
+Normalize both vectors.
+
+Answer check:
+
+```text
+||q|| = 5
+||m|| = 10
+qhat = (3/5,4/5)
+mhat = (3/5,4/5)
+```
+
+The vectors differ in magnitude but not direction.
+
+### Problem 0.9: Cosine after normalization
+
+Using Problem 0.8, compute `qhat dot mhat`.
+
+Answer check:
+
+```text
+qhat dot mhat = (3/5)(3/5) + (4/5)(4/5)
+              = 9/25 + 16/25
+              = 1
+```
+
+For normalized vectors, cosine similarity is just dot product.
+
+### Problem 0.10: Pick the next object
+
+A scalar confidence score cannot tell whether two pieces of evidence agree or contradict. Which later object is likely needed first?
+
+Answer check:
+
+```text
+A vector or typed relation, because the state needs multiple coordinates or slots rather than one number.
+```
+
+When an old object cannot express the distinction, the next object is forced.
+
+### Problem 0.11: Mini lecture template
+
+Fill in the missing parts for the object `dual vector`.
+
+```text
+Base case:
+Operation:
+Invariant:
+Failure mode:
+```
+
+Answer check example:
+
+```text
+Base case: a state vector needs to be scored by a linear test.
+Operation: apply covector to vector.
+Invariant: scalar pairing under legal coordinate change.
+Failure mode: treating every row of numbers as the same kind of object.
+```
+
+This template is how later modules should be read.
+
+### Problem 0.12: Research-paper reading drill
+
+When reading a paper abstract, list four things to extract before getting lost in details.
+
+Answer check:
+
+```text
+mathematical object, operation, invariant, failure mode
+```
+
+The goal is not to memorize papers. The goal is to identify the mathematical pressure point.

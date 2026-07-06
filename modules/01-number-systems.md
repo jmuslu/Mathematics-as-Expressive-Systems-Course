@@ -173,7 +173,19 @@ Answer check:
 closed, not closed, not closed, closed, closed
 ```
 
-### Problem 1.2: Why invent a richer scalar?
+### Problem 1.2: Natural numbers fail under penalty
+
+A memory score is `2`. A penalty subtracts `5`. Can natural numbers represent the result?
+
+Answer check:
+
+```text
+2 - 5 = -3
+```
+
+Natural numbers fail. Integers are forced.
+
+### Problem 1.3: Why invent a richer scalar?
 
 Solve or explain why there is no solution in the stated number system.
 
@@ -190,7 +202,88 @@ Answer check:
 need integers; need rationals; need reals; need complex numbers
 ```
 
-### Problem 1.3: Scalar capability table
+### Problem 1.4: Interpolation forces real scalars
+
+Compute:
+
+```text
+0.7(10) + 0.3(4)
+```
+
+Answer check:
+
+```text
+7 + 1.2 = 8.2
+```
+
+Weighted interpolation naturally lives in real scalars.
+
+### Problem 1.5: Odds
+
+Convert `p=0.8` into odds.
+
+Answer check:
+
+```text
+odds = p/(1-p) = 0.8/0.2 = 4
+```
+
+Odds compare success probability with failure probability.
+
+### Problem 1.6: Log-odds update
+
+Suppose prior log-odds are `log(2)` and evidence log-likelihood ratio is `log(3)`. Compute posterior log-odds.
+
+Answer check:
+
+```text
+log(2) + log(3) = log(6)
+```
+
+Multiplicative evidence becomes additive in log space.
+
+### Problem 1.7: Softmax shift invariance
+
+For scores `(1,2)`, softmax probabilities are proportional to:
+
+```text
+e^1, e^2
+```
+
+For shifted scores `(4,5)`, show the probabilities are the same.
+
+Answer check:
+
+```text
+shifted weights are e^4, e^5 = e^3(e^1), e^3(e^2)
+The common factor e^3 cancels during normalization.
+```
+
+Softmax is invariant under adding the same constant to every score.
+
+### Problem 1.8: Normalization changes ranking
+
+Compare dot products with query `q=(1,0)`:
+
+```text
+a=(10,1)
+b=(2,0)
+```
+
+Which has larger raw dot product? Which has larger cosine similarity?
+
+Answer check:
+
+```text
+raw: q dot a = 10, q dot b = 2, so a wins.
+cos(a,q)=10/sqrt(101)
+cos(b,q)=1
+so b wins by cosine.
+```
+
+Changing scalar normalization can change retrieval behavior.
+
+### Problem 1.9: Scalar capability table
 
 Complete this table by hand.
 
@@ -210,7 +303,32 @@ R -> C: phase/roots of all polynomials; lose order compatibility.
 C -> H: 3D rotation algebra; lose commutativity.
 ```
 
-### Problem 1.4: Memory design reflection
+### Problem 1.10: Probability versus score
+
+Can the numbers `(2, 3, 5)` be a probability distribution as written?
+
+Answer check:
+
+```text
+No. They are nonnegative but sum to 10, not 1.
+Normalized probabilities would be (0.2,0.3,0.5).
+```
+
+Not every nonnegative score is already a probability.
+
+### Problem 1.11: Complex magnitude and phase
+
+For `z = 3 + 4i`, compute the magnitude.
+
+Answer check:
+
+```text
+|z| = sqrt(3^2 + 4^2) = 5
+```
+
+Complex scalars carry magnitude and phase in one coordinate.
+
+### Problem 1.12: Memory design reflection
 
 Suppose a confidence score is stored as a complex number `r e^{i theta}`. What could magnitude and phase represent?
 

@@ -76,13 +76,59 @@ A = [1 -1]
     [0  1]
 ```
 
-### Problem 3.2: Apply the transformation
+### Problem 3.2: Apply the base-case shear
+
+Let:
+
+```text
+A = [1 1]
+    [0 1]
+```
+
+Compute `A(2,3)`.
+
+Answer check:
+
+```text
+A(2,3) = (2+3,3) = (5,3)
+```
+
+The second coordinate is preserved while the first mixes in the second.
+
+### Problem 3.3: Apply the transformation
 
 For `x = (7, 2)`, compute `Ax`.
 
 Answer check: `Ax = (5, 2)`.
 
-### Problem 3.3: Compose two changes
+### Problem 3.4: Test linearity
+
+Let `T(x,y)=(x+y,y)`. Check `T((1,0)+(0,2)) = T(1,0)+T(0,2)`.
+
+Answer check:
+
+```text
+T(1,2) = (3,2)
+T(1,0)=(1,0)
+T(0,2)=(2,2)
+T(1,0)+T(0,2)=(3,2)
+```
+
+The map preserves vector addition.
+
+### Problem 3.5: Nonlinear update
+
+Is `F(x,y)=(x^2,y)` linear?
+
+Answer check:
+
+```text
+No. F(2,0)=(4,0), but 2F(1,0)=2(1,0)=(2,0).
+```
+
+Not every update rule is a linear map.
+
+### Problem 3.6: Compose two changes
 
 Let:
 
@@ -102,7 +148,61 @@ Ax = (5,2), BAx = (10,2)
 
 Composition order matters.
 
-### Problem 3.4: Find what survives
+### Problem 3.7: Compute a kernel
+
+Find the kernel of:
+
+```text
+K = [1 -1]
+```
+
+as a map from `R^2 -> R`.
+
+Answer check:
+
+```text
+K(x,y)=x-y=0
+so x=y
+ker(K)=span((1,1))
+```
+
+The kernel is what the measurement cannot see.
+
+### Problem 3.8: Compute an image
+
+For:
+
+```text
+A = [1 0]
+    [0 0]
+```
+
+what is the image of A?
+
+Answer check:
+
+```text
+A(x,y)=(x,0)
+image(A)=span((1,0))
+```
+
+The image is the set of reachable outputs.
+
+### Problem 3.9: Rank-nullity
+
+For the matrix in Problem 3.8, compute rank and nullity.
+
+Answer check:
+
+```text
+rank = 1
+kernel is span((0,1)), so nullity = 1
+rank + nullity = 2
+```
+
+Rank-nullity accounts for output directions and lost directions.
+
+### Problem 3.10: Fixed point
 
 For the same A, solve `Ax = x`.
 
@@ -112,3 +212,40 @@ Answer check:
 (x1 - x2, x2) = (x1, x2)
 So x2 = 0. All states (t, 0) survive unchanged.
 ```
+
+### Problem 3.11: Determinant intuition
+
+For:
+
+```text
+D = [2 0]
+    [0 3]
+```
+
+compute the determinant and explain the area scaling.
+
+Answer check:
+
+```text
+det(D)=6
+```
+
+The map scales area by a factor of 6.
+
+### Problem 3.12: Transformation design
+
+A state update deletes the contradiction coordinate:
+
+```text
+(claim, contradiction) -> (claim, 0)
+```
+
+Is this invertible?
+
+Answer check:
+
+```text
+No. The original contradiction value cannot be recovered.
+```
+
+Some transformations are useful but irreversible.

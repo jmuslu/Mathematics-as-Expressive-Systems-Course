@@ -63,7 +63,21 @@ proj_u(y) = ((y dot u)/(u dot u))u = 3(1,0) = (3,0)
 error = y - proj = (0,4)
 ```
 
-### Problem 4.2: Projection onto a non-unit vector
+### Problem 4.2: Check orthogonality of residual
+
+Using Problem 4.1, compute `error dot u`.
+
+Answer check:
+
+```text
+error = (0,4)
+u = (1,0)
+error dot u = 0
+```
+
+The residual is orthogonal to the approximation direction.
+
+### Problem 4.3: Projection onto a non-unit vector
 
 Let `y = (2, 3)` and `u = (1, 1)`. Compute `proj_u(y)` and check the residual.
 
@@ -77,7 +91,23 @@ error = (-0.5, 0.5)
 error dot u = 0
 ```
 
-### Problem 4.3: Misunderstanding model
+### Problem 4.4: Projection length versus vector projection
+
+For `y=(2,3)` and `u=(1,1)`, compute the scalar coefficient:
+
+```text
+(y dot u)/(u dot u)
+```
+
+Answer check:
+
+```text
+(2+3)/(1+1)=5/2
+```
+
+The coefficient says how much of direction `u` is used.
+
+### Problem 4.5: Misunderstanding model
 
 A user asks for `y = (accuracy=8, speed=2)`. Your system can only optimize along `u = (1,1)`. Compute the projection and error.
 
@@ -90,7 +120,58 @@ error = (3,-3)
 
 The system over-supplies speed and under-supplies accuracy relative to the request.
 
-### Problem 4.4: Least-squares normal equation
+### Problem 4.6: Idempotence of projection
+
+Let projection onto the x-axis be:
+
+```text
+P = [1 0]
+    [0 0]
+```
+
+Compute `P^2`.
+
+Answer check:
+
+```text
+P^2 = [1 0; 0 0] = P
+```
+
+Projecting twice is the same as projecting once.
+
+### Problem 4.7: Projection matrix onto span(1,1)
+
+For `u=(1,1)`, compute:
+
+```text
+P = u u^T / (u^T u)
+```
+
+Answer check:
+
+```text
+u u^T = [1 1]
+        [1 1]
+u^T u = 2
+P = [1/2 1/2]
+    [1/2 1/2]
+```
+
+This matrix projects any vector onto the line `y=x`.
+
+### Problem 4.8: Apply the projection matrix
+
+Use the matrix from Problem 4.7 to project `y=(2,4)`.
+
+Answer check:
+
+```text
+P(2,4) = (3,3)
+```
+
+The closest point to `(2,4)` on `span((1,1))` is `(3,3)`.
+
+### Problem 4.9: Least-squares normal equation
 
 For feature column `x = (1, 2, 2)` and target `y = (1, 2, 4)`, find the best scalar `a` minimizing `||ax - y||^2`.
 
@@ -99,3 +180,43 @@ Answer check:
 ```text
 a = (x dot y)/(x dot x) = (1 + 4 + 8)/(1 + 4 + 4) = 13/9
 ```
+
+### Problem 4.10: Compute least-squares residual
+
+Using Problem 4.9, compute the residual `r = y - ax` with `a=13/9`.
+
+Answer check:
+
+```text
+ax = (13/9, 26/9, 26/9)
+r = (1,2,4) - (13/9,26/9,26/9)
+  = (-4/9, -8/9, 10/9)
+```
+
+Least squares does not make the error zero unless the target is in the span.
+
+### Problem 4.11: Normal equation check
+
+Using the residual from Problem 4.10, verify `x dot r = 0`.
+
+Answer check:
+
+```text
+x dot r = 1(-4/9) + 2(-8/9) + 2(10/9)
+        = -4/9 -16/9 +20/9
+        = 0
+```
+
+The residual is orthogonal to the fitted subspace.
+
+### Problem 4.12: Approximation failure
+
+Name one reason the closest vector in an embedding space can still be the wrong answer.
+
+Answer check:
+
+```text
+The embedding geometry may omit task context, source reliability, negation, time, or contradiction.
+```
+
+Projection and nearest-neighbor methods optimize within a chosen geometry; they do not guarantee semantic truth.

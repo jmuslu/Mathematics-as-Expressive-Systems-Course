@@ -40,6 +40,9 @@ Problem hooks:
 
 ## Linear Algebra, Tensors, And Hermitian Structure
 
+- [MIT OCW 18.06SC Linear Algebra Resource Index](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/resource-index/) - public linear algebra backbone for vector spaces, subspaces, projection, least squares, determinants, eigenvalues, and diagonalization.
+- [Projection Matrices and Least Squares](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/least-squares-determinants-and-eigenvalues/projection-matrices-and-least-squares/) - projection as the geometric foundation of least-squares approximation.
+- [Notes on Dual Spaces](https://sites.math.northwestern.edu/scg479/courses/notes/dual-spaces.pdf) - linear functionals, dual spaces, and dual basis language.
 - [Multilinear Algebra Notes for 18.101](https://ocw.mit.edu/courses/18-101-analysis-ii-fall-2005/4aa13eec01f3f70bd6eeeb7820d861a9_classnotesfall04.pdf) - public MIT OCW notes for multilinear maps, tensor products, alternating forms, and exterior algebra.
 - [Notes on Tensor Products and the Exterior Algebra](https://www.math.uwaterloo.ca/~kpurbhoo/spring2012-math245/tensor.pdf) - a compact tensor/exterior algebra reference that emphasizes different products answering different construction problems.
 - [Exterior Powers](https://kconrad.math.uconn.edu/blurbs/linmultialg/extmod.pdf) - Keith Conrad's notes on exterior powers as a way to detect linear dependence and study subspace geometry.
@@ -48,6 +51,10 @@ Problem hooks:
 
 Problem hooks:
 
+- Convert scalar-system failures into the need for integers, rationals, reals, complex numbers, or log-odds coordinates.
+- Compute span, basis, kernel, image, and rank-nullity examples by hand.
+- Verify projection residual orthogonality and least-squares normal equations.
+- Treat covectors as tests, compute kernels and annihilators, and identify measurement blind spots.
 - Turn a bilinear dinner-preference score into a tensor slot problem.
 - Compute a wedge product and explain when it vanishes because two directions are dependent.
 - Preserve a scalar pairing under a change of units by transforming covector components in the opposite direction.
