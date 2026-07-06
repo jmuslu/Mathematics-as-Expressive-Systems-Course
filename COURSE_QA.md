@@ -63,9 +63,12 @@ The script checks:
 - answer-check count,
 - problem numbering/module-prefix consistency,
 - live-module cross-references to `Problem M.N`,
-- question-bank README index coverage.
+- question-bank README index coverage,
+- structured question-bank entry metadata and answer-check presence.
 
 The cross-reference check catches stale references after problem edits. The question-bank index check catches new reserve files that have not been listed in `question-bank/README.md`, and README entries whose files no longer exist.
+
+The structured bank-entry check applies to reserve entries named like `## 25.factor-to-variable.table.a`. Each such entry must include source-use, license-note, verification-status, and answer-check sections. The older Module 06 pilot trail remains intentionally separate from that structured reserve-entry format.
 
 ## Current Progress Map
 
@@ -77,7 +80,7 @@ The course currently has:
 - central question banks covering modules 01-31,
 - source-use policy and primary-paper trail,
 - running examples spread through the course without forcing every module into an analogy,
-- automated checks for renderer syntax, module depth shape, problem references, and bank index drift.
+- automated checks for renderer syntax, module depth shape, problem references, bank index drift, and structured bank-entry metadata.
 
 The remaining work is not basic scaffolding. The most useful next passes are:
 

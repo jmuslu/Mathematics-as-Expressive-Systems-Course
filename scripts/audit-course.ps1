@@ -123,6 +123,32 @@ if (-not (Test-Path $questionBankReadme)) {
       $issues.Add("question-bank/README.md: indexes missing file $indexedName")
     }
   }
+
+  foreach ($file in $bankFiles) {
+    if ($file.Name -eq "problem-template.md") {
+      continue
+    }
+
+    $bankContent = Get-Content -LiteralPath $file.FullName -Raw
+    $entryMatches = [regex]::Matches($bankContent, '(?m)^## \d{2}\.[^\r\n]+')
+
+    for ($i = 0; $i -lt $entryMatches.Count; $i++) {
+      $entryStart = $entryMatches[$i].Index
+      $entryEnd = if ($i + 1 -lt $entryMatches.Count) {
+        $entryMatches[$i + 1].Index
+      } else {
+        $bankContent.Length
+      }
+      $entryText = $bankContent.Substring($entryStart, $entryEnd - $entryStart)
+      $entryName = $entryMatches[$i].Value.Trim()
+
+      foreach ($requiredPattern in @('(?m)^Source use:', '(?m)^License note:', '(?m)^Verification status:', '(?m)^## Answer Check\s*$')) {
+        if (-not [regex]::IsMatch($entryText, $requiredPattern)) {
+          $issues.Add("$($file.Name): $entryName missing required bank field matching $requiredPattern")
+        }
+      }
+    }
+  }
 }
 
 if ($issues.Count -gt 0) {
@@ -130,4 +156,4 @@ if ($issues.Count -gt 0) {
   exit 1
 }
 
-Write-Output "Course audit passed: $($moduleFiles.Count) modules, 12 problems and answer checks each, with valid problem references and question-bank index."
+Write-Output "Course audit passed: $($moduleFiles.Count) modules, 12 problems and answer checks each, with valid problem references, question-bank index, and bank metadata."
