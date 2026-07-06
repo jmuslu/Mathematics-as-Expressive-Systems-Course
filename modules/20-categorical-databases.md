@@ -36,6 +36,18 @@ Claim -> ValidationState
 
 This is not just a table. It is a typed structure of relationships.
 
+## Running Example: Club Roster Rules
+
+A club roster might record:
+
+```text
+Member -> Team
+Team -> Captain
+Member -> PaymentStatus
+```
+
+If Jo belongs to the debate team, the roster should not treat "debate team" as a free-floating phrase in one table and a different object in another. The schema says which arrows are legal, and an instance fills those arrows with actual members, teams, captains, and payment states. The mathematical advantage is that consistency becomes structural: bad data is not merely a typo, but a failure to respect the declared pattern of relationships.
+
 ## Formal Object
 
 A schema can be modeled as a category. An instance is a functor from the schema category to Set.

@@ -20,6 +20,12 @@ Persistence asks what survives as a threshold changes.
 
 Start with points. At small epsilon, each point is alone. At larger epsilon, edges form. Later, loops may appear and disappear.
 
+## Running Example: Friendship Circles Across Thresholds
+
+Imagine drawing a social graph where two people are connected only if their friendship score is above a threshold. At threshold 0.9, only very close pairs appear. At 0.7, small friend groups connect. At 0.5, acquaintances start linking different groups together.
+
+A loop might appear when four people are connected around a circle but the diagonals are still missing. If the threshold drops further and the missing diagonals appear, the loop is filled in and disappears. Persistence asks which shapes survive as the threshold changes, rather than trusting a single arbitrary cutoff.
+
 ## Formal Object
 
 Persistent homology tracks topological features across a filtration:

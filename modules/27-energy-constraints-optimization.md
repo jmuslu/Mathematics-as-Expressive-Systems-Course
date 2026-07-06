@@ -24,6 +24,12 @@ E(state) = inconsistency penalty + uncertainty penalty + complexity penalty
 
 The system seeks low-energy belief states.
 
+## Running Example: Dinner Planning Under Constraints
+
+Suppose four friends choose a restaurant. A simple objective might penalize high cost, long travel time, and low preference scores. But some requirements are constraints, not preferences: one friend needs vegetarian options, another has a hard budget limit, and the restaurant must still have seats.
+
+The best-looking unconstrained choice may be infeasible. Optimization with constraints asks for the best feasible choice, and the active constraints explain which requirements actually shaped the answer. This is the same move from "what has the lowest score?" to "what has the lowest score among states we are allowed to choose?"
+
 ## Formal Object
 
 Optimization chooses states that minimize an objective subject to constraints.

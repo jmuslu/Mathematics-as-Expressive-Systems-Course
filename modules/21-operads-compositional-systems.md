@@ -28,6 +28,22 @@ claim, source, counterclaim -> status
 
 This is not just an edge. It is a typed multi-input process.
 
+## Running Example: Dinner Plans As Plug-In Rules
+
+Suppose a group is planning dinner. One operation takes:
+
+```text
+guest preferences, budget, neighborhood -> restaurant shortlist
+```
+
+Another operation takes:
+
+```text
+restaurant shortlist, reservation time, transportation -> dinner plan
+```
+
+The second operation cannot accept just any output; it needs a shortlist in the right role. Operads keep track of this plug-in discipline. They ask not only "what things are related?" but "which multi-input procedure can be inserted into which slot of a larger procedure?"
+
 ## Formal Object
 
 An operad describes operations with multiple inputs and one output, plus rules for composing operations.
