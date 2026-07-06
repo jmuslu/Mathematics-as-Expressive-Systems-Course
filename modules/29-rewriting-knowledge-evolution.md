@@ -127,23 +127,25 @@ Rule: `A -> AA`. Starting from `A`, does rewriting terminate?
 
 Answer check: no. It can grow forever.
 
-### Problem 29.5: Terminating rule
+### Problem 29.5: Termination measure
 
-Rule:
+A cleanup rule merges two duplicate note nodes into one note node:
 
 ```text
-AA -> A
+DuplicatePair -> SingleNode
 ```
 
-Starting from `AAAA`, apply the rule until no more rewrites are possible.
+Assume the rule never creates new nodes. Give a simple measure that proves repeated merging must terminate on a finite graph.
 
 Answer check:
 
 ```text
-AAAA -> AAA -> AA -> A
+Use number of note nodes as the measure.
+Each merge reduces node count by 1.
+A finite nonnegative integer cannot decrease forever.
 ```
 
-This sequence terminates at normal form `A`.
+Termination is not a feeling that cleanup "should finish." It is a proof that some well-founded quantity strictly decreases.
 
 ### Problem 29.6: Confluence question
 

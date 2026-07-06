@@ -294,7 +294,7 @@ Good bridge from term rewriting to graph rewriting.
 Module: 29
 Topic: termination measure
 Role: derivation
-Status: reserve
+Status: promoted in Module 29 Problem 29.5
 Source use: original, source-informed
 Source note: Inspired by rewriting termination arguments.
 License note: No source problem text copied.
