@@ -376,6 +376,63 @@ Rewrite rules should specify both match conditions and what provenance survives.
 
 Pairs naturally with sheaf false-peace examples.
 
+## 29.study-note.merge-guard.a
+
+```text
+Module: 29
+Topic: guarded graph rewrite for duplicate study notes
+Role: computation / modeling interpretation
+Status: promoted
+Source use: original, source-informed
+Source note: Inspired by graph rewriting rules as guarded transformations plus provenance-preserving outputs.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A cleanup rule says:
+
+```text
+two notes with same normalized claim and compatible meaning -> one merged note preserving both sources
+```
+
+Apply it to:
+
+```text
+n1: "Eigenvectors keep direction.", source lecture, support 0.6
+n2: "eigenvectors keep direction", source textbook, support 0.7
+```
+
+Then name one guard that would prevent an unsafe merge.
+
+## Answer Check
+
+```text
+Merged normalized note:
+"eigenvectors keep direction"
+sources = {lecture, textbook}
+support is reinforced by the chosen update rule.
+```
+
+Possible guard:
+
+```text
+Only merge if normalized text matches, mathematical meaning is compatible, and neither note carries a contradiction or version tag that should remain separate.
+```
+
+## Intuition
+
+Merging is a rewrite, not a deletion. The output must say what survived from both inputs.
+
+## Modeling Implication
+
+Knowledge evolution rules should specify match conditions, guards, and provenance-preserving output data.
+
+## Reserve Notes
+
+Promoted into Module 29 to align the duplicate-merge computation with the study-notes running example.
+
 ## 29.normal-form-not-truth.a
 
 ```text

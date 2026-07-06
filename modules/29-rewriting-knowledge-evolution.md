@@ -88,20 +88,23 @@ Answer check: `Paper1 indirectly supports ClaimX`.
 Rule:
 
 ```text
-two claims with same normalized text and same source -> one claim with reinforced support
+two notes with same normalized claim and compatible meaning -> one merged note preserving both sources
 ```
 
 Apply it to:
 
 ```text
-c1: "Aspirin reduces fever", source s1, support 0.6
-c2: "aspirin reduces fever", source s1, support 0.7
+n1: "Eigenvectors keep direction.", source lecture, support 0.6
+n2: "eigenvectors keep direction", source textbook, support 0.7
 ```
 
 Answer check:
 
 ```text
-Merge c1 and c2 into one normalized claim with source s1 and reinforced support.
+Merge n1 and n2 into one normalized note:
+"eigenvectors keep direction"
+sources = {lecture, textbook}
+support is reinforced by the chosen update rule.
 ```
 
 The exact reinforcement formula must be specified separately.
@@ -113,7 +116,7 @@ Add a guard to the merge rule in Problem 29.2 to prevent bad merges.
 Answer check example:
 
 ```text
-Only merge if normalized text matches, source matches, and timestamps are within the same edition/version window.
+Only merge if normalized text matches, the mathematical meaning is compatible, and neither note has a contradiction or version tag that should remain separate.
 ```
 
 Guards prevent rules from firing in contexts where they would erase meaning.
