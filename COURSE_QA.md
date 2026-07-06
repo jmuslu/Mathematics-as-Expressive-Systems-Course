@@ -31,7 +31,7 @@ Current status:
 384 total module hand problems
 30 running examples in lecture modules
 11 question-bank markdown files, including the template
-138 bank problem/reserve entries
+152 bank problem/reserve entries
 ```
 
 The running examples are intentionally not universal. Orientation, scalar setup, and final studio modules can stay cleaner when the surrounding modules already carry enough friendship, dinner, dating, social-media, debate, witness, party, and graph-design scenarios.
@@ -79,7 +79,7 @@ The script checks:
 
 The cross-reference check catches stale references after problem edits. The question-bank index check catches new reserve files that have not been listed in `question-bank/README.md`, and README entries whose files no longer exist.
 
-The structured bank-entry check applies to reserve entries named like `## 25.factor-to-variable.table.a`. Each such entry must include source-use, license-note, verification-status, and answer-check sections. The older Module 06 pilot trail remains intentionally separate from that structured reserve-entry format.
+The structured bank-entry check applies to reserve entries named like `## 25.factor-to-variable.table.a`. Each such entry must include source-use, license-note, verification-status, and answer-check sections. The older Module 06 pilot trail remains as an archive, while `module-06-tensors-typed-relations-bank.md` is the structured bank used by the website.
 
 ## Current Progress Map
 

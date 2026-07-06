@@ -16,7 +16,7 @@ Run:
 03: 4
 04: 4
 05: 4
-06: 0 (14 pilot problems, not structured reserve entries)
+06: 14
 07: 8
 08: 9
 09: 3
@@ -46,10 +46,9 @@ Run:
 
 ## Expansion Priorities
 
-1. Convert or rewrite the Module 06 tensor pilot into structured reserve entries with source-use, license-note, verification-status, and answer-check fields.
-2. Expand Modules 01-05 with more reserve problems for scalar systems, span, linear maps, projection, and dual measurements.
-3. Expand Modules 09-12 with more spectral, Laplacian, algebraic-graph, and higher-order relation problems.
-4. Add more capstone-style Module 31 design-specification reserves once the earlier mathematical banks are less uneven.
+1. Expand Modules 01-05 with more reserve problems for scalar systems, span, linear maps, projection, and dual measurements.
+2. Expand Modules 09-12 with more spectral, Laplacian, algebraic-graph, and higher-order relation problems.
+3. Add more capstone-style Module 31 design-specification reserves once the earlier mathematical banks are less uneven.
 
 ## Promotion Guidance
 

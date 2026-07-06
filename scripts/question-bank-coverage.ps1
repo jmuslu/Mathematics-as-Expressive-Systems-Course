@@ -38,7 +38,7 @@ for ($i = 1; $i -le 31; $i++) {
   $module = "{0:D2}" -f $i
   $count = if ($counts.ContainsKey($module)) { $counts[$module] } else { 0 }
   $note = ""
-  if ($i -eq 6 -and $pilotProblemCount -gt 0) {
+  if ($i -eq 6 -and $count -eq 0 -and $pilotProblemCount -gt 0) {
     $note = " ($pilotProblemCount pilot problems, not structured reserve entries)"
   } elseif ($count -lt 4) {
     $note = " (expansion priority)"

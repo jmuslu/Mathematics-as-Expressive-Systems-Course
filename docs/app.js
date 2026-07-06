@@ -35,7 +35,7 @@ const modules = [
 
 const questionBanks = [
   { modules: ["01", "02", "03", "04", "05"], file: "question-bank/module-01-05-foundations-bank.md", label: "Foundations Reserve Bank" },
-  { modules: ["06"], file: "question-bank/module-06-tensors-typed-relations-pilot.md", label: "Tensor Pilot Questions", pilot: true },
+  { modules: ["06"], file: "question-bank/module-06-tensors-typed-relations-bank.md", label: "Tensor Reserve Bank" },
   { modules: ["07"], file: "question-bank/module-07-covariance-contravariance-bank.md", label: "Covariance Reserve Bank" },
   { modules: ["08"], file: "question-bank/module-08-hermitian-structure-bank.md", label: "Hermitian Reserve Bank" },
   { modules: ["09", "10", "11", "12"], file: "question-bank/module-09-12-spectral-graphs-bank.md", label: "Spectral And Graph Reserve Bank" },
@@ -147,7 +147,7 @@ async function loadTopicQuestions(moduleId, panel, button) {
     const response = await fetch(versionedModuleUrl(bank.file), { cache: "no-store" });
     if (!response.ok) throw new Error(`Could not load ${bank.file}`);
     const markdown = await response.text();
-    const extracted = bank.pilot ? extractPilotQuestionBank(markdown, moduleId, bank) : extractStructuredQuestionBank(markdown, moduleId, bank);
+    const extracted = extractStructuredQuestionBank(markdown, moduleId, bank);
     panel.innerHTML = renderMarkdown(mathifyMarkdown(extracted));
     panel.dataset.loaded = "true";
 
@@ -212,20 +212,12 @@ function extractStructuredQuestionBank(markdown, moduleId, bank) {
     ``,
     `Source: ${bank.label}`,
     ``,
-    ...chunks
+    ...chunks.map(normalizeQuestionBankHeadings)
   ].join("\n");
 }
 
-function extractPilotQuestionBank(markdown, moduleId, bank) {
-  const start = markdown.indexOf("## Problem Trail");
-  const body = start >= 0 ? markdown.slice(start) : markdown;
-  return [
-    `## Additional Topic Questions`,
-    ``,
-    `Source: ${bank.label}`,
-    ``,
-    body.trim()
-  ].join("\n");
+function normalizeQuestionBankHeadings(markdown) {
+  return markdown.replace(/^## (\d{2}\.[^\r\n]+)/gm, `### $1`);
 }
 
 function versionedModuleUrl(file) {
@@ -236,7 +228,7 @@ function versionedModuleUrl(file) {
 
 function mathifyMarkdown(markdown) {
   return markdown
-    .replace(/```text\n([\s\S]*?)```/g, (_, body) => {
+    .replace(/```text\r?\n([\s\S]*?)```/g, (_, body) => {
       if (looksLikeMathBlock(body)) {
         return `\n$$\n${toTexBlock(body)}\n$$\n`;
       }
@@ -397,7 +389,7 @@ function renderMarkdown(markdown) {
       continue;
     }
 
-    const heading = line.match(/^(#{1,4})\s+(.*)$/);
+    const heading = line.trim().match(/^(#{1,4})\s+(.*)$/);
     if (heading) {
       const level = heading[1].length + 1;
       html.push(`<h${level}>${renderInline(heading[2])}</h${level}>`);

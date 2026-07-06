@@ -15,6 +15,7 @@ Use [Problem Trail Style](../PROBLEM_TRAIL_STYLE.md) for analogy rules, bank rol
 ## Files
 
 - `module-01-05-foundations-bank.md` - reserve and lecture-candidate problems for scalar expressive power, friendship-profile spaces, perspective shifts, projection error, and covector measurements.
+- `module-06-tensors-typed-relations-bank.md` - structured reserve entries for tensor slots, bilinear forms, wedge products, contractions, and flattening failure modes.
 - `module-06-tensors-typed-relations-pilot.md` - first reviewed pilot using the dinner-table analogy.
 - `module-07-covariance-contravariance-bank.md` - reserve and lecture-candidate problems for budget-unit transformations, variance, metrics, slot grammar, and wedge checks.
 - `module-08-hermitian-structure-bank.md` - reserve and lecture-candidate problems for playlist phase, complex inner products, unitary maps, adjoints, and Hermitian forms.
