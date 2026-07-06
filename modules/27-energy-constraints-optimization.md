@@ -2,7 +2,7 @@
 
 ## Lecture Promise
 
-You will understand memory validation as constrained optimization over graph states.
+You will understand constrained optimization as the math of choosing the best feasible option.
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ You will understand memory validation as constrained optimization over graph sta
 
 ## Why The Old Object Fails
 
-Validation is not just checking facts. It balances evidence, consistency, cost, and uncertainty.
+Decision-making is not just picking the highest score. It balances preference, cost, feasibility, and hard requirements.
 
 ## Base Case
 
@@ -22,7 +22,7 @@ Define an energy:
 E(state) = inconsistency penalty + uncertainty penalty + complexity penalty
 ```
 
-The system seeks low-energy belief states.
+The system seeks low-energy feasible states.
 
 ## Running Example: Dinner Planning Under Constraints
 
@@ -40,13 +40,13 @@ The objective may reward the wrong behavior: overconfidence, oversmoothing, or s
 
 ## Problem Ladder
 
-1. Write an energy for two contradictory claims.
-2. Add a constraint that trusted sources count more.
-3. Explain how a local minimum could trap validation.
+1. Write an energy for a dinner choice.
+2. Add a budget or dietary constraint.
+3. Explain how a local minimum could trap a search process.
 
-## Memory-System Connection
+## Representation Design Connection
 
-Energy functions make validation rules explicit and debuggable.
+Energy functions and constraints make design priorities explicit and debuggable.
 
 ## Hand Problem Trail
 
@@ -248,10 +248,10 @@ A penalty trades off the original objective against constraint violation.
 
 ### Problem 27.11: Wrong energy can oversmooth
 
-A validation objective minimizes:
+A dinner-planning objective minimizes:
 
 ```text
-sum over edges (belief_u - belief_v)^2
+sum over friends (preference_friend - group_choice)^2
 ```
 
 Name one useful behavior and one dangerous behavior this objective can create.
@@ -259,14 +259,14 @@ Name one useful behavior and one dangerous behavior this objective can create.
 Answer check:
 
 ```text
-Useful: it encourages neighboring beliefs to agree.
-Dangerous: it can oversmooth real disagreement or minority evidence.
+Useful: it encourages a compromise close to everyone's stated preference.
+Dangerous: it can oversmooth real constraints, such as one person's allergy or hard dietary need.
 ```
 
 Every objective encodes a value judgment. Low energy is only good if the energy function penalizes the right failures.
 
-### Problem 27.12: Memory interpretation
+### Problem 27.12: Constraint interpretation
 
-What is the constraint in a validation objective?
+What is a constraint in the dinner-planning objective?
 
-Answer check: it is a condition the memory state must satisfy, such as consistency, budget, provenance, or trust threshold.
+Answer check: it is a condition the chosen dinner plan must satisfy, such as budget cap, vegetarian options, travel limit, reservation availability, or allergy safety.
