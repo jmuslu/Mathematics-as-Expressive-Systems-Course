@@ -49,6 +49,49 @@ That is covariance and contravariance in a form you can feel before you memorize
 
 Covariant and contravariant components transform oppositely so geometric meaning is preserved.
 
+## Legal Operations
+
+The legal moves are transformation-law moves:
+
+- change coordinates or units for a vector
+- transform covectors in the compensating direction
+- check that scalar pairings remain unchanged
+- pair covectors with vectors only in matching slots
+- use a metric only when the model has supplied one
+- track whether an object is a vector, covector, or higher tensor
+
+The budget example is the whole point: changing the ruler should not change the total spending score.
+
+## Worked Derivation
+
+Let the spending vector and score covector be:
+
+```text
+v = (2,3)
+phi = [4,5]
+```
+
+The scalar score is:
+
+```text
+phi(v)=4(2)+5(3)=23
+```
+
+Now change the first unit from ten-dollar blocks to twenty-dollar blocks. The same spending has coordinate:
+
+```text
+v'=(1,3)
+```
+
+To preserve the scalar score, the first covector weight must become `8`:
+
+```text
+phi'=[8,5]
+phi'(v')=8(1)+5(3)=23
+```
+
+The vector coordinate was divided by 2, while the covector weight was multiplied by 2. They transform oppositely so the pairing is invariant.
+
 ## The Product Discipline
 
 Products are only meaningful when their slots match.
@@ -85,6 +128,12 @@ That determinant-like expression measures oriented two-dimensional content.
 - Tensor type
 - Pairings between vectors and covectors
 - Antisymmetric area or volume elements
+
+## Failure Mode
+
+The common mistake is to treat every list of numbers as the same kind of object. Adding a vector of spending amounts to a covector of price weights is not a meaningful operation unless extra structure has identified those spaces.
+
+Coordinates can look compatible while their transformation laws disagree.
 
 ## Problem Ladder
 

@@ -52,11 +52,66 @@ The important lesson is not merely "nearest is good." It is: nearest inside the 
 
 Projection is the nearest point in a subspace under a chosen geometry.
 
+## Legal Operations
+
+The legal moves in projection are approximation moves:
+
+- choose the subspace or direction that the model is allowed to use
+- compute the projection into that subspace
+- subtract to get the residual error
+- check orthogonality of the residual
+- compare squared errors only under the chosen inner product
+- apply the projection again to test idempotence
+
+The subspace is part of the claim. "Best approximation" always means best among the states your representation can express.
+
+## Worked Derivation
+
+For the request:
+
+```text
+d = (3,1)
+u = (1,1)
+```
+
+the available model only uses multiples of `u`. Write the approximation as `cu` and minimize:
+
+```text
+||d - cu||^2
+```
+
+The projection coefficient is:
+
+```text
+c = (d dot u)/(u dot u) = (3+1)/(1+1) = 2
+```
+
+so:
+
+```text
+proj_u(d)=2(1,1)=(2,2)
+e=d-proj_u(d)=(1,-1)
+```
+
+The residual check is:
+
+```text
+e dot u = (1,-1) dot (1,1) = 0
+```
+
+The leftover misunderstanding is orthogonal to the direction the system knows how to express.
+
 ## Invariants
 
 - Orthogonality of residual
 - Minimum squared error
 - Idempotence P^2 = P
+
+## Failure Mode
+
+Projection can make a bad representation look mathematically tidy. A recommendation can be the closest point in the model's subspace and still miss the user's actual request badly.
+
+The residual should be treated as information, not just as a small nuisance term.
 
 ## Problem Ladder
 

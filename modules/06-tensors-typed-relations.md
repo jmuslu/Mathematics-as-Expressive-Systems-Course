@@ -67,6 +67,61 @@ Tensor product gives a typed joint state. Wedge product gives oriented antisymme
 
 A tensor can be understood as a multilinear map or as an element of a tensor product space.
 
+## Legal Operations
+
+The legal moves for tensors are slot-aware moves:
+
+- name each input and output slot
+- evaluate a multilinear map on compatible inputs
+- hold all but one slot fixed and use linearity in the remaining slot
+- form tensor products when independent slots become a joint space
+- contract a vector slot with a covector slot
+- symmetrize or antisymmetrize when order should or should not matter
+
+The slot names carry meaning. A `person x dish -> score` tensor and a `dish x person -> score` tensor may store related numbers, but the legal interpretation of each slot has changed.
+
+## Worked Derivation
+
+Let a dinner preference be bilinear:
+
+```text
+B(u,v)=u^T A v
+A = [1 2]
+    [0 1]
+```
+
+with Ari's context vector:
+
+```text
+u=(2,-1)
+```
+
+and a dish vector:
+
+```text
+v=(3,4)
+```
+
+First compute:
+
+```text
+A v = (1*3+2*4, 0*3+1*4) = (11,4)
+```
+
+Then:
+
+```text
+B(u,v)=u dot Av = 2(11)+(-1)(4)=18
+```
+
+If the dish vector splits as `v=v_1+v_2`, bilinearity requires:
+
+```text
+B(u,v_1+v_2)=B(u,v_1)+B(u,v_2)
+```
+
+That is the hand check that this two-slot score is genuinely tensorial rather than just a table of arbitrary labels.
+
 ## Wedge Product
 
 The wedge product is the antisymmetric part of tensor combination:
@@ -106,6 +161,12 @@ Covariance, contravariance, Hermitian structure, exterior products, and invarian
 - Transformation law
 - Legal contractions
 - Coordinate-free quantities
+
+## Failure Mode
+
+Flattening a tensor can erase the meaning of its slots. A dinner relation that depends on `person`, `dish`, and `occasion` is not the same as one long untyped list of scores.
+
+The most common mistake is to keep the numbers while losing the slot discipline that made the numbers interpretable.
 
 ## Problem Ladder
 

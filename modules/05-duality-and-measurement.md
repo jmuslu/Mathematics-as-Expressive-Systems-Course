@@ -55,11 +55,71 @@ The dual space V* consists of linear maps:
 V -> F
 ```
 
+## Legal Operations
+
+The legal moves in duality are measurement moves:
+
+- apply a covector to a vector to get a scalar
+- add covectors to combine tests
+- scale a covector to change a test's weight
+- find the kernel of a measurement
+- find the annihilator of a subspace
+- pair vectors and covectors without pretending they are the same object
+
+A dating standard is therefore a test applied to a profile, not the profile itself.
+
+## Worked Derivation
+
+Let a profile be:
+
+```text
+v = (kindness, ambition, humor) = (4,2,5)
+```
+
+and let a standard be:
+
+```text
+f = [2,-1,1]
+```
+
+Then:
+
+```text
+f(v)=2(4)-1(2)+1(5)=11
+```
+
+To find a change this standard cannot detect, solve:
+
+```text
+f(w)=0
+2w_1 - w_2 + w_3 = 0
+```
+
+One solution is:
+
+```text
+w=(1,2,0)
+```
+
+because:
+
+```text
+f(w)=2(1)-2+0=0
+```
+
+So this standard gives the same score to `v` and `v+w`. The kernel is the blind spot of the measurement.
+
 ## Invariants
 
 - Kernel of a functional
 - Annihilator of a subspace
 - Pairing between V and V*
+
+## Failure Mode
+
+A score can be precise and still be narrow. If the covector ignores reliability, timing, or context, then no amount of accurate arithmetic will make that measurement see those dimensions.
+
+Duality makes the blind spot explicit: it asks which changes lie in the kernel of the test.
 
 ## Problem Ladder
 

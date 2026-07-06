@@ -54,12 +54,67 @@ T(u + v) = T(u) + T(v)
 T(alpha u) = alpha T(u)
 ```
 
+## Legal Operations
+
+The legal moves for linear maps are transformation moves:
+
+- apply the map to a vector
+- compose compatible maps
+- test whether addition and scaling are preserved
+- compute kernel, image, and rank
+- invert the map when the determinant is nonzero
+- change basis by conjugating the matrix representation
+
+For a perspective change, this means you may mix coordinates by a fixed linear rule, but you may not add a threshold, maximum, or conditional branch and still call the result linear.
+
+## Worked Derivation
+
+For the base map:
+
+```text
+A = [1 1]
+    [0 1]
+```
+
+apply it to a state `(x,y)`:
+
+```text
+A(x,y) = (x+y,y)
+```
+
+The kernel solves:
+
+```text
+x + y = 0
+y = 0
+```
+
+so `y=0` and `x=0`. The kernel is only the zero vector, so this transformation does not collapse two different states to the same output.
+
+The determinant is:
+
+```text
+det(A)=1*1 - 0*1 = 1
+```
+
+so the map is invertible. In the advice example, the perspective shift can be undone because no coordinate has been erased.
+
 ## Invariants
 
 - Rank
 - Kernel
 - Image
 - Trace and determinant for square maps
+
+## Failure Mode
+
+A rule can look like a transformation while quietly breaking linearity. For example:
+
+```text
+new_confidence = max(confidence + outside_perspective, 0)
+```
+
+may be a reasonable emotional model, but it is not a linear map. Once thresholds or cases enter, matrix tools like kernel, rank, and inverse no longer describe the whole rule.
 
 ## Problem Ladder
 

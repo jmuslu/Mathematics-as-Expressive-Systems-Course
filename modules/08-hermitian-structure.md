@@ -55,6 +55,19 @@ A* = A
 
 Here A* means conjugate transpose. This is the complex analogue of a symmetric real matrix.
 
+## Legal Operations
+
+The legal moves in Hermitian geometry are:
+
+- conjugate the first slot of the inner product
+- compute squared norm as `<v,v>`
+- take conjugate transpose when forming an adjoint
+- test Hermitian operators with `A*=A`
+- test unitary operators with `U*U=I`
+- preserve phase-sensitive similarity without sacrificing positive length
+
+Once scalars are complex, ordinary transpose is no longer the correct geometry-preserving operation.
+
 ## Worked Example: Why Conjugation Is Forced
 
 Let v = (1, i). Without conjugation:
@@ -81,12 +94,56 @@ The point is not quantum mechanics specifically. The point is that once represen
 
 Non-degenerate Hermitian forms add geometric structure to a complex vector space. They identify vectors with dual vectors in a controlled way, so scores, similarities, and validation tests do not quietly assume an identification that the representation has not earned.
 
+## Worked Derivation
+
+Let:
+
+```text
+u = (1+i, 2)
+v = (3, 1-i)
+```
+
+Using:
+
+```text
+<u,v> = conjugate(u_1)v_1 + conjugate(u_2)v_2
+```
+
+gives:
+
+```text
+<u,v> = (1-i)3 + 2(1-i)
+      = 5 - 5i
+```
+
+Reverse the order:
+
+```text
+<v,u> = conjugate(3)(1+i) + conjugate(1-i)2
+      = 3+3i + 2+2i
+      = 5+5i
+```
+
+So:
+
+```text
+<u,v> = conjugate(<v,u>)
+```
+
+Similarity can be complex between different vectors, while self-similarity remains real and nonnegative.
+
 ## Invariants
 
 - Hermitian norm
 - Orthogonality
 - Real eigenvalues of Hermitian operators
 - Unitary preservation of geometry
+
+## Failure Mode
+
+If a complex model uses transpose-only geometry, it can assign zero or non-real length to nonzero states. That breaks projection, orthogonality, spectral interpretation, and stability checks.
+
+The fix is not cosmetic conjugation. It is the structure that makes complex similarity usable.
 
 ## Problem Ladder
 
