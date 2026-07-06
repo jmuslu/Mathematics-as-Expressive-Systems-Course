@@ -1,58 +1,58 @@
 # Mathematics as Expressive Systems
 
-A self-paced applied mathematics course for designing robust external memory systems for LLMs.
+A self-paced applied mathematics course for designing dynamic epistemic graphs and LLM second-brain systems.
 
-The guiding question:
+The guiding idea:
 
-> When mathematicians need more expressive power, do they enlarge the space, enrich the scalars, or invent a new operation?
+> External memory is not just retrieval. It is a structured evolving knowledge system whose transformations, invariants, validations, and failure modes should be mathematically legible.
 
-This course treats mathematics as a sequence of construction kits. Each new object exists because an older object could not express something naturally enough. The destination is not quantum mechanics or pure abstraction for its own sake. The destination is memory: representations, retrieval, indexing, compression, uncertainty, and evaluation.
+## What This Course Is For
 
-## How This Course Works
+This course is for building mathematical taste around:
 
-Each module follows a source-slide-inspired rhythm:
+- Graphs and hypergraphs
+- Transformations and symmetries
+- Group actions and equivariance
+- Tensors and typed relations
+- Category theory and compositionality
+- Topology, persistence, and sheaves
+- Probabilistic validation and message passing
+- Decay, reinforcement, consolidation, and graph evolution
 
-1. Start from a concrete failure.
-2. Work a base case by hand.
-3. Introduce the formal object only after the need is visible.
-4. Derive the key operation.
-5. Study a failure mode.
-6. Build a problem ladder.
-7. Connect the object to external memory systems.
-
-This is intentionally math-first. There are no programming assignments.
+The destination is broader than RAG or vector search. Those are applications. The deeper target is the design of an external cognitive architecture: a living graph of claims, context, evidence, validations, and transformations.
 
 ## Start Here
 
 - [Course Map](COURSE_MAP.md)
 - [Lecture Lens](LECTURE_LENS.md)
 - [Source Pedagogy](SOURCE_PEDAGOGY.md)
+- [Website Design Notes](WEBSITE_DESIGN_NOTES.md)
 - [Primary Paper Trail](research/primary-papers.md)
 - [Interactive Course Site](docs/index.html)
 
 ## Modules
 
-1. [How To Work This Course](modules/00-orientation.md)
-2. [Scalars, Coordinates, and Expressive Power](modules/01-number-systems.md)
-3. [Vector Spaces, Reachability, and Memory Slots](modules/02-vectors-and-spaces.md)
-4. [Linear Systems, Projection, and Error](modules/03-projection-and-error.md)
-5. [Bases, Orthogonality, SVD, and Compression](modules/04-svd-and-compression.md)
-6. [Spectral Structure, Graphs, and Stable Modes](modules/05-spectral-structure.md)
-7. [Complex Scalars, Phase, Fourier Features, and Kernels](modules/06-complex-fourier-kernels.md)
-8. [Probability, Information, and Uncertainty](modules/07-probability-information.md)
-9. [Optimization, Duality, and Constraints](modules/08-optimization-duality.md)
-10. [Metric Geometry and Embedding Spaces](modules/09-metric-geometry.md)
-11. [Nearest Neighbor Search and Vector Indexes](modules/10-nearest-neighbor-indexes.md)
-12. [Attention as Soft Retrieval](modules/11-attention-soft-retrieval.md)
-13. [Contrastive Learning and Dense Retrieval](modules/12-contrastive-dense-retrieval.md)
-14. [Memory-Augmented Models and Non-Parametric Memory](modules/13-memory-augmented-models.md)
-15. [RAG, RETRO, and Retrieval-Conditioned Generation](modules/14-rag-and-retro.md)
-16. [Long Context, Recency, Consolidation, and Forgetting](modules/15-long-context-memory.md)
-17. [Robustness, Evaluation, and Memory System Design](modules/16-robustness-evaluation.md)
+There are 32 modules, grouped into seven parts:
 
-## Format Notes
+1. Foundations of representation
+2. Structure and invariance
+3. Graphs as systems
+4. Composition and typing
+5. Topology of memory
+6. Uncertainty and validation
+7. Dynamics and design
 
-The structure is inspired by the supplied ML mathematics lecture PDFs: prerequisites, motivating problems, worked base cases, derivations, and problem ladders. The topic direction is now specific: applied math for external memory in LLM systems.
+See [Course Map](COURSE_MAP.md) for the full sequence.
+
+## Course Style
+
+The course should stay close to the supplied ML math slide decks:
+
+```text
+concrete problem -> base case -> operation -> definition -> derivation -> failure mode -> design implication
+```
+
+No coding assignments are required. Problems are mathematical and architectural.
 
 ## Local Website Preview
 
@@ -67,10 +67,10 @@ Copy-Item -Recurse -Force research _site\research
 New-Item -ItemType File -Force _site\.nojekyll | Out-Null
 ```
 
-Then run a simple static server:
+Then run:
 
 ```powershell
 python -m http.server 4173 -d _site
 ```
 
-Then visit `http://localhost:4173`.
+Visit `http://localhost:4173`.

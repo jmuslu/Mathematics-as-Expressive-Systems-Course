@@ -7,150 +7,104 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="topbar">
-      <div>
-        <p class="eyebrow">Applied math course</p>
-        <h1>Mathematics as Expressive Systems</h1>
-      </div>
-      <nav class="nav" aria-label="Course navigation">
-        <a href="#preface">Preface</a>
-        <a href="#modules">Lectures</a>
-        <a href="#lens">Method</a>
-        <a href="#worksheet">Worksheet</a>
-      </nav>
-    </header>
+    <main class="page">
+      <header class="title-block">
+        <h1>A Complete Beginner's Guide to</h1>
+        <h2>Mathematics as Expressive Systems</h2>
+        <p class="subtitle">
+          Applied math for dynamic epistemic graphs, G-invariance, category theory,
+          sheaves, topology, and LLM second-brain architecture.
+        </p>
+      </header>
 
-    <main class="tutorial-shell">
-      <aside class="toc-panel" aria-label="Course table of contents">
-        <p class="eyebrow">Course path</p>
-        <nav id="tocList" class="toc-list"></nav>
-      </aside>
+      <hr />
 
-      <article class="tutorial-main">
-        <section id="preface" class="preface">
-          <p class="eyebrow">Preface</p>
-          <h2>Applied mathematics for robust external memory in LLM systems</h2>
-          <p>
-            This course is built from a simple pressure: a language model with external memory
-            must represent, retrieve, rank, compress, update, forget, and evaluate information.
-            Each lecture introduces a mathematical object because a previous object fails at one
-            of those jobs.
-          </p>
-          <div class="premise-grid" aria-label="Course promises">
-            <div>
-              <strong>Vertical depth</strong>
-              <span>Base case, derivation, invariant, failure mode.</span>
-            </div>
-            <div>
-              <strong>Horizontal application</strong>
-              <span>Representation, retrieval, indexing, memory, evaluation.</span>
-            </div>
-            <div>
-              <strong>No coding assignments</strong>
-              <span>Math-first problems and design reasoning.</span>
-            </div>
-          </div>
-        </section>
+      <section id="preface">
+        <h2>Preface</h2>
+        <ul>
+          <li>This course is not a RAG tutorial. It is a mathematical path toward designing external cognitive architecture.</li>
+          <li>The guiding object is a dynamic epistemic graph: typed memories, evidence, transformations, validations, decay, and reinforcement.</li>
+          <li>The course follows the original ML math slide style: base case first, abstraction second, design implication last.</li>
+          <li>Important mature topics such as Hermitian structure, group actions, G-invariance, representation theory, sheaves, and categorical databases are first-class modules.</li>
+        </ul>
+      </section>
 
-        <section id="modules" class="section">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">Lectures</p>
-              <h2>Work the base case before naming the abstraction</h2>
-            </div>
-            <label class="search">
-              <span>Search</span>
-              <input id="searchInput" type="search" placeholder="e.g. attention, HNSW, entropy" />
-            </label>
-          </div>
+      <hr />
 
-          <div class="phase-tabs" role="tablist" aria-label="Course phases">
-            <button class="phase-tab active" data-phase="all" type="button">All</button>
-            <button class="phase-tab" data-phase="foundations" type="button">Foundations</button>
-            <button class="phase-tab" data-phase="geometry" type="button">Geometry</button>
-            <button class="phase-tab" data-phase="retrieval" type="button">Retrieval</button>
-            <button class="phase-tab" data-phase="memory" type="button">Memory</button>
-            <button class="phase-tab" data-phase="evaluation" type="button">Evaluation</button>
-          </div>
+      <section id="method">
+        <h2>Method and Further Readings</h2>
+        <ul>
+          <li>The exposition style follows the supplied lecture PDFs: prerequisites, concrete problem, operation, derivation, failure mode, practice.</li>
+          <li>For applied category theory: <em>Seven Sketches in Compositionality</em>.</li>
+          <li>For tensor maturity: Jeevanjee's <em>An Introduction to Tensors and Group Theory for Physicists</em>, especially dual spaces, Hermitian forms, active/passive transformations, tensor products, antisymmetric tensors, and representation tensor products.</li>
+          <li>For group intuition: <em>Visual Group Theory</em>, then representation theory and G-invariance.</li>
+          <li>For graph systems: Easley and Kleinberg, Diestel, algebraic graph theory, hypergraphs, and spectral graph theory.</li>
+          <li>For local-to-global validation: sheaves, cosheaves, graphical models, and message passing.</li>
+        </ul>
+      </section>
 
-          <div id="moduleGrid" class="module-list" aria-live="polite"></div>
-        </section>
+      <hr />
 
-        <section id="lens" class="section split">
-          <div>
-            <p class="eyebrow">Lecture method</p>
-            <h2>The lecture contract</h2>
-            <ol class="lens-list">
-              <li>Lecture promise</li>
-              <li>Prerequisites</li>
-              <li>Concrete failure</li>
-              <li>Base case</li>
-              <li>Formal object</li>
-              <li>Legal operations</li>
-              <li>Worked derivation</li>
-              <li>Failure mode</li>
-              <li>Invariants</li>
-              <li>Problem ladder</li>
-              <li>Memory-system connection</li>
-            </ol>
-          </div>
-          <div class="active-module" id="activeModule">
-            <p class="eyebrow">Selected lecture</p>
-            <h3>Choose a lecture</h3>
-            <p>The selected lecture preview will appear here.</p>
-          </div>
-        </section>
+      <section id="preview">
+        <h2>Preview: What Counts as a Safe Transformation?</h2>
+        <p>
+          Suppose a memory graph is relabeled. The names of the nodes change, but the meaning should not.
+          This is a group action. If a feature changes under relabeling, it has learned an artifact of storage,
+          not a property of the graph.
+        </p>
+        <pre><code>A' = P A P^T</code></pre>
+        <p>
+          A good graph-level memory summary should be invariant to this transformation. A node-level memory
+          embedding should usually be equivariant: when nodes are relabeled, the embeddings relabel with them.
+        </p>
+      </section>
 
-        <section id="worksheet" class="section worksheet">
-          <div class="section-head">
-            <div>
-              <p class="eyebrow">Study worksheet</p>
-              <h2>Turn a lecture into working notes</h2>
-            </div>
-            <button id="copyCard" class="primary-action" type="button">Copy Markdown</button>
-          </div>
-          <form id="cardForm" class="worksheet-form">
-            <label>
-              <span>Lecture or object</span>
-              <input name="object" type="text" placeholder="e.g. attention as soft retrieval" />
-            </label>
-            <label>
-              <span>Concrete failure</span>
-              <textarea name="limitation" rows="3"></textarea>
-            </label>
-            <label>
-              <span>Base case</span>
-              <textarea name="basecase" rows="3"></textarea>
-            </label>
-            <label>
-              <span>Worked derivation</span>
-              <textarea name="derivation" rows="3"></textarea>
-            </label>
-            <label>
-              <span>Failure mode</span>
-              <textarea name="failure" rows="3"></textarea>
-            </label>
-            <label>
-              <span>Memory-system connection</span>
-              <textarea name="memory" rows="3"></textarea>
-            </label>
-          </form>
-          <pre id="cardOutput" class="card-output" aria-live="polite"></pre>
-        </section>
+      <hr />
 
-        <section class="section references">
-          <p class="eyebrow">Research spine</p>
-          <h2>Primary papers supply the hard problems</h2>
-          <p>
-            The course uses RAG, REALM, kNN-LM, RETRO, Memorizing Transformers, LongMem,
-            Neural Turing Machines, HNSW, FAISS, product quantization, DPR, ColBERT,
-            BEIR, RAGAS, and long-context failure papers as sources of mathematical pressure.
-          </p>
-          <p><a href="research/primary-papers.md">Open the primary paper trail</a></p>
-        </section>
-      </article>
+      <section id="products">
+        <h2>Recurring Product Questions</h2>
+        <p>
+          A major thread inherited from the original coursework is learning which operation is legal and what it means.
+          Inner product, outer product, matrix product, tensor product, Kronecker product, wedge product, contraction,
+          categorical product, and operadic composition are not interchangeable ways to combine things.
+        </p>
+        <pre><code>inner product: alignment
+outer product: generated relation
+tensor product: joint typed state
+wedge product: oriented antisymmetric content
+contraction: legal slot pairing
+composition: process after process
+gluing: local data into global consistency</code></pre>
+      </section>
+
+      <hr />
+
+      <section id="toc">
+        <h2>Table of Contents</h2>
+        <ol id="tocList" class="toc-list"></ol>
+      </section>
+
+      <hr />
+
+      <section id="lectures">
+        <h2>Lectures</h2>
+        <div id="lectureList"></div>
+      </section>
+
+      <hr />
+
+      <section id="worksheet">
+        <h2>Study Worksheet</h2>
+        <p>For each lecture, write one page with the following fields.</p>
+        <pre><code>Object:
+Concrete failure:
+Base case:
+Legal operation:
+Invariant:
+Failure mode:
+Second-brain design implication:</code></pre>
+      </section>
     </main>
-
     <script src="app.js"></script>
   </body>
 </html>

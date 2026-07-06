@@ -1,75 +1,87 @@
 # Primary Paper Trail
 
-This course uses research papers as sources of mathematical pressure. A paper is included when it creates a real design question for robust external memory systems for LLMs.
+This course uses papers as mathematical pressure, not as a reading list to finish passively. A source belongs here when it forces a new question about how an external memory system should represent, transform, validate, and revise knowledge.
 
-## Core Transformer And Attention
+## Symmetry, Invariance, And Equivariance
 
-- [Attention Is All You Need](https://arxiv.org/abs/1706.03762) - softmax attention as content-addressed retrieval over keys and values.
-- [Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention](https://arxiv.org/abs/2006.16236) - kernel feature maps and associativity as a route from quadratic attention to linear recurrence.
-- [FlashAttention](https://arxiv.org/abs/2205.14135) - IO complexity and memory hierarchy as mathematical constraints on attention.
+- [A Complete Beginner's Guide to G-Invariance](https://invariances.org/ginvariance-tutorial/) - the design reference for the website and the most direct bridge from group action to invariant construction.
+- [Geometric Deep Learning: Grids, Groups, Graphs, Geodesics, and Gauges](https://arxiv.org/abs/2104.13478) - a unifying account of representation learning through symmetry, geometry, and domain structure.
+- [An Introduction to Tensors and Group Theory for Physicists](https://books.google.com/books/about/An_Introduction_to_Tensors_and_Group_The.html?id=JJuvb8507qQC) - Jeevanjee's tensor and group-theory style is a model for introducing mathematical objects through transformation laws and invariants, even though this course does not follow the physics specialization.
+- [Universal Invariant and Equivariant Graph Neural Networks](https://arxiv.org/abs/1905.04943) - graph outputs should be invariant to relabeling; node outputs should be equivariant.
+- [Expressive Power of Invariant and Equivariant Graph Neural Networks](https://arxiv.org/abs/2006.15646) - studies which invariant/equivariant functions practical graph networks can express.
+- [Provably Powerful Graph Networks](https://arxiv.org/abs/1905.11136) - connects graph neural expressivity to Weisfeiler-Lehman graph distinction.
 
 Problem hooks:
 
-- Derive scaled dot-product attention from nearest-neighbor retrieval.
-- Compare softmax retrieval with hard top-k retrieval.
-- Compute the memory cost of storing QK^T versus streaming blocks.
+- Prove that a graph-level statistic must satisfy f(PAP^T) = f(A).
+- Construct a node-level feature map F with F(PAP^T) = PF(A).
+- Compare invariance, equivariance, and covariance on one three-node graph.
+- Decide when inner, outer, tensor, wedge, and categorical products are the right way to combine objects.
+- Find two non-isomorphic graphs that a weak message passing scheme cannot distinguish.
 
-## Retrieval-Augmented And External-Memory Language Models
+## Category Theory, Schemas, And Provenance
 
-- [Generalization through Memorization: Nearest Neighbor Language Models](https://arxiv.org/abs/1911.00172) - interpolation between parametric next-token probabilities and kNN datastore probabilities.
-- [REALM: Retrieval-Augmented Language Model Pre-Training](https://arxiv.org/abs/2002.08909) - latent retrieval trained from masked language modeling.
-- [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) - parametric memory plus non-parametric dense vector memory.
-- [Improving language models by retrieving from trillions of tokens](https://arxiv.org/abs/2112.04426) - RETRO and chunked cross-attention over retrieved neighbors.
-- [Memorizing Transformers](https://arxiv.org/abs/2203.08913) - non-differentiable kNN memory over recent key-value representations.
-- [Augmenting Language Models with Long-Term Memory](https://arxiv.org/abs/2306.07174) - long-term cache, frozen encoder, and side-network retrieval.
+- [Seven Sketches in Compositionality](https://arxiv.org/abs/1803.05316) - applied category theory through databases, orders, circuits, dynamical systems, and sheaves.
+- [Functorial Data Migration](https://arxiv.org/abs/1009.1166) - database schemas as categories; instances as set-valued functors; schema change as functorial migration.
+- [Relational Foundations for Functorial Data Migration](https://arxiv.org/abs/1212.5303) - graph-presented schemas, path equations, and categorical instance categories.
+
+Problem hooks:
+
+- Turn a small typed memory schema into a category.
+- Interpret a memory instance as a functor into Set.
+- Use a natural transformation to describe provenance-preserving memory revision.
+- Explain why schema evolution should be functorial rather than an ad hoc migration script.
+
+## Sheaves, Topology, And Local-To-Global Consistency
+
+- [Sheaves, Cosheaves and Applications](https://arxiv.org/abs/1303.3255) - cellular sheaves and cosheaves as computable tools for topological data analysis, networks, and sensor systems.
+- [Discrete Morse Theory for Computing Cellular Sheaf Cohomology](https://arxiv.org/abs/1312.6454) - computational sheaf cohomology and distributed consistency.
+- [Toward a Spectral Theory of Cellular Sheaves](https://link.springer.com/article/10.1007/s41468-019-00038-7) - extends spectral graph theory toward sheaf Laplacians and sheaf cohomology.
+
+Problem hooks:
+
+- Build a sheaf on a two-source contradiction graph.
+- Decide when local sections glue into a global section.
+- Compare ordinary graph Laplacians with the idea of a sheaf Laplacian.
+- Interpret a failed gluing condition as a memory-system inconsistency rather than a retrieval miss.
+
+## Graphs, Hypergraphs, And Algebraic Structure
+
+- [Graph Theory](https://diestel-graph-theory.com/) - mature graph-theoretic language for paths, connectivity, minors, colorings, and structure.
+- [Spectral Graph Theory](https://people.math.wisc.edu/~roch/grad-prob/grad_prob_devel1/bookch10.pdf) - graph Laplacians, cuts, diffusion, and eigenstructure.
+- [Relational inductive biases, deep learning, and graph networks](https://arxiv.org/abs/1806.01261) - why graph-structured computation is a natural inductive bias for relational systems.
+
+Problem hooks:
+
+- Compute incidence, adjacency, degree, and Laplacian matrices for one typed graph.
+- Use a Laplacian eigenvector to identify a bottleneck in a memory graph.
+- Convert a ternary relation into a hyperedge and compare what is lost in pairwise encoding.
+- Distinguish graph connectivity from semantic consistency.
+
+## Probability, Message Passing, And Validation
+
+- [Probabilistic Graphical Models: Principles and Techniques](https://mitpress.mit.edu/9780262013192/probabilistic-graphical-models/) - factorization, conditional independence, evidence, and inference.
+- [Information, Physics, and Computation](https://academic.oup.com/book/10381) - Mezard and Montanari's message-passing and graphical-model intuition is useful for validation loops, without making the course a statistical physics course.
+- [Belief Propagation and Its Generalizations](https://www.merl.com/publications/docs/TR2001-22.pdf) - message passing as local computation for global inference.
 - [Neural Turing Machines](https://arxiv.org/abs/1410.5401) - differentiable read/write memory as an algorithmic learning substrate.
-- [Hybrid computing using a neural network with dynamic external memory](https://www.nature.com/articles/nature20101) - Differentiable Neural Computer and structured memory access.
 
 Problem hooks:
 
-- Derive kNN-LM probability interpolation and study the lambda tradeoff.
-- Compare parametric and non-parametric memory update costs.
-- Model retrieved chunks as latent variables and derive a marginal likelihood.
-- Analyze when a memory write should overwrite, merge, or create a new key.
+- Factor a joint distribution over claim, source, evidence, and context.
+- Run one round of belief propagation by hand on a chain.
+- Model conflicting evidence as posterior updating instead of nearest-neighbor disagreement.
+- Ask which independence assumptions are design choices, not facts.
 
-## Dense Retrieval And Embedding Geometry
+## Retrieval And Long-Term Memory Systems
 
-- [Dense Passage Retrieval for Open-Domain Question Answering](https://arxiv.org/abs/2004.04906) - dual encoders and maximum inner product retrieval.
-- [ColBERT](https://arxiv.org/abs/2004.12832) - late interaction and token-level max similarity.
-- [Unsupervised Dense Information Retrieval with Contrastive Learning](https://arxiv.org/abs/2112.09118) - contrastive training for dense retrieval without labeled pairs.
-- [Text Embeddings by Weakly-Supervised Contrastive Pre-training](https://arxiv.org/abs/2212.03533) - large-scale weak supervision for general text embeddings.
-
-Problem hooks:
-
-- Convert cosine similarity into inner product search by normalizing vectors.
-- Derive the InfoNCE loss and identify false negatives.
-- Compare single-vector, multi-vector, and cross-encoder scoring.
-- Show how embedding collapse breaks retrieval.
-
-## Approximate Nearest Neighbor And Vector Indexes
-
-- [Efficient and robust approximate nearest neighbor search using HNSW graphs](https://arxiv.org/abs/1603.09320) - graph navigation and recall-latency tradeoffs.
-- [Billion-scale similarity search with GPUs](https://arxiv.org/abs/1702.08734) - FAISS, GPU k-selection, and billion-scale similarity search.
-- [Product Quantization for Nearest Neighbor Search](https://inria.hal.science/inria-00514462) - compression by Cartesian products of subquantizers.
-- [Similarity Search in High Dimensions via Hashing](https://www.cs.columbia.edu/~verma/classes/uml/ref/nn_lsh_gionis_indyk_motwani.pdf) - locality-sensitive hashing as probabilistic indexing.
+- [Generalization through Memorization: Nearest Neighbor Language Models](https://arxiv.org/abs/1911.00172) - interpolation between parametric prediction and kNN datastore memory.
+- [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) - parametric memory plus non-parametric retrieval.
+- [Improving language models by retrieving from trillions of tokens](https://arxiv.org/abs/2112.04426) - chunked retrieval and cross-attention at large scale.
+- [Augmenting Language Models with Long-Term Memory](https://arxiv.org/abs/2306.07174) - long-term memory cache for language models.
+- [Lost in the Middle](https://arxiv.org/abs/2307.03172) - positional failure modes in long-context use.
 
 Problem hooks:
 
-- Compute the distortion introduced by scalar and product quantization.
-- Compare exact top-k with approximate top-k under recall constraints.
-- Derive a simple LSH collision probability.
-- Reason about HNSW insertion, graph degree, and search beam width.
-
-## Evaluation, Robustness, And Long Context
-
-- [BEIR: A Heterogeneous Benchmark for Zero-shot Evaluation of Information Retrieval Models](https://arxiv.org/abs/2104.08663) - retrieval robustness across domains.
-- [Lost in the Middle](https://arxiv.org/abs/2307.03172) - positional failure modes in long-context retrieval use.
-- [RAGAS: Automated Evaluation of Retrieval Augmented Generation](https://arxiv.org/abs/2309.15217) - reference-free evaluation dimensions for RAG.
-- [How faithful are RAG models?](https://arxiv.org/html/2404.10198v1) - tension between retrieved evidence and parametric prior.
-
-Problem hooks:
-
-- Decompose failure into retrieval miss, ranking error, context placement error, and generation unfaithfulness.
-- Compute recall@k, precision@k, MRR, and nDCG by hand.
-- Construct adversarial retrieval examples where nearest is not most useful.
-- Model evidence conflict as Bayesian updating between prior and retrieved context.
+- Decompose a failure into representation, retrieval, validation, and synthesis errors.
+- Compare vector similarity with graph/path evidence.
+- Decide when a new memory should create a node, strengthen an edge, update a schema, or trigger contradiction handling.
