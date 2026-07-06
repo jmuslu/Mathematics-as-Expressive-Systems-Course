@@ -247,7 +247,7 @@ Natural successor to current `(1,2,2)` orbit examples.
 Module: 14
 Topic: fixed points under an action
 Role: conceptual check
-Status: reserve
+Status: promoted in Module 14 Problem 14.11
 Source use: original, source-informed
 Source note: Inspired by fixed-point definitions in group-action notes.
 License note: No source problem text copied.

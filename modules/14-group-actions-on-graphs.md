@@ -251,17 +251,27 @@ Both graphs have 2 edges.
 
 Graph-level features usually ignore arbitrary names.
 
-### Problem 14.11: Find the stabilizer of a labeled triangle shape
+### Problem 14.11: Fixed edge sets under a swap
 
-A triangle graph has edges `{1-2, 2-3, 1-3}`. Which node permutations preserve adjacency?
+Let `s` swap nodes 1 and 3 in a three-node graph. Which of these edge sets are fixed by `s`?
+
+```text
+A. {1-2, 2-3}
+B. {1-2}
+C. {1-3}
+D. {1-2, 1-3}
+```
 
 Answer check:
 
 ```text
-All 6 permutations of {1,2,3} preserve adjacency.
+A. fixed: edges swap with each other
+B. not fixed: 1-2 becomes 2-3
+C. fixed: 1-3 remains 3-1, the same undirected edge
+D. not fixed: 1-2 becomes 2-3, missing from D
 ```
 
-The complete graph has maximal relabeling symmetry.
+Fixed does not mean every part stays in place. It means the whole object returns to itself.
 
 ### Problem 14.12: Failure mode - learning storage order
 
