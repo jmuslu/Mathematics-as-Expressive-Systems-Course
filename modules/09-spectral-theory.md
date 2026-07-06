@@ -112,13 +112,13 @@ lambda=3: span((1,1))
 lambda=1: span((1,-1))
 ```
 
-### Problem 9.5: Decompose a vector into eigenmodes
+### Problem 9.5: Decompose friendship mood into eigenmodes
 
-Write `(4,2)` as a combination of:
+Two friends start the week with mood vector `(4,2)`, where each coordinate is one person's excitement about a shared plan. Write this state as a combination of the shared-mood mode and the contrast-mood mode:
 
 ```text
-u=(1,1)
-v=(1,-1)
+u=(1,1)     shared mood
+v=(1,-1)    contrast mood
 ```
 
 Answer check:
@@ -131,11 +131,18 @@ a-b=2
 b=1
 ```
 
-So `(4,2)=3u+v`.
+So `(4,2)=3u+v`: most of the state is shared excitement, with one unit of contrast between the two friends.
 
-### Problem 9.6: Apply repeated powers using eigenmodes
+### Problem 9.6: Apply repeated powers to the friendship mood
 
-For `A=[2 1; 1 2]`, use Problem 9.5 to compute `A^3(4,2)`.
+The weekly update rule is:
+
+```text
+A = [2 1]
+    [1 2]
+```
+
+This update triples the shared-mood mode `u=(1,1)` and leaves the contrast-mood mode `v=(1,-1)` unchanged. Use Problem 9.5 to compute `A^3(4,2)`.
 
 Answer check:
 
@@ -147,7 +154,7 @@ A^3(4,2)=A^3(3u+v)
 =(82,80)
 ```
 
-Eigenvectors make repeated dynamics easier to understand because powers act separately on each mode.
+After three weeks, the shared mood has been amplified from `3u` to `81u`, while the contrast mood is still just `v`. Eigenvectors make repeated dynamics easier to understand because powers act separately on each mode.
 
 ### Problem 9.7: Spectral radius
 
@@ -220,11 +227,11 @@ The y-axis/e2 direction decays by 0.5 each step.
 
 Spectral theory identifies stable and decaying modes.
 
-### Problem 9.11: Memory interpretation
+### Problem 9.11: Social interpretation
 
-A two-node belief system repeatedly applies A. Which mode grows faster: agreement `(1,1)` or disagreement `(1,-1)`?
+A two-person friendship repeatedly applies the update rule from Problem 9.6. Which mode grows faster: shared excitement `(1,1)` or contrast `(1,-1)`?
 
-Answer check: agreement grows by factor 3; disagreement grows by factor 1.
+Answer check: shared excitement grows by factor 3 each update; contrast grows by factor 1.
 
 ### Problem 9.12: Failure mode - largest mode is not always best
 

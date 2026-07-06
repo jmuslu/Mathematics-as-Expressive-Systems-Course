@@ -119,9 +119,9 @@ Could later be expanded into a full SVD trail for the social-media recommendatio
 Module: 09
 Topic: repeated powers and dominant eigenmodes
 Role: slightly harder hand calculation
-Status: reserve
+Status: promoted variant in Module 09 Problems 9.5-9.6
 Source use: original, source-informed
-Source note: Inspired by spectral decomposition as repeated transformation.
+Source note: Inspired by spectral decomposition as repeated transformation and MIT OCW's diagonalization-and-powers framing.
 License note: No source problem text copied.
 Verification status: checked by hand
 ```
