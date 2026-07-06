@@ -94,10 +94,14 @@ Problem hooks:
 ## Sheaves, Topology, And Local-To-Global Consistency
 
 - [Persistent Homology: Theory and Practice](https://pub.ista.ac.at/~edels/Papers/2012-11-PHTheoryPractice.pdf) - Edelsbrunner and Harer's overview of persistent homology as the algebraic tool for tracking features across filtrations.
+- [Persistent Homology: A Survey](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/edelhare.pdf) - persistence as multi-scale organization with algorithmic and mathematical framing.
 - [A User's Guide to Topological Data Analysis](https://learning-analytics.info/index.php/JLA/article/download/5196/6089?inline=1) - accessible TDA framing around persistence diagrams, loops, holes, and mapper-style signatures.
+- [Topological Data Analysis: Mapper, Persistence and Applications](https://dioscuri-tda.org/documents/paris_2021_data_science_school/slides/TDA_Tutorial.pdf) - concrete point-cloud, filtered-complex, Mapper, and persistence examples.
 - [A roadmap for the computation of persistent homology](https://link.springer.com/article/10.1140/epjds/s13688-017-0109-5) - computational perspective on persistent homology and its robustness to perturbations.
 - [Sheaves, Cosheaves and Applications](https://arxiv.org/abs/1303.3255) - cellular sheaves and cosheaves as computable tools for topological data analysis, networks, and sensor systems.
 - [A gentle introduction to sheaves on graphs](https://www.jakobhansen.org/publications/gentleintroduction.pdf) - graph-based sheaf language for local data, restriction maps, and global sections.
+- [A Very Elementary Introduction to Sheaves](https://arxiv.org/pdf/2202.01379) - concrete entry point for restrictions, local sections, and gluing.
+- [A Sheaf-Theoretic Framework for Knowledge Graph Embedding](https://proceedings.mlr.press/v206/gebhart23a/gebhart23a.pdf) - knowledge graph embeddings as approximate global sections of a knowledge sheaf.
 - [Discrete Morse Theory for Computing Cellular Sheaf Cohomology](https://arxiv.org/abs/1312.6454) - computational sheaf cohomology and distributed consistency.
 - [Toward a Spectral Theory of Cellular Sheaves](https://link.springer.com/article/10.1007/s41468-019-00038-7) - extends spectral graph theory toward sheaf Laplacians and sheaf cohomology.
 
