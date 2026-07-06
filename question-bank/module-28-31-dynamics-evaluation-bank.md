@@ -1,4 +1,4 @@
-# Modules 28-31 Bank: Dynamics, Rewriting, Evaluation, and Architecture
+# Modules 28-31 Bank: Playlist Dynamics, Shared-Note Rewriting, Debate Evaluation, and Evidence-Board Design
 
 Source posture: original course problems inspired by public sources on dynamic graphs, graph rewriting, RAG evaluation, and graph-based agent memory. These are reserve candidates, not promoted lecture text.
 

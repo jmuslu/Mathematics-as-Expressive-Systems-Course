@@ -1,4 +1,4 @@
-# Module 06 Pilot Question Bank: Tensors and Typed Relations
+# Module 06 Pilot Question Bank: Tensors and Dinner Table Relations
 
 Status: pilot for review
 

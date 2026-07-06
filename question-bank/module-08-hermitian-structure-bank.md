@@ -1,4 +1,4 @@
-# Module 08 Bank: Inner Products and Hermitian Structure
+# Module 08 Bank: Hermitian Structure and Playlist Phase
 
 Source posture: original course problems inspired by public notes on Hermitian inner products, unitary matrices, adjoints, and complex geometry. These are reserve candidates, not promoted lecture text.
 

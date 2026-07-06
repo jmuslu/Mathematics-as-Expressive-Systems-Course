@@ -1,4 +1,4 @@
-# Module 07 Bank: Covariance and Contravariance
+# Module 07 Bank: Covariance, Contravariance, and Budget Units
 
 Source posture: original course problems inspired by public notes on dual spaces, metrics, tensor slots, and transformation laws. These are reserve candidates, not promoted lecture text.
 

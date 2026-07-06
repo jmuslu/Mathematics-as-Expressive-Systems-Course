@@ -14,16 +14,16 @@ Use [Problem Trail Style](../PROBLEM_TRAIL_STYLE.md) for analogy rules, bank rol
 
 ## Files
 
-- `module-01-05-foundations-bank.md` - reserve and lecture-candidate problems for norms, span, elimination, projection, least squares, and covector measurements.
+- `module-01-05-foundations-bank.md` - reserve and lecture-candidate problems for scalar expressive power, friendship-profile spaces, perspective shifts, projection error, and covector measurements.
 - `module-06-tensors-typed-relations-pilot.md` - first reviewed pilot using the dinner-table analogy.
-- `module-07-covariance-contravariance-bank.md` - reserve and lecture-candidate problems for variance, metrics, slot grammar, and wedge checks.
-- `module-08-hermitian-structure-bank.md` - reserve and lecture-candidate problems for complex inner products, unitary maps, adjoints, and Hermitian forms.
-- `module-09-12-spectral-graphs-bank.md` - reserve and lecture-candidate problems for eigenmodes, SVD intuition, Laplacians, graph invariants, and higher-order relations.
-- `module-13-16-symmetry-bank.md` - reserve and lecture-candidate problems for groups, actions, representations, equivariance, and Reynolds averaging.
-- `module-17-21-category-composition-bank.md` - reserve and lecture-candidate problems for categories, universal properties, functors, databases, and operads.
-- `module-22-24-topology-sheaves-bank.md` - reserve and lecture-candidate problems for topology, persistence, and sheaf consistency.
-- `module-25-27-inference-optimization-bank.md` - reserve and lecture-candidate problems for message passing, graphical models, and constrained optimization.
-- `module-28-31-dynamics-evaluation-bank.md` - reserve and lecture-candidate problems for graph dynamics, rewriting, evaluation, and architecture specs.
+- `module-07-covariance-contravariance-bank.md` - reserve and lecture-candidate problems for budget-unit transformations, variance, metrics, slot grammar, and wedge checks.
+- `module-08-hermitian-structure-bank.md` - reserve and lecture-candidate problems for playlist phase, complex inner products, unitary maps, adjoints, and Hermitian forms.
+- `module-09-12-spectral-graphs-bank.md` - reserve and lecture-candidate problems for friendship modes, Laplacians, graph invariants, and higher-order group commitments.
+- `module-13-16-symmetry-bank.md` - reserve and lecture-candidate problems for party-game moves, seating actions, representations, equivariance, and reviewer averaging.
+- `module-17-21-category-composition-bank.md` - reserve and lecture-candidate problems for group-project workflows, universal properties, app translations, roster schemas, and operads.
+- `module-22-24-topology-sheaves-bank.md` - reserve and lecture-candidate problems for friendship thresholds, persistence, and local-to-global sheaf consistency.
+- `module-25-27-inference-optimization-bank.md` - reserve and lecture-candidate problems for dinner rumors, restaurant recommendation models, and constrained dinner planning.
+- `module-28-31-dynamics-evaluation-bank.md` - reserve and lecture-candidate problems for playlist dynamics, shared-note rewriting, debate evaluation, and evidence-board design specs.
 - `problem-template.md` - metadata template for future bank entries.
 
 ## Promotion Rule
