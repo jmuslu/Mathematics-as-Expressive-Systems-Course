@@ -283,7 +283,7 @@ Hyperedges say "these inputs are related." Operations say "these inputs produce 
 
 ### Problem 21.12: Failure mode - unnamed combine
 
-A pipeline step says:
+A workflow step says:
 
 ```text
 combine dinner preferences

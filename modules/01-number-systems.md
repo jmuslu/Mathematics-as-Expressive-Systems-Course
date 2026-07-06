@@ -2,7 +2,7 @@
 
 ## Lecture Promise
 
-You will understand number systems as changes in what one coordinate can express, then connect that idea to embedding coordinates, similarity scores, probabilities, and memory weights.
+You will understand number systems as changes in what one coordinate can express, then connect that idea to embedding coordinates, similarity scores, probabilities, and dynamic weights.
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ You will understand number systems as changes in what one coordinate can express
 
 ## Why The Old Object Fails
 
-Natural numbers count objects, but memory systems do not merely count. They score relevance, uncertainty, distance, confidence, decay, and interpolation. One coordinate may need to express:
+Natural numbers count objects, but expressive systems do not merely count. They score relevance, uncertainty, distance, confidence, decay, and interpolation. One coordinate may need to express:
 
 - A count
 - A signed difference
@@ -26,15 +26,15 @@ The scalar system determines which operations are legal.
 
 ## Base Case
 
-Suppose a memory retriever assigns a score to each memory:
+Suppose a debate-board ranker assigns a relevance score to each evidence card:
 
 ```text
-m1: 7
-m2: 2
-m3: 0
+c1: 7
+c2: 2
+c3: 0
 ```
 
-Natural numbers are enough if scores are only counts. But now suppose a feedback step says m2 should be penalized by 3.
+Natural numbers are enough if scores are only counts. But now suppose a feedback step says c2 should be penalized by 3.
 
 ```text
 2 - 3 = -1
@@ -168,12 +168,12 @@ The wrong scalar representation can make a simple operation hard or misleading.
 2. In attention, softmax turns arbitrary real scores into a probability distribution. Show by example that adding the same constant to every score does not change the softmax output.
 3. Suppose a retriever score and a recency score use different scales. Design a normalization rule and state what invariant it preserves.
 
-## Memory-System Connection
+## Expressive-System Connection
 
-External memory systems are scalar systems everywhere:
+Expressive systems are scalar systems everywhere:
 
 - Similarity scores
-- Retrieval probabilities
+- Ranking probabilities
 - Attention weights
 - Recency decay
 - Confidence estimates
@@ -203,7 +203,7 @@ closed, not closed, not closed, closed, closed
 
 ### Problem 1.2: Natural numbers fail under penalty
 
-A memory score is `2`. A penalty subtracts `5`. Can natural numbers represent the result?
+An evidence-card score is `2`. A penalty subtracts `5`. Can natural numbers represent the result?
 
 Answer check:
 
@@ -356,7 +356,7 @@ Answer check:
 
 Complex scalars carry magnitude and phase in one coordinate.
 
-### Problem 1.12: Memory design reflection
+### Problem 1.12: Scalar design reflection
 
 Suppose a confidence score is stored as a complex number `r e^{i theta}`. What could magnitude and phase represent?
 

@@ -19,8 +19,8 @@ A serious model often has many kinds of structures:
 - Schemas
 - Vector spaces
 - Evidence sets
-- Belief states
-- Validation processes
+- Preference states
+- Review processes
 
 You need a way to compare systems without pretending they are the same kind of object.
 
@@ -79,7 +79,7 @@ then associativity says:
 h o (g o f) = (h o g) o f
 ```
 
-This is the rule that makes multi-step pipelines composable.
+This is the rule that makes multi-step workflows composable.
 
 ## Failure Mode
 
@@ -158,7 +158,7 @@ draft o id_Idea = draft
 id_Draft o draft = draft
 ```
 
-Identity maps should not change a pipeline.
+Identity maps should not change a workflow.
 
 ### Problem 17.4: Associativity by example
 

@@ -31,8 +31,8 @@ Write the smallest concrete problem where the new object becomes necessary.
 Example:
 
 ```text
-Problem: I have a query vector q and three memory vectors m1, m2, m3.
-Question: Which memory is closest, and what does "closest" mean?
+Problem: I have a query vector q and three evidence-card vectors c1, c2, c3.
+Question: Which evidence card is closest, and what does "closest" mean?
 ```
 
 Do not start with "metric space." Start with numbers.
@@ -63,7 +63,7 @@ Example:
 
 - The nearest vector may be semantically wrong.
 - Approximate search may miss the true neighbor.
-- A retrieved memory may be correct but irrelevant to the current reasoning step.
+- A retrieved evidence card may be correct but irrelevant to the current reasoning step.
 - A long context may contain the answer but the model may ignore it.
 
 ## The Vertical And Horizontal Axes
@@ -77,7 +77,7 @@ base case -> formal object -> derivation -> invariant -> failure mode
 Horizontal application means:
 
 ```text
-representation -> retrieval -> indexing -> compression -> update -> evaluation
+representation -> comparison -> composition -> update -> evaluation
 ```
 
 Every module should touch both axes.
@@ -90,7 +90,7 @@ You understand a mathematical object when you can answer:
 - What operation did it make legal?
 - What invariant does it preserve?
 - What failure mode does it introduce?
-- Where does it appear in an external memory system?
+- Where does it appear in a concrete expressive system such as a debate board, friendship profile, study sheet, or dinner plan?
 
 ## Problem Ladder
 
@@ -103,22 +103,22 @@ You understand a mathematical object when you can answer:
 ### Transfer Problems
 
 1. Explain how "projection error" and "retrieval error" are related.
-2. Explain why a vector database is not just a storage table but a geometric object.
+2. Explain why a vector index is not just a storage table but a geometric object.
 3. Explain how attention can be interpreted as soft retrieval.
 
 ### Research-Style Problems
 
 1. Read the abstract of a retrieval paper and identify its mathematical object, operation, invariant, and failure mode.
-2. Design a two-memory example where nearest-neighbor retrieval returns the wrong memory.
+2. Design a two-card example where nearest-neighbor retrieval returns the wrong evidence card.
 3. Design a two-evidence example where the retrieved evidence conflicts with the model's parametric prior.
 
-## Memory-System Connection
+## Expressive-System Connection
 
-A robust LLM memory system must decide:
+A robust expressive system must decide:
 
 - What to store
 - How to represent it
-- How to retrieve it
+- How to compare it with a new question
 - How to rank it
 - How to compress it
 - How to update it
@@ -132,10 +132,10 @@ The modules that follow build the mathematical judgment underneath those decisio
 
 For each situation, name the mathematical object you would reach for first.
 
-1. A memory item has two scores: relevance and confidence.
-2. A claim is transformed by a rewrite rule.
+1. An evidence card has two scores: relevance and confidence.
+2. A study-note entry is transformed by a rewrite rule.
 3. A graph is relabeled but should mean the same thing.
-4. Three pieces of evidence only support a claim when taken together.
+4. Three friends only form a plan when their commitments are taken together.
 5. Two local summaries agree on their overlap and should be glued.
 
 Answer check:
