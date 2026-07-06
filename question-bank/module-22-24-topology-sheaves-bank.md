@@ -278,6 +278,58 @@ Persistence requires nested structure: later stages contain earlier stages.
 
 Good four-point extension of the current three-point example.
 
+## 23.friendship-barcode.three-people.a
+
+```text
+Module: 23
+Topic: H0 barcode from a threshold friendship graph
+Role: computation
+Status: promoted
+Source use: original, source-informed
+Source note: Inspired by persistent homology examples tracking component births and deaths across a filtration.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+Three people have friendship distances:
+
+```text
+d(Ari,Bea)=1
+d(Bea,Cy)=2
+d(Ari,Cy)=5
+```
+
+At thresholds `0`, `1.5`, `3`, and `6`, count connected components. Then give informal `H0` bars if the oldest component survives forever.
+
+## Answer Check
+
+```text
+0: 3 components
+1.5: 2 components, {Ari,Bea} and {Cy}
+3: 1 component, {Ari,Bea,Cy}
+6: 1 component
+
+Ari component: [0, infinity)
+Bea component: [0, 1]
+Cy component: [0, 3]
+```
+
+Depending on the merge convention, a different named component may be chosen as the infinite bar, but two components die when they merge.
+
+## Intuition
+
+Components are born as isolated people and die when a threshold edge merges them into an older group.
+
+## Modeling Implication
+
+Barcodes separate stable connected structure from short-lived threshold artifacts.
+
+## Reserve Notes
+
+Promoted into Module 23 to connect the first barcode computation to the friendship-circle running example.
+
 ## 23.component-barcode.four-points.a
 
 ```text

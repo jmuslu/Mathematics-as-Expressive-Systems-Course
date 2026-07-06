@@ -58,13 +58,21 @@ Persistent features can guide consolidation: keep structures that survive pertur
 
 ### Problem 23.1: Threshold graph
 
-Three points have distances `d(A,B)=1`, `d(B,C)=2`, and `d(A,C)=5`. At threshold `epsilon=1.5`, which edges appear? At `epsilon=3`?
+Three people have friendship distances:
+
+```text
+d(Ari,Bea)=1
+d(Bea,Cy)=2
+d(Ari,Cy)=5
+```
+
+At threshold `epsilon=1.5`, which edges appear? At `epsilon=3`?
 
 Answer check:
 
 ```text
-epsilon=1.5: AB only
-epsilon=3: AB and BC
+epsilon=1.5: Ari-Bea only
+epsilon=3: Ari-Bea and Bea-Cy
 ```
 
 ### Problem 23.2: Filtration check
@@ -88,16 +96,16 @@ Answer check:
 
 ```text
 0: 3 components
-1.5: 2 components
-3: 1 component
+1.5: 2 components, {Ari,Bea} and {Cy}
+3: 1 component, {Ari,Bea,Cy}
 6: 1 component
 ```
 
 ### Problem 23.4: Birth and death
 
-For the component containing C, when does it merge into the main component?
+For the component containing Cy, when does it merge into the main component?
 
-Answer check: C is born at 0 and merges at threshold 3 through edge BC.
+Answer check: Cy is born at 0 and merges at threshold 3 through edge Bea-Cy.
 
 ### Problem 23.5: Barcode for components
 
@@ -106,9 +114,9 @@ Using the same three-point example, give informal bars for the three initial com
 Answer check:
 
 ```text
-A component: [0, infinity)
-B component: [0, 1]
-C component: [0, 3]
+Ari component: [0, infinity)
+Bea component: [0, 1]
+Cy component: [0, 3]
 ```
 
 Depending on convention, the component that survives can be chosen by the merge rule. The key point is that two components die when they merge.
