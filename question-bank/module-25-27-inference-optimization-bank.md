@@ -351,6 +351,54 @@ Shared source variables prevent treating related evidence as independent by defa
 
 Directly supports correlated-evidence reasoning.
 
+## 26.viral-review.factorization.a
+
+```text
+Module: 26
+Topic: Bayesian network factorization with hidden common cause
+Role: warm-up / computation
+Status: promoted
+Source use: original, source-informed
+Source note: Inspired by PGM examples where graph structure encodes factorization and conditional independence.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+Two friends recommend the same restaurant, and both recommendations may be influenced by one viral review:
+
+```text
+ViralReview -> FriendARecommendation
+ViralReview -> FriendBRecommendation
+```
+
+Write the joint factorization. Then state what independence holds after conditioning on `ViralReview`.
+
+## Answer Check
+
+```text
+P(V,A,B)=P(V)P(A|V)P(B|V)
+```
+
+After conditioning on `V`, the graph says:
+
+```text
+A is independent of B given V.
+```
+
+## Intuition
+
+The two recommendations may look like separate signals, but a shared cause can explain their agreement.
+
+## Modeling Implication
+
+Graphical models prevent copied enthusiasm from being counted as independent confirmation.
+
+## Reserve Notes
+
+Promoted into Module 26 as the running-example base case for factorization and conditional independence.
+
 ## 26.conditional-independence.chain.a
 
 ```text

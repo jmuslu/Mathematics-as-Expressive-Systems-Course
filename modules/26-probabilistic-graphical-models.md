@@ -66,16 +66,11 @@ Graphical models give math for belief, uncertainty, source reliability, and evid
 
 ### Problem 26.1: Factorization
 
-For chain `A -> B -> C`, write the joint distribution factorization.
-
-Answer check: `P(A,B,C)=P(A)P(B|A)P(C|B)`.
-
-### Problem 26.2: Reverse chain factorization
-
-For chain:
+For the hidden-source recommendation graph:
 
 ```text
-C -> B -> A
+ViralReview -> FriendARecommendation
+ViralReview -> FriendBRecommendation
 ```
 
 write the joint distribution factorization.
@@ -83,16 +78,41 @@ write the joint distribution factorization.
 Answer check:
 
 ```text
-P(A,B,C)=P(C)P(B|C)P(A|B)
+P(V,A,B)=P(V)P(A|V)P(B|V)
 ```
 
-The factorization follows the arrows, not alphabetical order.
+where `V` is the viral review, `A` is Friend A's recommendation, and `B` is Friend B's recommendation.
+
+### Problem 26.2: Naive independence factorization
+
+A naive model omits `ViralReview` and treats the recommendations as independent:
+
+```text
+FriendARecommendation
+FriendBRecommendation
+```
+
+write the joint distribution factorization.
+
+Answer check:
+
+```text
+P(A,B)=P(A)P(B)
+```
+
+This is a much stronger assumption than merely saying two people recommended the same restaurant.
 
 ### Problem 26.3: Conditional independence
 
-In the same chain, what independence does the graph suggest?
+In the hidden-source graph from Problem 26.1, what independence does the graph suggest after conditioning on `ViralReview`?
 
-Answer check: `A is independent of C given B`.
+Answer check:
+
+```text
+FriendARecommendation is independent of FriendBRecommendation given ViralReview.
+```
+
+The shared cause explains the correlation between the two recommendations.
 
 ### Problem 26.4: Marginalization in a tiny joint table
 
