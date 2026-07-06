@@ -222,14 +222,14 @@ The invariant subspace under cyclic rotation is the constant-coordinate line.
 Let C2 swap `x` and `y`. Reynolds-average:
 
 ```text
-f(x,y) = x^2 + 3y
+f(x,y) = x^2 y
 ```
 
 Answer check:
 
 ```text
 R f = (1/2)(f(x,y) + f(y,x))
-    = (1/2)(x^2 + 3y + y^2 + 3x)
+    = (1/2)(x^2 y + y^2 x)
 ```
 
 The result is symmetric in `x` and `y`.
@@ -241,7 +241,7 @@ Using Problem 16.8, check that `R f(x,y) = R f(y,x)`.
 Answer check:
 
 ```text
-R f(y,x) = (1/2)(y^2 + 3x + x^2 + 3y)
+R f(y,x) = (1/2)(y^2 x + x^2 y)
           = R f(x,y)
 ```
 

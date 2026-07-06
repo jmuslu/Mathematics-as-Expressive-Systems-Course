@@ -720,7 +720,7 @@ Useful standalone human analogy for the danger of averaging.
 Module: 16
 Topic: invariant polynomial
 Role: harder calculation
-Status: reserve
+Status: promoted in Module 16 Problems 16.8-16.9
 Source use: original, source-informed
 Source note: Inspired by invariant-theory examples using Reynolds operators on polynomials.
 License note: No source problem text copied.
