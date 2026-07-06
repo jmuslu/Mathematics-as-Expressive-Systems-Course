@@ -126,6 +126,9 @@ Problem hooks:
 - [The Modern Algorithmic Toolbox: Spectral Graph Theory](https://web.stanford.edu/class/cs168/l/l11.pdf) - concise treatment of Laplacian zero eigenvalues and connected components.
 - [Spectral Graph Theory](https://people.math.wisc.edu/~roch/grad-prob/grad_prob_devel1/bookch10.pdf) - graph Laplacians, cuts, diffusion, and eigenstructure.
 - [Relational inductive biases, deep learning, and graph networks](https://arxiv.org/abs/1806.01261) - why graph-structured computation is a natural inductive bias for relational systems.
+- [A Vision of Linear Algebra: Singular Values and Singular Vectors](https://ocw.mit.edu/courses/res-18-010-a-2020-vision-of-linear-algebra-spring-2020/resources/singular-values-and-singular-vectors/) - Strang's concise public framing of singular values as the rectangular-matrix analogue of eigenvalue structure.
+- [What Are Higher-Order Networks?](https://ora.ox.ac.uk/objects/uuid%3Aacfb9de6-9299-4b7b-86ed-51038304a9d7/files/rws859g36t) - survey framing hypergraphs and simplicial complexes as central models for higher-order interactions.
+- [Higher-Order Networks Representation and Learning: A Survey](https://arxiv.org/html/2402.19414v1) - overview of higher-order representations, learning methods, and applications beyond pairwise graphs.
 
 Problem hooks:
 
