@@ -12,7 +12,7 @@ You will understand why different objects transform in different directions when
 
 ## Why The Old Object Fails
 
-If a graph memory changes representation, not every quantity should transform the same way.
+If a dinner budget changes units, not every quantity should transform the same way.
 
 States, measurements, gradients, and relations have different transformation laws.
 
@@ -59,7 +59,7 @@ vector tensor covector -> linear operator
 2-form(vector, vector) -> scalar
 ```
 
-Do not memorize arrays; track legal pairings and transformation laws. A typed memory system should know which combinations preserve meaning and which combinations are category errors.
+Do not memorize arrays; track legal pairings and transformation laws. A typed model should know which combinations preserve meaning and which combinations are category errors.
 
 ## Wedge Product And Coordinate Change
 
@@ -90,12 +90,12 @@ That determinant-like expression measures oriented two-dimensional content.
 
 1. Explain why gradients behave like covectors.
 2. Show why phi(v) should be coordinate-independent.
-3. Identify covariant and contravariant parts of a memory scoring rule.
+3. Identify covariant and contravariant parts of a dinner-budget scoring rule.
 4. Evaluate `(alpha wedge beta)(u, v)` for simple coordinate covectors.
 5. Explain why swapping the two input vectors changes the sign.
-6. Identify a relation in a memory graph where orientation should matter.
+6. Identify a social or planning relation where orientation should matter.
 
-## Memory-System Connection
+## Design Connection
 
 This is the math behind safe representation changes.
 
