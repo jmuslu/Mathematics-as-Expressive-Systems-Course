@@ -225,17 +225,26 @@ No. If node labels are swapped, the old node 1 may now have a different name.
 
 The feature may be meaningful only if node 1 has semantic identity beyond its storage label.
 
-### Problem 13.11: Symmetry of an equilateral triangle
+### Problem 13.11: Rotation table for an equilateral triangle
 
-How many rotational symmetries does an equilateral triangle have? List them using `r` for a 120-degree rotation.
-
-Answer check:
+The rotational symmetries of an equilateral triangle are:
 
 ```text
 e, r, r^2
 ```
 
-There are 3 rotational symmetries. If reflections are included, the full symmetry group has 6 elements.
+where `r` is a 120-degree rotation and `r^3=e`. Write the Cayley table.
+
+Answer check:
+
+```text
+      e    r    r^2
+e     e    r    r^2
+r     r    r^2  e
+r^2   r^2  e    r
+```
+
+There are 3 rotational symmetries. Multiplication is exponent addition modulo 3. If reflections are included, the full symmetry group has 6 elements.
 
 ### Problem 13.12: Symmetry versus dynamics
 

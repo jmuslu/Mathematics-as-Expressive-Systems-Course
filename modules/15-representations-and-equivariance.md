@@ -301,7 +301,25 @@ The output moves with the relabeled nodes.
 
 If g acts by `rho(g)` on V and by `tau(g)` on W, write how it acts on `v tensor w`.
 
-Answer check: `g.(v tensor w) = rho(g)v tensor tau(g)w`.
+Then suppose a swap `s` acts by sign on both one-dimensional spaces:
+
+```text
+rho(s)v = -v
+tau(s)w = -w
+```
+
+Compute `s.(v tensor w)`.
+
+Answer check:
+
+```text
+g.(v tensor w) = rho(g)v tensor tau(g)w
+
+s.(v tensor w) = (-v) tensor (-w)
+               = v tensor w
+```
+
+Two sign-changing factors produce an invariant tensor product.
 
 ### Problem 15.11: Tensor product dimension
 
