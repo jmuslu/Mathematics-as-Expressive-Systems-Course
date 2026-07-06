@@ -987,3 +987,189 @@ A capstone design should specify how local validations glue, how disagreements a
 ## Reserve Notes
 
 Good final studio reserve because it forces the student to combine sheaves, rewriting, and evaluation.
+
+## 28.playlist.two-mode.eigen-update.a
+
+```text
+Module: 28
+Topic: diagonalized graph dynamics
+Role: computation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by dynamic graph state evolution and spectral-mode update examples.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A playlist state has two independent modes:
+
+```text
+shared taste mode: coefficient 6, eigenvalue 0.9
+novelty mode: coefficient 3, eigenvalue 1.1
+```
+
+After two updates, what are the two mode coefficients?
+
+## Answer Check
+
+Each coefficient is multiplied by its eigenvalue at every step:
+
+```text
+shared taste after two steps = 6(0.9)^2 = 6(0.81) = 4.86
+novelty after two steps = 3(1.1)^2 = 3(1.21) = 3.63
+```
+
+## Intuition
+
+Different modes can decay or grow at different rates even inside the same state vector.
+
+## Modeling Implication
+
+Dynamic evaluation should ask which mode is being amplified, not only whether the total score is increasing.
+
+## Reserve Notes
+
+Good link from spectral modules to graph dynamics.
+
+## 29.rewrite-cycle.nontermination.a
+
+```text
+Module: 29
+Topic: nontermination by rewrite cycle
+Role: failure mode
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by graph rewriting termination discussions.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A shared-note system has two rewrite rules:
+
+```text
+R1: expand shorthand note S into detailed note D
+R2: compress detailed note D into shorthand note S
+```
+
+If both rules are always enabled, what termination problem appears?
+
+## Answer Check
+
+The system can loop:
+
+```text
+S -> D -> S -> D -> ...
+```
+
+So rewriting may not terminate.
+
+## Intuition
+
+Having individually useful rewrite rules is not enough. Their interaction can create a cycle.
+
+## Modeling Implication
+
+Rewrite systems need termination checks, priorities, or guards that prevent reversible cleanup rules from firing forever.
+
+## Reserve Notes
+
+Good compact warning before confluence or critical-pair analysis.
+
+## 31.capstone.object-operation-invariant.a
+
+```text
+Module: 31
+Topic: capstone mathematical contract
+Role: guided derivation
+Status: reserve
+Source use: original
+Source note: Original studio specification problem combining the course's object-operation-invariant spine.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A studio team proposes a debate evidence board with:
+
+```text
+nodes = claims, sources, evidence cards
+edges = supports, contradicts, cites
+```
+
+Fill in one legal operation, one invariant, and one failure mode the design should test.
+
+## Answer Check
+
+One valid completion:
+
+```text
+legal operation: merge duplicate evidence cards only when source IDs and normalized claims agree
+invariant: graph-level confidence score is unchanged by node relabeling
+failure mode: a weak contradiction edge decays below threshold and disappears before review
+```
+
+Other answers are acceptable if they specify a concrete operation, a checkable invariant, and a plausible failure mode.
+
+## Intuition
+
+A final design should not just name mathematical objects; it should say what can be done to them and what must survive.
+
+## Modeling Implication
+
+The capstone contract turns course vocabulary into testable engineering commitments.
+
+## Reserve Notes
+
+Good final studio reserve for forcing specificity.
+
+## 31.human-example.fit-check.a
+
+```text
+Module: 31
+Topic: analogy and design fit
+Role: conceptual check
+Status: reserve
+Source use: original
+Source note: Original style-governance problem reflecting the course's analogy principle.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A student explains sheaf consistency using this scenario:
+
+```text
+Two witnesses describe the same dinner reservation from different details, and the overlap checks only the shared person field.
+```
+
+Another student explains it as:
+
+```text
+A memory architecture stores global truth in a trust dinner module.
+```
+
+Which analogy better fits the course style, and why?
+
+## Answer Check
+
+The witness/dinner-reservation analogy fits better. It is an ordinary situation first, and the mathematics explains local reports, overlap restrictions, and gluing.
+
+The "trust dinner module" analogy is too dependent on a final system architecture and does not sound like a natural applied-math scenario.
+
+## Intuition
+
+Analogies should make the local mathematical structure easier to see before invoking a final design.
+
+## Modeling Implication
+
+Course examples should be promoted when they clarify the current principle, not merely because they point toward the capstone.
+
+## Reserve Notes
+
+Useful final-module reflection problem to preserve the agreed analogy standard.
