@@ -178,6 +178,10 @@ Problem hooks:
 - [Benchmarking Large Language Models in Retrieval-Augmented Generation](https://arxiv.org/abs/2309.01431) - evaluates noise robustness, negative rejection, information integration, and counterfactual robustness in RAG.
 - [Evaluation of Retrieval-Augmented Generation: A Survey](https://arxiv.org/html/2405.07437v1) - survey of RAG evaluation challenges and benchmark design.
 - [Retrieval Augmented Generation Evaluation in the Era of Large Language Models](https://arxiv.org/html/2504.14891v1) - broad survey of RAG evaluation methods, datasets, and frameworks.
+- [RAGAS: Automated Evaluation of Retrieval Augmented Generation](https://arxiv.org/abs/2309.15217) - reference-free RAG evaluation across retrieval quality, faithfulness, and generation quality.
+- [ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems](https://arxiv.org/abs/2311.09476) - component-wise RAG evaluation for context relevance, answer faithfulness, and answer relevance, with lightweight judges and prediction-powered inference.
+- [On Calibration of Modern Neural Networks](https://arxiv.org/abs/1706.04599) - calibration, reliability diagrams, expected calibration error, and why confidence should be statistically tested.
+- [Measuring Calibration in Deep Learning](https://openaccess.thecvf.com/content_CVPRW_2019/papers/Uncertainty%20and%20Robustness%20in%20Deep%20Visual%20Learning/Nixon_Measuring_Calibration_in_Deep_Learning_CVPRW_2019_paper.pdf) - analyzes pitfalls of common calibration metrics such as ECE and motivates careful calibration evaluation.
 
 Problem hooks:
 
@@ -187,3 +191,5 @@ Problem hooks:
 - Compute decay and reinforcement updates on nodes, edges, and paths.
 - Test termination and confluence of small rewrite systems.
 - Build an evaluation panel that includes retrieval metrics, invariance checks, sheaf consistency, calibration, and decay stress tests.
+- Separate context relevance, answer faithfulness, and answer relevance in a RAG-style evaluation panel.
+- Compute a small expected calibration error table and explain why confidence is not the same as correctness.
