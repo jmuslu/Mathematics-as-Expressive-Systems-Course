@@ -589,7 +589,7 @@ Good conceptual guardrail for Module 26.
 Module: 27
 Topic: equality constrained optimization
 Role: derivation
-Status: lecture candidate
+Status: promoted in Module 27 Problems 27.5-27.6
 Source use: original, source-informed
 Source note: Inspired by Lagrange multiplier lecture examples.
 License note: No source problem text copied.

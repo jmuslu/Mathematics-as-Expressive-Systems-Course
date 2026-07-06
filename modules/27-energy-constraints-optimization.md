@@ -100,22 +100,30 @@ E=x^2+(1-x)^2=2x^2-2x+1
 E'=4x-2=0, x=1/2, y=1/2
 ```
 
-### Problem 27.5: Lagrange multiplier
+### Problem 27.5: Lagrange multiplier on an asymmetric line
 
-Solve the same problem with `L=x^2+y^2+lambda(x+y-1)`.
+Minimize `x^2 + y^2` subject to `x + 2y = 4` using:
+
+```text
+L=x^2+y^2+lambda(x+2y-4)
+```
 
 Answer check:
 
 ```text
 2x+lambda=0
-2y+lambda=0
-x+y=1
-x=y=1/2, lambda=-1
+2y+2lambda=0
+x+2y=4
+lambda=-2x
+2y-4x=0, so y=2x
+x+2(2x)=4
+5x=4
+x=4/5, y=8/5, lambda=-8/5
 ```
 
 ### Problem 27.6: Interpret the multiplier
 
-For Problem 27.5, the multiplier is `lambda=-1` under the convention:
+For Problem 27.5, the multiplier is `lambda=-8/5` under the convention:
 
 ```text
 L = objective + lambda(constraint)
@@ -127,7 +135,7 @@ Answer check:
 
 ```text
 It measures sensitivity to the constraint under the chosen sign convention.
-Changing the required value in x+y=1 changes the optimal objective at a rate related to the multiplier.
+Changing the required value in x+2y=4 changes the optimal objective at a rate related to the multiplier.
 ```
 
 Multipliers are shadow prices for constraints.
