@@ -12,13 +12,13 @@ You will understand groups as legal transformations that preserve some structure
 
 ## Why The Old Object Fails
 
-Graph theory can tell you what is connected. It does not automatically tell you which transformations preserve meaning.
+A state description can tell you who sits where or which songs are present. It does not automatically tell you which transformations preserve meaning.
 
 For any structured representation, you need to ask:
 
 - Can I relabel nodes without changing the system?
 - Can I rename, reorder, or rotate a representation safely?
-- Which edits preserve validation?
+- Which moves preserve the rules?
 - Which transformations break the state space?
 
 That is symmetry.
@@ -76,7 +76,7 @@ If g has inverse g^-1, then applying g and then g^-1 preserves the original obje
 g^-1(g(x)) = x
 ```
 
-This is the simplest mathematical form of reversible graph transformation.
+This is the simplest mathematical form of reversible structured transformation.
 
 ## Failure Mode
 
@@ -91,8 +91,8 @@ Some useful operations are not symmetries. Reversible transformations and irreve
 ## Problem Ladder
 
 1. List the group table for rotations of a square.
-2. Give a graph edit that has an inverse and one that does not.
-3. Explain why node relabeling should preserve graph meaning.
+2. Give a party-game move that has an inverse and one that does not.
+3. Explain why relabeling seats should preserve the seating pattern.
 
 ## Representation Design Connection
 
