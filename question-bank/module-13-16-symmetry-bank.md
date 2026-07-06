@@ -379,7 +379,7 @@ Abstract enough for graduate transition, still hand-checkable.
 Module: 15
 Topic: one-dimensional representation
 Role: computation
-Status: lecture candidate
+Status: promoted in Module 15 Problem 15.5
 Source use: original, source-informed
 Source note: Inspired by representation theory notes on turning groups into linear maps.
 License note: No source problem text copied.

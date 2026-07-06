@@ -194,7 +194,7 @@ Answer check:
 f1 invariant, f2 not invariant, f3 invariant
 ```
 
-### Problem 15.5: Anti-invariant function
+### Problem 15.5: Anti-invariance as a sign representation
 
 Let `s` swap coordinates. Show that:
 
@@ -202,15 +202,19 @@ Let `s` swap coordinates. Show that:
 f(x,y) = x - y
 ```
 
-is not invariant, but changes sign under the swap.
+is not invariant, but changes sign under the swap. Then write the one-dimensional representation `rho` of `C2={e,s}` that records this sign change.
 
 Answer check:
 
 ```text
 f(s.(x,y)) = f(y,x) = y - x = -(x-y)
+
+rho(e) = [1]
+rho(s) = [-1]
+rho(s)^2 = [-1]^2 = [1] = rho(e)
 ```
 
-Some quantities are not mistakes just because they change. They may transform predictably.
+Some quantities are not mistakes just because they change. They may transform predictably by a representation.
 
 ### Problem 15.6: Equivariant linear map as a matrix constraint
 
