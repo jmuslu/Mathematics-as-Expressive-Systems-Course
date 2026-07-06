@@ -74,7 +74,7 @@ Good early human analogy for Module 01 if the current scalar-number framing need
 Module: 02
 Topic: span and linear combinations
 Role: computation
-Status: lecture candidate
+Status: promoted in Module 02 Problem 2.6
 Source use: original, source-informed
 Source note: Inspired by local Gaussian-elimination lecture use of ticket-count word problems.
 License note: No source problem text copied.

@@ -240,26 +240,44 @@ Set a=2, b=3, then a+b=5. Yes.
 
 Can `(2, 3, 7)` be written that way? No, because the third coordinate would have to be `2 + 3 = 5`.
 
-### Problem 2.6: Solve a 2D span problem
+### Problem 2.6: Ticket combinations as span
 
-Can `(3,5)` be written using:
+A club sells adult tickets for 20 dollars and student tickets for 10 dollars. Read each ticket type as a vector:
 
 ```text
-u=(1,1)
-v=(1,-1)
+a = (1 ticket, 20 dollars)
+s = (1 ticket, 10 dollars)
 ```
+
+Can the club reach:
+
+```text
+t = (8 tickets, 130 dollars)
+```
+
+using a nonnegative integer combination of `a` and `s`?
 
 Answer check:
 
 ```text
-a(1,1)+b(1,-1)=(a+b,a-b)=(3,5)
-a+b=3
-a-b=5
-2a=8, so a=4
-b=-1
+x a + y s = (8,130)
+
+x + y = 8
+20x + 10y = 130
+
+10(x+y)=80
+10x=50
+x=5
+y=3
 ```
 
-Yes: `(3,5)=4u-v`.
+Yes:
+
+```text
+5a + 3s = (8,130)
+```
+
+Span asks whether a target can be built from allowed moves. The nonnegative-integer constraint adds a second design question: not just reachable over real scalars, but reachable using actual ticket counts.
 
 ### Problem 2.7: Linear dependence
 
