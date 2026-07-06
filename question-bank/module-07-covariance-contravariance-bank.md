@@ -120,7 +120,7 @@ Could be promoted if Module 07 needs one more matrix-based check.
 Module: 07
 Topic: metric-dependent lowering
 Role: derivation
-Status: reserve
+Status: promoted in Module 07 Problem 7.11
 Source use: original, source-informed
 Source note: Inspired by metric-dependent covariant components in tensor/vector notes.
 License note: No source problem text copied.

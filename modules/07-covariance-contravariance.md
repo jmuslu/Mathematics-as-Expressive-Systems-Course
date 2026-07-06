@@ -291,11 +291,11 @@ Variance is a grammar of slots. It prevents expressions from looking meaningful 
 
 ### Problem 7.11: A metric changes what can be identified
 
-Let a metric matrix be:
+A non-orthogonal coordinate system has metric:
 
 ```text
-G = [2 0]
-    [0 1]
+G = [1 1]
+    [1 2]
 ```
 
 Use it to lower the vector `v = (3,4)` into a covector:
@@ -307,10 +307,13 @@ v_flat = v^T G
 Answer check:
 
 ```text
-v_flat = [3,4][2 0; 0 1] = [6,4]
+v_flat = [3,4][1 1; 1 2] = [7,11]
+
+Using the Euclidean metric instead would give:
+[3,4]I = [3,4]
 ```
 
-A metric is extra structure. It lets vectors produce covectors, but the result depends on the chosen geometry.
+A metric is extra structure. It lets vectors produce covectors, but the resulting measurement rule depends on the chosen geometry.
 
 ### Problem 7.12: Failure mode - treating every array the same
 
