@@ -126,15 +126,24 @@ Each row sum is zero, so L(1,1,1)=(0,0,0).
 
 Connected components support constant zero-energy modes.
 
-### Problem 10.6: Smoothness energy
+### Problem 10.6: Smoothness energy as a quadratic form
 
-For node values `x=(1,2,4)`, compute `x^T L x` by edge differences.
+For node values `x=(1,2,4)`, compute `x^T L x` two ways: by edge differences and by matrix multiplication.
 
 Answer check:
 
 ```text
+edge differences:
 (1-2)^2 + (2-4)^2 = 1 + 4 = 5
+
+Lx = [ 1 -1  0][1]   [-1]
+     [-1  2 -1][2] = [-1]
+     [ 0 -1  1][4]   [ 2]
+
+x^T Lx = 1(-1) + 2(-1) + 4(2) = 5
 ```
+
+The quadratic form and the edge-disagreement sum are the same measurement.
 
 ### Problem 10.7: Smoothness energy for a constant signal
 
@@ -185,7 +194,7 @@ Answer check:
 
 Cuts measure separation between node sets.
 
-### Problem 10.11: Disconnected graph Laplacian
+### Problem 10.11: Disconnected graph zero modes
 
 A graph has two disconnected edges:
 
@@ -193,12 +202,15 @@ A graph has two disconnected edges:
 1-2    3-4
 ```
 
-How many independent zero eigenvectors should its Laplacian have?
+How many independent zero eigenvectors should its Laplacian have? Give a basis.
 
 Answer check:
 
 ```text
 2, one constant vector on each connected component.
+
+u=(1,1,0,0)
+v=(0,0,1,1)
 ```
 
 The multiplicity of eigenvalue 0 counts connected components.

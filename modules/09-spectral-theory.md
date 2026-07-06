@@ -103,7 +103,7 @@ lambda = 3, 1
 
 ### Problem 9.4: Find eigenvectors
 
-Find eigenvectors for the matrix in Problem 9.2.
+Find eigenvectors for the matrix in Problem 9.3.
 
 Answer check:
 
@@ -133,18 +133,21 @@ b=1
 
 So `(4,2)=3u+v`.
 
-### Problem 9.6: Apply powers using eigenmodes
+### Problem 9.6: Apply repeated powers using eigenmodes
 
-For `A=[2 1; 1 2]`, use Problem 9.5 to compute `A(4,2)`.
+For `A=[2 1; 1 2]`, use Problem 9.5 to compute `A^3(4,2)`.
 
 Answer check:
 
 ```text
-A(4,2)=A(3u+v)=3(3u)+1(1v)=9u+v
-=9(1,1)+(1,-1)=(10,8)
+A^3(4,2)=A^3(3u+v)
+=3(3^3u)+1(1^3v)
+=81u+v
+=81(1,1)+(1,-1)
+=(82,80)
 ```
 
-Eigenvectors make repeated dynamics easier to understand.
+Eigenvectors make repeated dynamics easier to understand because powers act separately on each mode.
 
 ### Problem 9.7: Spectral radius
 
