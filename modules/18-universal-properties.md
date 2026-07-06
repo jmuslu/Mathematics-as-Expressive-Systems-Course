@@ -73,7 +73,7 @@ Universal properties are precise but abstract. If you skip examples, they become
 
 ## Representation Design Connection
 
-Universal properties help identify canonical constructions: products, sums, pullbacks, pushouts, limits, and colimits.
+Universal properties help identify canonical constructions: products for records, coproducts for typed alternatives, pullbacks for compatibility checks, and pushouts for gluing shared information.
 
 ## Hand Problem Trail
 
