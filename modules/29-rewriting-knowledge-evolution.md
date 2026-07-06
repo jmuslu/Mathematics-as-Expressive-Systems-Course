@@ -1,8 +1,8 @@
-# Module 29: Rewriting Systems and Knowledge Evolution
+# Module 29: Rewriting Systems and Structured Edits
 
 ## Lecture Promise
 
-You will understand graph evolution as a controlled rewriting process.
+You will understand graph evolution as a controlled rewriting process for structured edits.
 
 ## Prerequisites
 
@@ -12,13 +12,13 @@ You will understand graph evolution as a controlled rewriting process.
 
 ## Why The Old Object Fails
 
-Memory updates are graph edits:
+Study-note cleanup uses graph edits:
 
-- add claim
+- add note
 - merge duplicate
 - weaken edge
 - split concept
-- mark contradiction
+- mark contradiction or correction
 
 Without rewrite rules, evolution becomes ad hoc.
 
@@ -27,7 +27,7 @@ Without rewrite rules, evolution becomes ad hoc.
 A rewrite rule:
 
 ```text
-two equivalent claims with same source -> one merged claim with reinforced support
+two equivalent notes with compatible meaning -> one merged note with both sources preserved
 ```
 
 ## Running Example: Cleaning Study Notes
@@ -41,7 +41,7 @@ Suppose two friends are preparing for an exam and both write:
 One note came from lecture, the other from a textbook. A careless cleanup rule might merge them and keep only one source. A better rewrite rule says:
 
 ```text
-same normalized claim + compatible meaning -> merged claim with both sources preserved
+same normalized statement + compatible meaning -> merged note with both sources preserved
 ```
 
 The operation is not just deletion. It is a legal edit with a guard and a provenance rule. If another rule marks one version as contradicted before the merge, the order of edits matters. That is why rewriting needs termination, confluence, and critical-pair thinking.
@@ -56,13 +56,13 @@ Rewrite rules can fail to terminate, fail to be confluent, or erase important di
 
 ## Problem Ladder
 
-1. Write a rule for merging duplicate claims.
-2. Write a rule for contradiction insertion.
-3. Explain confluence in terms of memory update order.
+1. Write a rule for merging duplicate notes.
+2. Write a rule for correction insertion.
+3. Explain confluence in terms of note-cleanup order.
 
-## Memory-System Connection
+## Representation Design Connection
 
-Knowledge evolution needs legal graph edits, not just append-only memory.
+Structured note evolution needs legal graph edits, not just append-only accumulation.
 
 ## Hand Problem Trail
 
@@ -78,17 +78,17 @@ Apply it to:
 
 ```text
 Paper1 cites Paper2
-Paper2 supports ClaimX
+Paper2 supports TheoremX
 ```
 
-Answer check: `Paper1 indirectly supports ClaimX`.
+Answer check: `Paper1 indirectly supports TheoremX`.
 
 ### Problem 29.2: Apply a merge rule
 
 Rule:
 
 ```text
-two notes with same normalized claim and compatible meaning -> one merged note preserving both sources
+two notes with same normalized statement and compatible meaning -> one merged note preserving both sources
 ```
 
 Apply it to:
@@ -185,14 +185,14 @@ Different rewrite orders can still agree if they join.
 
 ### Problem 29.8: Critical pair intuition
 
-A claim `c` matches two rewrite rules:
+A note `n` matches two rewrite rules:
 
 ```text
-R1: merge duplicate claims
-R2: mark contradicted claims
+R1: merge duplicate notes
+R2: mark corrected notes
 ```
 
-If applying `R1` first removes the duplicate node that `R2` would have marked, what must be checked?
+If applying `R1` first removes the duplicate note that `R2` would have marked, what must be checked?
 
 Answer check:
 
@@ -204,12 +204,12 @@ If not, the system has an order-dependent critical pair: two locally reasonable 
 
 ### Problem 29.9: Provenance-preserving rewrite
 
-A rule merges two claims. Name one piece of provenance the output should keep.
+A rule merges two notes. Name one piece of provenance the output should keep.
 
 Answer check:
 
 ```text
-Possible answers: original claim IDs, sources, timestamps, confidence history, contradiction links.
+Possible answers: original note IDs, sources, timestamps, support history, correction links.
 ```
 
 Merging should not mean forgetting why the merged node exists.
@@ -219,7 +219,7 @@ Merging should not mean forgetting why the merged node exists.
 Rule:
 
 ```text
-delete any claim below confidence 0.2
+delete any note below confidence 0.2
 ```
 
 Name one danger.
@@ -227,10 +227,10 @@ Name one danger.
 Answer check:
 
 ```text
-The system may delete rare but important minority evidence or remove a weak signal needed for later contradiction detection.
+The system may delete rare but important minority evidence or remove a weak signal needed for later correction detection.
 ```
 
-Rewrite rules need epistemic safeguards, not only thresholds.
+Rewrite rules need safety guards, not only thresholds.
 
 ### Problem 29.11: Normal form
 
@@ -244,8 +244,8 @@ A state where no rewrite rule applies.
 
 Normal form does not automatically mean true or good; it only means no rule can currently change it.
 
-### Problem 29.12: Memory design
+### Problem 29.12: Guard design
 
 Why do rewrite systems need guards?
 
-Answer check: without guards, memory evolution can create infinite expansion, inconsistent conclusions, or duplicate closure paths.
+Answer check: without guards, note cleanup can create infinite expansion, inconsistent conclusions, unsafe merges, or duplicate closure paths.
