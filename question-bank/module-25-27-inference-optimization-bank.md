@@ -219,7 +219,7 @@ Small warm-up candidate.
 Module: 25
 Topic: loopy belief propagation failure
 Role: failure mode
-Status: lecture candidate
+Status: promoted in Module 25 Problem 25.11
 Source use: original, source-informed
 Source note: Inspired by belief-propagation tutorials warning about loops and double counting.
 License note: No source problem text copied.

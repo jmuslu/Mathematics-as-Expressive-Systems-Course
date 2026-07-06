@@ -254,14 +254,22 @@ On a loopy graph, evidence can circulate and be counted more than once.
 
 Loops turn local updates into an approximation unless extra care is taken.
 
-### Problem 25.11: Double-counting example
+### Problem 25.11: Echoed source is not independent evidence
 
-A claim receives two messages that both originate from the same source, but the graph treats them as independent. What failure can occur?
+A rumor graph has:
+
+```text
+Source S -> Blog A -> Summary C
+Source S -> Blog B -> Summary C
+```
+
+If the model treats A and B as independent confirmations of C, what can go wrong?
 
 Answer check:
 
 ```text
-The model can become overconfident because it counts one source as if it were two independent confirmations.
+A and B share Source S.
+Counting them as independent can overstate confidence because one origin is treated like two independent origins.
 ```
 
 Message passing depends on the dependency assumptions encoded by the graph.
