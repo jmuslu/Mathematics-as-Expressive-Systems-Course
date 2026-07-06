@@ -1,4 +1,4 @@
-# Module 18: Category Theory II - Universal Properties
+# Module 18: Universal Properties and Lunch Orders
 
 ## Lecture Promise
 

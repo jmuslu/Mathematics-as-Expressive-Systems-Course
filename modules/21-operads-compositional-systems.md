@@ -1,4 +1,4 @@
-# Module 21: Operads and Compositional Systems
+# Module 21: Operads and Dinner-Plan Composition
 
 ## Lecture Promise
 

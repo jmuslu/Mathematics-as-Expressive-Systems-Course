@@ -1,4 +1,4 @@
-# Module 20: Categorical Databases and Schemas
+# Module 20: Categorical Databases and Club Roster Schemas
 
 ## Lecture Promise
 

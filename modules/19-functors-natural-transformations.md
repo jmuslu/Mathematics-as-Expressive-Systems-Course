@@ -1,4 +1,4 @@
-# Module 19: Functors and Natural Transformations
+# Module 19: Functors, Natural Transformations, and App Translations
 
 ## Lecture Promise
 

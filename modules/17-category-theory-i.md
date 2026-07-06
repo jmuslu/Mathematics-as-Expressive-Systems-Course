@@ -1,4 +1,4 @@
-# Module 17: Category Theory I - Objects and Morphisms
+# Module 17: Category Theory I - Group Project Workflows
 
 ## Lecture Promise
 
