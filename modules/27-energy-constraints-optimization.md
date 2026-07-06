@@ -19,10 +19,10 @@ Decision-making is not just picking the highest score. It balances preference, c
 Define an energy:
 
 ```text
-E(state) = inconsistency penalty + uncertainty penalty + complexity penalty
+E(plan) = cost penalty + travel penalty + preference penalty
 ```
 
-The system seeks low-energy feasible states.
+The group seeks a low-energy feasible dinner plan.
 
 ## Running Example: Dinner Planning Under Constraints
 
@@ -36,7 +36,7 @@ Optimization chooses states that minimize an objective subject to constraints.
 
 ## Failure Mode
 
-The objective may reward the wrong behavior: overconfidence, oversmoothing, or suppressing minority evidence.
+The objective may reward the wrong behavior: cheapness at the expense of accessibility, average preference at the expense of a hard allergy, or convenience at the expense of one person's travel limit.
 
 ## Problem Ladder
 
@@ -46,7 +46,7 @@ The objective may reward the wrong behavior: overconfidence, oversmoothing, or s
 
 ## Representation Design Connection
 
-Energy functions and constraints make design priorities explicit and debuggable.
+Energy functions and constraints make design priorities explicit: what can be traded off belongs in the objective, while what cannot be violated belongs in the constraints.
 
 ## Hand Problem Trail
 
