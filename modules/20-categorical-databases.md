@@ -61,3 +61,49 @@ Typed memory is the difference between a pile of facts and an epistemic graph.
 ## Research Bridge
 
 David Spivak's categorical database work gives a formal language for schemas, data migration, and compositional data integration.
+
+## Hand Problem Trail
+
+### Problem 20.1: Schema as category
+
+Objects:
+
+```text
+Claim, Source, Document
+```
+
+Arrows:
+
+```text
+madeBy: Claim -> Source
+appearsIn: Claim -> Document
+```
+
+Draw the schema and identify the object sets an instance must provide.
+
+Answer check: an instance provides sets of claims, sources, and documents, plus functions for `madeBy` and `appearsIn`.
+
+### Problem 20.2: Path equation
+
+Suppose also:
+
+```text
+sourceOrg: Source -> Organization
+docOrg: Document -> Organization
+```
+
+Write a path equation saying a claim's source organization should match the document organization.
+
+Answer check: `sourceOrg o madeBy = docOrg o appearsIn`.
+
+### Problem 20.3: Find violation
+
+Given `madeBy(c)=s`, `appearsIn(c)=d`, `sourceOrg(s)=OpenAI`, and `docOrg(d)=MIT`, does the path equation hold?
+
+Answer check: no. The two paths return different organizations.
+
+### Problem 20.4: Schema design
+
+Why are path equations stronger than informal field names?
+
+Answer check: they make consistency constraints explicit and checkable.

@@ -67,3 +67,60 @@ This is where the course becomes design practice.
 ## Research Bridge
 
 This module synthesizes applied category theory, algebraic graph theory, sheaf theory, graphical models, and dynamical systems.
+
+## Hand Problem Trail
+
+### Problem 31.1: Specify a memory object
+
+Define a memory node type with at least five fields. Mark which fields are scalars, vectors, labels, or references.
+
+Answer check example:
+
+```text
+claim_text: text label
+embedding: vector
+confidence: scalar
+source_id: reference
+timestamp: scalar or ordered label
+stance: finite label
+```
+
+### Problem 31.2: Specify legal transformations
+
+For your memory graph, list three transformations that should preserve meaning and three that should change meaning.
+
+Answer check examples:
+
+```text
+preserve: node relabeling, equivalent schema migration, reordering retrieved candidates
+change: reversing support edge, deleting provenance, changing timestamp order
+```
+
+### Problem 31.3: Pick invariants
+
+Name five invariants your architecture should test.
+
+Answer check examples:
+
+```text
+permutation-invariant graph scores
+schema path equations
+source provenance preservation
+local-to-global sheaf consistency
+calibrated posterior under evidence update
+```
+
+### Problem 31.4: Build the design spec
+
+Write one page with these headings:
+
+```text
+Objects
+Operations
+Products
+Invariants
+Failure modes
+Evaluation tests
+```
+
+Answer check: the spec should identify mathematical commitments, not implementation details only.

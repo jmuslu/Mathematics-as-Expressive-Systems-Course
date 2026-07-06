@@ -71,3 +71,48 @@ Validation loops are compositional operations, not merely graph traversals.
 ## Research Bridge
 
 Applied category theory uses operads to model wiring diagrams, systems, and compositional processes.
+
+## Hand Problem Trail
+
+### Problem 21.1: Operation with slots
+
+A validation operation has type `validate: Claim x Source x Evidence -> Status`. Name the three input slots and the output type.
+
+Answer check: inputs are Claim, Source, Evidence; output is Status.
+
+### Problem 21.2: Compose operations
+
+Suppose:
+
+```text
+validate: Claim x Evidence -> ValidatedClaim
+summarize: ValidatedClaim x Context -> Summary
+```
+
+Write the composite operation type after plugging validate into summarize's first slot.
+
+Answer check: `Claim x Evidence x Context -> Summary`.
+
+### Problem 21.3: Product or composition?
+
+Classify each as product-like or composition-like.
+
+1. Pair a claim with a source.
+2. Run validation, then summarization.
+3. Build a joint feature space from text and graph features.
+4. Plug one reasoning operation into another.
+
+Answer check:
+
+```text
+1 product
+2 composition
+3 tensor/product
+4 operadic composition
+```
+
+### Problem 21.4: Dependency loss
+
+Why is flattening `Claim x Evidence x Rule -> Status` into pairwise edges dangerous?
+
+Answer check: it can hide that the status depends on all three inputs jointly.

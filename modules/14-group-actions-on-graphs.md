@@ -84,3 +84,38 @@ Node identities often carry implementation details. Group actions separate real 
 ## Research Bridge
 
 Permutation invariance and equivariance are central in graph neural networks and G-invariant architectures.
+
+## Hand Problem Trail
+
+### Problem 14.1: Action on a vector
+
+Let swap `s` act on `x=(a,b)` by `s.x=(b,a)`. Compute `s.(3,7)` and `s.s.(3,7)`.
+
+Answer check:
+
+```text
+s.(3,7) = (7,3)
+s.s.(3,7) = (3,7)
+```
+
+### Problem 14.2: Orbit
+
+Find the orbit of `(1,2,2)` under all coordinate permutations.
+
+Answer check:
+
+```text
+{(1,2,2), (2,1,2), (2,2,1)}
+```
+
+### Problem 14.3: Stabilizer
+
+For the same vector, which permutations fix it?
+
+Answer check: identity and the swap of the two equal coordinates.
+
+### Problem 14.4: Graph relabeling
+
+For adjacency matrix `A = [0 1 0; 1 0 1; 0 1 0]` and P swapping nodes 1 and 3, compute `PAP^T`.
+
+Answer check: it equals A, because the path has that reflection symmetry.

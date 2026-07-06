@@ -79,3 +79,51 @@ That determinant-like expression measures oriented two-dimensional content.
 ## Memory-System Connection
 
 This is the math behind safe representation changes.
+
+## Hand Problem Trail
+
+### Problem 7.1: Pairing must stay invariant
+
+Let `v = (2,3)` and `phi = [4,5]`. Compute `phi(v)`.
+
+Answer check: `phi(v) = 4*2 + 5*3 = 23`.
+
+### Problem 7.2: Change basis by scaling
+
+Suppose new vector coordinates are `v' = (1,3)` because the first basis vector doubled. Use:
+
+```text
+v = A v', A = [2 0]
+             [0 1]
+phi' = phi A
+```
+
+Find `phi'` and check the pairing.
+
+Answer check:
+
+```text
+phi' = [4,5][2 0; 0 1] = [8,5]
+phi'(v') = 8*1 + 5*3 = 23
+```
+
+### Problem 7.3: Gradient as covector
+
+For `f(x,y)=3x+2y`, write the gradient as a covector and evaluate its directional change on `v=(4,-1)`.
+
+Answer check:
+
+```text
+df = [3,2]
+df(v) = 12 - 2 = 10
+```
+
+### Problem 7.4: Wedge evaluation
+
+Let `alpha=[1,0]`, `beta=[0,1]`, `u=(2,0)`, `v=(0,3)`. Compute `(alpha wedge beta)(u,v)`.
+
+Answer check:
+
+```text
+alpha(u) beta(v) - alpha(v) beta(u) = 2*3 - 0*0 = 6
+```

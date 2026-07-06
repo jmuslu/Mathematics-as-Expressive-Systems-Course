@@ -51,3 +51,41 @@ Persistent features can guide consolidation: keep structures that survive pertur
 ## Research Bridge
 
 TDA for machine learning uses persistence to detect robust geometric/topological structure.
+
+## Hand Problem Trail
+
+### Problem 23.1: Threshold graph
+
+Three points have distances `d(A,B)=1`, `d(B,C)=2`, and `d(A,C)=5`. At threshold `epsilon=1.5`, which edges appear? At `epsilon=3`?
+
+Answer check:
+
+```text
+epsilon=1.5: AB only
+epsilon=3: AB and BC
+```
+
+### Problem 23.2: Connected components over scale
+
+Using Problem 23.1, count connected components at thresholds `0`, `1.5`, `3`, and `6`.
+
+Answer check:
+
+```text
+0: 3 components
+1.5: 2 components
+3: 1 component
+6: 1 component
+```
+
+### Problem 23.3: Birth and death
+
+For the component containing C, when does it merge into the main component?
+
+Answer check: C is born at 0 and merges at threshold 3 through edge BC.
+
+### Problem 23.4: Memory decay interpretation
+
+If edges above a confidence threshold survive, what does a long-lived component suggest?
+
+Answer check: a stable cluster of memories persists across many thresholds; it may represent robust structure rather than accidental similarity.

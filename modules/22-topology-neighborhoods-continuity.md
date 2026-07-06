@@ -49,3 +49,34 @@ Topology helps detect whether reasoning paths and memory clusters survive decay 
 ## Research Bridge
 
 Topological data analysis studies persistent structure in data across scales.
+
+## Hand Problem Trail
+
+### Problem 22.1: Open neighborhood intuition
+
+On the real line, is `(0,1)` open? Is `[0,1]` open in the usual topology?
+
+Answer check: `(0,1)` is open. `[0,1]` is not open because endpoints have no small interval contained inside `[0,1]`.
+
+### Problem 22.2: Continuity by inverse image
+
+Let `f(x)=2x`. What is the inverse image of `(0,4)`?
+
+Answer check: `f^{-1}((0,4)) = (0,2)`.
+
+### Problem 22.3: Graph neighborhood
+
+In path `1 - 2 - 3`, list the one-hop neighborhood of node 2 and node 1.
+
+Answer check:
+
+```text
+N(2)={1,2,3} if closed; {1,3} if open graph neighborhood.
+N(1)={1,2} closed; {2} open.
+```
+
+### Problem 22.4: Memory interpretation
+
+What would it mean for a memory update rule to be continuous?
+
+Answer check: small changes in local evidence should not cause arbitrary jumps in global memory state unless a threshold is intentionally modeled.

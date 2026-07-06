@@ -86,3 +86,42 @@ Category theory is the language for comparing memory states, schemas, retrieval 
 ## Research Bridge
 
 Seven Sketches in Compositionality develops applied category theory through databases, circuits, and systems.
+
+## Hand Problem Trail
+
+### Problem 17.1: Small category from a workflow
+
+Objects:
+
+```text
+RawMemory, ValidatedClaim, Summary
+```
+
+Morphisms:
+
+```text
+validate: RawMemory -> ValidatedClaim
+summarize: ValidatedClaim -> Summary
+```
+
+What composite morphism must exist?
+
+Answer check: `summarize o validate: RawMemory -> Summary`.
+
+### Problem 17.2: Identity morphisms
+
+Write the identity morphism for each object.
+
+Answer check: `id_RawMemory`, `id_ValidatedClaim`, `id_Summary`.
+
+### Problem 17.3: Associativity by example
+
+Suppose also `embed: Summary -> Vector`. Compare `embed o (summarize o validate)` with `(embed o summarize) o validate`.
+
+Answer check: both are the same typed path from `RawMemory` to `Vector`.
+
+### Problem 17.4: Category error
+
+Why is `validate o summarize` not legal in this workflow?
+
+Answer check: summarize outputs `Summary`, but validate expects `RawMemory` as input.

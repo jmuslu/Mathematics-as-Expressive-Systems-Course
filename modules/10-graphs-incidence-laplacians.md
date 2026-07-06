@@ -42,3 +42,56 @@ The graph Laplacian measures disagreement across edges.
 ## Memory-System Connection
 
 Validation, propagation, and decay are graph flows.
+
+## Hand Problem Trail
+
+### Problem 10.1: Build the adjacency matrix
+
+For path graph `1 - 2 - 3`, write A.
+
+Answer check:
+
+```text
+A = [0 1 0]
+    [1 0 1]
+    [0 1 0]
+```
+
+### Problem 10.2: Degree and Laplacian
+
+Compute the degree matrix D and Laplacian `L = D - A`.
+
+Answer check:
+
+```text
+D = [1 0 0]
+    [0 2 0]
+    [0 0 1]
+
+L = [ 1 -1  0]
+    [-1  2 -1]
+    [ 0 -1  1]
+```
+
+### Problem 10.3: Smoothness energy
+
+For node values `x=(1,2,4)`, compute `x^T L x` by edge differences.
+
+Answer check:
+
+```text
+(1-2)^2 + (2-4)^2 = 1 + 4 = 5
+```
+
+### Problem 10.4: Incidence matrix
+
+Orient edges `1->2` and `2->3`. Write incidence B with rows edges and columns nodes.
+
+Answer check:
+
+```text
+B = [-1  1  0]
+    [ 0 -1  1]
+```
+
+Then `B^T B = L`.

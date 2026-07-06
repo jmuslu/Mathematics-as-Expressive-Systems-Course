@@ -51,3 +51,47 @@ Knowledge evolution needs legal graph edits, not just append-only memory.
 ## Research Bridge
 
 Graph rewriting and categorical rewriting give formal tools for structured state evolution.
+
+## Hand Problem Trail
+
+### Problem 29.1: Rewrite rule
+
+Rule:
+
+```text
+(A cites B) and (B supports C) -> (A indirectly supports C)
+```
+
+Apply it to:
+
+```text
+Paper1 cites Paper2
+Paper2 supports ClaimX
+```
+
+Answer check: `Paper1 indirectly supports ClaimX`.
+
+### Problem 29.2: Termination question
+
+Rule: `A -> AA`. Starting from `A`, does rewriting terminate?
+
+Answer check: no. It can grow forever.
+
+### Problem 29.3: Confluence question
+
+Rules:
+
+```text
+A -> B
+A -> C
+```
+
+If B and C cannot rewrite further, is the system confluent?
+
+Answer check: no. The same start has two incompatible normal forms.
+
+### Problem 29.4: Memory design
+
+Why do rewrite systems need guards?
+
+Answer check: without guards, memory evolution can create infinite expansion, inconsistent conclusions, or duplicate closure paths.

@@ -52,3 +52,50 @@ V -> F
 ## Memory-System Connection
 
 Every scoring rule is a measurement. Duality makes those measurements explicit.
+
+## Hand Problem Trail
+
+### Problem 5.1: Covector as a test
+
+A memory state is `x = (source_quality, recency, contradiction) = (4, 2, 3)`. A validation covector is `phi = [2, 1, -3]`. Compute `phi(x)`.
+
+Answer check:
+
+```text
+2*4 + 1*2 - 3*3 = 1
+```
+
+### Problem 5.2: Same vector, different tests
+
+Using the same x, compute:
+
+```text
+phi_1 = [1, 0, 0]
+phi_2 = [0, 0, 1]
+phi_3 = [1, 1, -1]
+```
+
+Answer check:
+
+```text
+phi_1(x)=4, phi_2(x)=3, phi_3(x)=3
+```
+
+A covector is a question you ask of a state.
+
+### Problem 5.3: Hyperplane of acceptable states
+
+Find all `(a,b)` satisfying `[2, -1](a,b) = 0`.
+
+Answer check:
+
+```text
+2a - b = 0, so b = 2a.
+The acceptable states lie on span((1,2)).
+```
+
+### Problem 5.4: Design a validation test
+
+You want a scalar score that rewards source quality, rewards independent corroboration twice as much, and penalizes contradiction three times as much. Write the covector for state `(quality, corroboration, contradiction)`.
+
+Answer check: `phi = [1, 2, -3]`.

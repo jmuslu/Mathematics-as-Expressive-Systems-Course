@@ -59,3 +59,34 @@ Universal properties help identify canonical constructions: products, sums, pull
 ## Research Bridge
 
 Categorical databases and compositional systems rely on universal constructions to combine schemas and data.
+
+## Hand Problem Trail
+
+### Problem 18.1: Product object intuition
+
+Given objects A and B, a product `A x B` has projections `pi_A: A x B -> A` and `pi_B: A x B -> B`. For a pair `(a,b)`, compute both projections.
+
+Answer check: `pi_A(a,b)=a` and `pi_B(a,b)=b`.
+
+### Problem 18.2: Pairing map
+
+If `f: X -> A` and `g: X -> B`, what map from X to `A x B` is forced by the product property?
+
+Answer check:
+
+```text
+<f,g>: X -> A x B
+x -> (f(x), g(x))
+```
+
+### Problem 18.3: Pullback as consistency object
+
+Let `SourceClaim -> Claim <- EvidenceClaim`. Explain what the pullback contains.
+
+Answer check: pairs `(source_claim, evidence_claim)` that refer to the same claim.
+
+### Problem 18.4: Memory design
+
+Why is a universal property better than choosing one arbitrary implementation?
+
+Answer check: it characterizes the object by how all legal maps interact with it, so equivalent implementations can be recognized as the same construction.

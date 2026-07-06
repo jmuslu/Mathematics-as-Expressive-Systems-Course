@@ -38,3 +38,35 @@ Algebraic graph theory studies graphs using matrices, eigenvalues, automorphism 
 ## Memory-System Connection
 
 Your memory graph should not depend on arbitrary presentation.
+
+## Hand Problem Trail
+
+### Problem 11.1: Automorphism check
+
+For path `1 - 2 - 3`, which nontrivial node relabeling preserves adjacency?
+
+Answer check: swap nodes `1` and `3`, keep `2` fixed.
+
+### Problem 11.2: Permutation matrix
+
+Write P for the swap `1 <-> 3`.
+
+Answer check:
+
+```text
+P = [0 0 1]
+    [0 1 0]
+    [1 0 0]
+```
+
+### Problem 11.3: Verify graph symmetry
+
+Using the adjacency matrix of the path, verify `P A P^T = A`.
+
+Answer check: direct multiplication returns the same adjacency matrix, so P is an automorphism.
+
+### Problem 11.4: Spectral invariant
+
+Explain why eigenvalues of A are unchanged by relabeling.
+
+Answer check: relabeling gives `PAP^T`, which is similar to A because `P^T = P^{-1}`. Similar matrices have the same eigenvalues.

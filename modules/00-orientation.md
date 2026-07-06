@@ -131,3 +131,60 @@ A robust LLM memory system must decide:
 - How to evaluate whether it helped
 
 This course is the math underneath those decisions.
+
+## Hand Problem Trail
+
+### Problem 0.1: Diagnose the object
+
+For each situation, name the mathematical object you would reach for first.
+
+1. A memory item has two scores: relevance and confidence.
+2. A claim is transformed by a rewrite rule.
+3. A graph is relabeled but should mean the same thing.
+4. Three pieces of evidence only support a claim when taken together.
+5. Two local summaries agree on their overlap and should be glued.
+
+Answer check:
+
+```text
+1. vector
+2. function or linear map
+3. group action / invariance
+4. tensor, hyperedge, or operad
+5. sheaf
+```
+
+### Problem 0.2: Use the lecture worksheet
+
+Pick the object `projection`. Fill this in by hand:
+
+```text
+Old limitation:
+New object:
+New legal operation:
+Invariant:
+Failure mode:
+Later dependency:
+```
+
+Answer check:
+
+```text
+Old limitation: exact representation is unavailable.
+New object: best approximation in a subspace.
+New legal operation: decompose into fitted part plus residual.
+Invariant: residual is orthogonal to the subspace.
+Failure mode: projection can erase meaningful out-of-subspace signal.
+Later dependency: least squares, SVD, regression, compression.
+```
+
+### Problem 0.3: Decide vertical versus horizontal
+
+For the object `group action`, classify each question.
+
+1. What is the formal definition?
+2. How does node relabeling act on an adjacency matrix?
+3. What is an invariant?
+4. What would break if the graph summary changed under relabeling?
+
+Answer check: 1 and 3 are vertical. 2 and 4 are horizontal/application questions.

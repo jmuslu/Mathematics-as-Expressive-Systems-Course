@@ -148,3 +148,55 @@ The design question is: what vector space should memory live in?
 - Dense Passage Retrieval uses vector representations for questions and passages.
 - ColBERT changes the representation from one vector per passage to many contextual token vectors.
 - Product quantization compresses vector memory by decomposing it into subspaces.
+
+## Hand Problem Trail
+
+### Problem 2.1: Memory as a vector
+
+A memory item is represented by:
+
+```text
+m = (relevance, confidence, recency) = (3, 4, 12)
+```
+
+Compute its L1, L2, and L-infinity norms.
+
+Answer check:
+
+```text
+||m||_1 = 19
+||m||_2 = sqrt(3^2 + 4^2 + 12^2) = 13
+||m||_infinity = 12
+```
+
+### Problem 2.2: Normalize before comparing
+
+Let `a = (3, 4)` and `b = (6, 8)`. Compute both L2 norms and normalize both vectors.
+
+Answer check:
+
+```text
+||a|| = 5, ||b|| = 10
+ahat = bhat = (3/5, 4/5)
+```
+
+They point in the same direction but have different magnitudes.
+
+### Problem 2.3: Span as reachable memory
+
+Let `u = (1, 0, 1)` and `v = (0, 1, 1)`. Can `(2, 3, 5)` be written as `a u + b v`?
+
+Answer check:
+
+```text
+a u + b v = (a, b, a+b)
+Set a=2, b=3, then a+b=5. Yes.
+```
+
+Can `(2, 3, 7)` be written that way? No, because the third coordinate would have to be `2 + 3 = 5`.
+
+### Problem 2.4: Basis choice
+
+Give a basis for `S = {(x, y, z) : z = x + y}`.
+
+Answer check: one valid basis is `{(1,0,1), (0,1,1)}`.

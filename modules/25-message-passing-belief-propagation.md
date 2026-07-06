@@ -49,3 +49,46 @@ Validation is not a scalar confidence score. It is a dynamic process over a grap
 ## Research Bridge
 
 Mezard and Montanari's work on information, physics, and computation develops message passing and graphical models deeply.
+
+## Hand Problem Trail
+
+### Problem 25.1: Chain messages
+
+Consider binary variables A-B-C. A sends B the message `m_A_to_B(0)=0.8`, `m_A_to_B(1)=0.2`. C sends B `m_C_to_B(0)=0.5`, `m_C_to_B(1)=0.5`. If B has no local preference, compute unnormalized belief at B.
+
+Answer check:
+
+```text
+b_B(0)=0.8*0.5=0.4
+b_B(1)=0.2*0.5=0.1
+normalized: (0.8, 0.2)
+```
+
+### Problem 25.2: Add local evidence
+
+Now B has local evidence `psi_B(0)=0.25`, `psi_B(1)=1`. Recompute.
+
+Answer check:
+
+```text
+b_B(0)=0.25*0.8*0.5=0.1
+b_B(1)=1*0.2*0.5=0.1
+normalized: (0.5,0.5)
+```
+
+### Problem 25.3: One factor message
+
+A factor prefers equal binary values: potential is 2 if equal, 1 if different. If A's belief is `(0.7,0.3)`, compute the factor-to-B message.
+
+Answer check:
+
+```text
+m(0)=2*0.7 + 1*0.3 = 1.7
+m(1)=1*0.7 + 2*0.3 = 1.3
+```
+
+### Problem 25.4: Validation loop
+
+What does a message represent in an external memory graph?
+
+Answer check: a local summary of evidence passed across a relation, not the full raw memory.

@@ -88,3 +88,47 @@ Jeevanjee frames non-degenerate Hermitian forms as part of the tiered structure 
 ## Memory-System Connection
 
 Hermitian structure is the serious version of "geometry still works after enriching scalars." If a future memory architecture uses complex embeddings, Fourier features, phase-coded relations, or unitary dynamics, this module is the reason its notion of similarity and stability remains mathematically coherent.
+
+## Hand Problem Trail
+
+### Problem 8.1: Why conjugation matters
+
+Let `v = (1, i)`. Compute `v^T v` and `v* v`.
+
+Answer check:
+
+```text
+v^T v = 1^2 + i^2 = 0
+v* v = conjugate(1)1 + conjugate(i)i = 1 + (-i)i = 2
+```
+
+### Problem 8.2: Hermitian or not?
+
+Decide whether each matrix is Hermitian.
+
+```text
+A = [2  i]
+    [-i 3]
+
+B = [1 i]
+    [i 1]
+```
+
+Answer check: A is Hermitian. B is not Hermitian because conjugate transpose changes the off-diagonal entries.
+
+### Problem 8.3: Unitary preservation
+
+Let `U = [0 1; 1 0]`. Show `U*U = I` and compute `||U(3,4)||`.
+
+Answer check:
+
+```text
+U*U = I
+U(3,4) = (4,3), norm = 5
+```
+
+### Problem 8.4: Memory interpretation
+
+If a complex relation has magnitude as strength and phase as temporal offset, why must similarity use conjugation?
+
+Answer check: without conjugation, nonzero vectors can have zero or non-real length, so similarity no longer behaves like geometry.

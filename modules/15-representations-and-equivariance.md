@@ -121,3 +121,52 @@ Equivariance is the mature version of "safe transformation." It tells you how me
 ## Research Bridge
 
 The G-invariance tutorial builds invariant neurons by constraining weights to invariant subspaces.
+
+## Hand Problem Trail
+
+### Problem 15.1: Matrix representation of C4
+
+Let `R = [0 -1; 1 0]`. Compute `R^2`, `R^3`, and `R^4`.
+
+Answer check:
+
+```text
+R^2 = [-1  0; 0 -1]
+R^3 = [0 1; -1 0]
+R^4 = I
+```
+
+### Problem 15.2: Invariant function
+
+Let C2 swap coordinates. Test whether each function is invariant.
+
+```text
+f1(x,y)=x+y
+f2(x,y)=x-y
+f3(x,y)=xy
+```
+
+Answer check:
+
+```text
+f1 invariant, f2 not invariant, f3 invariant
+```
+
+### Problem 15.3: Equivariant map
+
+Let `F(x,y)=(2x,2y)`. Is F equivariant under coordinate swap?
+
+Answer check:
+
+```text
+F(s.(x,y)) = F(y,x) = (2y,2x)
+s.F(x,y) = s.(2x,2y) = (2y,2x)
+```
+
+Yes.
+
+### Problem 15.4: Tensor product representation
+
+If g acts by `rho(g)` on V and by `tau(g)` on W, write how it acts on `v tensor w`.
+
+Answer check: `g.(v tensor w) = rho(g)v tensor tau(g)w`.

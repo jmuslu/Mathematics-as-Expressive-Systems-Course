@@ -73,3 +73,35 @@ Sheaves are the mature model for multi-hop validation: local contexts patch into
 ## Research Bridge
 
 Justin Curry's sheaf work and applied sheaf theory give tools for consistency over networks.
+
+## Hand Problem Trail
+
+### Problem 24.1: Two-node sheaf
+
+Node A stores stance `support`; node B stores stance `support`. The edge overlap records stance. Do the local sections glue?
+
+Answer check: yes, both restrict to `support`.
+
+### Problem 24.2: Contradiction on overlap
+
+Now node A stores `support`, node B stores `contradict`, and the edge overlap records stance. Do they glue?
+
+Answer check: no. The restrictions disagree.
+
+### Problem 24.3: Change the restriction map
+
+Suppose the edge overlap records only source identity, not stance. A and B cite the same source but disagree in stance. Do they glue under this weaker sheaf?
+
+Answer check: yes with respect to source identity. This may be a bad model if stance matters.
+
+### Problem 24.4: Global section
+
+A graph has three nodes with local values `x1=2`, `x2=2`, `x3=5`. Edges require equality on overlaps: `(1,2)` and `(2,3)`. Is this a global section?
+
+Answer check: no, because edge `(2,3)` sees `2 != 5`.
+
+### Problem 24.5: Retrieval versus sheaf failure
+
+What is the difference between retrieval failure and sheaf failure?
+
+Answer check: retrieval failure means the relevant local pieces were not found. Sheaf failure means local pieces were found but do not consistently glue.

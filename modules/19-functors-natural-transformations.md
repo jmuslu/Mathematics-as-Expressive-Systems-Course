@@ -57,3 +57,37 @@ Functors formalize representation changes: text to graph, graph to embedding, sc
 ## Research Bridge
 
 Seven Sketches uses functors and natural transformations to describe compositional structure across applied systems.
+
+## Hand Problem Trail
+
+### Problem 19.1: Functor from schema to sets
+
+A schema has objects `Claim` and `Source`, and morphism `citedBy: Claim -> Source`. An instance sends:
+
+```text
+Claim -> {c1,c2}
+Source -> {s1}
+citedBy(c1)=s1, citedBy(c2)=s1
+```
+
+Why is this a functor-like assignment?
+
+Answer check: it sends objects to sets and arrows to functions while preserving typed structure.
+
+### Problem 19.2: Preserve composition
+
+If category C has `A -> B -> C`, what must a functor F do to the composite?
+
+Answer check: `F(g o f) = F(g) o F(f)`.
+
+### Problem 19.3: Natural transformation square
+
+Suppose F and G are two memory encodings of the same schema. A natural transformation gives maps from F(X) to G(X). What condition must hold for every arrow `f: X -> Y`?
+
+Answer check: `G(f) o eta_X = eta_Y o F(f)`.
+
+### Problem 19.4: Translation test
+
+Explain in words what naturality means for migrating memories.
+
+Answer check: translating before following a relationship should equal following the relationship before translating.

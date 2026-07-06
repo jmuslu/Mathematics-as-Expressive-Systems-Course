@@ -101,3 +101,56 @@ That is why the course later emphasizes covariance, contravariance, Hermitian st
 ## Memory-System Connection
 
 Typed memory relations are tensorial: they have slots, variance, and transformation rules.
+
+## Hand Problem Trail
+
+### Problem 6.1: Bilinear means linear in each slot
+
+Let `B(u,v) = u^T A v` with:
+
+```text
+A = [1 2]
+    [0 1]
+```
+
+Compute `B((1,0),(0,1))` and `B((1,1),(1,0))`.
+
+Answer check:
+
+```text
+A(0,1) = (2,1), so B((1,0),(0,1)) = 2
+A(1,0) = (1,0), so B((1,1),(1,0)) = 1
+```
+
+### Problem 6.2: Outer product as generated relation
+
+Let `u = (2,1)` and `v = (3,4)`. Compute `u v^T`.
+
+Answer check:
+
+```text
+[6 8]
+[3 4]
+```
+
+### Problem 6.3: Wedge product sign
+
+Treat `e1 wedge e2` as the positive oriented area unit. Compute `e2 wedge e1` and `(e1 + e2) wedge e1`.
+
+Answer check:
+
+```text
+e2 wedge e1 = - e1 wedge e2
+(e1 + e2) wedge e1 = - e1 wedge e2
+```
+
+### Problem 6.4: Levi-Civita volume intuition
+
+If the oriented volume tensor returns `1` on `(e1,e2,e3)`, what should it return on `(e2,e1,e3)` and `(e1,e1,e3)`?
+
+Answer check:
+
+```text
+(e2,e1,e3) swaps two inputs, so volume = -1.
+(e1,e1,e3) repeats a direction, so volume = 0.
+```

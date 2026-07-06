@@ -87,3 +87,46 @@ Groups answer: what transformations preserve the meaning of the memory graph?
 ## Research Bridge
 
 The G-invariance tutorial uses groups to define transformations under which a neural representation should be invariant or equivariant.
+
+## Hand Problem Trail
+
+### Problem 13.1: Is it a group?
+
+For each set and operation, decide if it is a group.
+
+```text
+integers under addition
+positive reals under multiplication
+integers under multiplication
+nonzero reals under multiplication
+```
+
+Answer check:
+
+```text
+yes, yes, no, yes
+```
+
+### Problem 13.2: Symmetries of a two-node edge
+
+A graph has nodes `{1,2}` and one edge between them. List all node permutations that preserve adjacency.
+
+Answer check: identity and swap. This group is isomorphic to C2.
+
+### Problem 13.3: Cayley table for C2
+
+Let elements be `e` and `s`, where `s^2=e`. Write the multiplication table.
+
+Answer check:
+
+```text
+   e s
+ e e s
+ s s e
+```
+
+### Problem 13.4: Invariant question
+
+A feature returns the number of edges in a graph. Is it invariant under node relabeling?
+
+Answer check: yes. Relabeling changes names, not the number of edges.

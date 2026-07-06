@@ -101,5 +101,6 @@ For each module, produce:
 - One invariant
 - One failure mode
 - One graph/memory design implication
+- One completed hand problem trail with answer checks
 
 This course should feel like the original slide sequence: concrete problem first, abstraction second, design implication last.

@@ -158,3 +158,66 @@ Before choosing an algorithm, ask what each coordinate is allowed to mean.
 - kNN-LM uses scalar interpolation between parametric and non-parametric probability estimates.
 - RAG marginalizes over retrieved documents using probability weights.
 - Attention uses real-valued compatibility scores and softmax probabilities.
+
+## Hand Problem Trail
+
+### Problem 1.1: Closure pressure
+
+For each set, decide whether the operation stays inside the set.
+
+```text
+integers under addition
+integers under division
+positive reals under subtraction
+nonzero reals under multiplication
+complex numbers under square root of negative reals
+```
+
+Answer check:
+
+```text
+closed, not closed, not closed, closed, closed
+```
+
+### Problem 1.2: Why invent a richer scalar?
+
+Solve or explain why there is no solution in the stated number system.
+
+```text
+x + 3 = 1 over N
+2x = 1 over Z
+x^2 = 2 over Q
+x^2 + 1 = 0 over R
+```
+
+Answer check:
+
+```text
+need integers; need rationals; need reals; need complex numbers
+```
+
+### Problem 1.3: Scalar capability table
+
+Complete this table by hand.
+
+| Scalar system | New capability | Cost |
+| --- | --- | --- |
+| Z -> Q | ? | ? |
+| Q -> R | ? | ? |
+| R -> C | ? | ? |
+| C -> H | ? | ? |
+
+Answer check:
+
+```text
+Z -> Q: division by nonzero integers; lose discreteness.
+Q -> R: limits and continuity; lose countability.
+R -> C: phase/roots of all polynomials; lose order compatibility.
+C -> H: 3D rotation algebra; lose commutativity.
+```
+
+### Problem 1.4: Memory design reflection
+
+Suppose a confidence score is stored as a complex number `r e^{i theta}`. What could magnitude and phase represent?
+
+Answer check: magnitude could encode strength while phase could encode delay, polarity, cyclic state, or relation orientation.

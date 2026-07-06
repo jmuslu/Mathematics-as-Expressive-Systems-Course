@@ -52,3 +52,43 @@ Graphical models give math for belief, uncertainty, source reliability, and evid
 ## Research Bridge
 
 Koller and Friedman is the deep reference for probabilistic graphical models.
+
+## Hand Problem Trail
+
+### Problem 26.1: Factorization
+
+For chain `A -> B -> C`, write the joint distribution factorization.
+
+Answer check: `P(A,B,C)=P(A)P(B|A)P(C|B)`.
+
+### Problem 26.2: Conditional independence
+
+In the same chain, what independence does the graph suggest?
+
+Answer check: `A is independent of C given B`.
+
+### Problem 26.3: Numeric posterior
+
+Suppose:
+
+```text
+P(Claim true)=0.6
+P(Evidence positive | true)=0.8
+P(Evidence positive | false)=0.3
+```
+
+Compute `P(true | positive)`.
+
+Answer check:
+
+```text
+numerator = 0.8*0.6 = 0.48
+denominator = 0.48 + 0.3*0.4 = 0.60
+posterior = 0.8
+```
+
+### Problem 26.4: Design assumption
+
+What does an edge absence mean in a graphical model?
+
+Answer check: it encodes an independence assumption, not ignorance. This is a modeling commitment.
