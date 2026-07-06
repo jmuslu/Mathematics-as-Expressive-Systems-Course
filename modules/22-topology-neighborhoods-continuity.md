@@ -67,11 +67,25 @@ Topology helps detect whether reasoning paths and memory clusters survive decay 
 
 ## Hand Problem Trail
 
-### Problem 22.1: Open neighborhood intuition
+### Problem 22.1: Open relative to what?
 
-On the real line, is `(0,1)` open? Is `[0,1]` open in the usual topology?
+Let:
 
-Answer check: `(0,1)` is open. `[0,1]` is not open because endpoints have no small interval contained inside `[0,1]`.
+```text
+X = [0, 2]
+U = [0, 1)
+```
+
+Is `U` open in the usual topology on the real line? Is `U` open as a subset of the subspace `X`?
+
+Answer check:
+
+```text
+U is not open in R because 0 has no small open interval contained in U.
+U is open in X because U = X intersect (-1,1).
+```
+
+Openness depends on the surrounding space. A cluster can be open relative to a selected dataset while not being open in the global representation space.
 
 ### Problem 22.2: Boundary point check
 

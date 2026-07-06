@@ -18,7 +18,7 @@ Source posture: original course problems inspired by public sources on topology,
 Module: 22
 Topic: subspace topology
 Role: conceptual check
-Status: reserve
+Status: promoted in Module 22 Problem 22.1
 Source use: original, source-informed
 Source note: Inspired by standard topology examples distinguishing ambient and subspace openness.
 License note: No source problem text copied.
