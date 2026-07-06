@@ -445,7 +445,7 @@ Useful as a harder Module 04 problem or bridge toward regression.
 Module: 05
 Topic: covectors as measurements
 Role: conceptual check
-Status: lecture candidate
+Status: promoted
 Source use: original
 Source note: Course-style dating-standards analogy.
 License note: No source problem text copied.
@@ -492,7 +492,7 @@ Every measurement has blind spots; a high score under one test is not full knowl
 
 ## Reserve Notes
 
-Good companion for Module 05's existing dating-standard running example.
+Promoted into Module 05 as the opening covector computation.
 
 ## 05.annihilator.group-chat.a
 

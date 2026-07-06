@@ -75,13 +75,30 @@ Every scoring rule is a measurement. Duality makes those measurements explicit.
 
 ### Problem 5.1: Covector as a test
 
-A memory state is `x = (source_quality, recency, contradiction) = (4, 2, 3)`. A validation covector is `phi = [2, 1, -3]`. Compute `phi(x)`.
+A dating profile is represented by:
+
+```text
+v = (kindness, ambition, humor) = (4,2,5)
+```
+
+One person's standard is the covector:
+
+```text
+f = [2, -1, 1]
+```
+
+Compute `f(v)`. Then describe one nonzero change `w` that this standard cannot detect.
 
 Answer check:
 
 ```text
-2*4 + 1*2 - 3*3 = 1
+f(v) = 2(4) - 1(2) + 1(5) = 11
+
+w = (1,2,0) is invisible because:
+f(w) = 2(1) - 2 + 0 = 0
 ```
+
+So `v` and `v+w` receive the same score from this measurement.
 
 ### Problem 5.2: Functional on a 2D vector
 
