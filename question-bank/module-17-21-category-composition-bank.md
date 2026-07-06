@@ -9,7 +9,9 @@ Source posture: original course problems inspired by public applied category the
 - [MIT OCW Applied Category Theory](https://ocw.mit.edu/courses/18-s097-applied-category-theory-january-iap-2019/pages/lecture-videos-and-readings/)
 - [Chapter 3: Databases: Categories, Functors, and (Co)Limits](https://ocw.mit.edu/courses/18-s097-applied-category-theory-january-iap-2019/pages/lecture-videos-and-readings/chapter-3-databases-categories-functors-and-co-limits/)
 - [Functorial Data Migration](https://arxiv.org/abs/1009.1166)
+- [Functors, Natural Transformations, and Databases](https://math.libretexts.org/Bookshelves/Applied_Mathematics/Seven_Sketches_in_Compositionality%3A_An_Invitation_to_Applied_Category_Theory_%28Fong_and_Spivak%29/03%3A_Databases-_Categories_functors_and_%28co%29limits/3.03%3A_Functors_natural_transformations_and_databases)
 - [Operads for Complex System Design Specification, Analysis and Synthesis](https://arxiv.org/pdf/2101.11115)
+- [Wiring Diagrams as Normal Forms for Computing in Symmetric Monoidal Categories](https://arxiv.org/pdf/2101.12046)
 - [Using Category Theory to Organize and Operate on Information](https://dspivak.net/talks/pdfs/20171002-mcgill.pdf)
 
 ## 17.workflow.associativity.a
@@ -1205,3 +1207,407 @@ Validation should distinguish "these things are connected" from "these things pr
 ## Reserve Notes
 
 Good reserve problem for preventing flattening of multi-input processes.
+
+## 17.project.identity-arrow.a
+
+```text
+Module: 17
+Topic: identity morphisms
+Role: warm-up
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by the category axioms in applied category theory sources.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A group project category has objects:
+
+```text
+Idea, Draft, Final
+```
+
+and arrows:
+
+```text
+outline: Idea -> Draft
+polish: Draft -> Final
+```
+
+What should the identity arrow on `Draft` do? Verify the two identity laws involving `outline` and `polish`.
+
+## Answer Check
+
+The identity arrow:
+
+```text
+id_Draft: Draft -> Draft
+```
+
+leaves a draft unchanged.
+
+The identity laws are:
+
+```text
+id_Draft o outline = outline
+polish o id_Draft = polish
+```
+
+Both say that inserting "do nothing to the draft" into a legal workflow does not change the workflow.
+
+## Intuition
+
+Identity arrows are not decorative. They make "do nothing" a legal typed operation at every object.
+
+## Modeling Implication
+
+Systems that compose workflows need explicit no-op transformations so optional steps can be inserted without changing meaning.
+
+## Reserve Notes
+
+Good base-case problem for Module 17 before associativity.
+
+## 17.category.failure.bad-target.a
+
+```text
+Module: 17
+Topic: composability and typing
+Role: failure mode
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by basic category composition laws and the course's workflow examples.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A student workflow includes:
+
+```text
+draft: Idea -> Paragraph
+revise: Essay -> Portfolio
+```
+
+Can the composite `revise o draft` be formed? Explain the type error.
+
+## Answer Check
+
+No. The target of `draft` is:
+
+```text
+Paragraph
+```
+
+but the source of `revise` is:
+
+```text
+Essay
+```
+
+Since `Paragraph` does not match `Essay`, the composite is not typed.
+
+## Intuition
+
+Composition is legal only when the output type of the first arrow matches the input type of the second.
+
+## Modeling Implication
+
+A pipeline can use meaningful steps and still be invalid if the interfaces do not match.
+
+## Reserve Notes
+
+Useful failure-mode reserve for preventing category theory from becoming untyped arrow drawing.
+
+## 18.pullback.friend-dinner-join.a
+
+```text
+Module: 18
+Topic: pullback as compatible pair selection
+Role: computation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by pullback-as-join examples in applied category theory and categorical database sources.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A dinner organizer has:
+
+```text
+Friends = {ari, bea, cy}
+Restaurants = {ramen, tapas}
+Reservations = {r1, r2, r3}
+```
+
+with:
+
+```text
+friendChoice(ari)=ramen
+friendChoice(bea)=tapas
+friendChoice(cy)=ramen
+
+reservationPlace(r1)=ramen
+reservationPlace(r2)=ramen
+reservationPlace(r3)=tapas
+```
+
+List the pullback pairs `(friend, reservation)` that choose the same restaurant.
+
+## Answer Check
+
+The compatible pairs are:
+
+```text
+(ari,r1), (ari,r2), (cy,r1), (cy,r2), (bea,r3)
+```
+
+Each pair has matching images in `Restaurants`.
+
+## Intuition
+
+The pullback keeps pairs that agree over a shared comparison object.
+
+## Modeling Implication
+
+Compatibility joins can be understood as universal matching objects, not just database syntax.
+
+## Reserve Notes
+
+Good ordinary dinner analogy for pullbacks before more formal universal-property language.
+
+## 19.functor.identity.check.a
+
+```text
+Module: 19
+Topic: functor preserving identities
+Role: computation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by the functor definition in applied category theory and database sources.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A functor `F` sends the object `Draft` to the set:
+
+```text
+F(Draft) = {d1, d2}
+```
+
+What function must `F(id_Draft)` be on this set?
+
+## Answer Check
+
+A functor preserves identity arrows, so:
+
+```text
+F(id_Draft) = id_{F(Draft)}
+```
+
+Thus:
+
+```text
+F(id_Draft)(d1) = d1
+F(id_Draft)(d2) = d2
+```
+
+## Intuition
+
+A translation of "do nothing" must still do nothing after translation.
+
+## Modeling Implication
+
+A data translation that changes records during an identity step is not preserving the category structure.
+
+## Reserve Notes
+
+Good low-friction complement to the existing composition-preservation problem.
+
+## 19.naturality.failure.moved-heading.a
+
+```text
+Module: 19
+Topic: failed naturality square
+Role: counterexample
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by natural transformations between database instances and app encodings.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A notes app encoding `F` has:
+
+```text
+F(Bullet) = {b1}
+F(Heading) = {h1}
+F(under)(b1)=h1
+```
+
+A flashcard app encoding `G` has:
+
+```text
+G(Bullet) = {card-1}
+G(Heading) = {deck-1, deck-2}
+G(under)(card-1)=deck-1
+```
+
+A proposed translation is:
+
+```text
+eta_Bullet(b1)=card-1
+eta_Heading(h1)=deck-2
+```
+
+Does naturality hold for `under: Bullet -> Heading`?
+
+## Answer Check
+
+Compare the two paths:
+
+```text
+G(under)(eta_Bullet(b1)) = G(under)(card-1) = deck-1
+eta_Heading(F(under)(b1)) = eta_Heading(h1) = deck-2
+```
+
+The paths disagree, so naturality fails.
+
+## Intuition
+
+The bullet moved to a card under `deck-1`, but its heading moved to `deck-2`.
+
+## Modeling Implication
+
+Record migration can preserve individual records while breaking relationships between them.
+
+## Reserve Notes
+
+Good failure-mode pair for the existing naturality success examples.
+
+## 20.schema.instance-as-functor.a
+
+```text
+Module: 20
+Topic: database instance as Set-valued functor
+Role: conceptual check
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by categorical database sources where schemas are categories and instances are Set-valued functors.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A club schema has one arrow:
+
+```text
+memberTeam: Member -> Team
+```
+
+An instance assigns:
+
+```text
+Member = {ari, bea}
+Team = {debate, robotics}
+memberTeam(ari)=debate
+memberTeam(bea)=robotics
+```
+
+What object assignments and arrow assignment make this a functor into `Set`?
+
+## Answer Check
+
+The object assignments are:
+
+```text
+F(Member) = {ari, bea}
+F(Team) = {debate, robotics}
+```
+
+The arrow assignment is the function:
+
+```text
+F(memberTeam): F(Member) -> F(Team)
+F(memberTeam)(ari)=debate
+F(memberTeam)(bea)=robotics
+```
+
+## Intuition
+
+An instance fills each schema object with rows and each schema arrow with a function between rows.
+
+## Modeling Implication
+
+Seeing an instance as a functor makes foreign-key behavior part of the mathematical structure.
+
+## Reserve Notes
+
+Good base-case reserve before path equations and migrations.
+
+## 21.parallel-series.dinner-wiring.a
+
+```text
+Module: 21
+Topic: serial and parallel composition in wiring
+Role: computation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by operad and wiring-diagram sources where operations compose through typed ports.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A dinner-planning system has:
+
+```text
+pickRestaurant: Budget x Cuisine -> Restaurant
+bookTable: Restaurant x Date -> Reservation
+inviteFriends: GuestList x Reservation -> InviteBatch
+```
+
+Wire `pickRestaurant` into `bookTable`, then wire `bookTable` into `inviteFriends`. What is the composite input-output type?
+
+## Answer Check
+
+First:
+
+```text
+pickRestaurant: Budget x Cuisine -> Restaurant
+bookTable: Restaurant x Date -> Reservation
+```
+
+compose to get:
+
+```text
+Budget x Cuisine x Date -> Reservation
+```
+
+Then feed that into `inviteFriends`:
+
+```text
+GuestList x Budget x Cuisine x Date -> InviteBatch
+```
+
+## Intuition
+
+Wiring exposes which inputs remain external after internal operations are plugged together.
+
+## Modeling Implication
+
+Typed process design should compute the interface of the whole composite, not just list internal components.
+
+## Reserve Notes
+
+Good more involved dinner-planning problem for operadic composition.
