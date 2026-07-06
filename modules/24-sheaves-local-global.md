@@ -78,26 +78,132 @@ Node A stores stance `support`; node B stores stance `support`. The edge overlap
 
 Answer check: yes, both restrict to `support`.
 
-### Problem 24.2: Contradiction on overlap
+### Problem 24.2: Write the restriction equation
+
+Let `x_A` and `x_B` be the two local values and `e` be the overlap edge. Write the compatibility equation.
+
+Answer check:
+
+```text
+res_{A -> e}(x_A) = res_{B -> e}(x_B)
+```
+
+A global section is a set of local choices satisfying all such equations.
+
+### Problem 24.3: Contradiction on overlap
 
 Now node A stores `support`, node B stores `contradict`, and the edge overlap records stance. Do they glue?
 
 Answer check: no. The restrictions disagree.
 
-### Problem 24.3: Change the restriction map
+### Problem 24.4: Change the restriction map
 
 Suppose the edge overlap records only source identity, not stance. A and B cite the same source but disagree in stance. Do they glue under this weaker sheaf?
 
 Answer check: yes with respect to source identity. This may be a bad model if stance matters.
 
-### Problem 24.4: Global section
+### Problem 24.5: Global section
 
 A graph has three nodes with local values `x1=2`, `x2=2`, `x3=5`. Edges require equality on overlaps: `(1,2)` and `(2,3)`. Is this a global section?
 
 Answer check: no, because edge `(2,3)` sees `2 != 5`.
 
-### Problem 24.5: Retrieval versus sheaf failure
+### Problem 24.6: Repair a failed section
+
+For Problem 24.5, change one node value to make a global section.
+
+Answer check:
+
+```text
+Set x3 = 2, giving x1=x2=x3=2.
+```
+
+If every edge requires equality in a connected graph, a global section must be constant.
+
+### Problem 24.7: A nontrivial restriction map
+
+Node A stores a pair:
+
+```text
+(source, stance) = (s1, support)
+```
+
+The edge overlap records only source. What is the restriction?
+
+Answer check:
+
+```text
+res((s1, support)) = s1
+```
+
+Restrictions decide which part of local information must agree.
+
+### Problem 24.8: Two restriction designs
+
+Two nodes store:
+
+```text
+A: (s1, support)
+B: (s1, contradict)
+```
+
+Do they glue if the overlap records only source? Do they glue if it records `(source, stance)`?
+
+Answer check:
+
+```text
+Source-only overlap: yes, both restrict to s1.
+Source-and-stance overlap: no, the stances differ.
+```
+
+The sheaf is part of the model, not an afterthought.
+
+### Problem 24.9: Local agreement does not mean truth
+
+Three nodes all agree that a claim is `support`. Does the existence of a global section prove the claim is true?
+
+Answer check:
+
+```text
+No. It proves compatibility under the chosen restrictions, not truth.
+```
+
+Sheaf consistency is coherence, not omniscience.
+
+### Problem 24.10: Retrieval versus sheaf failure
 
 What is the difference between retrieval failure and sheaf failure?
 
 Answer check: retrieval failure means the relevant local pieces were not found. Sheaf failure means local pieces were found but do not consistently glue.
+
+### Problem 24.11: Global section on a triangle
+
+A triangle graph has node values:
+
+```text
+x1 = red
+x2 = red
+x3 = red
+```
+
+Every edge requires equality. Is this a global section?
+
+Answer check:
+
+```text
+Yes. All edge restrictions agree.
+```
+
+Every local pair is compatible, so the whole assignment glues.
+
+### Problem 24.12: Failure mode - false peace
+
+A sheaf overlap records only document title, not publication date. Two notes cite the same title but different editions with conflicting claims. What can go wrong?
+
+Answer check:
+
+```text
+The local sections may glue because the title agrees, even though the edition/date distinction matters.
+```
+
+Bad restriction maps can hide contradictions that the model needed to expose.

@@ -54,13 +54,45 @@ On the real line, is `(0,1)` open? Is `[0,1]` open in the usual topology?
 
 Answer check: `(0,1)` is open. `[0,1]` is not open because endpoints have no small interval contained inside `[0,1]`.
 
-### Problem 22.2: Continuity by inverse image
+### Problem 22.2: Boundary point check
+
+Why is `0` a boundary point of `[0,1]` in the usual topology on the real line?
+
+Answer check:
+
+```text
+Every open interval around 0 contains points inside [0,1] and points outside [0,1].
+```
+
+Topology cares about local neighborhoods, not only membership.
+
+### Problem 22.3: Continuity by inverse image
 
 Let `f(x)=2x`. What is the inverse image of `(0,4)`?
 
 Answer check: `f^{-1}((0,4)) = (0,2)`.
 
-### Problem 22.3: Graph neighborhood
+### Problem 22.4: A discontinuous threshold map
+
+Let:
+
+```text
+f(x) = 0 if x < 1
+f(x) = 1 if x >= 1
+```
+
+Why is this discontinuous at `x=1`?
+
+Answer check:
+
+```text
+Values just below 1 are 0, while f(1)=1.
+Arbitrarily small input changes around 1 can cause a jump in output.
+```
+
+Thresholds are useful, but they create topological events.
+
+### Problem 22.5: Graph neighborhood
 
 In path `1 - 2 - 3`, list the one-hop neighborhood of node 2 and node 1.
 
@@ -71,8 +103,106 @@ N(2)={1,2,3} if closed; {1,3} if open graph neighborhood.
 N(1)={1,2} closed; {2} open.
 ```
 
-### Problem 22.4: Memory interpretation
+### Problem 22.6: Components in a threshold graph
+
+Four points have edges at threshold `epsilon=1`:
+
+```text
+A-B
+C-D
+```
+
+How many connected components are there?
+
+Answer check:
+
+```text
+2 components: {A,B} and {C,D}
+```
+
+Connectivity is a topological property of the thresholded relation.
+
+### Problem 22.7: Component merge
+
+At threshold `epsilon=2`, add edge:
+
+```text
+B-C
+```
+
+How many connected components remain?
+
+Answer check:
+
+```text
+1 component: {A,B,C,D}
+```
+
+A new bridge can merge two previously separate regions.
+
+### Problem 22.8: Same components, different geometry
+
+Compare these two graphs:
+
+```text
+G1: A-B-C
+G2: A-B-C with edge A-C also present
+```
+
+Do they have the same number of connected components?
+
+Answer check:
+
+```text
+Yes. Both have one connected component.
+```
+
+Topology may ignore geometric or combinatorial detail that does not affect the chosen invariant.
+
+### Problem 22.9: Loop detection in a graph
+
+Which graph has a 1-dimensional loop?
+
+```text
+A. A-B-C path
+B. triangle A-B-C-A
+```
+
+Answer check:
+
+```text
+B has a loop. A does not.
+```
+
+Loops are one kind of structure that survives beyond mere connectivity.
+
+### Problem 22.10: Continuity and graph evolution
 
 What would it mean for a memory update rule to be continuous?
 
 Answer check: small changes in local evidence should not cause arbitrary jumps in global memory state unless a threshold is intentionally modeled.
+
+### Problem 22.11: Geometry says close, topology says disconnected
+
+Give a toy example where two clusters are geometrically close but topologically disconnected at a chosen threshold.
+
+Answer check:
+
+```text
+Example: A-B are connected, C-D are connected, and the closest cross-cluster distance is 1.1 while epsilon is 1.0.
+The clusters may be close in distance, but no edge connects them at that threshold.
+```
+
+Topology depends on the relation you choose, such as an epsilon-neighborhood graph.
+
+### Problem 22.12: Failure mode - topology without magnitude
+
+What can topology miss if it only records connectedness?
+
+Answer check:
+
+```text
+It may miss how far apart points are, how strong edges are, or how costly paths are.
+```
+
+Topology and geometry answer different questions; graduate-level judgment is knowing which invariant is being used.
