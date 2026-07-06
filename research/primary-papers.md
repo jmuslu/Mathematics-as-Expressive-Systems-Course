@@ -124,6 +124,8 @@ Problem hooks:
 - [Lectures on Spectral Graph Theory](https://fanchung.ucsd.edu/research/cbms.pdf) - Chung's graph Laplacian and eigenvalue reference for spectral graph invariants.
 - [Lecture Notes on Spectral Graph Methods](https://arxiv.org/pdf/1608.04845) - Mahoney's notes on spectral graph methods, graph partitioning, and algorithmic uses of spectra.
 - [The Modern Algorithmic Toolbox: Spectral Graph Theory](https://web.stanford.edu/class/cs168/l/l11.pdf) - concise treatment of Laplacian zero eigenvalues and connected components.
+- [CS1961 Lecture 14: Spectral Graph Theory](https://chihaozhang.com/teaching/Comb2023/lec14/lec14.pdf) - compact public notes on Rayleigh quotients, spectral decomposition, and graph Laplacian variational reasoning.
+- [MAT 280 Lecture 4: Laplacians of Graphs](https://www.math.ucdavis.edu/~saito/courses/HarmGraph/lecture04.pdf) - public notes connecting oriented incidence matrices, graph Laplacians, and edge-difference energies.
 - [Spectral Graph Theory](https://people.math.wisc.edu/~roch/grad-prob/grad_prob_devel1/bookch10.pdf) - graph Laplacians, cuts, diffusion, and eigenstructure.
 - [Relational inductive biases, deep learning, and graph networks](https://arxiv.org/abs/1806.01261) - why graph-structured computation is a natural inductive bias for relational systems.
 - [A Vision of Linear Algebra: Singular Values and Singular Vectors](https://ocw.mit.edu/courses/res-18-010-a-2020-vision-of-linear-algebra-spring-2020/resources/singular-values-and-singular-vectors/) - Strang's concise public framing of singular values as the rectangular-matrix analogue of eigenvalue structure.

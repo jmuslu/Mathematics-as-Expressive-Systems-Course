@@ -11,6 +11,8 @@ Source posture: original course problems inspired by the local friendship/eigend
 - [Lectures on Spectral Graph Theory](https://fanchung.ucsd.edu/research/cbms.pdf)
 - [Lecture Notes on Spectral Graph Methods](https://arxiv.org/pdf/1608.04845)
 - [The Modern Algorithmic Toolbox: Spectral Graph Theory](https://web.stanford.edu/class/cs168/l/l11.pdf)
+- [CS1961 Lecture 14: Spectral Graph Theory](https://chihaozhang.com/teaching/Comb2023/lec14/lec14.pdf)
+- [MAT 280 Lecture 4: Laplacians of Graphs](https://www.math.ucdavis.edu/~saito/courses/HarmGraph/lecture04.pdf)
 - [What Are Higher-Order Networks?](https://ora.ox.ac.uk/objects/uuid%3Aacfb9de6-9299-4b7b-86ed-51038304a9d7/files/rws859g36t)
 - [Higher-Order Networks Representation and Learning: A Survey](https://arxiv.org/html/2402.19414v1)
 
@@ -561,6 +563,120 @@ Spectral radius identifies which mode controls long-run behavior, but the meanin
 
 Good bridge from eigenvector computation to dynamics in Module 28.
 
+## 09.friendship.rayleigh.mood-score.a
+
+```text
+Module: 09
+Topic: Rayleigh quotient as directional score
+Role: guided derivation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by public spectral graph notes on Rayleigh quotients and the local friendship/eigendecomposition framing.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A friendship-feedback map is:
+
+```text
+A = [2 1]
+    [1 2]
+```
+
+Trait vector `x=(1,0)` means "confidence only." Trait vector `u=(1,1)` means "confidence and calm together."
+
+Compute the Rayleigh scores:
+
+```text
+R_A(x) = (x^T A x)/(x^T x)
+R_A(u) = (u^T A u)/(u^T u)
+```
+
+Which direction is more strongly reinforced?
+
+## Answer Check
+
+For `x=(1,0)`:
+
+```text
+Ax = (2,1)
+x^T A x = 2
+x^T x = 1
+R_A(x) = 2
+```
+
+For `u=(1,1)`:
+
+```text
+Au = (3,3)
+u^T A u = 6
+u^T u = 2
+R_A(u) = 3
+```
+
+The shared direction `(1,1)` has the larger score.
+
+## Intuition
+
+The Rayleigh quotient asks how much a transformation reinforces a chosen direction before requiring that direction to be an exact eigenvector.
+
+## Modeling Implication
+
+Directional scores let a model compare candidate modes even before solving the full eigenvalue problem.
+
+## Reserve Notes
+
+Good candidate if Module 09 needs a more graduate-flavored bridge from eigenvectors to variational characterizations.
+
+## 09.svd.residual.preference-table.a
+
+```text
+Module: 09
+Topic: singular values and approximation error
+Role: computation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by local SVD/social-media framing and public SVD/low-rank approximation resources.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A small recommendation system has already been rotated into its singular-pattern coordinates:
+
+```text
+Sigma = [5 0 0]
+        [0 2 0]
+        [0 0 1]
+```
+
+If the model keeps only the first two patterns, what is the squared Frobenius error of the approximation? What pattern was treated as residual?
+
+## Answer Check
+
+For a diagonal singular-value matrix, the squared Frobenius error after keeping the first two singular values is the sum of squares of the discarded singular values:
+
+```text
+error^2 = 1^2 = 1
+```
+
+The third pattern, with singular value `1`, is treated as residual.
+
+## Intuition
+
+Low-rank approximation discards energy, not named rows or columns.
+
+## Modeling Implication
+
+When a recommendation model compresses taste, the erased part may still be meaningful to a small group even if it is spectrally weak.
+
+## Reserve Notes
+
+Useful as a compact answer-check problem before discussing why compression can wash out minority taste patterns.
+
 ## 10.incidence.edge-differences.a
 
 ```text
@@ -630,6 +746,132 @@ Graph tension can be measured by first moving from node states to edge disagreem
 ## Reserve Notes
 
 Pairs naturally with Laplacian quadratic-form problems.
+
+## 10.laplacian.psd.dinner-tension.a
+
+```text
+Module: 10
+Topic: Laplacian positive semidefiniteness
+Role: derivation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by public graph Laplacian notes where Laplacian energy is a sum of squared edge differences.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+Three people sit in a line:
+
+```text
+1 - 2 - 3
+```
+
+Their preferred dinner start times are:
+
+```text
+x = (1,4,2)
+```
+
+Compute:
+
+```text
+(x_1 - x_2)^2 + (x_2 - x_3)^2
+```
+
+Then explain why this makes `x^T L x` nonnegative for every `x` on this graph.
+
+## Answer Check
+
+The edge tension is:
+
+```text
+(1-4)^2 + (4-2)^2 = 9 + 4 = 13
+```
+
+For this path, `x^T L x` equals the same sum of squared edge differences:
+
+```text
+x^T L x = 13 >= 0
+```
+
+Because every term is a square, the expression cannot be negative for any vector `x`.
+
+## Intuition
+
+The Laplacian is positive semidefinite because it measures disagreement energy.
+
+## Modeling Implication
+
+If a proposed "graph tension" can be negative, it is not behaving like ordinary Laplacian smoothness energy.
+
+## Reserve Notes
+
+Good graduate-depth step because it turns the hand calculation into a structural proof.
+
+## 10.incidence.orientation.invariance.a
+
+```text
+Module: 10
+Topic: incidence orientation and Laplacian invariance
+Role: invariance check
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by public graph Laplacian sources that build the Laplacian from oriented incidence matrices.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+For the path:
+
+```text
+1 - 2 - 3
+```
+
+compare two incidence matrices that differ only by reversing the first edge:
+
+```text
+B_1 = [-1  1  0]
+      [ 0 -1  1]
+
+B_2 = [ 1 -1  0]
+      [ 0 -1  1]
+```
+
+Explain why `B_1^T B_1 = B_2^T B_2`.
+
+## Answer Check
+
+The first row of `B_2` is `-1` times the first row of `B_1`; the second row is unchanged.
+
+When forming `B^T B`, each row contributes an outer product:
+
+```text
+r^T r
+```
+
+Replacing `r` by `-r` gives:
+
+```text
+(-r)^T(-r) = r^T r
+```
+
+So the Laplacian is unchanged by the arbitrary orientation choice.
+
+## Intuition
+
+Orientation is bookkeeping for edge differences; the final disagreement energy should not depend on that bookkeeping.
+
+## Modeling Implication
+
+A graph feature meant for an undirected relationship should survive arbitrary choices made during computation.
+
+## Reserve Notes
+
+Good bridge from incidence matrices to invariant construction.
 
 ## 10.laplacian.components.two-groups.a
 
@@ -780,6 +1022,127 @@ Automorphisms reveal which labels are arbitrary and which positions are structur
 
 Good detective-board symmetry explanation problem.
 
+## 11.trace.closed-walks.detective.a
+
+```text
+Module: 11
+Topic: trace powers and closed walks
+Role: computation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by algebraic graph theory sources connecting powers of adjacency matrices to walk counts.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A detective board has three suspects in a path:
+
+```text
+1 - 2 - 3
+```
+
+Its adjacency matrix is:
+
+```text
+A = [0 1 0]
+    [1 0 1]
+    [0 1 0]
+```
+
+Compute `trace(A^2)`. Interpret the answer as a count of length-2 closed walks.
+
+## Answer Check
+
+First compute the diagonal of `A^2`.
+
+```text
+(A^2)_{11} = 1
+(A^2)_{22} = 2
+(A^2)_{33} = 1
+```
+
+So:
+
+```text
+trace(A^2) = 1 + 2 + 1 = 4
+```
+
+Each undirected edge contributes two length-2 closed walks: go across the edge and come back. The path has two edges, so the total is `4`.
+
+## Intuition
+
+Matrix powers count walks; traces count walks that return to where they started.
+
+## Modeling Implication
+
+Spectral quantities can encode structural counts, but the interpretation depends on which matrix the model powers.
+
+## Reserve Notes
+
+Good concrete entry into algebraic graph theory before using eigenvalues as compressed walk information.
+
+## 11.symmetry.average.orbit-signal.a
+
+```text
+Module: 11
+Topic: automorphism averaging
+Role: guided derivation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by algebraic graph theory sources on graph automorphisms and invariant subspaces.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+On the path:
+
+```text
+1 - 2 - 3
+```
+
+the reflection symmetry swaps nodes `1` and `3` while fixing node `2`.
+
+A clue-score vector is:
+
+```text
+x = (3,0,1)
+```
+
+Average `x` with its reflected copy. What part of the signal survives the symmetry average?
+
+## Answer Check
+
+The reflected copy is:
+
+```text
+Px = (1,0,3)
+```
+
+Average:
+
+```text
+(x + Px)/2 = ((3,0,1) + (1,0,3))/2
+           = (2,0,2)
+```
+
+The endpoints become equal; the middle stays fixed.
+
+## Intuition
+
+Averaging over symmetries removes distinctions the graph itself cannot justify.
+
+## Modeling Implication
+
+Invariant graph features should not preserve label-specific differences between structurally interchangeable positions.
+
+## Reserve Notes
+
+Useful if Module 11 needs a more operational bridge from automorphisms to invariant operators.
+
 ## 12.clique-expansion.false-group.a
 
 ```text
@@ -880,3 +1243,109 @@ Simplicial complexes force lower-dimensional faces to exist, so the representati
 ## Reserve Notes
 
 Good hand calculation for distinguishing hyperedges from simplices.
+
+## 12.boundary.of.group-commitment.a
+
+```text
+Module: 12
+Topic: simplicial boundary
+Role: computation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by standard simplicial-complex boundary computations and higher-order relation examples.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A three-person group commitment is represented as an oriented filled triangle:
+
+```text
+[Ari, Bea, Cy]
+```
+
+Using the boundary rule:
+
+```text
+d[A,B,C] = [B,C] - [A,C] + [A,B]
+```
+
+compute the boundary of `[Ari, Bea, Cy]`.
+
+## Answer Check
+
+Substitute the names into the rule:
+
+```text
+d[Ari,Bea,Cy] = [Bea,Cy] - [Ari,Cy] + [Ari,Bea]
+```
+
+The boundary is the signed collection of pairwise faces around the group commitment.
+
+## Intuition
+
+A filled triangle has an edge boundary; the group event has pairwise interfaces.
+
+## Modeling Implication
+
+Boundary maps let a system move from higher-order relations to the lower-order relations they expose, while preserving orientation signs.
+
+## Reserve Notes
+
+Good bridge from hypergraph/simplicial vocabulary toward chain-complex style calculations.
+
+## 12.hypergraph.degree.group-chat.a
+
+```text
+Module: 12
+Topic: hypergraph degree versus graph degree
+Role: conceptual check
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by higher-order network sources distinguishing multiway events from pairwise graph shadows.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A group chat has hyperedges:
+
+```text
+{Ari, Bea, Cy}
+{Ari, Dev}
+```
+
+Compute Ari's hypergraph degree if degree means "number of hyperedges containing the person." Then compute Ari's degree after clique-expanding each hyperedge into pairwise edges.
+
+## Answer Check
+
+Ari belongs to two hyperedges:
+
+```text
+{Ari, Bea, Cy}
+{Ari, Dev}
+```
+
+So Ari's hypergraph degree is `2`.
+
+After clique expansion, Ari is connected to:
+
+```text
+Bea, Cy, Dev
+```
+
+So Ari's pairwise graph degree is `3`.
+
+## Intuition
+
+Hypergraph degree counts events; pairwise graph degree counts neighbors.
+
+## Modeling Implication
+
+Changing representations can change what a simple statistic means, even when it uses the same word "degree."
+
+## Reserve Notes
+
+Good failure-mode reserve for students who expect graph intuitions to transfer unchanged to higher-order data.
