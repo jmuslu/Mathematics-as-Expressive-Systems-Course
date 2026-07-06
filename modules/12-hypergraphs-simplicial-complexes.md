@@ -40,6 +40,45 @@ A hyperedge records the joint event. A filled simplex says the whole group belon
 
 A hypergraph allows edges connecting any number of nodes. A simplicial complex closes higher-order relations under faces.
 
+## Legal Operations
+
+The legal moves for higher-order relations are:
+
+- represent a joint event as one hyperedge
+- take the pairwise shadow when only pairwise information is needed
+- add all faces when the object is a simplicial complex
+- compute dimension from the size of the largest simplex
+- distinguish a hollow cycle from a filled simplex
+- decide whether downward closure is a modeling assumption or a mistake
+
+For group commitments, the key question is whether the triple itself exists as one commitment or only as three pairwise ties.
+
+## Worked Derivation
+
+Let:
+
+```text
+{Ari, Bea, Cy}
+```
+
+be one dinner reservation hyperedge. Its pairwise shadow is:
+
+```text
+Ari-Bea
+Ari-Cy
+Bea-Cy
+```
+
+but the shadow has forgotten that there was one shared reservation.
+
+If the same triple is a 2-simplex in a simplicial complex, then the faces must also exist:
+
+```text
+[Ari,Bea], [Ari,Cy], [Bea,Cy], [Ari], [Bea], [Cy]
+```
+
+So a simplicial complex says more than a hypergraph: it says the joint relation brings its lower-dimensional subrelations with it.
+
 ## Exterior Product Intuition
 
 A filled triangle is not just three edges. It says the three objects participate in one higher-order relation.
@@ -66,6 +105,12 @@ not merely as three pairwise associations. This analogy is imperfect, but useful
 - Dimension
 - Faces
 - Connected components and holes
+
+## Failure Mode
+
+Replacing a hyperedge by all its pairwise edges can create a false story. Three people sharing one reservation is not the same as three separate friendships.
+
+Conversely, forcing simplicial closure can also overstate the data. A committee decision by three people does not always imply every pair made a separate agreement.
 
 ## Problem Ladder
 

@@ -48,11 +48,84 @@ Av = lambda v
 
 Singular values measure action between input and output directions.
 
+## Legal Operations
+
+The legal moves in spectral theory are mode-decomposition moves:
+
+- test whether a vector is an eigenvector
+- solve `det(A - lambda I)=0` for eigenvalues
+- find eigenspaces by solving `(A - lambda I)v=0`
+- decompose a state into eigenmodes when enough eigenvectors are available
+- apply repeated powers by scaling each eigenmode
+- use singular values when the map is rectangular or input/output geometries differ
+
+The friendship-mood lesson is that a repeated social update is easiest to understand in the directions it does not mix.
+
+## Worked Derivation
+
+For:
+
+```text
+A = [2 1]
+    [1 2]
+```
+
+the characteristic polynomial is:
+
+```text
+det(A - lambda I) = (2-lambda)^2 - 1
+                  = lambda^2 - 4lambda + 3
+```
+
+so:
+
+```text
+lambda = 3, 1
+```
+
+The shared mood mode:
+
+```text
+u=(1,1)
+```
+
+satisfies:
+
+```text
+Au=(3,3)=3u
+```
+
+The contrast mood mode:
+
+```text
+v=(1,-1)
+```
+
+satisfies:
+
+```text
+Av=(1,-1)=v
+```
+
+So the update amplifies shared excitement and preserves contrast. If `(4,2)=3u+v`, then:
+
+```text
+A^t(4,2)=3*3^t u + 1^t v
+```
+
+The long-run behavior is dominated by the shared mood mode.
+
 ## Invariants
 
 - Eigenvalues under similarity
 - Singular values under orthogonal/unitary changes
 - Spectral radius
+
+## Failure Mode
+
+Eigenvectors are powerful only when the decomposition is appropriate. A non-diagonalizable map, a changing update rule, or a nonlinear threshold can make the clean mode story misleading.
+
+The design question is whether the repeated process really preserves the same linear transformation at each step.
 
 ## Problem Ladder
 

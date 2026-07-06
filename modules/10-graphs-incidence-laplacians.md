@@ -40,11 +40,67 @@ If everyone in a connected friend group has the same value, the tension is zero.
 
 The graph Laplacian measures disagreement across edges.
 
+## Legal Operations
+
+The legal moves for graph matrices are:
+
+- build an adjacency matrix from edges
+- build a degree matrix from node degrees
+- form the Laplacian `L = D - A`
+- multiply `Lx` to measure local imbalance
+- compute `x^T L x` as total edge disagreement
+- inspect the nullspace to detect connected components
+
+For party tension, node values are opinions and edges are conversations. The Laplacian turns local neighbor disagreement into algebra.
+
+## Worked Derivation
+
+For the path:
+
+```text
+1 - 2 - 3
+```
+
+the Laplacian is:
+
+```text
+L = [ 1 -1  0]
+    [-1  2 -1]
+    [ 0 -1  1]
+```
+
+Let dinner preferences be:
+
+```text
+x=(0,2,5)
+```
+
+Edge disagreement gives:
+
+```text
+(0-2)^2 + (2-5)^2 = 4 + 9 = 13
+```
+
+Matrix multiplication gives:
+
+```text
+Lx=(-2,-1,3)
+x^T L x = 0(-2)+2(-1)+5(3)=13
+```
+
+Both calculations agree: the Laplacian quadratic form is total squared tension across friendship edges.
+
 ## Invariants
 
 - Number of connected components
 - Laplacian spectrum
 - Cuts and flows
+
+## Failure Mode
+
+A graph Laplacian measures disagreement across declared edges. If the graph omits an important relationship, or treats a weak acquaintance like a close friend, the algebra faithfully measures the wrong social geometry.
+
+The matrix is only as meaningful as the graph it came from.
 
 ## Problem Ladder
 

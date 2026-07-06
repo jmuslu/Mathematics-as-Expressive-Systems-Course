@@ -36,12 +36,65 @@ The point is to detect structure, not handwriting.
 
 Algebraic graph theory studies graphs using matrices, eigenvalues, automorphism groups, and related algebraic structure.
 
+## Legal Operations
+
+The legal moves in algebraic graph theory are structure-preserving graph moves:
+
+- relabel vertices by a permutation matrix
+- test automorphisms with `P A P^T = A`
+- compare spectra under graph relabeling
+- compute degree, regularity, and connectivity invariants
+- use algebraic invariants to rule out isomorphism
+- avoid treating a drawing layout as graph structure
+
+For detective boards, the question is whether two boards encode the same case relation after renaming the pins.
+
+## Worked Derivation
+
+For the path graph `1-2-3`, the adjacency matrix is:
+
+```text
+A = [0 1 0]
+    [1 0 1]
+    [0 1 0]
+```
+
+The swap of the two endpoints is:
+
+```text
+P = [0 0 1]
+    [0 1 0]
+    [1 0 0]
+```
+
+Then:
+
+```text
+P A P^T = A
+```
+
+so the endpoint swap is an automorphism. In the detective-board story, the two endpoint witnesses are interchangeable relative to the relation pattern.
+
+Because `P^T=P^{-1}`, the relabeled matrix is similar to `A`:
+
+```text
+P A P^T = P A P^{-1}
+```
+
+so it has the same eigenvalues. The spectrum is an invariant of relabeling.
+
 ## Invariants
 
 - Spectrum
 - Automorphism group
 - Connectivity
 - Regularity
+
+## Failure Mode
+
+Algebraic invariants can prove two graphs are different, but many invariants are not complete. Two non-isomorphic graphs can share a spectrum.
+
+The safe use is: different invariant values rule out sameness; equal invariant values invite more tests rather than proving identity automatically.
 
 ## Problem Ladder
 
