@@ -23,6 +23,19 @@ L = D - A
 
 where D is degree matrix and A is adjacency.
 
+## Running Example: Party Introductions
+
+At a party, each person has an opinion about where to eat afterward. Friends talk to friends. If two connected people disagree a lot, that edge has high tension.
+
+The Laplacian measures exactly this kind of neighbor disagreement:
+
+```text
+edge tension = difference across a friendship edge
+total tension = sum of squared edge differences
+```
+
+If everyone in a connected friend group has the same value, the tension is zero. If the room splits into clusters with different opinions, the graph tells you where disagreement lives.
+
 ## Formal Object
 
 The graph Laplacian measures disagreement across edges.

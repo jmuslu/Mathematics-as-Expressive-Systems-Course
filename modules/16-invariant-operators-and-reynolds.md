@@ -27,6 +27,23 @@ R = (1 / |G|) sum_{g in G} rho(g)
 
 This is the Reynolds operator.
 
+## Running Example: Reviewer Averaging
+
+Two reviewers score the same project:
+
+```text
+reviewer A = 3
+reviewer B = 7
+```
+
+If the reviewers are supposed to be interchangeable, the invariant summary is the average:
+
+```text
+(3,7) -> (5,5)
+```
+
+That is useful if only the shared score matters. It is dangerous if the disagreement matters. Reynolds averaging creates invariance by removing the part that changes under the swap.
+
 ## Formal Object
 
 The Reynolds operator projects onto the invariant subspace:

@@ -25,6 +25,19 @@ A = [2 0]
 
 the x-axis is scaled by 2 and the y-axis by 1.
 
+## Running Example: Friendship Moods
+
+Imagine a friend group where two patterns can repeat week after week:
+
+```text
+everyone gets more excited together
+one half gets excited while the other half pulls away
+```
+
+Those are not individual people. They are modes of the group. A weekly update may amplify one mode, damp another, or leave one unchanged.
+
+Spectral theory asks: which patterns are stable under the transformation? Eigenvectors are the directions that keep their shape while only their strength changes.
+
 ## Formal Object
 
 Eigenvectors satisfy:

@@ -40,6 +40,20 @@ A' = P A P^T
 
 For this graph, A' = A. The graph is invariant to swapping labels.
 
+## Running Example: Seating Chart Relabeling
+
+Suppose a dinner seating chart records who is next to whom. If you rename seat 1 as seat 3 and seat 3 as seat 1, the chart presentation changes.
+
+But the dinner did not change. The same people still sit next to the same neighbors, just under different labels.
+
+A group action is the formal version of this:
+
+```text
+abstract symmetry -> concrete relabeling of the data
+```
+
+The question is not merely whether the symmetry exists. The question is how it acts on the representation you actually store.
+
 ## Formal Object
 
 A group action of G on X assigns each g in G a transformation:
