@@ -57,13 +57,52 @@ For chain `A -> B -> C`, write the joint distribution factorization.
 
 Answer check: `P(A,B,C)=P(A)P(B|A)P(C|B)`.
 
-### Problem 26.2: Conditional independence
+### Problem 26.2: Reverse chain factorization
+
+For chain:
+
+```text
+C -> B -> A
+```
+
+write the joint distribution factorization.
+
+Answer check:
+
+```text
+P(A,B,C)=P(C)P(B|C)P(A|B)
+```
+
+The factorization follows the arrows, not alphabetical order.
+
+### Problem 26.3: Conditional independence
 
 In the same chain, what independence does the graph suggest?
 
 Answer check: `A is independent of C given B`.
 
-### Problem 26.3: Numeric posterior
+### Problem 26.4: Marginalization in a tiny joint table
+
+Suppose:
+
+```text
+P(A=0,B=0)=0.1
+P(A=0,B=1)=0.2
+P(A=1,B=0)=0.3
+P(A=1,B=1)=0.4
+```
+
+Compute `P(A=1)`.
+
+Answer check:
+
+```text
+P(A=1)=P(A=1,B=0)+P(A=1,B=1)=0.3+0.4=0.7
+```
+
+Marginalization sums out variables you are not asking about.
+
+### Problem 26.5: Numeric posterior
 
 Suppose:
 
@@ -83,7 +122,117 @@ denominator = 0.48 + 0.3*0.4 = 0.60
 posterior = 0.8
 ```
 
-### Problem 26.4: Design assumption
+### Problem 26.6: Posterior with negative evidence
+
+Using the same model as Problem 26.5, compute `P(true | evidence negative)`.
+
+Answer check:
+
+```text
+P(negative | true)=0.2
+P(negative | false)=0.7
+
+numerator = 0.2*0.6 = 0.12
+denominator = 0.12 + 0.7*0.4 = 0.40
+posterior = 0.12/0.40 = 0.3
+```
+
+Evidence changes belief by likelihood, not by slogan.
+
+### Problem 26.7: Explaining away
+
+Two causes can explain one observation:
+
+```text
+Rain -> WetGrass <- Sprinkler
+```
+
+If you learn the grass is wet, are Rain and Sprinkler generally independent after conditioning on WetGrass?
+
+Answer check:
+
+```text
+No. Conditioning on the shared effect can make the causes dependent.
+If sprinkler is known to be on, rain becomes less necessary as an explanation.
+```
+
+Graphical models encode subtle conditional independence patterns.
+
+### Problem 26.8: Hidden common cause
+
+Two claims both cite similar evidence. A hidden variable `SharedSource` influences both pieces of evidence. What goes wrong if the model omits `SharedSource`?
+
+Answer check:
+
+```text
+The evidence may be treated as independent when it is actually correlated through the shared source.
+```
+
+Hidden common causes are a major source of false confidence.
+
+### Problem 26.9: Markov blanket intuition
+
+In a Bayesian network, a node's Markov blanket consists of its parents, children, and co-parents of its children. For:
+
+```text
+A -> B <- C
+B -> D
+E -> D
+```
+
+What is the Markov blanket of B?
+
+Answer check:
+
+```text
+Parents of B: A, C
+Children of B: D
+Co-parents of B's child D: E
+
+Markov blanket: {A, C, D, E}
+```
+
+The Markov blanket is the local information boundary for a node.
+
+### Problem 26.10: Factor graph translation
+
+The joint distribution factorizes as:
+
+```text
+P(A,B,C) proportional to f1(A,B) f2(B,C) f3(C)
+```
+
+List the factor nodes and which variables each touches.
+
+Answer check:
+
+```text
+f1 touches A and B
+f2 touches B and C
+f3 touches C
+```
+
+Factor graphs make the product structure explicit.
+
+### Problem 26.11: Naive Bayes assumption
+
+A classifier assumes:
+
+```text
+P(E1,E2 | Class) = P(E1 | Class) P(E2 | Class)
+```
+
+What assumption is being made?
+
+Answer check:
+
+```text
+E1 and E2 are conditionally independent given Class.
+```
+
+This assumption may be useful even when imperfect, but it is still a modeling commitment.
+
+### Problem 26.12: Design assumption
 
 What does an edge absence mean in a graphical model?
 

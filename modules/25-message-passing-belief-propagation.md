@@ -60,7 +60,27 @@ b_B(1)=0.2*0.5=0.1
 normalized: (0.8, 0.2)
 ```
 
-### Problem 25.2: Add local evidence
+### Problem 25.2: Normalize a belief
+
+An unnormalized belief at node B is:
+
+```text
+b_B(0)=6
+b_B(1)=2
+```
+
+Normalize it.
+
+Answer check:
+
+```text
+total = 6 + 2 = 8
+normalized = (6/8, 2/8) = (0.75, 0.25)
+```
+
+Messages often give proportional beliefs first; normalization turns them into probabilities.
+
+### Problem 25.3: Add local evidence
 
 Now B has local evidence `psi_B(0)=0.25`, `psi_B(1)=1`. Recompute.
 
@@ -72,7 +92,28 @@ b_B(1)=1*0.2*0.5=0.1
 normalized: (0.5,0.5)
 ```
 
-### Problem 25.3: One factor message
+### Problem 25.4: Variable-to-factor message
+
+A variable node X is connected to factors `a`, `b`, and `c`. Incoming messages are:
+
+```text
+m_a_to_X = (0.6, 0.4)
+m_b_to_X = (0.5, 0.5)
+```
+
+What message should X send to factor `c`, ignoring local evidence?
+
+Answer check:
+
+```text
+m_X_to_c(0)=0.6*0.5=0.3
+m_X_to_c(1)=0.4*0.5=0.2
+normalized: (0.6,0.4)
+```
+
+A variable sends the product of incoming information from the other neighboring factors.
+
+### Problem 25.5: One factor message
 
 A factor prefers equal binary values: potential is 2 if equal, 1 if different. If A's belief is `(0.7,0.3)`, compute the factor-to-B message.
 
@@ -83,7 +124,97 @@ m(0)=2*0.7 + 1*0.3 = 1.7
 m(1)=1*0.7 + 2*0.3 = 1.3
 ```
 
-### Problem 25.4: Validation loop
+### Problem 25.6: Normalize the factor message
+
+Normalize the message from Problem 25.5.
+
+Answer check:
+
+```text
+total = 1.7 + 1.3 = 3
+normalized = (1.7/3, 1.3/3) = (0.5667, 0.4333)
+```
+
+The factor nudges B toward 0 because A currently leans toward 0 and the factor prefers equality.
+
+### Problem 25.7: Contradiction factor
+
+A factor prefers different binary values: potential is 2 if different, 1 if equal. If A's belief is `(0.7,0.3)`, compute the factor-to-B message.
+
+Answer check:
+
+```text
+m(0)=1*0.7 + 2*0.3 = 1.3
+m(1)=2*0.7 + 1*0.3 = 1.7
+```
+
+A contradiction relation pushes B away from A.
+
+### Problem 25.8: One round on a three-node chain
+
+In chain `A-B-C`, suppose the initial local evidence is:
+
+```text
+psi_A=(0.9,0.1)
+psi_B=(1,1)
+psi_C=(0.4,0.6)
+```
+
+With equality factors of weight 2 for equal and 1 for different, compute the two messages into B.
+
+Answer check:
+
+```text
+A to B:
+m_A(0)=2*0.9 + 1*0.1 = 1.9
+m_A(1)=1*0.9 + 2*0.1 = 1.1
+
+C to B:
+m_C(0)=2*0.4 + 1*0.6 = 1.4
+m_C(1)=1*0.4 + 2*0.6 = 1.6
+```
+
+B receives one message leaning toward 0 and one message leaning toward 1.
+
+### Problem 25.9: Combine incoming messages at B
+
+Using Problem 25.8 and `psi_B=(1,1)`, compute B's unnormalized belief.
+
+Answer check:
+
+```text
+b_B(0)=1*1.9*1.4 = 2.66
+b_B(1)=1*1.1*1.6 = 1.76
+```
+
+After normalization, B leans toward 0 because A's strong support dominates C's weaker pressure.
+
+### Problem 25.10: Why trees are easier
+
+Why is belief propagation exact on trees but risky on loopy graphs?
+
+Answer check:
+
+```text
+On a tree, information has a unique path and messages do not return to their source through a cycle.
+On a loopy graph, evidence can circulate and be counted more than once.
+```
+
+Loops turn local updates into an approximation unless extra care is taken.
+
+### Problem 25.11: Double-counting example
+
+A claim receives two messages that both originate from the same source, but the graph treats them as independent. What failure can occur?
+
+Answer check:
+
+```text
+The model can become overconfident because it counts one source as if it were two independent confirmations.
+```
+
+Message passing depends on the dependency assumptions encoded by the graph.
+
+### Problem 25.12: Validation loop
 
 What does a message represent in an external memory graph?
 
