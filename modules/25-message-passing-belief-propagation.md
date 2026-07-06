@@ -58,23 +58,39 @@ Validation is not a scalar confidence score. It is a dynamic process over a grap
 
 ### Problem 25.1: Chain messages
 
-Consider binary variables A-B-C. A sends B the message `m_A_to_B(0)=0.8`, `m_A_to_B(1)=0.2`. C sends B `m_C_to_B(0)=0.5`, `m_C_to_B(1)=0.5`. If B has no local preference, compute unnormalized belief at B.
+Consider a rumor chain Ari-Bea-Cy. At Bea, state `0` means "rumor false" and state `1` means "rumor true."
+
+Ari sends Bea the message:
+
+```text
+m_Ari_to_Bea(false)=0.8
+m_Ari_to_Bea(true)=0.2
+```
+
+Cy sends Bea an uninformative message:
+
+```text
+m_Cy_to_Bea(false)=0.5
+m_Cy_to_Bea(true)=0.5
+```
+
+If Bea has no local preference, compute the unnormalized belief at Bea.
 
 Answer check:
 
 ```text
-b_B(0)=0.8*0.5=0.4
-b_B(1)=0.2*0.5=0.1
-normalized: (0.8, 0.2)
+b_Bea(false)=0.8*0.5=0.4
+b_Bea(true)=0.2*0.5=0.1
+normalized: (false=0.8, true=0.2)
 ```
 
 ### Problem 25.2: Normalize a belief
 
-An unnormalized belief at node B is:
+An unnormalized belief at Bea is:
 
 ```text
-b_B(0)=6
-b_B(1)=2
+b_Bea(false)=6
+b_Bea(true)=2
 ```
 
 Normalize it.
@@ -83,21 +99,28 @@ Answer check:
 
 ```text
 total = 6 + 2 = 8
-normalized = (6/8, 2/8) = (0.75, 0.25)
+normalized = (false=6/8, true=2/8) = (false=0.75, true=0.25)
 ```
 
 Messages often give proportional beliefs first; normalization turns them into probabilities.
 
 ### Problem 25.3: Add local evidence
 
-Now B has local evidence `psi_B(0)=0.25`, `psi_B(1)=1`. Recompute.
+Now Bea has local evidence:
+
+```text
+psi_Bea(false)=0.25
+psi_Bea(true)=1
+```
+
+Recompute using the messages from Problem 25.1.
 
 Answer check:
 
 ```text
-b_B(0)=0.25*0.8*0.5=0.1
-b_B(1)=1*0.2*0.5=0.1
-normalized: (0.5,0.5)
+b_Bea(false)=0.25*0.8*0.5=0.1
+b_Bea(true)=1*0.2*0.5=0.1
+normalized: (false=0.5, true=0.5)
 ```
 
 ### Problem 25.4: Variable-to-factor message

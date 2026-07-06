@@ -109,6 +109,66 @@ Message direction matters. Echoing a message back can create artificial reinforc
 
 Good double-counting prevention example.
 
+## 25.rumor-chain.false-true.a
+
+```text
+Module: 25
+Topic: belief update from incoming messages
+Role: warm-up / computation
+Status: promoted
+Source use: original, source-informed
+Source note: Inspired by factor-graph sum-product updates where local beliefs are proportional to the product of incoming messages and local evidence.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+In a rumor chain Ari-Bea-Cy, Bea has binary states:
+
+```text
+false = rumor is false
+true = rumor is true
+```
+
+Ari sends:
+
+```text
+m_Ari_to_Bea(false)=0.8
+m_Ari_to_Bea(true)=0.2
+```
+
+Cy sends:
+
+```text
+m_Cy_to_Bea(false)=0.5
+m_Cy_to_Bea(true)=0.5
+```
+
+If Bea has no local preference, compute and normalize Bea's belief.
+
+## Answer Check
+
+```text
+b_Bea(false)=0.8*0.5=0.4
+b_Bea(true)=0.2*0.5=0.1
+
+total = 0.5
+normalized = (false=0.8, true=0.2)
+```
+
+## Intuition
+
+An uninformative neighbor does not change the balance; Ari's message dominates this update.
+
+## Modeling Implication
+
+Messages summarize local evidence in a state space. Naming the states prevents belief propagation from becoming empty arithmetic.
+
+## Reserve Notes
+
+Promoted into Module 25 as the ordinary rumor-chain base case for message multiplication.
+
 ## 25.normalize.after-product.a
 
 ```text
