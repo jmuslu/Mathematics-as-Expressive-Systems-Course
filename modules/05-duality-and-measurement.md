@@ -89,10 +89,9 @@ Find all `(a,b)` satisfying `[2, -1](a,b) = 0`.
 
 Answer check:
 
-```text
-2a - b = 0, so b = 2a.
-The acceptable states lie on span((1,2)).
-```
+`2a - b = 0`, so `b = 2a`.
+
+The acceptable states lie on `span((1,2))`.
 
 ### Problem 5.4: Design a validation test
 

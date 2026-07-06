@@ -127,8 +127,20 @@ function mathifyMarkdown(markdown) {
 function looksLikeMathBlock(body) {
   const text = body.trim();
   if (!text) return false;
+  if (hasProseInsideMathBlock(text)) return false;
   if (text.includes(":") && !/[=+\-*/^<>()[\]]/.test(text)) return false;
   return /[=+\-*/^<>()[\]{}]|\\|lambda|rho|phi|tau|alpha|beta|epsilon|tensor|wedge|sqrt|dot|det|proj|span|conjugate|matrix|->|<-/.test(text);
+}
+
+function hasProseInsideMathBlock(text) {
+  if (/[.!?]/.test(text) && /\b(the|a|an|so|because|therefore|then|if|when|where|which|that|this|yes|no|same|all|states|lies?|returns?|means?)\b/i.test(text)) {
+    return true;
+  }
+  return text
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .some((line) => /\b(so|because|therefore|then|yes|no)\b/i.test(line));
 }
 
 function looksLikeInlineMath(text) {
@@ -168,6 +180,7 @@ function toTexInline(value) {
   text = text.replace(/\bconjugate\(([^)]+)\)/g, "\\overline{$1}");
   text = text.replace(/\bsqrt\(([^)]+)\)/g, "\\sqrt{$1}");
   text = text.replace(/\bsqrt([A-Za-z0-9_+\-*/^ ]+)/g, "\\sqrt{$1}");
+  text = text.replace(/\b(lambda|rho|tau|phi|alpha|beta|epsilon)_([A-Za-z0-9]+)/g, (_, greek, subscript) => `${greekMap(greek)}_{${subscript}}`);
   text = text.replace(/\blambda\b/g, "\\lambda");
   text = text.replace(/\brho\b/g, "\\rho");
   text = text.replace(/\btau\b/g, "\\tau");
@@ -190,6 +203,11 @@ function toTexInline(value) {
   text = text.replace(/<=/g, "\\le ");
   text = romanizeNamedIdentifiers(text);
   return text;
+}
+
+function greekMap(name) {
+  if (name === "epsilon") return "\\varepsilon";
+  return `\\${name}`;
 }
 
 function romanizeNamedIdentifiers(text) {
