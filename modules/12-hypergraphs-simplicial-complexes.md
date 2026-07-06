@@ -86,13 +86,68 @@ Answer check:
 3. hyperedge or 2-simplex, depending on whether faces are included
 ```
 
-### Problem 12.2: Triangle versus filled triangle
+### Problem 12.2: Encode a ternary relation
+
+Represent:
+
+```text
+source S supports claim C under condition T
+```
+
+as one hyperedge.
+
+Answer check:
+
+```text
+{S, C, T}
+```
+
+The relation belongs to the triple, not to three independent pairs.
+
+### Problem 12.3: Pairwise shadow
+
+If the hyperedge `{S,C,T}` is replaced by pairwise edges, which edges appear?
+
+Answer check:
+
+```text
+S-C, S-T, C-T
+```
+
+The pairwise shadow loses the fact that support only holds for the whole triple.
+
+### Problem 12.4: Triangle versus filled triangle
 
 Draw nodes A, B, C. First draw only the three pairwise edges. Then draw a filled 2-simplex. What extra assertion does the filled triangle make?
 
 Answer check: the filled triangle says the triple participates as one coherent higher-order relation, not merely three pairwise associations.
 
-### Problem 12.3: Boundary of a 2-simplex
+### Problem 12.5: Faces of a simplex
+
+If `[A,B,C]` is a 2-simplex in a simplicial complex, which edges must also be present?
+
+Answer check:
+
+```text
+[A,B], [A,C], [B,C]
+```
+
+A simplicial complex is closed under faces.
+
+### Problem 12.6: Hypergraph versus simplicial complex
+
+A hypergraph contains the hyperedge `{A,B,C}` but not the edge `{A,B}`. Is that allowed?
+
+Answer check:
+
+```text
+Yes for a hypergraph.
+No for a simplicial complex, because faces must be included.
+```
+
+Hypergraphs and simplicial complexes encode different commitments.
+
+### Problem 12.7: Boundary of a 2-simplex
 
 The oriented face `[A,B,C]` has boundary `[B,C] - [A,C] + [A,B]`. Write the boundary of `[B,A,C]`.
 
@@ -104,8 +159,63 @@ Answer check:
 
 Orientation changes signs.
 
-### Problem 12.4: Wedge analogy
+### Problem 12.8: Count dimensions
+
+What is the dimension of:
+
+```text
+vertex A
+edge [A,B]
+face [A,B,C]
+tetrahedron [A,B,C,D]
+```
+
+Answer check:
+
+```text
+0, 1, 2, 3
+```
+
+Dimension counts one less than the number of vertices in a simplex.
+
+### Problem 12.9: Wedge analogy
 
 Why does `u wedge u = 0` resemble a degenerate simplex?
 
 Answer check: repeated direction gives no area, just as repeated or collapsed vertices fail to span a genuine higher-dimensional relation.
+
+### Problem 12.10: One hole or filled face?
+
+A triangle has all three boundary edges but no filled face. Does it contain a 1-dimensional loop?
+
+Answer check:
+
+```text
+Yes. The boundary cycle is not filled.
+```
+
+Adding the 2-simplex fills the loop.
+
+### Problem 12.11: Higher-order evidence bundle
+
+Give one example where three pieces of information support a conclusion jointly, but no pair alone is enough.
+
+Answer check example:
+
+```text
+A source, a timestamp, and a condition together validate a claim; any two alone leave ambiguity.
+```
+
+Higher-order relations prevent pairwise overclaiming.
+
+### Problem 12.12: Failure mode - clique expansion
+
+What can go wrong when every hyperedge is replaced by all pairwise edges?
+
+Answer check:
+
+```text
+The model may infer pairwise relations that were never true independently, and it may lose the dependency that all inputs were needed together.
+```
+
+Clique expansion is useful but can distort higher-order meaning.

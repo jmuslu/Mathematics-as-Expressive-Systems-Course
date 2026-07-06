@@ -47,7 +47,19 @@ For path `1 - 2 - 3`, which nontrivial node relabeling preserves adjacency?
 
 Answer check: swap nodes `1` and `3`, keep `2` fixed.
 
-### Problem 11.2: Permutation matrix
+### Problem 11.2: Automorphisms of a triangle
+
+How many node relabelings preserve adjacency in a triangle graph?
+
+Answer check:
+
+```text
+All 6 permutations of the three nodes preserve adjacency.
+```
+
+The triangle is maximally symmetric among 3-node simple connected graphs.
+
+### Problem 11.3: Permutation matrix
 
 Write P for the swap `1 <-> 3`.
 
@@ -59,14 +71,98 @@ P = [0 0 1]
     [1 0 0]
 ```
 
-### Problem 11.3: Verify graph symmetry
+### Problem 11.4: Verify graph symmetry
 
 Using the adjacency matrix of the path, verify `P A P^T = A`.
 
 Answer check: direct multiplication returns the same adjacency matrix, so P is an automorphism.
 
-### Problem 11.4: Spectral invariant
+### Problem 11.5: Non-automorphism
+
+For path `1-2-3`, does swapping nodes `1` and `2` preserve adjacency?
+
+Answer check:
+
+```text
+No. Edge 2-3 would become edge 1-3, which is not present in the path.
+```
+
+Not every permutation is a graph symmetry.
+
+### Problem 11.6: Spectral invariant
 
 Explain why eigenvalues of A are unchanged by relabeling.
 
 Answer check: relabeling gives `PAP^T`, which is similar to A because `P^T = P^{-1}`. Similar matrices have the same eigenvalues.
+
+### Problem 11.7: Regular graph check
+
+Is the 3-node path regular?
+
+Answer check:
+
+```text
+No. Degrees are 1,2,1.
+```
+
+A regular graph has every node with the same degree.
+
+### Problem 11.8: Triangle regularity
+
+Is the triangle graph regular? If yes, what degree?
+
+Answer check:
+
+```text
+Yes. Every node has degree 2.
+```
+
+Regularity is an algebraic/combinatorial invariant.
+
+### Problem 11.9: Adjacency eigenvalue for regular graph
+
+For a 2-regular graph on 3 nodes, show that the all-ones vector is an eigenvector of the adjacency matrix.
+
+Answer check:
+
+```text
+Each row has two 1s, so A(1,1,1)=(2,2,2)=2(1,1,1).
+```
+
+For a d-regular graph, the all-ones vector has adjacency eigenvalue d.
+
+### Problem 11.10: Isomorphism invariant
+
+Two graphs have different numbers of edges. Can they be isomorphic?
+
+Answer check:
+
+```text
+No. An isomorphism preserves adjacency, so it preserves edge count.
+```
+
+Simple invariants can rule out sameness.
+
+### Problem 11.11: Cospectral warning
+
+If two graphs have the same adjacency eigenvalues, must they be isomorphic?
+
+Answer check:
+
+```text
+No. Some non-isomorphic graphs are cospectral.
+```
+
+Spectra are powerful invariants, but not complete invariants.
+
+### Problem 11.12: Memory interpretation
+
+Why do automorphisms matter for memory graph evaluation?
+
+Answer check:
+
+```text
+If two node labelings represent the same graph structure, graph-level evaluations should not change under the automorphism or relabeling.
+```
+
+Algebraic graph theory separates structure from presentation.

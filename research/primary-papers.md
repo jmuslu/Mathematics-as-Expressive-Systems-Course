@@ -103,12 +103,18 @@ Problem hooks:
 ## Graphs, Hypergraphs, And Algebraic Structure
 
 - [Graph Theory](https://diestel-graph-theory.com/) - mature graph-theoretic language for paths, connectivity, minors, colorings, and structure.
+- [Spectral and Algebraic Graph Theory](https://cs-www.cs.yale.edu/homes/spielman/sagt/sagt.pdf) - Spielman's lecture-note book connecting graph structure to linear algebra, Laplacians, eigenvectors, cuts, and flows.
+- [Lectures on Spectral Graph Theory](https://fanchung.ucsd.edu/research/cbms.pdf) - Chung's graph Laplacian and eigenvalue reference for spectral graph invariants.
+- [Lecture Notes on Spectral Graph Methods](https://arxiv.org/pdf/1608.04845) - Mahoney's notes on spectral graph methods, graph partitioning, and algorithmic uses of spectra.
+- [The Modern Algorithmic Toolbox: Spectral Graph Theory](https://web.stanford.edu/class/cs168/l/l11.pdf) - concise treatment of Laplacian zero eigenvalues and connected components.
 - [Spectral Graph Theory](https://people.math.wisc.edu/~roch/grad-prob/grad_prob_devel1/bookch10.pdf) - graph Laplacians, cuts, diffusion, and eigenstructure.
 - [Relational inductive biases, deep learning, and graph networks](https://arxiv.org/abs/1806.01261) - why graph-structured computation is a natural inductive bias for relational systems.
 
 Problem hooks:
 
+- Decompose a vector into eigenmodes and interpret growth, decay, and stable graph dynamics.
 - Compute incidence, adjacency, degree, and Laplacian matrices for one typed graph.
+- Use Laplacian quadratic forms to measure disagreement across edges.
 - Use a Laplacian eigenvector to identify a bottleneck in a memory graph.
 - Convert a ternary relation into a hyperedge and compare what is lost in pairwise encoding.
 - Distinguish graph connectivity from semantic consistency.
