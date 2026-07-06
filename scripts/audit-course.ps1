@@ -30,6 +30,8 @@ if (-not $node) {
 
 $moduleFiles = Get-ChildItem -Path "modules" -Filter "*.md" | Sort-Object Name
 $issues = New-Object System.Collections.Generic.List[string]
+$definedProblems = @{}
+$moduleContents = @{}
 
 foreach ($file in $moduleFiles) {
   $moduleMatch = [regex]::Match($file.Name, '^(\d+)')
@@ -40,6 +42,7 @@ foreach ($file in $moduleFiles) {
 
   $moduleNumber = [int]$moduleMatch.Groups[1].Value
   $content = Get-Content -LiteralPath $file.FullName
+  $moduleContents[$file.Name] = $content
 
   if (-not ($content | Select-String -Pattern '^## Hand Problem Trail' -Quiet)) {
     $issues.Add("$($file.Name): missing ## Hand Problem Trail")
@@ -67,6 +70,7 @@ foreach ($file in $moduleFiles) {
     }
 
     $seen[$index] = $true
+    $definedProblems["$prefix.$index"] = $true
   }
 
   for ($i = 1; $i -le 12; $i++) {
@@ -76,9 +80,22 @@ foreach ($file in $moduleFiles) {
   }
 }
 
+foreach ($file in $moduleFiles) {
+  $content = $moduleContents[$file.Name]
+  for ($lineIndex = 0; $lineIndex -lt $content.Count; $lineIndex++) {
+    $line = $content[$lineIndex]
+    foreach ($match in [regex]::Matches($line, 'Problem (\d+)\.(\d+)')) {
+      $problemId = "$($match.Groups[1].Value).$($match.Groups[2].Value)"
+      if (-not $definedProblems.ContainsKey($problemId)) {
+        $issues.Add("$($file.Name): line $($lineIndex + 1) references missing Problem $problemId")
+      }
+    }
+  }
+}
+
 if ($issues.Count -gt 0) {
   $issues | ForEach-Object { Write-Error $_ }
   exit 1
 }
 
-Write-Output "Course audit passed: $($moduleFiles.Count) modules, 12 problems and answer checks each."
+Write-Output "Course audit passed: $($moduleFiles.Count) modules, 12 problems and answer checks each, with valid problem references."
