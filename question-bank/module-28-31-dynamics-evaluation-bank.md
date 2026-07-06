@@ -560,7 +560,7 @@ Good non-mathematical but essential evaluation check.
 Module: 30
 Topic: component-wise RAG evaluation
 Role: conceptual check
-Status: lecture candidate
+Status: promoted
 Source use: original, source-informed
 Source note: Inspired by RAGAS and ARES decomposition of context relevance, answer faithfulness, and answer relevance.
 License note: No source problem text copied.
@@ -603,7 +603,7 @@ Second-brain evaluation should not collapse every failure into one accuracy scor
 
 ## Reserve Notes
 
-Good bridge from standard RAG evaluation frameworks to the course's structural evaluation panel.
+Promoted into Module 30 as the debate-card component evaluation problem.
 
 ## 30.calibration.ece.two-bin.a
 

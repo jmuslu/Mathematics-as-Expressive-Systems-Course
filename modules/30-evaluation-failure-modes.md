@@ -212,11 +212,33 @@ ECE = 0.04 + 0.09 = 0.13
 
 Confidence should mean something statistically testable. A model can rank answers well and still be overconfident.
 
-### Problem 30.11: Failure decomposition
+### Problem 30.11: Debate-card component evaluation
 
-A model answers incorrectly even though the right document was retrieved. Name two possible non-retrieval failures.
+A debate assistant receives:
 
-Answer check: ranking/placement failure, synthesis failure, contradiction handling failure, prompt integration failure, or validation failure.
+```text
+judge question: When did the lab meeting move?
+retrieved evidence card: The lab meeting moved from Tuesday to Thursday.
+answer: The lab meeting is Thursday.
+```
+
+Name the component being tested by each question:
+
+```text
+A. Did the retrieved evidence card address the judge question?
+B. Did the answer stay supported by the evidence card?
+C. Did the answer respond to the judge question?
+```
+
+Answer check:
+
+```text
+A. context relevance
+B. answer faithfulness
+C. answer relevance
+```
+
+A correct-looking final answer can hide which part of the pipeline succeeded. Component-wise evaluation separates retrieval, grounding, and response quality.
 
 ### Problem 30.12: Benchmark failure mode
 
