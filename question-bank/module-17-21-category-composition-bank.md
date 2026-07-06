@@ -649,7 +649,7 @@ Promoted into Module 19 to align the naturality computation with the notebook-to
 Module: 19
 Topic: forgetful functor failure mode
 Role: failure mode
-Status: reserve
+Status: promoted in Module 19 Problem 19.12
 Source use: original, source-informed
 Source note: Inspired by database/schema functor examples.
 License note: No source problem text copied.

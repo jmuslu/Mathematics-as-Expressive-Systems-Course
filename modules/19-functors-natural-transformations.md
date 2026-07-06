@@ -12,7 +12,7 @@ You will understand functors as translations between structured worlds and natur
 
 ## Why The Old Object Fails
 
-A second-brain system may represent knowledge as text, graph, vector embedding, database row, and validation trace.
+A structured project may represent the same information as notes, graphs, tables, exported files, and validation traces.
 
 You need translations that preserve structure.
 
@@ -62,17 +62,17 @@ Given functors F, G: C -> D, a natural transformation compares F and G in a way 
 
 ## Failure Mode
 
-Bad translations lose structure. For example, embedding a typed graph into vectors may lose edge type, direction, or validation status.
+Bad translations lose structure. For example, a migration may keep tables while forgetting labels, directions, equations, or consistency constraints.
 
 ## Problem Ladder
 
 1. Define a functor from a graph schema to sets of records.
-2. Give a translation from text memory to graph memory.
-3. Name what structure is lost when graph memory becomes a single vector.
+2. Give a translation from notebook notes to flashcard records.
+3. Name what structure is lost when a translation forgets labels or equations.
 
-## Memory-System Connection
+## Representation Design Connection
 
-Functors formalize representation changes: text to graph, graph to embedding, schema to database, local evidence to global belief.
+Functors formalize representation changes: notes to flashcards, schemas to database instances, graphs to node sets, and structured records to exported tables.
 
 ## Hand Problem Trail
 
@@ -291,14 +291,20 @@ Saying "the identity function on natural numbers" ignores the source and target 
 
 A functor must map each arrow to a correctly typed arrow.
 
-### Problem 19.12: Structure lost in vectorization
+### Problem 19.12: Failure mode - forgetting equations
 
-When a typed graph is embedded as one vector, name two structures that may be lost unless explicitly encoded.
+A typed schema has a path equation:
+
+```text
+sourceOrg o madeBy = docOrg o appearsIn
+```
+
+A forgetful translation keeps the tables but drops path equations. Name one thing that can go wrong.
 
 Answer check:
 
 ```text
-Possible answers: edge direction, edge type, node type, path equations, provenance, timestamps, validation status.
+Rows can still exist, but the system may no longer check whether the source organization and document organization agree.
 ```
 
-Functors can translate structure, but not every translation is faithful.
+Forgetting equations can preserve data shape while losing consistency constraints. Translations should say what structure they discard: labels, directions, equations, provenance, or typing.
