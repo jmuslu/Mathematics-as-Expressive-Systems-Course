@@ -11,8 +11,8 @@ Run:
 ## Current Structured Counts
 
 ```text
-01: 3
-02: 3
+01: 4
+02: 4
 03: 4
 04: 4
 05: 4
@@ -41,7 +41,7 @@ Run:
 28: 5
 29: 5
 30: 7
-31: 3
+31: 4
 ```
 
 ## Expansion Priorities

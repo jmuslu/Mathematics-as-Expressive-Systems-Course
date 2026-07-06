@@ -1070,3 +1070,150 @@ Duality turns scoring and feasibility tests into explicit mathematical objects.
 ## Reserve Notes
 
 Good bridge from duality to constrained optimization.
+
+## 01.log-odds.friendship-update.a
+
+```text
+Module: 01
+Topic: log-odds as scalar coordinate
+Role: computation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by local scalar/vector lecture framing and public applied linear algebra sources.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A friendship-trust model stores probability `p`, but updates are easier in log-odds:
+
+```text
+logit(p) = log(p/(1-p))
+```
+
+Compute the odds and log-odds for:
+
+```text
+p = 0.8
+```
+
+Then add evidence worth `log(2)` in log-odds coordinates. What are the new odds and new probability?
+
+## Answer Check
+
+Initial odds:
+
+```text
+p/(1-p) = 0.8/0.2 = 4
+```
+
+Initial log-odds:
+
+```text
+log(4)
+```
+
+Adding `log(2)` gives:
+
+```text
+log(4) + log(2) = log(8)
+```
+
+So the new odds are `8`, and:
+
+```text
+p_new = 8/(1+8) = 8/9
+```
+
+## Intuition
+
+Multiplying odds becomes adding log-odds.
+
+## Modeling Implication
+
+A coordinate system can make the legal update rule simpler without changing the underlying claim.
+
+## Reserve Notes
+
+Good reserve problem for Module 01's coordinate-change theme.
+
+## 02.nullspace.invisible-profile-change.a
+
+```text
+Module: 02
+Topic: nullspace and invisible changes
+Role: counterexample
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by local friendship/null-space and span/rank lecture framing.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A friendship-profile dashboard reports only two totals from three traits:
+
+```text
+care, humor, reliability
+```
+
+The reporting map is:
+
+```text
+A = [1 1 0]
+    [0 1 1]
+```
+
+Find one nonzero change `w` such that:
+
+```text
+Aw = 0
+```
+
+## Answer Check
+
+Let:
+
+```text
+w = (a,b,c)
+```
+
+The equations are:
+
+```text
+a + b = 0
+b + c = 0
+```
+
+Choose `b=1`. Then:
+
+```text
+a=-1
+c=-1
+```
+
+So:
+
+```text
+w=(-1,1,-1)
+```
+
+Check:
+
+```text
+Aw = [0,0]
+```
+
+## Intuition
+
+The dashboard cannot see this redistribution of profile traits.
+
+## Modeling Implication
+
+The nullspace tells you which changes your representation erases.
+
+## Reserve Notes
+
+Good bridge from vector spaces to kernels in Module 03.

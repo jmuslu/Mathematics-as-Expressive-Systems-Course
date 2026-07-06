@@ -926,3 +926,64 @@ The final spec should include rule precedence or conflict-resolution policy.
 ## Reserve Notes
 
 Good capstone failure-mode exercise.
+
+## 31.local-global-studio-test.a
+
+```text
+Module: 31
+Topic: studio integration and local-to-global validation
+Role: modeling interpretation
+Status: reserve
+Source use: original
+Source note: Original capstone studio problem combining schema, sheaf consistency, rewriting, and evaluation design.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+An evidence board has three local review panels:
+
+```text
+retrieval panel
+source-quality panel
+argument-coherence panel
+```
+
+Each panel assigns a status to the same evidence card:
+
+```text
+valid, weak, contradicted
+```
+
+Design one local-to-global consistency test and one rewrite rule that should fire if the panels disagree.
+
+## Answer Check
+
+One consistency test:
+
+```text
+Restrict each panel's local status to the shared evidence-card status field.
+The card can be globally valid only if the restricted statuses agree or if a declared conflict-resolution rule applies.
+```
+
+One rewrite rule:
+
+```text
+if retrieval_status = valid
+and source_quality_status = contradicted
+then mark evidence card as needs_review
+and preserve both panel reports as provenance
+```
+
+## Intuition
+
+The board should not silently average away local disagreement.
+
+## Modeling Implication
+
+A capstone design should specify how local validations glue, how disagreements are preserved, and which rewrite rules respond to failed gluing.
+
+## Reserve Notes
+
+Good final studio reserve because it forces the student to combine sheaves, rewriting, and evaluation.
