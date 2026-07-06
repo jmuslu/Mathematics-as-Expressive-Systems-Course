@@ -31,6 +31,7 @@ The examples move through friendship profiles, dinner plans, dating standards, p
 - [Problem Trail Style](PROBLEM_TRAIL_STYLE.md)
 - [Primary Paper Trail](research/primary-papers.md)
 - [Question Bank Source Policy](QUESTION_BANK_SOURCE_POLICY.md)
+- [Question Bank Coverage](QUESTION_BANK_COVERAGE.md)
 - [Question Bank](question-bank/README.md)
 - [Interactive Course Site](docs/index.html)
 

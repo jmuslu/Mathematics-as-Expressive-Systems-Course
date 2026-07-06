@@ -96,6 +96,7 @@ The course currently has:
 The remaining work is not basic scaffolding. The most useful next passes are:
 
 - keep expanding reserve banks from public and licensed sources with provenance,
+- use `QUESTION_BANK_COVERAGE.md` to prioritize uneven reserve coverage before broad scraping,
 - selectively promote only the strongest bank problems into modules,
 - add more graduate-depth derivations where a module still says the right thing but does not make the student compute it,
 - periodically preview the site when renderer-sensitive notation changes,
