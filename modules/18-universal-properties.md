@@ -14,7 +14,7 @@ You will understand universal properties as the mature way to define constructio
 
 Concrete definitions can hide the reason an object exists.
 
-For memory architecture, implementation details change. The universal role should survive.
+For structured models, implementation details change. The universal role should survive.
 
 ## Base Case
 
@@ -52,11 +52,11 @@ A universal property defines an object by a unique mapping behavior.
 
 ## Worked Example
 
-If a memory state must expose both:
+If a project record must expose both:
 
 ```text
-semantic content
-validation status
+owner
+deadline status
 ```
 
 then a product-like construction packages both while preserving projections.
@@ -69,9 +69,9 @@ Universal properties are precise but abstract. If you skip examples, they become
 
 1. Draw the universal property of a product.
 2. Explain coproduct as tagged alternative.
-3. Model a memory item as a product of content and metadata.
+3. Model a ticket as a product of fields and an order as a coproduct of alternatives.
 
-## Memory-System Connection
+## Representation Design Connection
 
 Universal properties help identify canonical constructions: products, sums, pullbacks, pushouts, limits, and colimits.
 
@@ -161,24 +161,26 @@ h(x) = (f(x), g(x))
 
 So `h = <f,g>`. The product map is not just available; it is forced.
 
-### Problem 18.5: Coproduct as tagged alternative
+### Problem 18.5: Lunch order as tagged alternative
 
-In `Set`, the coproduct `A + B` is a tagged union. If:
+A lunch order is either:
 
 ```text
-A = {a1, a2}
-B = {b1}
+SandwichOrder = {turkey, veggie}
+SaladOrder = {caesar}
 ```
 
-list the elements of `A + B` with tags.
+List the elements of the coproduct `SandwichOrder + SaladOrder`.
 
 Answer check:
 
 ```text
-(A,a1), (A,a2), (B,b1)
+(Sandwich, turkey)
+(Sandwich, veggie)
+(Salad, caesar)
 ```
 
-The tags prevent confusing an A-item with a B-item.
+Tags prevent confusing alternatives just because their fields might overlap.
 
 ### Problem 18.6: Product or coproduct?
 

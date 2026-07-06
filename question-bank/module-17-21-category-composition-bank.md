@@ -429,7 +429,7 @@ Promoted into Module 18 as a concrete pushout/gluing computation.
 Module: 18
 Topic: coproduct as tagged alternative
 Role: conceptual check
-Status: lecture candidate
+Status: promoted in Module 18 Problem 18.5
 Source use: original
 Source note: Course-style ordinary alternative example.
 License note: No source problem text copied.
