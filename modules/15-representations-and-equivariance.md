@@ -58,6 +58,45 @@ rho(gh) = rho(g) rho(h)
 rho(e) = I
 ```
 
+## Legal Operations
+
+The legal moves in representation calculations are:
+
+- replace an abstract group element by its representing matrix
+- multiply representation matrices in the same order as group composition
+- apply the resulting matrix to vectors or tensors
+- test whether a subspace is preserved by every representing matrix
+- check whether a map is invariant or equivariant
+
+Representation theory lets a symbolic move like "turn the dancer" become an operator that can act on coordinates, features, adjacency matrices, or tensors.
+
+## Worked Derivation
+
+Let `R` represent a 90-degree turn:
+
+```text
+R = [0 -1]
+    [1  0]
+```
+
+Then:
+
+```text
+R^2 = [-1  0]
+      [ 0 -1]
+
+R^4 = I
+```
+
+So the matrix assignment respects the cyclic rule `r^4=e`:
+
+```text
+rho(r^4)=rho(e)=I
+rho(r)^4=R^4=I
+```
+
+The abstract dance instruction and the coordinate transformation agree.
+
 ## G-Invariance and Equivariance
 
 A map f is invariant if:
@@ -107,6 +146,12 @@ rho_{V tensor W}(g)(v tensor w) = rho_V(g)v tensor rho_W(g)w
 This is one reason tensor products show up everywhere in mature symmetry arguments. They let you build compound representations from simpler ones.
 
 Tensor product representations, symmetric and antisymmetric tensor powers, direct sums, irreducibility, and complexification all ask the same structural question: how does compound structure transform, and can it decompose into simpler invariant pieces?
+
+## Invariants
+
+A representation preserves the group law inside linear algebra. Identity stays identity, products become matrix products, and inverses become inverse matrices.
+
+For an invariant map, the output is unchanged under the group action. For an equivariant map, the output changes in the prescribed matching way. Confusing those two invariants is one of the easiest ways to build the wrong model.
 
 ## Failure Mode
 

@@ -69,6 +69,18 @@ e.x = x
 (gh).x = g.(h.x)
 ```
 
+## Legal Operations
+
+The legal moves in a group action calculation are:
+
+- apply a group element to a stored state
+- compose two actions using `(gh).x = g.(h.x)`
+- compute an orbit by applying every allowed group element
+- compute a stabilizer by finding the elements that leave a state fixed
+- transfer an action into matrix form when the state is stored as coordinates
+
+For seating charts, an orbit is the set of all presentations of the same chart under relabeling. A stabilizer is the set of relabelings that make the stored chart look unchanged.
+
 ## Worked Derivation
 
 For adjacency matrices, a permutation matrix P acts by:
@@ -78,6 +90,31 @@ A -> P A P^T
 ```
 
 This changes names of nodes but preserves graph structure.
+
+Take the two-seat chart:
+
+```text
+A = [0 1]
+    [1 0]
+P = [0 1]
+    [1 0]
+```
+
+Then:
+
+```text
+P A = [1 0]
+      [0 1]
+P A P^T = P
+```
+
+Since `P=A`, the relabeled adjacency matrix is the same as the original. The labels moved, but the neighbor relation did not.
+
+## Invariants
+
+A group action preserves the action laws. The identity must act like no change, and a composed group element must act the same way as doing the two actions in sequence.
+
+For graph relabeling, adjacency, degree sequence, number of edges, and path structure are invariant. Matrix entries may move positions, but the graph relation they encode is the same.
 
 ## Failure Mode
 

@@ -68,6 +68,24 @@ The design translation:
 safe transformations should compose, undo, and stay valid
 ```
 
+## Legal Operations
+
+The legal moves in a group calculation are reversible transformation moves:
+
+- compose two legal moves
+- insert or remove the identity move
+- replace a move by its inverse
+- reassociate a product without changing its order
+- simplify powers using the group law
+
+For the party-game rotations, the move `r^5` is not a new primitive move. It is the same as:
+
+```text
+r^5 = r^4 r = e r = r
+```
+
+The legal simplification uses the fact that four quarter-turns return the room to its starting orientation.
+
 ## Worked Derivation
 
 If g has inverse g^-1, then applying g and then g^-1 preserves the original object:
@@ -77,6 +95,23 @@ g^-1(g(x)) = x
 ```
 
 This is the simplest mathematical form of reversible structured transformation.
+
+For rotations of a square, every element has a matching undo move:
+
+```text
+e^-1 = e
+r^-1 = r^3
+(r^2)^-1 = r^2
+(r^3)^-1 = r
+```
+
+So the party-game move "rotate everyone one seat clockwise" is a symmetry, while "delete the quietest player" is not. The first can be undone inside the same state space; the second changes the state space itself.
+
+## Invariants
+
+A group preserves the state space it acts on. Legal moves can rename, rotate, or reorder the presentation, but they do not leave the universe of valid states.
+
+The group axioms are also invariants of the operation: closure keeps products legal, the identity keeps states fixed, inverses recover prior states, and associativity makes long move sequences unambiguous.
 
 ## Failure Mode
 

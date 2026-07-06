@@ -61,6 +61,18 @@ rho(h)R = R
 
 So it is a projection, and its outputs are invariant.
 
+## Legal Operations
+
+The legal moves for finite-group invariant averaging are:
+
+- apply every group transformation to the same input
+- average the transformed copies
+- use group closure to reindex the average
+- check idempotence with `R^2=R`
+- interpret the image of `R` as the invariant subspace
+
+In the reviewer example, the swap group has two transformations: keep reviewer order or swap reviewer order. Averaging both presentations produces the part of the score that survives reviewer relabeling.
+
 ## Worked Derivation
 
 For any h in G:
@@ -78,6 +90,33 @@ rho(h)R = R
 ```
 
 So Rv is invariant.
+
+For the two-reviewer swap:
+
+```text
+R = (1/2)(I+S)
+R(3,7) = (1/2)((3,7)+(7,3)) = (5,5)
+```
+
+Applying the swap afterward changes nothing:
+
+```text
+S(5,5)=(5,5)
+```
+
+The disagreement component `( -2, 2 )` has been projected away.
+
+## Invariants
+
+The Reynolds operator preserves exactly the invariant component of a vector. Once a vector is averaged, applying any group element leaves it fixed.
+
+It also preserves linear structure:
+
+```text
+R(av+bw)=aR(v)+bR(w)
+```
+
+What is not preserved is contrast inside a group orbit. That loss is a feature when labels are arbitrary and a bug when asymmetry carries meaning.
 
 ## Failure Mode
 
