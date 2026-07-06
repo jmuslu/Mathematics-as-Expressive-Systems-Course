@@ -1,8 +1,8 @@
-# Module 30: Evaluation and Failure Modes
+# Module 30: Evaluating Arguments and Failure Modes
 
 ## Lecture Promise
 
-You will learn to evaluate a second-brain system by invariants, coherence, transformation safety, and validation quality.
+You will learn to evaluate an evidence pipeline by invariants, coherence, transformation safety, and validation quality.
 
 ## Prerequisites
 
@@ -13,7 +13,7 @@ You will learn to evaluate a second-brain system by invariants, coherence, trans
 
 ## Why The Old Object Fails
 
-Accuracy alone is not enough. A memory system can answer correctly while its structure is incoherent.
+Accuracy alone is not enough. An argument can reach the right answer while its support structure is incoherent.
 
 ## Base Case
 
@@ -31,7 +31,7 @@ You would check:
 - Would the argument still work if speaker order changed?
 - Did confidence match past accuracy?
 
-That is the spirit of this module. Evaluation is not one grade. It is a panel of tests matched to the promises the system made.
+That is the spirit of this module. Evaluation is not one grade. It is a panel of tests matched to the promises an argument pipeline made.
 
 ## Formal Object
 
@@ -44,6 +44,7 @@ Evaluation dimensions:
 - update stability
 - decay behavior
 - contradiction handling
+- calibration of confidence
 
 ## Failure Mode
 
@@ -55,9 +56,9 @@ Benchmarks can reward shallow retrieval and miss structural collapse.
 2. Design a test for path contradiction.
 3. Design a test for decay disconnecting a reasoning path.
 
-## Memory-System Connection
+## Design Connection
 
-Evaluation should test the mathematical promises of the architecture, not just the final answer string.
+Evaluation should test the mathematical promises of the evidence pipeline, not just the final answer string.
 
 ## Hand Problem Trail
 
@@ -135,7 +136,7 @@ NDCG rewards placing stronger evidence earlier while still giving partial credit
 
 ### Problem 30.5: Invariance test
 
-You relabel every node in a memory graph. A graph-level contradiction score changes from 0.7 to 0.4. What failure occurred?
+You relabel every card in a debate evidence graph. A graph-level contradiction score changes from 0.7 to 0.4. What failure occurred?
 
 Answer check: the score is not permutation invariant, so it depends on representation artifacts.
 
@@ -162,8 +163,8 @@ Graph-level and node-level outputs have different symmetry requirements.
 A reasoning path says:
 
 ```text
-Source S supports Claim C
-Source S contradicts Claim C
+Evidence card S supports conclusion C
+Evidence card S contradicts conclusion C
 ```
 
 What should an evaluation test flag?
@@ -258,7 +259,7 @@ B. answer faithfulness
 C. answer relevance
 ```
 
-A correct-looking final answer can hide which part of the pipeline succeeded. Component-wise evaluation separates retrieval, grounding, and response quality.
+A correct-looking final answer can hide which part of the pipeline succeeded. Component-wise evaluation separates evidence selection, grounding, and response quality.
 
 ### Problem 30.12: Benchmark failure mode
 
@@ -270,4 +271,4 @@ Answer check:
 Possible answers: incoherent reasoning path, broken provenance, non-invariant graph score, failed sheaf gluing, overconfident posterior, unstable decay behavior.
 ```
 
-The evaluation should test the mathematical promises of the system, not only the final sentence.
+The evaluation should test the mathematical promises of the argument pipeline, not only the final sentence.

@@ -29,7 +29,7 @@ const modules = [
   ["27", "Energy, Constraints, and Optimization", "modules/27-energy-constraints-optimization.md", "Design explicit validation objectives."],
   ["28", "Dynamical Systems on Graphs", "modules/28-dynamical-systems-on-graphs.md", "Study decay, reinforcement, convergence, and attractors."],
   ["29", "Rewriting Systems and Knowledge Evolution", "modules/29-rewriting-knowledge-evolution.md", "Control legal graph edits and closure."],
-  ["30", "Evaluation and Failure Modes", "modules/30-evaluation-failure-modes.md", "Test invariants, coherence, and transformation safety."],
+  ["30", "Evaluating Arguments and Failure Modes", "modules/30-evaluation-failure-modes.md", "Test invariants, coherence, and transformation safety."],
   ["31", "Architecture Studio", "modules/31-architecture-studio.md", "Assemble the math into a second-brain design specification."]
 ];
 
