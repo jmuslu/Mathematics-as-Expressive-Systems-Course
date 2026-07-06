@@ -31,7 +31,7 @@ Current status:
 384 total module hand problems
 30 running examples in lecture modules
 11 question-bank markdown files, including the template
-152 bank problem/reserve entries
+159 bank problem/reserve entries
 ```
 
 The running examples are intentionally not universal. Orientation, scalar setup, and final studio modules can stay cleaner when the surrounding modules already carry enough friendship, dinner, dating, social-media, debate, witness, party, and graph-design scenarios.

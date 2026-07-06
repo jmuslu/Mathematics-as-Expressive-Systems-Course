@@ -503,3 +503,380 @@ Choosing a representation changes the legal inferences. A filled triangle may fo
 ## Reserve Notes
 
 Good failure-mode problem for preventing students from treating all higher-order structures as interchangeable.
+
+## 09.spectral-radius.stability.a
+
+```text
+Module: 09
+Topic: spectral radius and repeated updates
+Role: computation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by local eigendecomposition framing and public spectral graph/linear algebra sources.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A two-mood friendship dynamic has eigenmodes:
+
+```text
+shared excitement: lambda = 1.2
+contrast tension: lambda = 0.7
+```
+
+If the starting state is:
+
+```text
+3(shared excitement) + 2(contrast tension)
+```
+
+what is the state after two updates in eigenmode coordinates?
+
+## Answer Check
+
+Each eigenmode is scaled by its eigenvalue at every step:
+
+```text
+shared coefficient after two steps = 3(1.2)^2 = 4.32
+contrast coefficient after two steps = 2(0.7)^2 = 0.98
+```
+
+So the state is:
+
+```text
+4.32(shared excitement) + 0.98(contrast tension)
+```
+
+## Intuition
+
+The larger eigenvalue dominates repeated updates.
+
+## Modeling Implication
+
+Spectral radius identifies which mode controls long-run behavior, but the meaning of that mode still has to be interpreted.
+
+## Reserve Notes
+
+Good bridge from eigenvector computation to dynamics in Module 28.
+
+## 10.incidence.edge-differences.a
+
+```text
+Module: 10
+Topic: incidence matrices and edge disagreement
+Role: computation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by public spectral graph sources and the live party-tension example.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+For the path:
+
+```text
+1 - 2 - 3
+```
+
+orient edges as:
+
+```text
+e1: 1 -> 2
+e2: 2 -> 3
+```
+
+Use the incidence matrix:
+
+```text
+B = [-1  1  0]
+    [ 0 -1  1]
+```
+
+For dinner-preference values:
+
+```text
+x = (0,2,5)
+```
+
+compute `Bx`.
+
+## Answer Check
+
+```text
+Bx = [-1  1  0][0]   [2]
+     [ 0 -1  1][2] = [3]
+                 [5]
+```
+
+The edge differences are:
+
+```text
+x_2 - x_1 = 2
+x_3 - x_2 = 3
+```
+
+## Intuition
+
+The incidence matrix turns node values into edge differences.
+
+## Modeling Implication
+
+Graph tension can be measured by first moving from node states to edge disagreements.
+
+## Reserve Notes
+
+Pairs naturally with Laplacian quadratic-form problems.
+
+## 10.laplacian.components.two-groups.a
+
+```text
+Module: 10
+Topic: Laplacian nullspace and connected components
+Role: conceptual check
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by public spectral graph sources on Laplacian zero eigenvectors.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A party graph has two disconnected friend groups:
+
+```text
+1 - 2
+
+3 - 4
+```
+
+Write two independent vectors that should be killed by the graph Laplacian.
+
+## Answer Check
+
+Each connected component can carry a constant value:
+
+```text
+u = (1,1,0,0)
+v = (0,0,1,1)
+```
+
+On each edge, the endpoint values agree, so edge disagreement is zero. Therefore:
+
+```text
+Lu = 0
+Lv = 0
+```
+
+## Intuition
+
+The number of independent zero-tension constant patterns equals the number of connected components.
+
+## Modeling Implication
+
+The Laplacian nullspace detects disconnected social regions.
+
+## Reserve Notes
+
+Good companion to Module 10 connected-component problems.
+
+## 11.degree-sequence.isomorphism-filter.a
+
+```text
+Module: 11
+Topic: degree sequence as graph invariant
+Role: warm-up
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by algebraic graph theory sources and detective-board relabeling examples.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+Detective Board A is a path on four nodes:
+
+```text
+1 - 2 - 3 - 4
+```
+
+Detective Board B is a star with one center connected to three leaves.
+
+Compute the degree sequence of each graph. Can they be isomorphic?
+
+## Answer Check
+
+For the path:
+
+```text
+degrees = 1,2,2,1
+sorted degree sequence = (2,2,1,1)
+```
+
+For the star:
+
+```text
+degrees = 3,1,1,1
+sorted degree sequence = (3,1,1,1)
+```
+
+The degree sequences differ, so the graphs cannot be isomorphic.
+
+## Intuition
+
+Relabeling can move degrees to different node names, but it cannot change the multiset of degrees.
+
+## Modeling Implication
+
+Simple invariants can quickly rule out sameness before using heavier algebra.
+
+## Reserve Notes
+
+Good early algebraic-graph reserve before spectra.
+
+## 11.automorphism.fixed-center.a
+
+```text
+Module: 11
+Topic: automorphisms and fixed nodes
+Role: conceptual check
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by algebraic graph theory sources and detective-board symmetry examples.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+In the path:
+
+```text
+1 - 2 - 3
+```
+
+explain why every automorphism must send node `2` to itself.
+
+## Answer Check
+
+Node `2` has degree `2`, while nodes `1` and `3` each have degree `1`.
+
+An automorphism preserves adjacency and therefore preserves degree. Since node `2` is the only degree-2 node, it must map to itself.
+
+## Intuition
+
+Symmetry can swap indistinguishable parts, but it cannot move a structurally unique node into a different role.
+
+## Modeling Implication
+
+Automorphisms reveal which labels are arbitrary and which positions are structurally forced.
+
+## Reserve Notes
+
+Good detective-board symmetry explanation problem.
+
+## 12.clique-expansion.false-group.a
+
+```text
+Module: 12
+Topic: clique expansion failure
+Role: counterexample
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by higher-order network sources on pairwise shadows of multiway relations.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A model converts every three-person dinner reservation into three pairwise friendship edges.
+
+Give one reason this can create a false story.
+
+## Answer Check
+
+One three-person reservation:
+
+```text
+{Ari, Bea, Cy}
+```
+
+becomes:
+
+```text
+Ari-Bea, Ari-Cy, Bea-Cy
+```
+
+The pairwise graph now looks like three pairwise relationships, even if the only true fact was one joint reservation.
+
+## Intuition
+
+Clique expansion preserves a shadow of the group relation but not its source as one event.
+
+## Modeling Implication
+
+When provenance of a group event matters, hyperedges are safer than pairwise expansion.
+
+## Reserve Notes
+
+Good warning before using ordinary graph algorithms on higher-order data.
+
+## 12.simplex.dimension.check.a
+
+```text
+Module: 12
+Topic: simplex dimension and faces
+Role: computation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by higher-order network and simplicial-complex sources.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A filled simplex contains four people:
+
+```text
+[Ari, Bea, Cy, Dev]
+```
+
+What is its dimension? How many three-person faces does it have?
+
+## Answer Check
+
+A simplex on four vertices has dimension:
+
+```text
+4 - 1 = 3
+```
+
+Its three-person faces are obtained by leaving out one vertex:
+
+```text
+[Bea,Cy,Dev]
+[Ari,Cy,Dev]
+[Ari,Bea,Dev]
+[Ari,Bea,Cy]
+```
+
+So it has `4` three-person faces.
+
+## Intuition
+
+Dimension counts independent slots in the joint relation, not the number of vertices.
+
+## Modeling Implication
+
+Simplicial complexes force lower-dimensional faces to exist, so the representation carries more commitments than a raw hyperedge.
+
+## Reserve Notes
+
+Good hand calculation for distinguishing hyperedges from simplices.
