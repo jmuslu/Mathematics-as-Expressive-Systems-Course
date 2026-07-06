@@ -19,7 +19,12 @@ Current status:
 32 modules
 12 hand problems per module
 384 total module hand problems
+29 running examples in lecture modules
+11 question-bank markdown files, including the template
+113 bank problem/reserve entries
 ```
+
+The running examples are intentionally not universal. Orientation, scalar setup, and final studio modules can stay cleaner when the surrounding modules already carry enough friendship, dinner, dating, social-media, debate, witness, party, and graph-design scenarios.
 
 ## Style Gate
 
@@ -56,7 +61,31 @@ The script checks:
 - hand-trail presence,
 - problem count,
 - answer-check count,
-- problem numbering/module-prefix consistency.
+- problem numbering/module-prefix consistency,
+- live-module cross-references to `Problem M.N`,
+- question-bank README index coverage.
+
+The cross-reference check catches stale references after problem edits. The question-bank index check catches new reserve files that have not been listed in `question-bank/README.md`, and README entries whose files no longer exist.
+
+## Current Progress Map
+
+The course currently has:
+
+- a complete 32-module lecture sequence,
+- accepted tutorial-style website structure with in-page rendered Markdown and MathJax,
+- a 12-problem hand trail in every module,
+- central question banks covering modules 01-31,
+- source-use policy and primary-paper trail,
+- running examples spread through the course without forcing every module into an analogy,
+- automated checks for renderer syntax, module depth shape, problem references, and bank index drift.
+
+The remaining work is not basic scaffolding. The most useful next passes are:
+
+- keep expanding reserve banks from public and licensed sources with provenance,
+- selectively promote only the strongest bank problems into modules,
+- add more graduate-depth derivations where a module still says the right thing but does not make the student compute it,
+- periodically preview the site when renderer-sensitive notation changes,
+- verify GitHub Pages after major content batches with a versioned URL.
 
 ## Deployment Check
 
