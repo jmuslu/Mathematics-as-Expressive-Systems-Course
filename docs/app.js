@@ -13,7 +13,7 @@ const modules = [
   ["11", "Algebraic Graph Theory", "modules/11-algebraic-graph-theory.md", "Use spectra and automorphisms to reason about graph structure."],
   ["12", "Hypergraphs and Simplicial Complexes", "modules/12-hypergraphs-simplicial-complexes.md", "Represent group commitments beyond pairwise edges."],
   ["13", "Groups and Symmetry", "modules/13-groups-and-symmetry.md", "Identify legal transformations and what they preserve."],
-  ["14", "Group Actions on Sets and Graphs", "modules/14-group-actions-on-graphs.md", "Make abstract symmetry act on graph states."],
+  ["14", "Group Actions on Sets and Graphs", "modules/14-group-actions-on-graphs.md", "Make abstract symmetry act on seating charts and graph data."],
   ["15", "Representations and Equivariance", "modules/15-representations-and-equivariance.md", "Turn symmetry into computation through linear representations."],
   ["16", "Invariant Operators and Reynolds Averaging", "modules/16-invariant-operators-and-reynolds.md", "Construct invariant subspaces by averaging over a group."],
   ["17", "Category Theory I: Objects and Morphisms", "modules/17-category-theory-i.md", "Study structure-preserving maps across mathematical worlds."],

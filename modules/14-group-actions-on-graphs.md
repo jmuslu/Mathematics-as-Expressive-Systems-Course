@@ -2,7 +2,7 @@
 
 ## Lecture Promise
 
-You will understand group actions as the bridge between abstract symmetries and actual transformations of nodes, edges, tensors, and graph states.
+You will understand group actions as the bridge between abstract symmetries and actual transformations of seating charts, node labels, edges, and tensors.
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ You will understand group actions as the bridge between abstract symmetries and 
 
 ## Why The Old Object Fails
 
-Saying "the symmetric group exists" is not enough. You need to know how a permutation acts on your stored representation.
+Saying "the symmetric group exists" is not enough. You need to know how a permutation acts on the representation you actually store.
 
 For graphs, this matters because node IDs are often arbitrary. Relabeling nodes should not change the underlying structure.
 
