@@ -48,6 +48,53 @@ For example:
 P(A, B, C) = P(A) P(B | A) P(C | B)
 ```
 
+## Legal Operations
+
+The legal moves are probability moves constrained by the graph:
+
+- factorize a joint distribution according to parent variables
+- condition on observed evidence
+- marginalize hidden variables by summing them out
+- read conditional independence claims from the graph
+- update beliefs without treating correlated observations as independent
+
+The graph is therefore not just a drawing. It is a compact contract for which probability products and sums are allowed.
+
+## Worked Derivation
+
+For the hidden-source restaurant model:
+
+```text
+ViralReview -> FriendARecommendation
+ViralReview -> FriendBRecommendation
+```
+
+the joint distribution factors as:
+
+```text
+P(V,A,B)=P(V)P(A|V)P(B|V)
+```
+
+Given `V`, the two recommendations no longer need to explain each other:
+
+```text
+P(A,B|V)=P(A|V)P(B|V)
+```
+
+But without observing `V`, the recommendations can still be correlated:
+
+```text
+P(A,B)=sum_V P(V)P(A|V)P(B|V)
+```
+
+This is the mathematical reason that two enthusiastic friends may be one piece of evidence if both copied the same source.
+
+## Invariants
+
+The probability distribution must remain normalized, observed evidence must stay fixed during conditioning, and every independence claim must be licensed by the graph plus the variables being conditioned on.
+
+The hidden-cause structure is also invariant until the model is redesigned: if `ViralReview` is omitted, no algebraic trick can recover the missing dependency assumption.
+
 ## Failure Mode
 
 Conditional independence assumptions can be wrong. A graph may understate hidden common causes.

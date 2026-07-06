@@ -64,6 +64,61 @@ If node A says "Rae is eating at 7" and node B says "Rae is eating at 8," their 
 
 If the overlap only tracks the guest identity, the two reports may glue. If the overlap tracks both guest identity and dinner time, they do not. The sheaf is therefore part of the model design: it declares which agreements matter.
 
+## Legal Operations
+
+The legal moves are local-to-global moves:
+
+- restrict a local report to the part visible on an overlap
+- compare two restricted reports on the same overlap
+- glue compatible local reports into a larger report
+- measure a residual when restrictions fail to agree
+
+For a node report `x_u`, the sheaf does not compare all of `x_u` to all of `x_v`. It compares:
+
+```text
+res_{u -> e}(x_u) and res_{v -> e}(x_v)
+```
+
+This is why the restriction map is a design choice. It says which parts of two local stories are legally comparable.
+
+## Worked Derivation
+
+Let Witness A report:
+
+```text
+x_A = (person=Rae, dish=pasta, time=7)
+```
+
+and Witness B report:
+
+```text
+x_B = (person=Rae, seat=window, time=8)
+```
+
+If the overlap records only `person`, then:
+
+```text
+res_{A -> e}(x_A) = Rae
+res_{B -> e}(x_B) = Rae
+```
+
+so the reports are compatible on that overlap.
+
+If the overlap records `(person,time)`, then:
+
+```text
+res_{A -> e}(x_A) = (Rae,7)
+res_{B -> e}(x_B) = (Rae,8)
+```
+
+so no global section can contain both local reports without changing one of them.
+
+## Invariants
+
+A sheaf calculation preserves the overlap schema. You may change local reports, choose different restriction maps, or enlarge the cover, but compatibility always means equality after restriction to the same overlap.
+
+The key invariants are locality, overlap agreement, and gluing uniqueness once all compatible local data have been fixed.
+
 ## Failure Mode
 
 Local consistency does not guarantee truth. It only guarantees compatibility across the chosen restrictions.

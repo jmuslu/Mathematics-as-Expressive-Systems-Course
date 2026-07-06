@@ -40,6 +40,55 @@ Belief propagation passes local messages that summarize neighboring evidence.
 
 If Bea receives one message saying dinner probably moved and another saying it probably did not, her update rule must combine both messages.
 
+## Legal Operations
+
+The legal moves in belief propagation are local summary moves:
+
+- multiply incoming messages that refer to the same variable state
+- multiply by the local factor or prior for that variable
+- normalize proportional beliefs into probabilities
+- send a message to a neighbor using the information from the other neighbors
+
+The exclusion rule matters. A message from Bea to Cy should summarize what Bea learned from Ari and Bea's local evidence, not simply echo Cy's old message back to Cy as if it were new evidence.
+
+## Worked Derivation
+
+At Bea, let `false` mean "dinner stays at 7" and `true` mean "dinner moved to 8." Suppose Ari sends:
+
+```text
+m_Ari_to_Bea(false)=0.8
+m_Ari_to_Bea(true)=0.2
+```
+
+and Cy sends:
+
+```text
+m_Cy_to_Bea(false)=0.5
+m_Cy_to_Bea(true)=0.5
+```
+
+With no local preference at Bea:
+
+```text
+b_Bea(false) proportional to 0.8 * 0.5 = 0.4
+b_Bea(true)  proportional to 0.2 * 0.5 = 0.1
+```
+
+The total is `0.5`, so:
+
+```text
+b_Bea(false)=0.4/0.5=0.8
+b_Bea(true)=0.1/0.5=0.2
+```
+
+The uninformative message does not change Ari's ratio. It only participates in the local multiplication and normalization.
+
+## Invariants
+
+Belief propagation preserves the graph's local adjacency pattern: messages travel along edges, and each update uses only the neighboring information allowed by the graph.
+
+On trees, the important invariant is no double counting: once a message has summarized one side of an edge, the same evidence should not immediately return across that edge as independent support.
+
 ## Failure Mode
 
 Loops can double-count evidence. Correlated messages can produce false confidence.

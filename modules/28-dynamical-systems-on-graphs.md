@@ -48,6 +48,49 @@ x_{t+1} = F(x_t)
 
 Linear systems use F(x)=Ax. Nonlinear systems use richer update rules.
 
+## Legal Operations
+
+The legal moves are time-evolution moves:
+
+- apply the update rule one step at a time
+- solve fixed point equations of the form `x*=F(x*)`
+- study stability by tracking how errors change
+- analyze eigenvalues when the update is linear
+- change the graph or thresholds only when the model says the structure can evolve
+
+A graph dynamic is not a one-time score. It is a rule for how the state is allowed to become its next state.
+
+## Worked Derivation
+
+For one song's attention weight:
+
+```text
+w_{t+1}=0.8w_t+1
+```
+
+a fixed point satisfies:
+
+```text
+w*=0.8w*+1
+0.2w*=1
+w*=5
+```
+
+The convergence calculation comes from subtracting the fixed point:
+
+```text
+w_{t+1}-5 = 0.8w_t+1-5
+          = 0.8(w_t-5)
+```
+
+So each week's error is multiplied by `0.8`. The attention level approaches `5` because the decay is strong enough to balance repeated reinforcement.
+
+## Invariants
+
+The update rule and state space are invariant while the system is being analyzed. If the state is a vector of playlist attention weights, each step must produce another valid attention vector.
+
+Some dynamics preserve total mass, such as stochastic diffusion. Others intentionally do not, such as decay plus reinforcement. The invariant depends on the chosen update rule, not on the word "graph" by itself.
+
 ## Failure Mode
 
 Dynamics can converge to bad attractors:

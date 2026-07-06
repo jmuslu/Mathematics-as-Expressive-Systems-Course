@@ -34,6 +34,68 @@ The best-looking unconstrained choice may be infeasible. Optimization with const
 
 Optimization chooses states that minimize an objective subject to constraints.
 
+## Legal Operations
+
+The legal moves are optimization moves:
+
+- define an objective that assigns an energy or cost to each candidate
+- impose equality constraints like `g(x)=0`
+- impose inequality constraints like `h(x)<=0`
+- form a Lagrangian when constraints should be handled analytically
+- check feasibility before interpreting the best score
+- read active constraints as the requirements that actually shape the solution
+
+The important modeling distinction is simple: soft preferences belong in the objective, while rules that cannot be violated belong in the feasible set.
+
+## Worked Derivation
+
+Suppose the unconstrained dinner score is:
+
+```text
+E(x)=(x-3)^2
+```
+
+where larger `x` means a later dinner time, but the group has a hard constraint:
+
+```text
+x <= 2
+```
+
+The unconstrained minimum is found from:
+
+```text
+E'(x)=2(x-3)=0
+x=3
+```
+
+but `x=3` is infeasible. The feasible interval ends at `x=2`, so the constrained optimum is:
+
+```text
+x*=2
+E(2)=1
+```
+
+For the KKT form, write the constraint as `h(x)=x-2<=0` and:
+
+```text
+L(x,mu)=(x-3)^2+mu(x-2)
+```
+
+Stationarity at `x=2` gives:
+
+```text
+2(2-3)+mu=0
+mu=2
+```
+
+The positive multiplier says the deadline constraint is active and costly.
+
+## Invariants
+
+Feasibility is invariant: a candidate outside the constraint set is not a valid answer even if its objective value is lower.
+
+At an optimum, inactive inequality constraints have zero multiplier, active constraints hold with equality, and the objective can only be compared among legal candidates.
+
 ## Failure Mode
 
 The objective may reward the wrong behavior: cheapness at the expense of accessibility, average preference at the expense of a hard allergy, or convenience at the expense of one person's travel limit.
