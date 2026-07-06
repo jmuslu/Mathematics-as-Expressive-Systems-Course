@@ -2,7 +2,7 @@
 
 ## Lecture Promise
 
-You will understand topology as the study of structure that survives deformation, and why it matters once memories are embedded geometrically.
+You will understand topology as the study of structure that survives deformation, and why it matters once relationships are represented geometrically.
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ You will understand topology as the study of structure that survives deformation
 
 ## Why The Old Object Fails
 
-Geometry gives distances. But memory systems also need connectivity:
+Geometry gives distances. But social threshold models also need connectivity:
 
 - Which regions are connected?
 - Which paths persist?
@@ -49,21 +49,21 @@ Topology studies open sets, neighborhoods, continuity, connectedness, and holes.
 
 ## Worked Example
 
-If two memory clusters are close under one threshold but disconnected under another, persistence asks whether the connection is stable or accidental.
+If two friendship clusters are close under one threshold but disconnected under another, persistence asks whether the connection is stable or accidental.
 
 ## Failure Mode
 
-Topology can ignore metric magnitude. Geometry can ignore persistent structure. A second-brain system needs both.
+Topology can ignore metric magnitude. Geometry can ignore persistent structure. A good model of social thresholds needs both.
 
 ## Problem Ladder
 
 1. Draw connected components for points at two distance thresholds.
-2. Give a memory example where geometry says close but topology says disconnected.
+2. Give a friendship example where geometry says close but topology says disconnected.
 3. Explain why continuity matters for graph evolution.
 
-## Memory-System Connection
+## Design Connection
 
-Topology helps detect whether reasoning paths and memory clusters survive decay or threshold changes.
+Topology helps detect whether social clusters, bridges, and loops survive threshold changes.
 
 ## Hand Problem Trail
 
@@ -211,9 +211,9 @@ Loops are one kind of structure that survives beyond mere connectivity.
 
 ### Problem 22.10: Continuity and graph evolution
 
-What would it mean for a memory update rule to be continuous?
+What would it mean for a social-threshold update rule to be continuous?
 
-Answer check: small changes in local evidence should not cause arbitrary jumps in global memory state unless a threshold is intentionally modeled.
+Answer check: small changes in local friendship scores should not cause arbitrary jumps in global group structure unless a threshold is intentionally modeled.
 
 ### Problem 22.11: Geometry says close, topology says disconnected
 
