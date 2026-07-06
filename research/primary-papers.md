@@ -138,9 +138,11 @@ Problem hooks:
 - [Probabilistic Graphical Models: Principles and Techniques](https://mitpress.mit.edu/9780262013192/probabilistic-graphical-models/) - factorization, conditional independence, evidence, and inference.
 - [Information, Physics, and Computation](https://academic.oup.com/book/10381) - Mezard and Montanari's message-passing and graphical-model intuition is useful for validation loops, without making the course a statistical physics course.
 - [Factor Graphs and the Sum-Product Algorithm](https://www.mit.edu/~6.454/www_fall_2000/chanal/factor.pdf) - concise tutorial on factor graphs and generic sum-product message passing.
+- [A Tutorial Introduction to Belief Propagation](https://www.ski.org/wp-content/uploads/2025/01/bptutorial.pdf) - approachable factor-graph belief propagation tutorial with message, belief, and gotcha sections.
 - [Belief Propagation and Its Generalizations](https://www.merl.com/publications/docs/TR2001-22.pdf) - message passing as local computation for global inference.
 - [Message-Passing Algorithms for Optimization and Inference](https://www.merl.com/publications/docs/TR2011-087.pdf) - connects sum-product, max-product, min-sum, and inference/optimization viewpoints.
 - [Correctness of Belief Propagation in Gaussian Graphical Models of Arbitrary Topology](https://merl.com/publications/docs/TR99-33.pdf) - useful reference for why loopy propagation can work but requires care.
+- [Note Set 2: Conditional Independence and Graphical Models](https://ics.uci.edu/~smyth/courses/cs274/notes/Notes2_GraphicalModels.pdf) - current public notes on independence, conditional independence, and graphical models.
 - [CS229 Convex Optimization Overview](https://cs229.stanford.edu/section/cs229-cvxopt2.pdf) - Lagrange duality and KKT intuition for constrained optimization.
 - [MIT Nonlinear Optimization Lecture 7: Lagrange Multipliers and KKT Conditions](https://ocw.mit.edu/courses/6-7220j-nonlinear-optimization-spring-2025/mit6_7220_s25_lec07.pdf) - current public notes on equality and inequality constrained optimality conditions.
 - [Neural Turing Machines](https://arxiv.org/abs/1410.5401) - differentiable read/write memory as an algorithmic learning substrate.
