@@ -159,19 +159,34 @@ A graph has three nodes with local values `x1=2`, `x2=2`, `x3=5`. Edges require 
 
 Answer check: no, because edge `(2,3)` sees `2 != 5`.
 
-### Problem 24.6: Repair a failed section
+### Problem 24.6: Nontrivial restriction map
 
-For Problem 24.5, change one node value to make a global section.
+Two sensors store local values:
+
+```text
+x_A = 10
+x_B = 5
+```
+
+The overlap compares `A` directly but doubles `B`:
+
+```text
+res_{A -> e}(x) = x
+res_{B -> e}(y) = 2y
+```
+
+Do the local values glue?
 
 Answer check:
 
 ```text
-Set x3 = 2, giving x1=x2=x3=2.
+res_{A -> e}(10) = 10
+res_{B -> e}(5) = 2(5) = 10
 ```
 
-If every edge requires equality in a connected graph, a global section must be constant.
+Yes. Local values do not need to be numerically equal if the restriction maps translate them into the same overlap language.
 
-### Problem 24.7: A nontrivial restriction map
+### Problem 24.7: Restriction that forgets stance
 
 Node A stores a pair:
 

@@ -569,7 +569,7 @@ Simple base-case candidate for sheaves.
 Module: 24
 Topic: non-identity restriction maps
 Role: derivation
-Status: reserve
+Status: promoted in Module 24 Problem 24.6
 Source use: original, source-informed
 Source note: Inspired by cellular sheaves on graphs with linear restriction maps.
 License note: No source problem text copied.
