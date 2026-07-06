@@ -44,7 +44,7 @@ In a group project, you might have:
 Idea -> Draft -> Slides -> Presentation
 ```
 
-Each arrow is a process that preserves enough structure to keep the work meaningful. Turning an idea into a draft should preserve the topic. Turning a draft into slides should preserve the argument. Turning slides into a presentation should preserve the order of claims.
+Each arrow is a process that preserves enough structure to keep the work meaningful. Turning an idea into a draft should preserve the topic. Turning a draft into slides should preserve the argument. Turning slides into a presentation should preserve the order of points.
 
 Category theory asks the simple but strict question:
 
@@ -99,7 +99,7 @@ What structure must the maps preserve?
 
 ## Representation Design Connection
 
-Category theory is the language for comparing typed structures, schemas, workflows, and validation pipelines without pretending they are the same kind of object.
+Category theory is the language for comparing typed structures, schemas, workflows, and design processes without pretending they are the same kind of object.
 
 ## Hand Problem Trail
 
