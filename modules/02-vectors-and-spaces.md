@@ -1,8 +1,8 @@
-# Module 02: Vector Spaces, Reachability, and Memory Slots
+# Module 02: Vector Spaces, Reachability, and Friendship Profiles
 
 ## Lecture Promise
 
-You will understand vectors as representational slots, vector spaces as reachable meaning spaces, and basis choice as a design decision for memory.
+You will understand vectors as multi-coordinate descriptions, vector spaces as reachable state spaces, and basis choice as a design decision for representing relationships.
 
 ## Prerequisites
 
@@ -12,20 +12,20 @@ You will understand vectors as representational slots, vector spaces as reachabl
 
 ## Why The Old Object Fails
 
-A scalar can rank a memory, but it cannot represent a memory. A memory item usually has many simultaneous features:
+A scalar can rank a friendship, but it cannot describe one. A relationship usually has many simultaneous features:
 
 ```text
-topic, entity, time, source, certainty, style, task relevance
+humor, reliability, shared interests, trust, time, effort
 ```
 
-A vector is the first object that can store several coordinates at once. A vector space is the rule system that says how those memory representations can combine.
+A vector is the first object that can store several coordinates at once. A vector space is the rule system that says how those relationship profiles can combine.
 
 ## Base Case
 
-Represent a memory by two coordinates:
+Represent a friendship profile by two coordinates:
 
 ```text
-m = (semantic relevance, recency)
+m = (shared interests, reliability)
 ```
 
 Let:
@@ -36,7 +36,7 @@ m2 = (1, 3)
 q  = (2, 2)
 ```
 
-If retrieval means closest to q, then neither coordinate alone is enough. The memory lives in a space where tradeoffs are visible.
+If the target friendship style is closest to q, then neither coordinate alone is enough. The profile lives in a space where tradeoffs are visible.
 
 ## Running Example: Friendship Profiles
 
@@ -71,8 +71,8 @@ These operations obey closure, associativity, distributivity, identity, and inve
 
 Vector spaces allow you to:
 
-- Add memory representations
-- Interpolate between memories
+- Add profile representations
+- Interpolate between profiles
 - Form spans
 - Define subspaces
 - Choose a basis
@@ -112,7 +112,7 @@ The target is reachable:
 q = -1 u + 3 v
 ```
 
-This is the memory-system idea behind basis expressiveness: a representation is reachable if your basis can combine to express it.
+This is the representation idea behind basis expressiveness: a profile is reachable if your basis directions can combine to express it.
 
 ## Failure Mode
 
@@ -120,7 +120,7 @@ Vectors can hide meaning:
 
 - A coordinate may not correspond to an interpretable feature.
 - A basis may be redundant.
-- A subspace may exclude important memory distinctions.
+- A subspace may exclude important relationship distinctions.
 - Two vectors may be close geometrically but wrong semantically.
 
 ## Invariants
@@ -141,36 +141,36 @@ Vectors can hide meaning:
 
 ### Transfer Problems
 
-1. Suppose memory vectors all lie near a 2D plane inside R^100. What does that suggest about compression?
-2. Give a two-vector example where adding recency changes the nearest memory.
+1. Suppose friendship-profile vectors all lie near a 2D plane inside R^100. What does that suggest about compression?
+2. Give a two-vector example where adding reliability changes the nearest profile.
 3. Explain why an embedding dimension is not automatically an interpretable feature.
 
 ### Research-Style Problems
 
 1. In dense retrieval, a query encoder and document encoder map text into a vector space. What assumptions are made when inner product is used as relevance?
-2. Construct a toy embedding space where synonymy and recency conflict.
-3. Design a memory vector with semantic, temporal, and confidence coordinates. State which operations should be legal.
+2. Construct a toy profile space where shared interests and reliability conflict.
+3. Design a relationship vector with humor, trust, time, and effort coordinates. State which operations should be legal.
 
-## Memory-System Connection
+## Design Connection
 
-A memory slot is not merely stored text. It is a vector representation plus a set of legal operations:
+A friendship profile is not merely a vibe. It is a vector representation plus a set of legal operations:
 
-- Add or merge memories
-- Compare query and memory
-- Project into an index space
-- Compress or quantize
-- Update after feedback
+- Combine trait patterns
+- Compare a current profile with a desired one
+- Project into a smaller coordinate system
+- Compress or simplify
+- Update after new interactions
 
-The design question is: what vector space should memory live in?
+The design question is: what vector space should the relationship live in?
 
 ## Hand Problem Trail
 
-### Problem 2.1: Memory as a vector
+### Problem 2.1: Friendship as a vector
 
-A memory item is represented by:
+A friendship profile is represented by:
 
 ```text
-m = (relevance, confidence, recency) = (3, 4, 12)
+m = (humor, trust, shared time) = (3, 4, 12)
 ```
 
 Compute its L1, L2, and L-infinity norms.
@@ -188,8 +188,8 @@ Answer check:
 Let:
 
 ```text
-a = (relevance=3, recency=1)
-b = (relevance=1, recency=4)
+a = (humor=3, reliability=1)
+b = (humor=1, reliability=4)
 ```
 
 Compute `a+b`.
@@ -227,7 +227,7 @@ ahat = bhat = (3/5, 4/5)
 
 They point in the same direction but have different magnitudes.
 
-### Problem 2.5: Span as reachable memory
+### Problem 2.5: Span as a reachable profile
 
 Let `u = (1, 0, 1)` and `v = (0, 1, 1)`. Can `(2, 3, 5)` be written as `a u + b v`?
 
@@ -328,7 +328,7 @@ Answer check:
 
 ```text
 The coordinates may be poorly scaled or not semantically meaningful.
-For example, a one-unit change in recency may not be comparable to a one-unit change in relevance.
+For example, a one-unit change in humor may not be comparable to a one-unit change in reliability.
 ```
 
 Geometry is only as meaningful as the representation.
@@ -348,7 +348,7 @@ Subspace membership is a legal-state test.
 
 ### Problem 2.12: Compression intuition
 
-If memory vectors in `R^100` all lie near a 2D plane, what does that suggest?
+If friendship-profile vectors in `R^100` all lie near a 2D plane, what does that suggest?
 
 Answer check:
 
