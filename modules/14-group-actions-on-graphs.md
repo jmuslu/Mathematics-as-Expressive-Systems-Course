@@ -129,25 +129,33 @@ s.(9,5) = (5,9)
 
 The abstract group element becomes an actual transformation of data.
 
-### Problem 14.3: Orbit
+### Problem 14.3: Orbit of a dinner-seating profile
 
-Find the orbit of `(1,2,2)` under all coordinate permutations.
+Three dinner seats are labeled `1, 2, 3`. A profile records dietary preference by seat:
+
+```text
+x = (V,M,M)
+```
+
+where `V` means vegetarian and `M` means meat. Find the orbit of `x` under all coordinate permutations.
 
 Answer check:
 
 ```text
-{(1,2,2), (2,1,2), (2,2,1)}
+{(V,M,M), (M,V,M), (M,M,V)}
 ```
 
-### Problem 14.4: Stabilizer
+The orbit lists the genuinely different presentations: which seat carries the vegetarian preference.
 
-For the same vector, which permutations fix it?
+### Problem 14.4: Stabilizer of the seating profile
 
-Answer check: identity and the swap of the two equal coordinates.
+For the same seating profile, which permutations fix it?
+
+Answer check: identity and the swap of the two `M` seats.
 
 ### Problem 14.5: Orbit-stabilizer count
 
-For `(1,2,2)`, the symmetric group `S3` has 6 permutations. Use:
+For `(V,M,M)`, the symmetric group `S3` has 6 permutations. Use:
 
 ```text
 |orbit| * |stabilizer| = |group|
@@ -163,7 +171,7 @@ Answer check:
 3 * 2 = 6
 ```
 
-The repeated coordinates create stabilizer symmetry.
+The repeated `M` entries create stabilizer symmetry: swapping those seats changes labels but not the stored preference profile.
 
 ### Problem 14.6: Graph relabeling
 

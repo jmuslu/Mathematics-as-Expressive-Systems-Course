@@ -198,9 +198,9 @@ Good standalone operational scenario for inverses.
 Module: 14
 Topic: orbit and stabilizer
 Role: computation
-Status: lecture candidate
+Status: promoted in Module 14 Problems 14.3-14.5
 Source use: original, source-informed
-Source note: Inspired by orbit-stabilizer group action notes.
+Source note: Inspired by orbit-stabilizer group action notes and the live seating-chart example.
 License note: No source problem text copied.
 Verification status: checked by hand
 ```
