@@ -25,7 +25,7 @@ const modules = [
   ["23", "Persistent Homology", "modules/23-persistent-homology.md", "Track what survives across friendship thresholds and scale."],
   ["24", "Sheaves and Local-to-Global Consistency", "modules/24-sheaves-local-global.md", "Glue local reports into coherent global plans."],
   ["25", "Message Passing and Belief Propagation", "modules/25-message-passing-belief-propagation.md", "Update dinner-plan probabilities through local graph messages."],
-  ["26", "Probabilistic Graphical Models", "modules/26-probabilistic-graphical-models.md", "Represent uncertainty over structured memory."],
+  ["26", "Probabilistic Graphical Models", "modules/26-probabilistic-graphical-models.md", "Model hidden causes behind correlated restaurant recommendations."],
   ["27", "Energy, Constraints, and Optimization", "modules/27-energy-constraints-optimization.md", "Design explicit validation objectives."],
   ["28", "Dynamical Systems on Graphs", "modules/28-dynamical-systems-on-graphs.md", "Study decay, reinforcement, convergence, and attractors."],
   ["29", "Rewriting Systems and Structured Edits", "modules/29-rewriting-knowledge-evolution.md", "Control legal graph edits and closure."],

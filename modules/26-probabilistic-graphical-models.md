@@ -262,7 +262,8 @@ Factor graphs make the product structure explicit.
 A classifier assumes:
 
 ```text
-P(E1,E2 | Class) = P(E1 | Class) P(E2 | Class)
+P(FriendTone, ReviewSnippet | RestaurantGood)
+  = P(FriendTone | RestaurantGood) P(ReviewSnippet | RestaurantGood)
 ```
 
 What assumption is being made?
@@ -270,7 +271,7 @@ What assumption is being made?
 Answer check:
 
 ```text
-E1 and E2 are conditionally independent given Class.
+FriendTone and ReviewSnippet are conditionally independent given RestaurantGood.
 ```
 
 This assumption may be useful even when imperfect, but it is still a modeling commitment.
