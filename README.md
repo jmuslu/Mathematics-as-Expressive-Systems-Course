@@ -29,6 +29,7 @@ The destination is broader than RAG or vector search. Those are applications. Th
 - [Website Design Notes](WEBSITE_DESIGN_NOTES.md)
 - [Primary Paper Trail](research/primary-papers.md)
 - [Question Bank Source Policy](QUESTION_BANK_SOURCE_POLICY.md)
+- [Question Bank](question-bank/README.md)
 - [Interactive Course Site](docs/index.html)
 
 ## Modules

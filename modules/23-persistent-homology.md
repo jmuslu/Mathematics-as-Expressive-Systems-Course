@@ -163,11 +163,7 @@ The loop existed after the boundary appeared and before the face filled it.
 
 ### Problem 23.10: Noise feature
 
-If edges above a confidence threshold survive, what does a long-lived component suggest?
-
-Answer check: a stable cluster of memories persists across many thresholds; it may represent robust structure rather than accidental similarity.
-
-Now suppose a loop is born at `2.00` and dies at `2.05`. What might that suggest?
+Suppose a loop is born at `2.00` and dies at `2.05`. What might that suggest?
 
 Answer check:
 
