@@ -193,7 +193,7 @@ Products combine simultaneous fields. Coproducts represent typed alternatives.
 Let:
 
 ```text
-SourceClaim -> Claim <- EvidenceClaim
+Ticket -> Person <- Meal
 ```
 
 Explain what the pullback contains.
@@ -201,7 +201,7 @@ Explain what the pullback contains.
 Answer check:
 
 ```text
-Pairs (source_claim, evidence_claim) that refer to the same claim.
+Pairs (ticket, meal) that refer to the same person.
 ```
 
 A pullback is a matching object.
@@ -211,52 +211,60 @@ A pullback is a matching object.
 Let:
 
 ```text
-S = {s1, s2}
-E = {e1, e2, e3}
-C = {c1, c2}
+Tickets = {t1, t2}
+Meals = {m1, m2, m3}
+People = {ari, bea}
 
-sourceClaim(s1)=c1
-sourceClaim(s2)=c2
+ticketPerson(t1)=ari
+ticketPerson(t2)=bea
 
-evidenceClaim(e1)=c1
-evidenceClaim(e2)=c1
-evidenceClaim(e3)=c2
+mealPerson(m1)=ari
+mealPerson(m2)=ari
+mealPerson(m3)=bea
 ```
 
-List the pullback pairs `(s,e)` with matching claim.
+List the pullback pairs `(ticket, meal)` with matching person.
 
 Answer check:
 
 ```text
-(s1,e1), (s1,e2), (s2,e3)
+(t1,m1), (t1,m2), (t2,m3)
 ```
 
 Check the two projection paths:
 
 ```text
-(s1,e1) -> s1 -> c1
-(s1,e1) -> e1 -> c1
+(t1,m1) -> t1 -> ari
+(t1,m1) -> m1 -> ari
 
-(s1,e2) -> s1 -> c1
-(s1,e2) -> e2 -> c1
+(t1,m2) -> t1 -> ari
+(t1,m2) -> m2 -> ari
 
-(s2,e3) -> s2 -> c2
-(s2,e3) -> e3 -> c2
+(t2,m3) -> t2 -> bea
+(t2,m3) -> m3 -> bea
 ```
 
 The pullback keeps only compatible pairs, and its projections certify the compatibility.
 
 ### Problem 18.9: Pushout as gluing
 
-Two notes share the same quote `q`. One note contains `{q, a}` and the other contains `{q, b}`. If we glue along the shared quote, what elements remain?
+Two contact lists share the same person under a common ID:
+
+```text
+List A = {id7, ana}
+List B = {id7, phone}
+Shared = {id7}
+```
+
+If the lists are glued along `Shared`, what elements remain after identifying the two copies of `id7`?
 
 Answer check:
 
 ```text
-{q, a, b}
+{id7, ana, phone}
 ```
 
-The two copies of `q` are identified.
+The two copies of `id7` are identified, while the nonshared information is kept.
 
 ### Problem 18.10: Initial and terminal objects in Set
 

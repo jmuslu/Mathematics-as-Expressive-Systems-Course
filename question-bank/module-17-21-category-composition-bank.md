@@ -323,13 +323,70 @@ Many joins are pullbacks: matching is a universal construction, not a one-off qu
 
 Good candidate for Module 18 or Module 20 depending on whether the lesson is universal property or database join.
 
+## 18.pullback.lunch-consistency.a
+
+```text
+Module: 18
+Topic: pullback as consistency object
+Role: computation
+Status: promoted
+Source use: original, source-informed
+Source note: Inspired by applied category theory examples of pullbacks as matching/compatibility objects.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A lunch coordinator has:
+
+```text
+Tickets = {t1, t2}
+Meals = {m1, m2, m3}
+People = {ari, bea}
+
+ticketPerson(t1)=ari
+ticketPerson(t2)=bea
+
+mealPerson(m1)=ari
+mealPerson(m2)=ari
+mealPerson(m3)=bea
+```
+
+List the pullback pairs `(ticket, meal)` whose two paths land on the same person.
+
+## Answer Check
+
+```text
+(t1,m1), (t1,m2), (t2,m3)
+```
+
+For example:
+
+```text
+t1 -> ari and m1 -> ari
+t2 -> bea and m3 -> bea
+```
+
+## Intuition
+
+The pullback keeps only the compatible ticket-meal pairs.
+
+## Modeling Implication
+
+A consistency join is not just a table trick. It is the canonical object that makes two projections agree over a shared target.
+
+## Reserve Notes
+
+Promoted into Module 18 to keep the universal-property trail aligned with the lunch-order running example.
+
 ## 18.pushout.shared-name.a
 
 ```text
 Module: 18
 Topic: pushout as gluing
 Role: computation
-Status: reserve
+Status: promoted
 Source use: original, source-informed
 Source note: Inspired by applied category theory colimit/gluing examples.
 License note: No source problem text copied.
@@ -364,7 +421,7 @@ Gluing requires knowing what is truly shared. Otherwise, systems duplicate or co
 
 ## Reserve Notes
 
-Useful for later schema-integration or provenance examples.
+Promoted into Module 18 as a concrete pushout/gluing computation.
 
 ## 18.coproduct.food-order.a
 
