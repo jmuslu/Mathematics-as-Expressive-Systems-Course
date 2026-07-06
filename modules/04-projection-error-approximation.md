@@ -30,6 +30,24 @@ e = d - proj_u(d) = (1,-1)
 
 and e is orthogonal to u.
 
+## Running Example: Misunderstanding A Request
+
+Imagine someone asks for a restaurant that is:
+
+```text
+very quiet, moderately cheap
+```
+
+but your recommendation system only understands one direction:
+
+```text
+quiet-and-cheap together
+```
+
+Projection gives the best answer available inside that limited direction. The residual is the part of the request the system failed to express.
+
+The important lesson is not merely "nearest is good." It is: nearest inside the wrong subspace still leaves meaningful error.
+
 ## Formal Object
 
 Projection is the nearest point in a subspace under a chosen geometry.

@@ -38,6 +38,26 @@ q  = (2, 2)
 
 If retrieval means closest to q, then neither coordinate alone is enough. The memory lives in a space where tradeoffs are visible.
 
+## Running Example: Friendship Profiles
+
+Think of a friendship profile with coordinates:
+
+```text
+humor, reliability, shared interests
+```
+
+One number cannot describe the friendship. Someone can be funny but unreliable, reliable but quiet, or deeply aligned in one topic and distant in another.
+
+A vector lets several traits live together. A vector space says which combinations are legal:
+
+```text
+mix two profiles
+scale a trait pattern
+ask whether a desired profile is reachable from available directions
+```
+
+This is why span matters: it tells you what kinds of states your chosen coordinates can express.
+
 ## Formal Object
 
 A vector space V over a field F is a set with:

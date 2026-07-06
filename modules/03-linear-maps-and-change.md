@@ -30,6 +30,19 @@ Then A sends:
 
 The transformation preserves the second coordinate but changes the first by mixing in the second.
 
+## Running Example: Changing Perspective
+
+Suppose a friend gives advice that changes how you interpret a situation:
+
+```text
+new confidence = old confidence + outside perspective
+outside perspective = unchanged
+```
+
+The advice does not erase the original perspective. It mixes one coordinate into another.
+
+That is a linear map when mixing respects addition and scaling. The transformation itself becomes an object you can compose, invert, or test for lost information.
+
 ## Formal Object
 
 A linear map T satisfies:

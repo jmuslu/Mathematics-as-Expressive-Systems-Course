@@ -29,6 +29,24 @@ f(x, y) = 2x - y
 
 maps a vector to a scalar measurement.
 
+## Running Example: Dating Standards As Measurements
+
+A dating profile might have coordinates:
+
+```text
+kindness, humor, availability
+```
+
+The profile is a vector. A person's standard is a measurement:
+
+```text
+2 * kindness + 1 * humor - 3 * unavailability
+```
+
+That measurement is not the person. It is a question asked of the profile. A different person can ask a different question of the same vector and get a different score.
+
+Duality is the distinction between states and tests.
+
 ## Formal Object
 
 The dual space V* consists of linear maps:
