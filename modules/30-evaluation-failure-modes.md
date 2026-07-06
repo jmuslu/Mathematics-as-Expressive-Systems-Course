@@ -46,6 +46,51 @@ Evaluation dimensions:
 - contradiction handling
 - calibration of confidence
 
+## Legal Operations
+
+The legal moves in evaluation are test-design moves:
+
+- choose the promise being tested
+- define the observable quantity
+- compute a metric from examples
+- separate retrieval errors from reasoning errors
+- test invariance and equivariance under allowed transformations
+- compare confidence with empirical accuracy
+- inspect failure cases instead of only averaging scores
+
+Evaluation is a typed panel of checks. A retrieval metric cannot prove faithfulness, and a faithfulness score cannot prove the retrieved evidence was complete.
+
+## Worked Derivation
+
+Suppose a debate assistant returns five evidence cards, with relevant cards at ranks:
+
+```text
+1, 3, 5
+```
+
+and there are six relevant cards total. Then:
+
+```text
+precision@5 = 3/5
+recall@5 = 3/6 = 1/2
+```
+
+The F1 score is:
+
+```text
+F1 = 2PR/(P+R)
+   = 2(3/5)(1/2)/(3/5 + 1/2)
+   = 6/11
+```
+
+This evaluates retrieval coverage and cleanliness, not whether the final argument is coherent. A separate path-consistency test must check contradiction, provenance, and local-to-global agreement.
+
+## Invariants
+
+Evaluation should preserve the distinction between components. Retrieval relevance, answer relevance, faithfulness, calibration, invariance, and contradiction handling are different promises.
+
+The core invariant is alignment between metric and claim: a test should measure the mathematical promise it is used to certify.
+
 ## Failure Mode
 
 Benchmarks can reward shallow retrieval and miss structural collapse.

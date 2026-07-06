@@ -50,6 +50,58 @@ The operation is not just deletion. It is a legal edit with a guard and a proven
 
 A rewriting system specifies legal transformations from one structured state to another.
 
+## Legal Operations
+
+The legal moves in rewriting are rule-application moves:
+
+- match the left-hand side of a rule inside the current state
+- check guards before applying the rule
+- replace the matched structure with the right-hand side
+- preserve required interfaces and provenance
+- use a termination measure to rule out endless rewriting
+- check critical pairs when two rules can fire in overlapping places
+
+For shared study notes, a merge rule is not merely "delete one duplicate." It is a typed edit with a match pattern, a guard, and a preservation promise.
+
+## Worked Derivation
+
+Consider the merge rule:
+
+```text
+two notes with same normalized statement and compatible meaning
+-> one merged note preserving both origins
+```
+
+Apply it to:
+
+```text
+n1: "Eigenvectors keep direction.", origin lecture
+n2: "eigenvectors keep direction", origin textbook
+```
+
+Normalize text:
+
+```text
+normalize(n1)=eigenvectors keep direction
+normalize(n2)=eigenvectors keep direction
+```
+
+The guard passes if the mathematical meanings are compatible. The result is:
+
+```text
+n12:
+  statement = "eigenvectors keep direction"
+  origins = {lecture, textbook}
+```
+
+The edit decreases the number of duplicate note nodes while preserving provenance. That gives a possible termination measure: duplicate-count goes down.
+
+## Invariants
+
+A good rewrite preserves the structure named by its rule: typing, required interfaces, provenance, and declared consistency constraints.
+
+Termination and confluence are higher-level invariants of the rewrite system. Termination says rewriting cannot continue forever. Confluence says different legal edit orders still reach compatible cleaned-up states.
+
 ## Failure Mode
 
 Rewrite rules can fail to terminate, fail to be confluent, or erase important distinctions.

@@ -48,6 +48,72 @@ update dynamics
 failure tests
 ```
 
+## Formal Object
+
+The studio object is a typed evolving evidence graph with:
+
+- node types for claims, evidence cards, sources, objections, rules, and reviewers
+- edge types for supports, contradicts, cites, refines, derived-from, and reviewed-by
+- hyperedges for multi-input validation events
+- sheaf-style restrictions for local consistency checks
+- rewrite rules for structured edits
+- dynamics for decay, reinforcement, and status updates
+- evaluation panels for retrieval, coherence, invariance, and calibration
+
+## Legal Operations
+
+The legal moves in the studio are design-specification moves:
+
+- declare the state space before declaring updates
+- name each legal transformation and what it preserves
+- specify invariants and equivariants separately
+- define local-to-global consistency tests
+- state decay and reinforcement formulas
+- write rewrite rules with guards and provenance
+- pair every design promise with an evaluation test
+
+This module is not asking for a pretty diagram. It is asking for a mathematical contract for an evidence board.
+
+## Worked Derivation
+
+Start with one support edge:
+
+```text
+EvidenceCard e1 supports Conclusion c1
+```
+
+Suppose the board applies a decay rule:
+
+```text
+w_{t+1}=0.9w_t
+```
+
+and a reinforcement rule when a reviewer confirms the evidence:
+
+```text
+w_{t+1}=0.9w_t + 0.2
+```
+
+If `w_0=1`, then one unreviewed step gives:
+
+```text
+w_1=0.9
+```
+
+One reviewed step gives:
+
+```text
+w_1=0.9(1)+0.2=1.1
+```
+
+The design document must say which update happened, what evidence triggered it, and what invariant remains true. For example, provenance should still link `e1` to its source after either update.
+
+## Invariants
+
+A trustworthy evidence board preserves types, provenance, schema path equations, allowed symmetries, and declared local consistency checks.
+
+Graph-level summaries should be invariant to arbitrary node IDs. Node-level statuses should be equivariant: if nodes are relabeled, their statuses relabel with them.
+
 ## Failure Mode
 
 If the design cannot state what it preserves, it cannot be trusted as an argument board.

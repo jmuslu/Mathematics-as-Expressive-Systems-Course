@@ -47,9 +47,61 @@ The people did not change. The topology changed because the relation used to dra
 
 Topology studies open sets, neighborhoods, continuity, connectedness, and holes.
 
+## Legal Operations
+
+The legal moves in topology are neighborhood and continuity moves:
+
+- choose the space in which openness is being tested
+- take neighborhoods of points
+- test whether a set is open, closed, or neither
+- check connected components
+- examine inverse images to test continuity
+- change thresholds and track how connectivity changes
+
+For friendship thresholds, the same people can support different topological graphs as the cutoff changes. The legal question is not only "how far apart are they?" but "which neighborhoods and connections exist at this threshold?"
+
 ## Worked Example
 
 If two friendship clusters are close under one threshold but disconnected under another, persistence asks whether the connection is stable or accidental.
+
+## Worked Derivation
+
+Let:
+
+```text
+X = [0,2]
+U = [0,1)
+```
+
+In the usual topology on `R`, `U` is not open because no open interval around `0` sits inside `[0,1)`.
+
+But in the subspace `X`, the same set is open:
+
+```text
+U = X intersect (-1,1)
+```
+
+So openness is relative to the ambient space. In the friendship example, a cluster can be open relative to the selected class dataset even if it is not open in the larger social embedding space.
+
+For continuity, the test is inverse image. If:
+
+```text
+f(x)=2x
+```
+
+then:
+
+```text
+f^{-1}((0,4))=(0,2)
+```
+
+An open interval pulls back to an open interval, which is the local-stability idea behind continuity.
+
+## Invariants
+
+Topology preserves structure under continuous deformation: connectedness, neighborhood relationships, and holes are the kinds of features that matter.
+
+Under threshold changes, the important invariant is not one exact distance. It is whether the same cluster, bridge, or loop persists across nearby thresholds.
 
 ## Failure Mode
 

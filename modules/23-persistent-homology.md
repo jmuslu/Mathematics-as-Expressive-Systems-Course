@@ -36,9 +36,66 @@ K_0 subset K_1 subset K_2 subset ...
 
 Features have birth and death times.
 
+## Legal Operations
+
+The legal moves in persistent homology are filtration moves:
+
+- build a nested sequence of spaces
+- add edges, faces, or cells as the scale changes
+- count connected components, loops, and higher-dimensional holes
+- record when a feature is born
+- record when a feature dies or merges
+- compare long-lived features with short-lived features
+
+For friendship circles, persistence is the discipline of not trusting a single threshold just because it makes the graph look tidy.
+
 ## Worked Example
 
 A friendship cluster that appears early and survives for many thresholds is more structurally stable than one that appears briefly.
+
+## Worked Derivation
+
+Suppose friendship distances are:
+
+```text
+d(Ari,Bea)=1
+d(Bea,Cy)=2
+d(Ari,Cy)=5
+```
+
+At `epsilon=0`, there are three components:
+
+```text
+{Ari}, {Bea}, {Cy}
+```
+
+At `epsilon=1.5`, the edge Ari-Bea appears:
+
+```text
+{Ari,Bea}, {Cy}
+```
+
+At `epsilon=3`, the edge Bea-Cy appears:
+
+```text
+{Ari,Bea,Cy}
+```
+
+If the Ari component is chosen to survive, informal `H0` bars are:
+
+```text
+Ari: [0, infinity)
+Bea: [0, 1]
+Cy:  [0, 3]
+```
+
+The bar for Cy is longer than Bea's because Cy remains separate until a larger threshold.
+
+## Invariants
+
+The filtration order is invariant: later spaces contain earlier spaces. Features are interpreted through their birth and death across that order.
+
+Long bars indicate structure that survives scale changes. Short bars often indicate fragile threshold artifacts, though interpretation still depends on the data and distance model.
 
 ## Failure Mode
 
