@@ -57,8 +57,12 @@ Problem hooks:
 ## Category Theory, Schemas, And Provenance
 
 - [Seven Sketches in Compositionality](https://arxiv.org/abs/1803.05316) - applied category theory through databases, orders, circuits, dynamical systems, and sheaves.
+- [MIT OCW Applied Category Theory](https://ocw.mit.edu/courses/18-s097-applied-category-theory-january-iap-2019/pages/lecture-videos-and-readings/) - public course readings that pair Seven Sketches with database, circuit, operad, and sheaf examples.
+- [Chapter 3: Databases: Categories, Functors, and (Co)Limits](https://ocw.mit.edu/courses/18-s097-applied-category-theory-january-iap-2019/pages/lecture-videos-and-readings/chapter-3-databases-categories-functors-and-co-limits/) - schema categories, Set-valued instances, natural transformations, and data migration.
+- [Chapter 6: Circuits: Hypergraph Categories and Operads](https://ocw.mit.edu/courses/18-s097-applied-category-theory-january-iap-2019/pages/lecture-videos-and-readings/chapter-6-circuits-hypergraph-categories-and-operads/) - wiring diagrams, hypergraph categories, decorated cospans, and operads.
 - [Functorial Data Migration](https://arxiv.org/abs/1009.1166) - database schemas as categories; instances as set-valued functors; schema change as functorial migration.
 - [Relational Foundations for Functorial Data Migration](https://arxiv.org/abs/1212.5303) - graph-presented schemas, path equations, and categorical instance categories.
+- [Functorial Data Migration: From Theory to Practice](https://arxiv.org/abs/1502.05947) - concrete data migration scenarios and the practical interpretation of schema functors.
 
 Problem hooks:
 
@@ -66,6 +70,9 @@ Problem hooks:
 - Interpret a memory instance as a functor into Set.
 - Use a natural transformation to describe provenance-preserving memory revision.
 - Explain why schema evolution should be functorial rather than an ad hoc migration script.
+- Compute product, coproduct, pullback, and pushout examples with tiny sets.
+- Check a path equation in a categorical database instance.
+- Model typed multi-input validation as an operadic plugging problem.
 
 ## Sheaves, Topology, And Local-To-Global Consistency
 

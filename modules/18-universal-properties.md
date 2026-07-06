@@ -60,9 +60,23 @@ Universal properties help identify canonical constructions: products, sums, pull
 
 ### Problem 18.1: Product object intuition
 
-Given objects A and B, a product `A x B` has projections `pi_A: A x B -> A` and `pi_B: A x B -> B`. For a pair `(a,b)`, compute both projections.
+Given objects A and B, a product `A x B` has projections:
 
-Answer check: `pi_A(a,b)=a` and `pi_B(a,b)=b`.
+```text
+pi_A: A x B -> A
+pi_B: A x B -> B
+```
+
+For a pair `(a,b)`, compute both projections.
+
+Answer check:
+
+```text
+pi_A(a,b)=a
+pi_B(a,b)=b
+```
+
+The product packages two pieces while keeping legal ways to inspect each one.
 
 ### Problem 18.2: Pairing map
 
@@ -75,14 +89,183 @@ Answer check:
 x -> (f(x), g(x))
 ```
 
-### Problem 18.3: Pullback as consistency object
+The product is the canonical place where both outputs can live together.
 
-Let `SourceClaim -> Claim <- EvidenceClaim`. Explain what the pullback contains.
+### Problem 18.3: Check the projections of a pairing
 
-Answer check: pairs `(source_claim, evidence_claim)` that refer to the same claim.
+For the pairing map `<f,g>`, compute:
 
-### Problem 18.4: Memory design
+```text
+pi_A o <f,g>
+pi_B o <f,g>
+```
+
+Answer check:
+
+```text
+pi_A o <f,g> = f
+pi_B o <f,g> = g
+```
+
+The product property says the combined map remembers exactly the two original maps.
+
+### Problem 18.4: Uniqueness of the pairing
+
+Suppose `h: X -> A x B` satisfies:
+
+```text
+pi_A o h = f
+pi_B o h = g
+```
+
+What must `h(x)` be?
+
+Answer check:
+
+```text
+h(x) = (f(x), g(x))
+```
+
+So `h = <f,g>`. The product map is not just available; it is forced.
+
+### Problem 18.5: Coproduct as tagged alternative
+
+In `Set`, the coproduct `A + B` is a tagged union. If:
+
+```text
+A = {a1, a2}
+B = {b1}
+```
+
+list the elements of `A + B` with tags.
+
+Answer check:
+
+```text
+(A,a1), (A,a2), (B,b1)
+```
+
+The tags prevent confusing an A-item with a B-item.
+
+### Problem 18.6: Product or coproduct?
+
+Classify each construction:
+
+```text
+A. a student record with both name and grade
+B. a search result that is either a paper or a video
+C. a point with x and y coordinates
+D. an error that is either parse error or network error
+```
+
+Answer check:
+
+```text
+A. product
+B. coproduct
+C. product
+D. coproduct
+```
+
+Products combine simultaneous fields. Coproducts represent typed alternatives.
+
+### Problem 18.7: Pullback as consistency object
+
+Let:
+
+```text
+SourceClaim -> Claim <- EvidenceClaim
+```
+
+Explain what the pullback contains.
+
+Answer check:
+
+```text
+Pairs (source_claim, evidence_claim) that refer to the same claim.
+```
+
+A pullback is a matching object.
+
+### Problem 18.8: Compute a pullback in sets
+
+Let:
+
+```text
+S = {s1, s2}
+E = {e1, e2, e3}
+C = {c1, c2}
+
+sourceClaim(s1)=c1
+sourceClaim(s2)=c2
+
+evidenceClaim(e1)=c1
+evidenceClaim(e2)=c1
+evidenceClaim(e3)=c2
+```
+
+List the pullback pairs `(s,e)` with matching claim.
+
+Answer check:
+
+```text
+(s1,e1), (s1,e2), (s2,e3)
+```
+
+The pullback keeps only compatible pairs.
+
+### Problem 18.9: Pushout as gluing
+
+Two notes share the same quote `q`. One note contains `{q, a}` and the other contains `{q, b}`. If we glue along the shared quote, what elements remain?
+
+Answer check:
+
+```text
+{q, a, b}
+```
+
+The two copies of `q` are identified.
+
+### Problem 18.10: Initial and terminal objects in Set
+
+In `Set`, identify an initial object and a terminal object.
+
+Answer check:
+
+```text
+Initial object: empty set, because there is exactly one function empty -> X for every set X.
+Terminal object: any singleton set, because there is exactly one function X -> {*} for every set X.
+```
+
+Universal properties define objects by mapping behavior.
+
+### Problem 18.11: Universal property versus implementation
 
 Why is a universal property better than choosing one arbitrary implementation?
 
-Answer check: it characterizes the object by how all legal maps interact with it, so equivalent implementations can be recognized as the same construction.
+Answer check:
+
+```text
+It characterizes the object by how all legal maps interact with it, so equivalent implementations can be recognized as the same construction.
+```
+
+The object is defined by role, not by incidental representation.
+
+### Problem 18.12: Failure mode - product when coproduct was intended
+
+A system stores "paper or video" as a product:
+
+```text
+PaperFields x VideoFields
+```
+
+What goes wrong?
+
+Answer check:
+
+```text
+It forces every item to carry both paper fields and video fields, even when only one type is present.
+A tagged coproduct is the cleaner model for alternatives.
+```
+
+Choosing the wrong universal construction creates fake data requirements.

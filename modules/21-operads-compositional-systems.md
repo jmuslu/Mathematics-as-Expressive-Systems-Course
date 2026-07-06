@@ -76,7 +76,26 @@ A validation operation has type `validate: Claim x Source x Evidence -> Status`.
 
 Answer check: inputs are Claim, Source, Evidence; output is Status.
 
-### Problem 21.2: Compose operations
+### Problem 21.2: Slot order matters
+
+Compare:
+
+```text
+validate: Claim x Source x Evidence -> Status
+validate': Source x Claim x Evidence -> Status
+```
+
+Are these automatically the same operation?
+
+Answer check:
+
+```text
+No. The same input types appear, but the first two slots have different meanings.
+```
+
+Operadic typing tracks slots, not just a bag of inputs.
+
+### Problem 21.3: Compose operations
 
 Suppose:
 
@@ -89,7 +108,21 @@ Write the composite operation type after plugging validate into summarize's firs
 
 Answer check: `Claim x Evidence x Context -> Summary`.
 
-### Problem 21.3: Product or composition?
+### Problem 21.4: Draw the operation tree
+
+For the composite in Problem 21.3, describe the tree in words.
+
+Answer check:
+
+```text
+Claim and Evidence feed into validate.
+The output ValidatedClaim and Context feed into summarize.
+The final output is Summary.
+```
+
+Operads remember dependency shape, not merely input count.
+
+### Problem 21.5: Product or composition?
 
 Classify each as product-like or composition-like.
 
@@ -107,8 +140,127 @@ Answer check:
 4 operadic composition
 ```
 
-### Problem 21.4: Dependency loss
+### Problem 21.6: Dependency loss
 
 Why is flattening `Claim x Evidence x Rule -> Status` into pairwise edges dangerous?
 
 Answer check: it can hide that the status depends on all three inputs jointly.
+
+### Problem 21.7: Binary operation associativity is extra structure
+
+Let `combine(a,b)` mean "average two scores." Compute:
+
+```text
+combine(combine(2,10), 10)
+combine(2, combine(10,10))
+```
+
+Answer check:
+
+```text
+combine(2,10) = 6
+combine(6,10) = 8
+
+combine(10,10) = 10
+combine(2,10) = 6
+```
+
+The operation is not associative. Parentheses matter.
+
+### Problem 21.8: Associative operation example
+
+Let `combine(a,b)=a+b`. Compare:
+
+```text
+combine(combine(2,10), 10)
+combine(2, combine(10,10))
+```
+
+Answer check:
+
+```text
+(2+10)+10 = 22
+2+(10+10) = 22
+```
+
+Some operations allow parentheses to be ignored; others do not.
+
+### Problem 21.9: Typed output must match typed slot
+
+Suppose:
+
+```text
+extractEvidence: Passage -> Evidence
+validate: Claim x Evidence -> ValidatedClaim
+```
+
+Can `extractEvidence` be plugged into the Evidence slot of `validate`?
+
+Answer check:
+
+```text
+Yes. Its output type is Evidence, which matches the second input slot of validate.
+```
+
+Operadic composition is type-checked plugging.
+
+### Problem 21.10: Failed plugging
+
+Suppose:
+
+```text
+extractTopic: Passage -> Topic
+validate: Claim x Evidence -> ValidatedClaim
+```
+
+Can `extractTopic` be plugged into the Evidence slot of `validate`?
+
+Answer check:
+
+```text
+No. Topic is not Evidence.
+```
+
+The operation may be useful elsewhere, but this slot does not accept it.
+
+### Problem 21.11: Hyperedge versus operation
+
+A hyperedge connects:
+
+```text
+Claim, Evidence, Rule
+```
+
+An operation has type:
+
+```text
+Claim x Evidence x Rule -> Status
+```
+
+What does the operation add beyond the hyperedge?
+
+Answer check:
+
+```text
+It specifies an output type and a process that transforms the inputs into that output.
+```
+
+Hyperedges say "these inputs are related." Operations say "these inputs produce this result."
+
+### Problem 21.12: Failure mode - unnamed combine
+
+A pipeline step says:
+
+```text
+combine retrieved passages
+```
+
+Name three mathematically different things this could mean.
+
+Answer check:
+
+```text
+Possible answers: concatenate, average embeddings, take a product, apply attention, vote, intersect claims, union evidence, run a validation operation.
+```
+
+"Combine" is not a mathematical operation until its type and rule are named.

@@ -79,7 +79,31 @@ Draw the schema and identify the object sets an instance must provide.
 
 Answer check: an instance provides sets of claims, sources, and documents, plus functions for `madeBy` and `appearsIn`.
 
-### Problem 20.2: Path equation
+### Problem 20.2: One concrete instance
+
+Let:
+
+```text
+Claim = {c1,c2}
+Source = {s1}
+Document = {d1,d2}
+madeBy(c1)=s1
+madeBy(c2)=s1
+appearsIn(c1)=d1
+appearsIn(c2)=d2
+```
+
+Which table does `appearsIn` behave like?
+
+Answer check:
+
+```text
+It behaves like a foreign-key column from Claim rows to Document rows.
+```
+
+In a categorical instance, arrows become functions between row sets.
+
+### Problem 20.3: Path equation
 
 Suppose also:
 
@@ -92,14 +116,127 @@ Write a path equation saying a claim's source organization should match the docu
 
 Answer check: `sourceOrg o madeBy = docOrg o appearsIn`.
 
-### Problem 20.3: Find violation
+### Problem 20.4: Find violation
 
 Given `madeBy(c)=s`, `appearsIn(c)=d`, `sourceOrg(s)=OpenAI`, and `docOrg(d)=MIT`, does the path equation hold?
 
 Answer check: no. The two paths return different organizations.
 
-### Problem 20.4: Schema design
+### Problem 20.5: Find satisfaction
+
+Given:
+
+```text
+madeBy(c)=s
+appearsIn(c)=d
+sourceOrg(s)=Northeastern
+docOrg(d)=Northeastern
+```
+
+does the path equation hold?
+
+Answer check:
+
+```text
+Yes. Both paths return Northeastern.
+```
+
+The equation is checkable row by row.
+
+### Problem 20.6: Schema design
 
 Why are path equations stronger than informal field names?
 
 Answer check: they make consistency constraints explicit and checkable.
+
+### Problem 20.7: Add a contradiction relation
+
+Extend the schema with a contradiction relation between claims:
+
+```text
+contradicts: Contradiction -> Claim
+contradictedBy: Contradiction -> Claim
+```
+
+Why use a separate `Contradiction` object instead of a single edge label?
+
+Answer check:
+
+```text
+The contradiction can carry its own metadata, such as source, time, severity, or resolution status.
+```
+
+Turning an edge into an object lets the relation have attributes.
+
+### Problem 20.8: Instance category intuition
+
+Two database instances on the same schema can be connected by a natural transformation. What does its component at `Claim` do?
+
+Answer check:
+
+```text
+It maps claim rows in the first instance to claim rows in the second instance.
+```
+
+The components must also respect schema arrows like `madeBy`.
+
+### Problem 20.9: Naturality for a database migration
+
+Let `eta_Claim(c)=c'` and `eta_Source(s)=s'`. If `madeBy(c)=s`, what must hold in the target instance?
+
+Answer check:
+
+```text
+madeBy(c') = s'
+```
+
+Migrating a claim and then looking up its source must agree with looking up the source and then migrating it.
+
+### Problem 20.10: Pullback query
+
+A schema has:
+
+```text
+Claim -> Topic <- Document
+```
+
+What does the pullback query return?
+
+Answer check:
+
+```text
+pairs (claim, document) with the same topic.
+```
+
+Many joins are pullbacks in disguise.
+
+### Problem 20.11: Migration as pullback along a schema map
+
+Suppose a new schema forgets `ValidationState` and keeps only `Claim -> Source`. Is this migration adding information or forgetting information?
+
+Answer check:
+
+```text
+It is forgetting information.
+```
+
+Schema maps can induce data migration, but the direction and information flow must be tracked carefully.
+
+### Problem 20.12: Failure mode - loose schema
+
+What can go wrong if every record is stored as:
+
+```text
+key, value, note
+```
+
+with no typed arrows or path equations?
+
+Answer check:
+
+```text
+The system may be flexible, but consistency constraints become informal.
+It becomes harder to check source compatibility, provenance, contradiction, and schema migration.
+```
+
+Loose data is easy to ingest and hard to reason about.
