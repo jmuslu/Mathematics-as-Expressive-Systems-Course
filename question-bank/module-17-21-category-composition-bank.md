@@ -64,7 +64,7 @@ When a process is typed correctly, multi-step composition can be treated as one 
 
 ## Reserve Notes
 
-Good replacement for memory-specific workflow examples if Module 17 needs a more ordinary first pass.
+Good ordinary workflow example if Module 17 needs a more concrete first pass.
 
 ## 17.morphism.preservation.table.a
 
@@ -72,7 +72,7 @@ Good replacement for memory-specific workflow examples if Module 17 needs a more
 Module: 17
 Topic: structure-preserving maps
 Role: conceptual check
-Status: reserve
+Status: promoted in Module 17 Problem 17.12
 Source use: original, source-informed
 Source note: Inspired by category examples contrasting Set, Graph, and Vect morphisms.
 License note: No source problem text copied.
@@ -105,7 +105,7 @@ The word "map" is incomplete until the category says what structure matters.
 
 ## Modeling Implication
 
-Typed memory transforms should state their preservation rule, not just their input and output format.
+Typed transforms should state their preservation rule, not just their input and output format.
 
 ## Reserve Notes
 
@@ -266,7 +266,7 @@ Products are not just pairs; they are pairs with the right projection behavior.
 
 ## Reserve Notes
 
-Good everyday alternative to memory metadata examples.
+Good everyday product example with visible projections.
 
 ## 18.pullback.roster-join.a
 
@@ -1009,7 +1009,7 @@ Operadic composition remembers dependency shape and slot types.
 
 ## Reserve Notes
 
-Natural analogy for Module 21 without forcing memory-system framing.
+Natural analogy for Module 21 without forcing an application frame.
 
 ## 21.nonassociative.combine.a
 

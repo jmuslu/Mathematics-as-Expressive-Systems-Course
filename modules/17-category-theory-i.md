@@ -13,7 +13,7 @@ You will understand category theory as the language of structure-preserving maps
 
 ## Why The Old Object Fails
 
-A second-brain system has many kinds of structures:
+A serious model often has many kinds of structures:
 
 - Graphs
 - Schemas
@@ -95,11 +95,11 @@ What structure must the maps preserve?
 
 1. Name objects and morphisms in Set, Vect, and Graph.
 2. Give a graph map that preserves adjacency.
-3. Explain why a memory transform should be a morphism of typed graphs.
+3. Explain why a transformation must say what structure it preserves.
 
-## Memory-System Connection
+## Representation Design Connection
 
-Category theory is the language for comparing memory states, schemas, retrieval strategies, and validation pipelines.
+Category theory is the language for comparing typed structures, schemas, workflows, and validation pipelines without pretending they are the same kind of object.
 
 ## Hand Problem Trail
 
@@ -310,14 +310,24 @@ summarizeParty usually loses guest identities, so it is not invertible.
 
 Both maps can be useful, but only one preserves enough information to be undone.
 
-### Problem 17.12: Choose the morphisms before using the word category
+### Problem 17.12: Name the preservation rule
 
-A student says, "My objects are documents, claims, and topics." What is missing before this becomes a category?
+For each proposed map, decide what structure it must preserve to be a morphism in the named category.
+
+```text
+A. Set: f: A -> B
+B. Graph: f: G -> H
+C. Vect: T: V -> W
+D. Poset: f: P -> Q
+```
 
 Answer check:
 
 ```text
-The morphisms must be specified, along with identities and a rule for composition.
+A. functions preserve element assignment and typing
+B. graph morphisms preserve adjacency or incidence, depending on convention
+C. linear maps preserve addition and scalar multiplication
+D. monotone maps preserve order: x <= y implies f(x) <= f(y)
 ```
 
-Category theory is not just naming objects. The maps carry the mathematical commitment.
+The word "map" is incomplete until the category says what structure matters. Category theory is not just naming objects; the maps carry the mathematical commitment.
