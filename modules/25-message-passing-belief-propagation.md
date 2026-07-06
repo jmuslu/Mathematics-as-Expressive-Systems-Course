@@ -2,7 +2,7 @@
 
 ## Lecture Promise
 
-You will understand validation loops as local message updates on a graph.
+You will understand belief propagation as local message updates on a graph.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ Evidence at A should affect belief at C through messages.
 
 Suppose Ari tells Bea a rumor, and Bea tells Cy.
 
-Cy should not receive Ari's entire memory. Cy receives a message shaped by Bea's trust in Ari, Bea's own uncertainty, and the relation between the claims.
+Cy should not receive Ari's entire raw story. Cy receives a message shaped by Bea's trust in Ari, Bea's own uncertainty, and the relation between the claims.
 
 If Cy later sends the rumor back through another path and the system treats it as new independent evidence, confidence can inflate for the wrong reason. That is why message passing needs graph structure: local summaries are useful, but loops can echo.
 
@@ -48,11 +48,11 @@ Loops can double-count evidence. Correlated sources can produce false confidence
 
 1. Write one round of messages on a 3-node chain.
 2. Explain why trees are easier than loopy graphs.
-3. Give a validation loop that could amplify a false claim.
+3. Give a rumor loop that could amplify a false claim.
 
-## Memory-System Connection
+## Representation Design Connection
 
-Validation is not a scalar confidence score. It is a dynamic process over a graph.
+Belief is not just a scalar confidence score. It is a dynamic process over a graph of variables, factors, messages, and dependency assumptions.
 
 ## Hand Problem Trail
 
@@ -274,8 +274,8 @@ Counting them as independent can overstate confidence because one origin is trea
 
 Message passing depends on the dependency assumptions encoded by the graph.
 
-### Problem 25.12: Validation loop
+### Problem 25.12: What a message carries
 
-What does a message represent in an external memory graph?
+In the rumor chain, what does a message represent?
 
-Answer check: a local summary of evidence passed across a relation, not the full raw memory.
+Answer check: a local summary of evidence passed across a relation, not the full raw story or the entire graph state.
