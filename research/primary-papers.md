@@ -47,7 +47,10 @@ Problem hooks:
 - [Notes on Tensor Products and the Exterior Algebra](https://www.math.uwaterloo.ca/~kpurbhoo/spring2012-math245/tensor.pdf) - a compact tensor/exterior algebra reference that emphasizes different products answering different construction problems.
 - [Exterior Powers](https://kconrad.math.uconn.edu/blurbs/linmultialg/extmod.pdf) - Keith Conrad's notes on exterior powers as a way to detect linear dependence and study subspace geometry.
 - [The Dual of a Vector Space](https://people.math.osu.edu/gerlach.1/math5451/TensorCalculus/DualOfAVectorSpace.pdf) - a useful warning that covariant and contravariant language is about components and transformation laws, not magic kinds of arrays.
+- [Chapter 10: Vectors and Tensors](https://cns.gatech.edu/~predrag/courses/PHYS-6124-12/StGoChap10.pdf) - metric-dependent covariant and contravariant components, including the warning that the two should not be casually added.
 - [Lecture Notes on Manifolds, Tangent Vectors and Covectors](https://bohr.physics.berkeley.edu/classes/222/lectures/Lecture.2004.02.24.pdf) - concrete tangent/cotangent transformation laws and the vector/covector pairing.
+- [Complex Inner Products](https://www.math.umd.edu/~hking/Hermitian.pdf) - compact source for why complex inner products need conjugation, plus unitary and Hermitian matrix checks.
+- [Hermitian Operators](https://www.maths.dur.ac.uk/users/kasper.peeters/mathphys/hermitian_operators.html) - adjoints, conjugate transpose, and the operator condition behind Hermitian matrices.
 
 Problem hooks:
 
