@@ -144,16 +144,33 @@ normalized: (0.6,0.4)
 
 A variable sends the product of incoming information from the other neighboring factors.
 
-### Problem 25.5: One factor message
+### Problem 25.5: One factor-to-variable message
 
-A factor prefers equal binary values: potential is 2 if equal, 1 if different. If A's belief is `(0.7,0.3)`, compute the factor-to-B message.
+A binary factor connects variables `A` and `B` with potential:
+
+```text
+f(A,B)
+        B=0 B=1
+A=0     3   1
+A=1     2   4
+```
+
+Incoming message from `A` is:
+
+```text
+m_A_to_f = (0.6, 0.4)
+```
+
+Compute the unnormalized message `m_f_to_B`.
 
 Answer check:
 
 ```text
-m(0)=2*0.7 + 1*0.3 = 1.7
-m(1)=1*0.7 + 2*0.3 = 1.3
+m(B=0) = f(0,0)0.6 + f(1,0)0.4 = 3(0.6) + 2(0.4) = 2.6
+m(B=1) = f(0,1)0.6 + f(1,1)0.4 = 1(0.6) + 4(0.4) = 2.2
 ```
+
+The factor sums over the variable it is not sending to.
 
 ### Problem 25.6: Normalize the factor message
 
@@ -162,11 +179,11 @@ Normalize the message from Problem 25.5.
 Answer check:
 
 ```text
-total = 1.7 + 1.3 = 3
-normalized = (1.7/3, 1.3/3) = (0.5667, 0.4333)
+total = 2.6 + 2.2 = 4.8
+normalized = (2.6/4.8, 2.2/4.8) = (0.5417, 0.4583)
 ```
 
-The factor nudges B toward 0 because A currently leans toward 0 and the factor prefers equality.
+The factor nudges B toward 0, but not because it simply prefers equality. The whole compatibility table shapes the message.
 
 ### Problem 25.7: Contradiction factor
 

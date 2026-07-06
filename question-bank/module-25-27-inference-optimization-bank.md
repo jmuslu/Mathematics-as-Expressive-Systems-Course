@@ -18,7 +18,7 @@ Source posture: original course problems inspired by public sources on factor gr
 Module: 25
 Topic: sum-product factor message
 Role: computation
-Status: lecture candidate
+Status: promoted in Module 25 Problems 25.5-25.6
 Source use: original, source-informed
 Source note: Inspired by factor-graph sum-product message formulas.
 License note: No source problem text copied.
