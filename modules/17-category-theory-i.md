@@ -294,16 +294,21 @@ g o f = id_A
 f o g = id_B
 ```
 
-Which workflow map is more likely to be an isomorphism: relabeling a graph, or summarizing a long document?
+Which restaurant-system map is more likely to be an isomorphism?
+
+```text
+renameTable: TableLabel -> TableLabel
+summarizeParty: FullGuestList -> PartySize
+```
 
 Answer check:
 
 ```text
-Relabeling a graph is more likely to be an isomorphism.
-Summarization usually loses information, so it usually has no inverse.
+renameTable is likely invertible if labels are changed one-to-one.
+summarizeParty usually loses guest identities, so it is not invertible.
 ```
 
-Not every useful morphism is reversible.
+Both maps can be useful, but only one preserves enough information to be undone.
 
 ### Problem 17.12: Choose the morphisms before using the word category
 

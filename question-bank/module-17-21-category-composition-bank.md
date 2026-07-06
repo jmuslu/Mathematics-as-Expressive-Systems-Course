@@ -174,7 +174,7 @@ Promoted into Module 17 as the ordinary human version of the graph morphism/fail
 Module: 17
 Topic: isomorphism versus lossy morphism
 Role: failure mode
-Status: lecture candidate
+Status: promoted in Module 17 Problem 17.11
 Source use: original
 Source note: Course-style operational analogy.
 License note: No source problem text copied.
