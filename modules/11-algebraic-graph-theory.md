@@ -47,11 +47,11 @@ Algebraic graph theory studies graphs using matrices, eigenvalues, automorphism 
 
 1. Find automorphisms of a triangle graph.
 2. Compare spectra of simple graphs.
-3. Explain why graph automorphisms matter for memory node relabeling.
+3. Explain why graph automorphisms matter for detective-board relabeling.
 
-## Memory-System Connection
+## Design Connection
 
-Your memory graph should not depend on arbitrary presentation.
+A graph-level conclusion should not depend on arbitrary names, drawing choices, or presentation.
 
 ## Hand Problem Trail
 
@@ -195,9 +195,9 @@ No. Some non-isomorphic graphs are cospectral.
 
 Spectra are powerful invariants, but not complete invariants.
 
-### Problem 11.12: Memory interpretation
+### Problem 11.12: Presentation interpretation
 
-Why do automorphisms matter for memory graph evaluation?
+Why do automorphisms matter for graph-level evaluation?
 
 Answer check:
 
