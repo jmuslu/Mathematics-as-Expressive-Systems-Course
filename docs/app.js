@@ -20,7 +20,7 @@ const modules = [
   ["18", "Category Theory II: Universal Properties", "modules/18-universal-properties.md", "Define objects by their mapping behavior."],
   ["19", "Functors and Natural Transformations", "modules/19-functors-natural-transformations.md", "Translate between structured systems coherently."],
   ["20", "Categorical Databases and Schemas", "modules/20-categorical-databases.md", "Treat typed roster schemas as categories."],
-  ["21", "Operads and Compositional Systems", "modules/21-operads-compositional-systems.md", "Compose multi-input validation and reasoning operations."],
+  ["21", "Operads and Compositional Systems", "modules/21-operads-compositional-systems.md", "Compose typed multi-input dinner-planning operations."],
   ["22", "Topology, Neighborhoods, and Continuity", "modules/22-topology-neighborhoods-continuity.md", "Study structure that survives deformation."],
   ["23", "Persistent Homology", "modules/23-persistent-homology.md", "Track what survives across thresholds, decay, and scale."],
   ["24", "Sheaves and Local-to-Global Consistency", "modules/24-sheaves-local-global.md", "Patch local claims into coherent global belief."],
