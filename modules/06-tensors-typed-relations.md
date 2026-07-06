@@ -12,10 +12,10 @@ You will understand tensors as objects for multi-way interactions, not just high
 
 ## Why The Old Object Fails
 
-Edges model pairwise relations. Knowledge often needs multi-way relations:
+Edges model pairwise relations. Social planning often needs multi-way relations:
 
 ```text
-claim, source, time, confidence, validation status
+person, dish, occasion, price, preference strength
 ```
 
 ## Base Case
@@ -84,7 +84,7 @@ Why this belongs here:
 
 - It distinguishes ordered orientation from unordered association.
 - It vanishes when two directions are dependent.
-- It gives mature intuition for flux, circulation, constraints, and "joint evidence with orientation."
+- It gives mature intuition for flux, circulation, constraints, and ordered multi-factor disagreement.
 - It prepares you for topology and cohomology without requiring a physics specialization.
 
 ## Tensor Discipline
@@ -111,14 +111,14 @@ Covariance, contravariance, Hermitian structure, exterior products, and invarian
 
 1. Explain why dot product is bilinear.
 2. Represent a ternary relation as a tensor.
-3. Explain why hyperedges are more natural than edges for evidence bundles.
+3. Explain why hyperedges are more natural than edges for dinner-table constraints.
 4. Compute `u wedge v` and `v wedge u` symbolically and explain the sign change.
 5. Show why `u wedge u = 0` encodes dependence.
-6. Decide whether a memory relation should be symmetric, antisymmetric, or neither.
+6. Decide whether a social relation should be symmetric, antisymmetric, or neither.
 
-## Memory-System Connection
+## Design Connection
 
-Typed memory relations are tensorial: they have slots, variance, and transformation rules.
+Typed dinner and social relations are tensorial: they have slots, variance, and transformation rules.
 
 ## Hand Problem Trail
 

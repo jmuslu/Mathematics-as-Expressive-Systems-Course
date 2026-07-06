@@ -5,7 +5,7 @@ const modules = [
   ["03", "Linear Maps and Change", "modules/03-linear-maps-and-change.md", "Treat perspective shifts and state changes as transformations."],
   ["04", "Projection, Error, and Misunderstanding", "modules/04-projection-error-approximation.md", "Measure best available representation and residual error."],
   ["05", "Duality and Measurement", "modules/05-duality-and-measurement.md", "Understand scores, constraints, and validation tests as covectors."],
-  ["06", "Tensors and Typed Relations", "modules/06-tensors-typed-relations.md", "Represent multi-way relations and typed evidence bundles."],
+  ["06", "Tensors and Typed Relations", "modules/06-tensors-typed-relations.md", "Represent multi-way dinner and social relations."],
   ["07", "Covariance and Contravariance", "modules/07-covariance-contravariance.md", "Track how states, measurements, and tensors transform under coordinate change."],
   ["08", "Inner Products and Hermitian Structure", "modules/08-hermitian-structure.md", "Preserve geometry over complex scalars and phase-aware representations."],
   ["09", "Spectral Theory", "modules/09-spectral-theory.md", "Find stable modes, attractors, and directions that survive transformation."],
