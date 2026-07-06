@@ -17,6 +17,7 @@ Use [Problem Trail Style](../PROBLEM_TRAIL_STYLE.md) for analogy rules, bank rol
 - `module-06-tensors-typed-relations-pilot.md` - first reviewed pilot using the dinner-table analogy.
 - `module-07-covariance-contravariance-bank.md` - reserve and lecture-candidate problems for variance, metrics, slot grammar, and wedge checks.
 - `module-08-hermitian-structure-bank.md` - reserve and lecture-candidate problems for complex inner products, unitary maps, adjoints, and Hermitian forms.
+- `module-13-16-symmetry-bank.md` - reserve and lecture-candidate problems for groups, actions, representations, equivariance, and Reynolds averaging.
 - `problem-template.md` - metadata template for future bank entries.
 
 ## Promotion Rule
