@@ -82,13 +82,13 @@ Let A be an adjacency matrix and P be a permutation matrix. Relabeling graph nod
 A -> P A P^T
 ```
 
-A graph-level memory summary should usually be invariant:
+A graph-level summary should usually be invariant:
 
 ```text
 f(P A P^T) = f(A)
 ```
 
-A node-level memory embedding should usually be equivariant:
+A node-level embedding should usually be equivariant:
 
 ```text
 H(P A P^T) = P H(A)
@@ -112,10 +112,10 @@ Tensor product representations, symmetric and antisymmetric tensor powers, direc
 
 Invariance can erase information. Equivariance can preserve too much structure.
 
-For memory systems, you must decide:
+For structured models, you must decide:
 
 - Should relabeling nodes change the output? No.
-- Should changing evidence direction change belief state? Usually yes, but predictably.
+- Should changing a node-level feature change a node-level output? Usually yes, but predictably.
 
 ## Problem Ladder
 
@@ -123,12 +123,12 @@ For memory systems, you must decide:
 2. Give one invariant graph output and one equivariant graph output.
 3. Explain why graph node embeddings should be permutation equivariant.
 4. Compute P A P^T for a relabeled three-node path.
-5. Decide whether degree, triangle count, eigenvalues, and raw node ID are invariant or equivariant.
+5. Compare a node-level equivariant output with a graph-level invariant summary.
 6. Explain how a tensor product representation acts on a pair of features.
 
-## Memory-System Connection
+## Representation Design Connection
 
-Equivariance is the mature version of "safe transformation." It tells you how memory states should change when the underlying graph changes.
+Equivariance is the mature version of "safe transformation." It tells you how represented states should change when the underlying object is relabeled or transformed.
 
 ## Hand Problem Trail
 
@@ -369,24 +369,34 @@ dim(V tensor W) = 2 * 3 = 6
 
 Tensor products build compound spaces by pairing basis slots.
 
-### Problem 15.12: Invariant or equivariant?
+### Problem 15.12: Invariant summary versus equivariant node output
 
-Classify each output type for a graph with arbitrary node labels:
+A node-feature vector is:
 
 ```text
-A. total number of triangles
-B. embedding vector for each node
-C. sorted degree sequence
-D. raw feature of node 1
+x = (2, 5, 8)
 ```
+
+Let `P` swap the first and third nodes. Compare:
+
+```text
+F(x) = 2x
+g(x) = sum of coordinates
+```
+
+Which output is equivariant and which is invariant?
 
 Answer check:
 
 ```text
-A. invariant
-B. equivariant
-C. invariant
-D. neither, unless node 1 has semantic identity beyond its label
+Px = (8,5,2)
+F(Px) = (16,10,4)
+P F(x) = P(4,10,16) = (16,10,4)
+So F is equivariant.
+
+g(Px) = 8+5+2 = 15
+g(x) = 2+5+8 = 15
+So g is invariant.
 ```
 
-The question is not "does it change?" The question is "how should it change?"
+Node-level outputs move with nodes. Graph-level summaries ignore node names. The output type determines the right symmetry law.

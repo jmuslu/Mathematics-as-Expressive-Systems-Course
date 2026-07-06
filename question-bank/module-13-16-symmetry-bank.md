@@ -528,7 +528,7 @@ Useful for explaining why products matter in representation theory.
 Module: 15
 Topic: invariant and equivariant graph outputs
 Role: modeling interpretation
-Status: lecture candidate
+Status: promoted in Module 15 Problem 15.12
 Source use: original, source-informed
 Source note: Inspired by graph-network invariance/equivariance papers.
 License note: No source problem text copied.
