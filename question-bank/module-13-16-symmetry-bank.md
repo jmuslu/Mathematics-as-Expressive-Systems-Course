@@ -426,7 +426,7 @@ Pairs well with anti-invariant examples.
 Module: 15
 Topic: equivariant linear maps
 Role: derivation
-Status: reserve
+Status: promoted in Module 15 Problem 15.6
 Source use: original, source-informed
 Source note: Inspired by equivariant linear-layer constraints in graph-network papers.
 License note: No source problem text copied.

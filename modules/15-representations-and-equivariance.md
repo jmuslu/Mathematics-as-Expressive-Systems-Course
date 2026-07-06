@@ -212,18 +212,50 @@ f(s.(x,y)) = f(y,x) = y - x = -(x-y)
 
 Some quantities are not mistakes just because they change. They may transform predictably.
 
-### Problem 15.6: Equivariant map
+### Problem 15.6: Equivariant linear map as a matrix constraint
 
-Let `F(x,y)=(2x,2y)`. Is F equivariant under coordinate swap?
+Let:
+
+```text
+S = [0 1]
+    [1 0]
+```
+
+swap coordinates. A linear map `F(x)=Mx` is equivariant under the swap exactly when:
+
+```text
+MS = SM
+```
+
+For:
+
+```text
+M = [a b]
+    [c d]
+```
+
+find the constraints on `a,b,c,d`.
 
 Answer check:
 
 ```text
-F(s.(x,y)) = F(y,x) = (2y,2x)
-s.F(x,y) = s.(2x,2y) = (2y,2x)
+MS = [b a]
+     [d c]
+
+SM = [c d]
+     [a b]
+
+Equate entries:
+b = c
+a = d
+d = a
+c = b
+
+So M = [a b]
+       [b a]
 ```
 
-Yes.
+Equivariance ties parameters together. The matrix cannot treat the two swapped coordinates by unrelated rules.
 
 ### Problem 15.7: A non-equivariant map
 
