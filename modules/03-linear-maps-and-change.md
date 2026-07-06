@@ -43,6 +43,8 @@ The advice does not erase the original perspective. It mixes one coordinate into
 
 That is a linear map when mixing respects addition and scaling. The transformation itself becomes an object you can compose, invert, or test for lost information.
 
+The same style explains a self-discovery calculation. If two observations about a situation can be transformed into one compatible pair of hidden coordinates, the system has found a consistent explanation. If a transformation collapses two different states into the same output, then some distinction has been lost. Linear algebra is the language for asking which changes are merely a new perspective and which changes destroy information.
+
 ## Formal Object
 
 A linear map T satisfies:

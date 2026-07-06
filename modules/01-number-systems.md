@@ -50,6 +50,34 @@ new_score = 0.7 * retriever_score + 0.3 * recency_score
 
 Integers fail. Real scalars are forced.
 
+## Running Example: Friendship Intensity Versus Pattern
+
+Suppose two people describe the kind of friendship they want using three coordinates:
+
+```text
+loyalty, humor, shared routines
+```
+
+One profile is:
+
+```text
+a = (3, 4, 0)
+```
+
+Another is:
+
+```text
+b = (6, 8, 0)
+```
+
+The second profile is twice as intense, but it points in the same direction. After normalization, both become:
+
+```text
+(3/5, 4/5, 0)
+```
+
+That means the scalar system is already doing design work. If magnitude matters, `a` and `b` are different. If only direction matters, they are the same pattern. Scalars are not just numbers attached to a vector; they decide which comparisons are legal and meaningful.
+
 ## Formal Object
 
 A scalar field is a system where addition, subtraction, multiplication, and division by nonzero elements are legal. Common examples:
