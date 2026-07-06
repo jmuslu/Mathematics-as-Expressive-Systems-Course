@@ -121,17 +121,29 @@ Cy component: [0, 3]
 
 Depending on convention, the component that survives can be chosen by the merge rule. The key point is that two components die when they merge.
 
-### Problem 23.6: Long bar versus short bar
+### Problem 23.6: Four-point H0 barcode
 
-Which component feature looks more persistent: one born at `0` and dying at `1`, or one born at `0` and dying at `8`?
+Four points have pairwise distances:
+
+```text
+d(A,B)=1
+d(B,C)=2
+d(C,D)=4
+d(A,D)=7
+```
+
+Ignoring all other edges, use thresholds `0`, `1`, `2`, and `4`. Give informal `H0` bars if the component born at `A` survives forever and each merge kills the newer component.
 
 Answer check:
 
 ```text
-The [0,8] feature is more persistent.
+A: [0, infinity)
+B: [0, 1]
+C: [0, 2]
+D: [0, 4]
 ```
 
-Persistence measures survival across scale.
+Components are born as isolated points and die when threshold edges merge them into older components. Longer bars indicate structures that survive across broader threshold ranges.
 
 ### Problem 23.7: A loop is born
 

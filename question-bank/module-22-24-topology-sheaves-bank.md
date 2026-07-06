@@ -336,7 +336,7 @@ Promoted into Module 23 to connect the first barcode computation to the friendsh
 Module: 23
 Topic: H0 barcode
 Role: computation
-Status: lecture candidate
+Status: promoted in Module 23 Problem 23.6
 Source use: original, source-informed
 Source note: Inspired by barcode examples in persistent homology sources.
 License note: No source problem text copied.
