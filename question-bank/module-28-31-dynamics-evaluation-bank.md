@@ -449,6 +449,106 @@ Evaluation should separately test retrieval, grounding, synthesis, and structura
 
 Good non-mathematical but essential evaluation check.
 
+## 30.component-panel.rag-eval.a
+
+```text
+Module: 30
+Topic: component-wise RAG evaluation
+Role: conceptual check
+Status: lecture candidate
+Source use: original, source-informed
+Source note: Inspired by RAGAS and ARES decomposition of context relevance, answer faithfulness, and answer relevance.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A RAG-style memory system receives:
+
+```text
+query: What day is the lab meeting?
+retrieved context: The lab meeting moved from Tuesday to Thursday.
+answer: The lab meeting is Thursday.
+```
+
+Classify which component each question evaluates:
+
+```text
+A. Did the retrieved context address the query?
+B. Did the answer stay supported by the retrieved context?
+C. Did the answer respond to the user's query?
+```
+
+## Answer Check
+
+```text
+A. context relevance
+B. answer faithfulness
+C. answer relevance
+```
+
+## Intuition
+
+A correct final answer can hide which component succeeded. Component-wise evaluation separates retrieval, grounding, and response quality.
+
+## Modeling Implication
+
+Second-brain evaluation should not collapse every failure into one accuracy score; it should locate the broken map in the pipeline.
+
+## Reserve Notes
+
+Good bridge from standard RAG evaluation frameworks to the course's structural evaluation panel.
+
+## 30.calibration.ece.two-bin.a
+
+```text
+Module: 30
+Topic: calibration and expected calibration error
+Role: computation
+Status: lecture candidate
+Source use: original, source-informed
+Source note: Inspired by calibration papers using reliability diagrams and expected calibration error.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A validation system makes 10 predictions grouped into two confidence bins:
+
+```text
+bin 1: 4 predictions, average confidence 0.60, accuracy 0.50
+bin 2: 6 predictions, average confidence 0.90, accuracy 0.75
+```
+
+Compute the expected calibration error:
+
+```text
+ECE = sum_bins (bin_size / total_size) * |accuracy - confidence|
+```
+
+## Answer Check
+
+```text
+bin 1 contribution = (4/10)|0.50 - 0.60| = 0.4 * 0.10 = 0.04
+bin 2 contribution = (6/10)|0.75 - 0.90| = 0.6 * 0.15 = 0.09
+
+ECE = 0.04 + 0.09 = 0.13
+```
+
+## Intuition
+
+Calibration asks whether confidence means what it claims statistically. A model can rank answers well and still be overconfident.
+
+## Modeling Implication
+
+Memory validation should evaluate belief scores as probabilities, not just as ordering signals.
+
+## Reserve Notes
+
+Strong candidate for Module 30 if the calibration problem needs a more quantitative answer check.
+
 ## 30.invariance-regression-test.a
 
 ```text
