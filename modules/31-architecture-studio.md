@@ -1,8 +1,8 @@
-# Module 31: Architecture Studio
+# Module 31: Evidence Board Architecture Studio
 
 ## Lecture Promise
 
-You will assemble the mathematical objects into a design specification for a dynamic epistemic graph.
+You will assemble the course's mathematical objects into a design specification for a structured evidence board.
 
 ## Prerequisites
 
@@ -10,7 +10,7 @@ You will assemble the mathematical objects into a design specification for a dyn
 
 ## Design Target
 
-Specify:
+Design a debate or research evidence board. Specify:
 
 - Node types
 - Edge types
@@ -28,9 +28,9 @@ Specify:
 Design a tiny graph with:
 
 ```text
-3 claims
-2 evidence nodes
-1 contradiction
+3 conclusion nodes
+2 evidence cards
+1 objection
 1 validation loop
 1 decay rule
 ```
@@ -50,7 +50,7 @@ failure tests
 
 ## Failure Mode
 
-If the architecture cannot state what it preserves, it cannot be trusted as a second brain.
+If the architecture cannot state what it preserves, it cannot be trusted as an argument board.
 
 ## Problem Ladder
 
@@ -60,20 +60,20 @@ If the architecture cannot state what it preserves, it cannot be trusted as a se
 4. Define one sheaf consistency test.
 5. Define one decay/reinforcement dynamic.
 
-## Memory-System Connection
+## Design Connection
 
 This is where the mathematics becomes design practice.
 
 ## Hand Problem Trail
 
-### Problem 31.1: Specify a memory object
+### Problem 31.1: Specify an evidence-board object
 
-Define a memory node type with at least five fields. Mark which fields are scalars, vectors, labels, or references.
+Define an evidence-card node type with at least five fields. Mark which fields are scalars, vectors, labels, or references.
 
 Answer check example:
 
 ```text
-claim_text: text label
+card_text: text label
 embedding: vector
 confidence: scalar
 source_id: reference
@@ -88,7 +88,7 @@ Define a typed edge for support. Include source type, target type, and at least 
 Answer check example:
 
 ```text
-supports: Evidence -> Claim
+supports: EvidenceCard -> Conclusion
 fields:
   confidence: scalar
   extraction_method: label
@@ -104,7 +104,7 @@ Define a hyperedge or multi-input relation for validation.
 Answer check example:
 
 ```text
-validation_event: Claim x Evidence x Rule -> Status
+validation_event: Conclusion x EvidenceCard x Rule -> Status
 fields:
   status: finite label
   score: scalar
@@ -115,7 +115,7 @@ Some relations cannot be faithfully represented as independent pairwise edges.
 
 ### Problem 31.4: Specify legal transformations
 
-For your memory graph, list three transformations that should preserve meaning and three that should change meaning.
+For your evidence-board graph, list three transformations that should preserve meaning and three that should change meaning.
 
 Answer check examples:
 
@@ -145,7 +145,7 @@ Give an output that should move with node relabeling rather than stay fixed.
 Answer check example:
 
 ```text
-node-level belief embeddings should satisfy H(PAP^T)=P H(A)
+node-level evidence embeddings should satisfy H(PAP^T)=P H(A)
 ```
 
 Node-level objects usually transform with the nodes.
@@ -188,12 +188,12 @@ The architecture should say what decays and what can reinforce it.
 
 ### Problem 31.10: Define a rewrite rule
 
-Write one guarded rewrite rule for duplicate claims.
+Write one guarded rewrite rule for duplicate conclusion cards.
 
 Answer check example:
 
 ```text
-If two claims have same normalized text, same source, and compatible timestamps,
+If two conclusion cards have same normalized text, same source, and compatible timestamps,
 merge them and preserve both original IDs as provenance.
 ```
 
@@ -226,7 +226,7 @@ Evaluation should match the mathematical promises in the design. A promise witho
 A design spec says:
 
 ```text
-We store claims in a graph and retrieve useful memories.
+We store debate cards in a graph and retrieve useful evidence.
 ```
 
 Name five mathematical commitments missing from this spec.
