@@ -13,6 +13,16 @@ Every module should have:
 - small enough calculations to verify by hand,
 - at least one failure-mode or interpretation problem in the trail.
 
+Every lecture module after orientation should also expose the depth spine:
+
+- `## Formal Object`
+- `## Legal Operations`
+- `## Worked Derivation`
+- `## Invariants`
+- `## Failure Mode`
+
+Module 00 is the orientation exception: it teaches the spine rather than using it as an ordinary lecture topic.
+
 Current status:
 
 ```text
@@ -58,6 +68,7 @@ Run:
 The script checks:
 
 - renderer JavaScript syntax,
+- depth-heading presence for Modules 01-31,
 - hand-trail presence,
 - problem count,
 - answer-check count,

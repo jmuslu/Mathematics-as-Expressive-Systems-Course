@@ -50,6 +50,22 @@ foreach ($file in $moduleFiles) {
     $issues.Add("$($file.Name): missing ## Hand Problem Trail")
   }
 
+  if ($moduleNumber -gt 0) {
+    $requiredDepthHeadings = @(
+      @{ Label = "## Formal Object"; Pattern = '^## Formal Object\b' },
+      @{ Label = "## Legal Operations"; Pattern = '^## Legal Operations\b' },
+      @{ Label = "## Worked Derivation"; Pattern = '^## Worked Derivation\b' },
+      @{ Label = "## Invariants"; Pattern = '^## Invariants\b' },
+      @{ Label = "## Failure Mode"; Pattern = '^## Failure Mode\b' }
+    )
+
+    foreach ($requiredHeading in $requiredDepthHeadings) {
+      if (-not ($content | Select-String -Pattern $requiredHeading.Pattern -Quiet)) {
+        $issues.Add("$($file.Name): missing $($requiredHeading.Label)")
+      }
+    }
+  }
+
   $problemMatches = $content | Select-String -Pattern '^### Problem (\d+)\.(\d+)'
   $answerChecks = ($content | Select-String -Pattern '^Answer check').Count
 
@@ -181,4 +197,4 @@ if ($issues.Count -gt 0) {
   exit 1
 }
 
-Write-Output "Course audit passed: $($moduleFiles.Count) modules, 12 problems and answer checks each, with valid problem references, question-bank index, bank metadata, and QA counts."
+Write-Output "Course audit passed: $($moduleFiles.Count) modules, depth headings for modules 01-31, 12 problems and answer checks each, with valid problem references, question-bank index, bank metadata, and QA counts."
