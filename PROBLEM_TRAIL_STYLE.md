@@ -3,7 +3,7 @@
 This guide keeps the problem bank and lecture trails from drifting into two common failures:
 
 1. collecting many correct exercises that do not teach the module's central idea,
-2. forcing every analogy into the final memory-system architecture before the local math has earned it.
+2. forcing every analogy into the final design interpretation before the local math has earned it.
 
 The question bank can be large. The lecture trail should be selective.
 

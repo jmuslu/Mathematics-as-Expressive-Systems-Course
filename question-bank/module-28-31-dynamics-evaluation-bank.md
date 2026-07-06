@@ -55,7 +55,7 @@ Reinforcement raises the weight, while decay prevents unbounded growth.
 
 ## Modeling Implication
 
-A memory update rule should state both its transient behavior and its limiting behavior.
+A playlist-attention update rule should state both its transient behavior and its limiting behavior.
 
 ## Reserve Notes
 
@@ -554,7 +554,7 @@ NDCG rewards placing stronger evidence earlier while still giving partial credit
 
 ## Modeling Implication
 
-A memory evaluator should distinguish "retrieved something useful eventually" from "placed the strongest evidence where the user or downstream reasoner will actually see it."
+A debate evaluator should distinguish "found something useful eventually" from "placed the strongest evidence where the judge or downstream reasoner will actually see it."
 
 ## Reserve Notes
 
@@ -624,20 +624,20 @@ Verification status: checked by hand
 
 ## Problem
 
-A RAG-style memory system receives:
+A debate assistant receives:
 
 ```text
-query: What day is the lab meeting?
-retrieved context: The lab meeting moved from Tuesday to Thursday.
+judge question: What day is the lab meeting?
+retrieved evidence card: The lab meeting moved from Tuesday to Thursday.
 answer: The lab meeting is Thursday.
 ```
 
 Classify which component each question evaluates:
 
 ```text
-A. Did the retrieved context address the query?
-B. Did the answer stay supported by the retrieved context?
-C. Did the answer respond to the user's query?
+A. Did the retrieved evidence card address the judge question?
+B. Did the answer stay supported by the evidence card?
+C. Did the answer respond to the judge question?
 ```
 
 ## Answer Check
@@ -793,7 +793,7 @@ Good integration problem linking Modules 28 and 30.
 
 ```text
 Module: 31
-Topic: architecture specification
+Topic: evidence-board design specification
 Role: modeling interpretation
 Status: promoted
 Source use: original, source-informed
@@ -807,7 +807,7 @@ Verification status: checked by hand
 A design spec says:
 
 ```text
-We store claims in a graph and retrieve useful memories.
+We store debate cards in a graph and retrieve useful evidence.
 ```
 
 Name five mathematical commitments missing from this spec.
@@ -828,7 +828,7 @@ evaluation tests
 
 ## Intuition
 
-An architecture is not mathematically specified until its objects, operations, and invariants are explicit.
+A design is not mathematically specified until its objects, operations, and invariants are explicit.
 
 ## Modeling Implication
 
@@ -846,14 +846,14 @@ Topic: evaluation alignment
 Role: conceptual check
 Status: promoted in Module 31 Problem 31.11
 Source use: original
-Source note: Original architecture-studio audit problem.
+Source note: Original evidence-board studio audit problem.
 License note: No source problem text copied.
 Verification status: checked by hand
 ```
 
 ## Problem
 
-An architecture promises:
+A debate-board design promises:
 
 ```text
 permutation-invariant graph scores
@@ -877,7 +877,7 @@ Every mathematical promise needs a matching test.
 
 ## Modeling Implication
 
-Architecture and evaluation should be co-designed.
+Design and evaluation should be co-designed.
 
 ## Reserve Notes
 
@@ -887,7 +887,7 @@ Useful final-module bridge from specification to QA.
 
 ```text
 Module: 31
-Topic: architecture conflict
+Topic: design conflict
 Role: failure mode
 Status: reserve
 Source use: original
@@ -905,7 +905,7 @@ decay rule: delete edges below 0.2
 rewrite rule: if a contradiction edge exists, preserve its provenance
 ```
 
-What conflict should the architecture resolve?
+What conflict should the design resolve?
 
 ## Answer Check
 
@@ -913,7 +913,7 @@ What conflict should the architecture resolve?
 The decay rule might delete a weak contradiction edge whose provenance the rewrite policy says should be preserved.
 ```
 
-The architecture must specify priority, exceptions, or archival behavior.
+The design must specify priority, exceptions, or archival behavior.
 
 ## Intuition
 

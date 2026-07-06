@@ -1,6 +1,6 @@
 # Primary Paper Trail
 
-This course uses papers as mathematical pressure, not as a reading list to finish passively. A source belongs here when it forces a new question about how an external memory system should represent, transform, validate, and revise knowledge.
+This course uses papers as mathematical pressure, not as a reading list to finish passively. A source belongs here when it forces a new question about how an expressive system should represent, transform, validate, compose, or revise structured information.
 
 ## Symmetry, Invariance, And Equivariance
 
@@ -86,9 +86,9 @@ Problem hooks:
 
 Problem hooks:
 
-- Turn a small typed memory schema into a category.
-- Interpret a memory instance as a functor into Set.
-- Use a natural transformation to describe provenance-preserving memory revision.
+- Turn a small typed roster schema into a category.
+- Interpret a roster instance as a functor into Set.
+- Use a natural transformation to describe provenance-preserving record revision.
 - Explain why schema evolution should be functorial rather than an ad hoc migration script.
 - Compute product, coproduct, pullback, and pushout examples with tiny sets.
 - Check a path equation in a categorical database instance.
@@ -115,7 +115,7 @@ Problem hooks:
 - Build a sheaf on a two-source contradiction graph.
 - Decide when local sections glue into a global section.
 - Compare ordinary graph Laplacians with the idea of a sheaf Laplacian.
-- Interpret a failed gluing condition as a memory-system inconsistency rather than a retrieval miss.
+- Interpret a failed gluing condition as local reports disagreeing rather than merely missing a related report.
 
 ## Graphs, Hypergraphs, And Algebraic Structure
 
@@ -135,7 +135,7 @@ Problem hooks:
 - Decompose a vector into eigenmodes and interpret growth, decay, and stable graph dynamics.
 - Compute incidence, adjacency, degree, and Laplacian matrices for one typed graph.
 - Use Laplacian quadratic forms to measure disagreement across edges.
-- Use a Laplacian eigenvector to identify a bottleneck in a memory graph.
+- Use a Laplacian eigenvector to identify a bottleneck in a friendship or evidence graph.
 - Convert a ternary relation into a hyperedge and compare what is lost in pairwise encoding.
 - Distinguish graph connectivity from semantic consistency.
 
@@ -188,7 +188,7 @@ Problem hooks:
 
 - Decompose a failure into representation, retrieval, validation, and synthesis errors.
 - Compare vector similarity with graph/path evidence.
-- Decide when a new memory should create a node, strengthen an edge, update a schema, or trigger contradiction handling.
+- Decide when a new report should create a node, strengthen an edge, update a schema, or trigger contradiction handling.
 - Compute decay and reinforcement updates on nodes, edges, and paths.
 - Test termination and confluence of small rewrite systems.
 - Build an evaluation panel that includes retrieval metrics, invariance checks, sheaf consistency, calibration, and decay stress tests.
