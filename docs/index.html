@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mathematics as Expressive Systems</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Self-paced course</p>
+        <h1>Mathematics as Expressive Systems</h1>
+      </div>
+      <nav class="nav" aria-label="Course views">
+        <a href="#modules">Modules</a>
+        <a href="#lens">Lens</a>
+        <a href="#object-card">Object Card</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="course-board" aria-labelledby="course-title">
+        <div class="intro-panel">
+          <p class="eyebrow">Guiding question</p>
+          <h2 id="course-title">When math needs more expressive power, what changes?</h2>
+          <p>
+            Mathematicians can enlarge the space, enrich the scalars, invent a new operation,
+            or combine these moves into a new construction kit.
+          </p>
+          <div class="move-tabs" role="tablist" aria-label="Design moves">
+            <button class="move-tab active" data-move="all" type="button">All</button>
+            <button class="move-tab" data-move="space" type="button">Space</button>
+            <button class="move-tab" data-move="scalars" type="button">Scalars</button>
+            <button class="move-tab" data-move="operation" type="button">Operation</button>
+            <button class="move-tab" data-move="structure" type="button">Structure</button>
+          </div>
+        </div>
+
+        <div class="map-panel" aria-label="Expressive systems map">
+          <svg viewBox="0 0 720 420" role="img" aria-labelledby="map-title map-desc">
+            <title id="map-title">Course progression map</title>
+            <desc id="map-desc">A map from numbers to vectors, matrices, tensors, groups, representations, and categories.</desc>
+            <defs>
+              <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L9,3 z" fill="#243447"></path>
+              </marker>
+            </defs>
+            <path class="map-line" d="M70 90 C180 40 240 145 340 96 S540 58 635 112"></path>
+            <path class="map-line warm" d="M80 255 C180 180 278 302 376 238 S560 198 645 310"></path>
+            <g class="node" transform="translate(68 90)">
+              <rect x="-42" y="-24" width="84" height="48"></rect>
+              <text y="5">Numbers</text>
+            </g>
+            <g class="node" transform="translate(202 112)">
+              <rect x="-38" y="-24" width="76" height="48"></rect>
+              <text y="5">Vectors</text>
+            </g>
+            <g class="node" transform="translate(342 96)">
+              <rect x="-42" y="-24" width="84" height="48"></rect>
+              <text y="5">Matrices</text>
+            </g>
+            <g class="node" transform="translate(498 84)">
+              <rect x="-50" y="-24" width="100" height="48"></rect>
+              <text y="5">Invariants</text>
+            </g>
+            <g class="node" transform="translate(635 112)">
+              <rect x="-48" y="-24" width="96" height="48"></rect>
+              <text y="5">Complex</text>
+            </g>
+            <g class="node amber" transform="translate(82 255)">
+              <rect x="-44" y="-24" width="88" height="48"></rect>
+              <text y="5">Algebras</text>
+            </g>
+            <g class="node amber" transform="translate(228 242)">
+              <rect x="-38" y="-24" width="76" height="48"></rect>
+              <text y="5">Tensors</text>
+            </g>
+            <g class="node amber" transform="translate(376 238)">
+              <rect x="-36" y="-24" width="72" height="48"></rect>
+              <text y="5">Duality</text>
+            </g>
+            <g class="node amber" transform="translate(520 258)">
+              <rect x="-34" y="-24" width="68" height="48"></rect>
+              <text y="5">Groups</text>
+            </g>
+            <g class="node amber" transform="translate(645 310)">
+              <rect x="-58" y="-24" width="116" height="48"></rect>
+              <text y="5">Categories</text>
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <section id="modules" class="section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Course modules</p>
+            <h2>One new capability at a time</h2>
+          </div>
+          <label class="search">
+            <span>Search</span>
+            <input id="searchInput" type="search" placeholder="e.g. tensor, symmetry, scalar" />
+          </label>
+        </div>
+        <div id="moduleGrid" class="module-grid" aria-live="polite"></div>
+      </section>
+
+      <section id="lens" class="section split">
+        <div>
+          <p class="eyebrow">Lecture lens</p>
+          <h2>Six questions for every object</h2>
+          <ol class="lens-list">
+            <li>What limitation forced this object to exist?</li>
+            <li>What is the new object?</li>
+            <li>What operations are now legal?</li>
+            <li>What new invariants appear?</li>
+            <li>Which concrete examples make it feel natural?</li>
+            <li>Which later theories depend on it?</li>
+          </ol>
+        </div>
+        <div class="active-module" id="activeModule">
+          <p class="eyebrow">Selected module</p>
+          <h3>Choose a module</h3>
+          <p>The selected lecture summary will appear here.</p>
+        </div>
+      </section>
+
+      <section id="object-card" class="section object-workspace">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Object card</p>
+            <h2>Build your own mathematical construction note</h2>
+          </div>
+          <button id="copyCard" class="primary-action" type="button">Copy Markdown</button>
+        </div>
+        <form id="cardForm" class="object-form">
+          <label>
+            <span>Object</span>
+            <input name="object" type="text" placeholder="e.g. tensor product" />
+          </label>
+          <label>
+            <span>Limitation</span>
+            <textarea name="limitation" rows="3"></textarea>
+          </label>
+          <label>
+            <span>Legal operations</span>
+            <textarea name="operations" rows="3"></textarea>
+          </label>
+          <label>
+            <span>Invariants</span>
+            <textarea name="invariants" rows="3"></textarea>
+          </label>
+          <label>
+            <span>Concrete example</span>
+            <textarea name="example" rows="3"></textarea>
+          </label>
+          <label>
+            <span>Design move</span>
+            <select name="move">
+              <option>Enlarge the space</option>
+              <option>Enrich the scalars</option>
+              <option>Invent a new operation</option>
+              <option>Combine several moves</option>
+            </select>
+          </label>
+        </form>
+        <pre id="cardOutput" class="card-output" aria-live="polite"></pre>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
