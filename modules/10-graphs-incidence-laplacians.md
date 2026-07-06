@@ -126,24 +126,30 @@ Each row sum is zero, so L(1,1,1)=(0,0,0).
 
 Connected components support constant zero-energy modes.
 
-### Problem 10.6: Smoothness energy as a quadratic form
+### Problem 10.6: Dinner disagreement as a quadratic form
 
-For node values `x=(1,2,4)`, compute `x^T L x` two ways: by edge differences and by matrix multiplication.
+Three friends sit along the path `1 - 2 - 3`. Their dinner preferences are encoded by:
+
+```text
+x=(0,2,5)
+```
+
+Compute `x^T L x` two ways: by edge differences and by matrix multiplication.
 
 Answer check:
 
 ```text
 edge differences:
-(1-2)^2 + (2-4)^2 = 1 + 4 = 5
+(0-2)^2 + (2-5)^2 = 4 + 9 = 13
 
-Lx = [ 1 -1  0][1]   [-1]
+Lx = [ 1 -1  0][0]   [-2]
      [-1  2 -1][2] = [-1]
-     [ 0 -1  1][4]   [ 2]
+     [ 0 -1  1][5]   [ 3]
 
-x^T Lx = 1(-1) + 2(-1) + 4(2) = 5
+x^T Lx = 0(-2) + 2(-1) + 5(3) = 13
 ```
 
-The quadratic form and the edge-disagreement sum are the same measurement.
+The quadratic form and the edge-disagreement sum are the same measurement: total dinner tension across friendship edges.
 
 ### Problem 10.7: Smoothness energy for a constant signal
 
@@ -172,12 +178,12 @@ Then `B^T B = L`.
 
 ### Problem 10.9: Incidence as edge difference
 
-Using the incidence matrix from Problem 10.8 and `x=(1,2,4)`, compute `Bx`.
+Using the incidence matrix from Problem 10.8 and the dinner-preference vector `x=(0,2,5)`, compute `Bx`.
 
 Answer check:
 
 ```text
-Bx = (2-1, 4-2) = (1,2)
+Bx = (2-0, 5-2) = (2,3)
 ```
 
 The incidence matrix turns node values into edge differences.

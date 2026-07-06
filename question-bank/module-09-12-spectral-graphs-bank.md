@@ -188,9 +188,9 @@ Good bridge from eigendecomposition to graph dynamics.
 Module: 10
 Topic: Laplacian quadratic form
 Role: computation
-Status: lecture candidate
+Status: promoted in Module 10 Problems 10.6 and 10.9
 Source use: original, source-informed
-Source note: Inspired by spectral graph theory sources and the live party-introduction running example.
+Source note: Inspired by spectral graph theory sources on the Laplacian quadratic form and the live party-introduction running example.
 License note: No source problem text copied.
 Verification status: checked by hand
 ```
