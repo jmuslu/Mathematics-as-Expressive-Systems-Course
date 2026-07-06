@@ -178,6 +178,7 @@ Problem hooks:
 - [Benchmarking Large Language Models in Retrieval-Augmented Generation](https://arxiv.org/abs/2309.01431) - evaluates noise robustness, negative rejection, information integration, and counterfactual robustness in RAG.
 - [Evaluation of Retrieval-Augmented Generation: A Survey](https://arxiv.org/html/2405.07437v1) - survey of RAG evaluation challenges and benchmark design.
 - [Retrieval Augmented Generation Evaluation in the Era of Large Language Models](https://arxiv.org/html/2504.14891v1) - broad survey of RAG evaluation methods, datasets, and frameworks.
+- [Cumulated Gain-Based Evaluation of IR Techniques](https://faculty.cc.gatech.edu/~zha/CS8803WST/dcg.pdf) - classic source for cumulative gain, discounted cumulative gain, and normalized discounted cumulative gain with graded relevance.
 - [RAGAS: Automated Evaluation of Retrieval Augmented Generation](https://arxiv.org/abs/2309.15217) - reference-free RAG evaluation across retrieval quality, faithfulness, and generation quality.
 - [ARES: An Automated Evaluation Framework for Retrieval-Augmented Generation Systems](https://arxiv.org/abs/2311.09476) - component-wise RAG evaluation for context relevance, answer faithfulness, and answer relevance, with lightweight judges and prediction-powered inference.
 - [On Calibration of Modern Neural Networks](https://arxiv.org/abs/1706.04599) - calibration, reliability diagrams, expected calibration error, and why confidence should be statistically tested.

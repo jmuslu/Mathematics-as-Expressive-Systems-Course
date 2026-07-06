@@ -505,6 +505,61 @@ Retrieval evaluation and generation evaluation should be separated before being 
 
 Small variant for the existing metrics sequence.
 
+## 30.ndcg.graded-evidence.a
+
+```text
+Module: 30
+Topic: normalized discounted cumulative gain
+Role: computation
+Status: promoted in Module 30 Problem 30.4
+Source use: original, source-informed
+Source note: Inspired by cumulated-gain evaluation for graded relevance in information retrieval.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A retrieval system returns three evidence cards with graded relevance scores:
+
+```text
+rank 1: relevance 3
+rank 2: relevance 0
+rank 3: relevance 2
+```
+
+Using:
+
+```text
+DCG@3 = rel_1/log2(2) + rel_2/log2(3) + rel_3/log2(4)
+NDCG@3 = DCG@3 / IDCG@3
+```
+
+compute `DCG@3` and approximate `NDCG@3`. The ideal order is `(3,2,0)`, and `log2(3) ~~ 1.585`.
+
+## Answer Check
+
+```text
+DCG@3 = 3/1 + 0/1.585 + 2/2 = 4
+IDCG@3 = 3/1 + 2/1.585 + 0/2
+       ~~ 3 + 1.262
+       = 4.262
+
+NDCG@3 ~~ 4/4.262 ~~ 0.938
+```
+
+## Intuition
+
+NDCG rewards placing stronger evidence earlier while still giving partial credit to useful evidence found lower in the ranking.
+
+## Modeling Implication
+
+A memory evaluator should distinguish "retrieved something useful eventually" from "placed the strongest evidence where the user or downstream reasoner will actually see it."
+
+## Reserve Notes
+
+Promoted into Module 30 to replace a purely verbal NDCG intuition check with a hand computation.
+
 ## 30.faithfulness-context-test.a
 
 ```text

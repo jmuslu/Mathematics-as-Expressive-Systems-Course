@@ -101,17 +101,37 @@ Answer check:
 MRR = (1 + 1/4 + 1/10)/3 = 1.35/3 = 0.45
 ```
 
-### Problem 30.4: NDCG intuition
+### Problem 30.4: NDCG by hand
 
-A ranking puts highly useful items at ranks 1 and 2 in one run, and at ranks 8 and 9 in another. Which run should have higher NDCG?
+A retrieval system returns three evidence cards with graded relevance scores:
+
+```text
+rank 1: relevance 3
+rank 2: relevance 0
+rank 3: relevance 2
+```
+
+Using:
+
+```text
+DCG@3 = rel_1/log2(2) + rel_2/log2(3) + rel_3/log2(4)
+NDCG@3 = DCG@3 / IDCG@3
+```
+
+compute `DCG@3` and approximate `NDCG@3`. The ideal order is `(3,2,0)`, and `log2(3) ~~ 1.585`.
 
 Answer check:
 
 ```text
-The run with useful items at ranks 1 and 2.
+DCG@3 = 3/1 + 0/1.585 + 2/2 = 4
+IDCG@3 = 3/1 + 2/1.585 + 0/2
+       ~~ 3 + 1.262
+       = 4.262
+
+NDCG@3 ~~ 4/4.262 ~~ 0.938
 ```
 
-NDCG rewards placing stronger results earlier.
+NDCG rewards placing stronger evidence earlier while still giving partial credit to useful evidence found lower in the ranking.
 
 ### Problem 30.5: Invariance test
 
