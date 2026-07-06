@@ -186,17 +186,31 @@ The edge with weight 0.4 is dropped, so the path breaks.
 
 Decay can destroy global reasoning even when most local edges look strong.
 
-### Problem 30.10: Calibration test
+### Problem 30.10: Calibration test with ECE
 
-Among 100 predictions made with confidence 0.8, about how many should be correct for good calibration?
+A validation system makes 10 predictions grouped into two confidence bins:
+
+```text
+bin 1: 4 predictions, average confidence 0.60, accuracy 0.50
+bin 2: 6 predictions, average confidence 0.90, accuracy 0.75
+```
+
+Compute the expected calibration error:
+
+```text
+ECE = sum_bins (bin_size / total_size) * |accuracy - confidence|
+```
 
 Answer check:
 
 ```text
-About 80.
+bin 1 contribution = (4/10)|0.50 - 0.60| = 0.04
+bin 2 contribution = (6/10)|0.75 - 0.90| = 0.09
+
+ECE = 0.04 + 0.09 = 0.13
 ```
 
-Confidence should mean something statistically testable.
+Confidence should mean something statistically testable. A model can rank answers well and still be overconfident.
 
 ### Problem 30.11: Failure decomposition
 
