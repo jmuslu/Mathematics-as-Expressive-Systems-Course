@@ -93,9 +93,41 @@ foreach ($file in $moduleFiles) {
   }
 }
 
+$questionBankReadme = "question-bank\README.md"
+if (-not (Test-Path $questionBankReadme)) {
+  $issues.Add("question-bank: missing README.md")
+} else {
+  $bankFiles = Get-ChildItem -Path "question-bank" -Filter "*.md" |
+    Where-Object { $_.Name -ne "README.md" } |
+    Sort-Object Name
+  $bankReadmeText = Get-Content -LiteralPath $questionBankReadme -Raw
+  $filesSection = [regex]::Match($bankReadmeText, '(?s)## Files\s+(.*?)\s+## Promotion Rule')
+  $indexedBankFiles = @{}
+
+  if (-not $filesSection.Success) {
+    $issues.Add("question-bank/README.md: missing ## Files section before ## Promotion Rule")
+  } else {
+    foreach ($match in [regex]::Matches($filesSection.Groups[1].Value, '`([^`]+\.md)`')) {
+      $indexedBankFiles[$match.Groups[1].Value] = $true
+    }
+  }
+
+  foreach ($file in $bankFiles) {
+    if (-not $indexedBankFiles.ContainsKey($file.Name)) {
+      $issues.Add("question-bank/README.md: missing index entry for $($file.Name)")
+    }
+  }
+
+  foreach ($indexedName in $indexedBankFiles.Keys) {
+    if (-not (Test-Path (Join-Path "question-bank" $indexedName))) {
+      $issues.Add("question-bank/README.md: indexes missing file $indexedName")
+    }
+  }
+}
+
 if ($issues.Count -gt 0) {
   $issues | ForEach-Object { Write-Error $_ }
   exit 1
 }
 
-Write-Output "Course audit passed: $($moduleFiles.Count) modules, 12 problems and answer checks each, with valid problem references."
+Write-Output "Course audit passed: $($moduleFiles.Count) modules, 12 problems and answer checks each, with valid problem references and question-bank index."
