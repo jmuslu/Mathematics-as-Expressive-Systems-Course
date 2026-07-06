@@ -250,7 +250,7 @@ Useful everyday analogy for attractor failure.
 Module: 29
 Topic: critical pair
 Role: conceptual check
-Status: lecture candidate
+Status: promoted in Module 29 Problem 29.8
 Source use: original, source-informed
 Source note: Inspired by graph rewriting confluence and critical-pair discussions.
 License note: No source problem text copied.

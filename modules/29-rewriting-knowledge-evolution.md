@@ -185,29 +185,22 @@ Different rewrite orders can still agree if they join.
 
 ### Problem 29.8: Critical pair intuition
 
-Two rules both match the same claim:
+A claim `c` matches two rewrite rules:
 
 ```text
-R1: mark as contradicted
-R2: merge with duplicate
+R1: merge duplicate claims
+R2: mark contradicted claims
 ```
 
-What question should you ask before allowing both?
+If applying `R1` first removes the duplicate node that `R2` would have marked, what must be checked?
 
 Answer check:
 
 ```text
-Do the two rewrite orders lead to compatible final states?
+Check whether the two rewrite orders can be joined to compatible final states.
 ```
 
-For example:
-
-```text
-R1 then R2: contradicted merged claim
-R2 then R1: merged contradicted claim
-```
-
-If those final states differ in provenance, confidence, or contradiction links, the rewrite system has an order-dependence problem. Critical pairs expose that risk.
+If not, the system has an order-dependent critical pair: two locally reasonable edits conflict because their matches overlap.
 
 ### Problem 29.9: Provenance-preserving rewrite
 
