@@ -273,7 +273,11 @@ Answer check:
 
 ```text
 e2 wedge e1 = - e1 wedge e2
-(e1 + e2) wedge e1 = - e1 wedge e2
+
+(e1 + e2) wedge e1
+  = e1 wedge e1 + e2 wedge e1
+  = 0 - e1 wedge e2
+  = - e1 wedge e2
 ```
 
 ### Problem 6.9: Oriented difference between two profiles
