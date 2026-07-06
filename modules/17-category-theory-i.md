@@ -178,10 +178,14 @@ embed o (summarize o validate)
 Answer check:
 
 ```text
-Both are the same typed path RawMemory -> Vector.
+summarize o validate: RawMemory -> Summary
+embed o (summarize o validate): RawMemory -> Vector
+
+embed o summarize: ValidatedClaim -> Vector
+(embed o summarize) o validate: RawMemory -> Vector
 ```
 
-Associativity means parentheses do not change a legal chain of composition.
+Both composites are the same legal typed path. Associativity means parentheses do not change a legal chain of composition.
 
 ### Problem 17.5: Category error
 

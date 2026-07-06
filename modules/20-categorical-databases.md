@@ -132,7 +132,14 @@ Answer check: `sourceOrg o madeBy = docOrg o appearsIn`.
 
 Given `madeBy(c)=s`, `appearsIn(c)=d`, `sourceOrg(s)=OpenAI`, and `docOrg(d)=MIT`, does the path equation hold?
 
-Answer check: no. The two paths return different organizations.
+Answer check:
+
+```text
+(sourceOrg o madeBy)(c) = sourceOrg(s) = OpenAI
+(docOrg o appearsIn)(c) = docOrg(d) = MIT
+```
+
+No. The two paths return different organizations.
 
 ### Problem 20.5: Find satisfaction
 
@@ -150,10 +157,11 @@ does the path equation hold?
 Answer check:
 
 ```text
-Yes. Both paths return Northeastern.
+(sourceOrg o madeBy)(c) = sourceOrg(s) = Northeastern
+(docOrg o appearsIn)(c) = docOrg(d) = Northeastern
 ```
 
-The equation is checkable row by row.
+Yes. The equation is checkable row by row.
 
 ### Problem 20.6: Schema design
 

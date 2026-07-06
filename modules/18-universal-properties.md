@@ -231,7 +231,20 @@ Answer check:
 (s1,e1), (s1,e2), (s2,e3)
 ```
 
-The pullback keeps only compatible pairs.
+Check the two projection paths:
+
+```text
+(s1,e1) -> s1 -> c1
+(s1,e1) -> e1 -> c1
+
+(s1,e2) -> s1 -> c1
+(s1,e2) -> e2 -> c1
+
+(s2,e3) -> s2 -> c2
+(s2,e3) -> e3 -> c2
+```
+
+The pullback keeps only compatible pairs, and its projections certify the compatibility.
 
 ### Problem 18.9: Pushout as gluing
 
