@@ -185,6 +185,49 @@ Cover design affects the topology seen by a summary graph. Overlap choices are m
 
 Keeps the analogy ordinary while introducing cover-based thinking.
 
+## 22.friendship-threshold-components.a
+
+```text
+Module: 22
+Topic: connected components in a threshold graph
+Role: computation / modeling interpretation
+Status: promoted
+Source use: original, source-informed
+Source note: Inspired by topological data analysis examples where thresholded relations produce changing connected components.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+At a strict friendship threshold, the graph has edges:
+
+```text
+Ari-Bea
+Cy-Dev
+```
+
+At a looser threshold, the edge `Bea-Cy` appears. Count the connected components before and after the new edge appears.
+
+## Answer Check
+
+```text
+Before: 2 components, {Ari,Bea} and {Cy,Dev}.
+After: 1 component, {Ari,Bea,Cy,Dev}.
+```
+
+## Intuition
+
+A bridge edge can merge two previously separate connected regions.
+
+## Modeling Implication
+
+Threshold choice changes the topology of the relational graph, so conclusions about connected groups should be tested across thresholds.
+
+## Reserve Notes
+
+Promoted into Module 22 as the ordinary human base case for threshold topology.
+
 ## 23.filtration.edge-order.a
 
 ```text

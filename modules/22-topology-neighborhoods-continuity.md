@@ -24,6 +24,25 @@ Take points in an embedding space and connect points within distance epsilon. As
 
 The exact distances matter less than which connections persist across thresholds.
 
+## Running Example: Friendship Thresholds
+
+Imagine a class social graph where two people are connected only when their friendship score is above a chosen threshold.
+
+At a strict threshold, only very close friends are connected:
+
+```text
+Ari -- Bea
+Cy -- Dev
+```
+
+At a looser threshold, Bea and Cy may become connected too:
+
+```text
+Ari -- Bea -- Cy -- Dev
+```
+
+The people did not change. The topology changed because the relation used to draw edges changed. Topology asks which connected groups, bridges, and loops survive as the threshold moves, rather than trusting one arbitrary cutoff.
+
 ## Formal Object
 
 Topology studies open sets, neighborhoods, continuity, connectedness, and holes.
@@ -105,11 +124,11 @@ N(1)={1,2} closed; {2} open.
 
 ### Problem 22.6: Components in a threshold graph
 
-Four points have edges at threshold `epsilon=1`:
+At a strict friendship threshold, the social graph has edges:
 
 ```text
-A-B
-C-D
+Ari-Bea
+Cy-Dev
 ```
 
 How many connected components are there?
@@ -117,17 +136,17 @@ How many connected components are there?
 Answer check:
 
 ```text
-2 components: {A,B} and {C,D}
+2 components: {Ari,Bea} and {Cy,Dev}
 ```
 
 Connectivity is a topological property of the thresholded relation.
 
 ### Problem 22.7: Component merge
 
-At threshold `epsilon=2`, add edge:
+At a looser friendship threshold, add edge:
 
 ```text
-B-C
+Bea-Cy
 ```
 
 How many connected components remain?
@@ -135,7 +154,7 @@ How many connected components remain?
 Answer check:
 
 ```text
-1 component: {A,B,C,D}
+1 component: {Ari,Bea,Cy,Dev}
 ```
 
 A new bridge can merge two previously separate regions.
@@ -145,8 +164,8 @@ A new bridge can merge two previously separate regions.
 Compare these two graphs:
 
 ```text
-G1: A-B-C
-G2: A-B-C with edge A-C also present
+G1: Ari-Bea-Cy
+G2: Ari-Bea-Cy with edge Ari-Cy also present
 ```
 
 Do they have the same number of connected components?
@@ -189,7 +208,7 @@ Give a toy example where two clusters are geometrically close but topologically 
 Answer check:
 
 ```text
-Example: A-B are connected, C-D are connected, and the closest cross-cluster distance is 1.1 while epsilon is 1.0.
+Example: Ari-Bea are connected, Cy-Dev are connected, and the closest cross-group friendship score is just below the chosen edge threshold.
 The clusters may be close in distance, but no edge connects them at that threshold.
 ```
 
