@@ -30,6 +30,22 @@ A rewrite rule:
 two equivalent claims with same source -> one merged claim with reinforced support
 ```
 
+## Running Example: Cleaning Study Notes
+
+Suppose two friends are preparing for an exam and both write:
+
+```text
+"Eigenvectors keep direction."
+```
+
+One note came from lecture, the other from a textbook. A careless cleanup rule might merge them and keep only one source. A better rewrite rule says:
+
+```text
+same normalized claim + compatible meaning -> merged claim with both sources preserved
+```
+
+The operation is not just deletion. It is a legal edit with a guard and a provenance rule. If another rule marks one version as contradicted before the merge, the order of edits matters. That is why rewriting needs termination, confluence, and critical-pair thinking.
+
 ## Formal Object
 
 A rewriting system specifies legal transformations from one structured state to another.

@@ -167,6 +167,7 @@ Problem hooks:
 - [Graph-based Agent Memory: Taxonomy, Techniques, and Applications](https://arxiv.org/html/2602.05665v1) - graph memory as dynamic structured memory with semantic, temporal, causal, and logical edges.
 - [An Introduction to Graph Rewriting](https://lig-membres.imag.fr/echahed/ISR-slides1and2.pdf) - graph transformation rules and pushout-style rewriting as controlled graph evolution.
 - [A Tutorial on Graph Transformation](https://research.utwente.nl/files/247999750/K_nig2018tutorial.pdf) - double-pushout graph transformation and rule-based graph modification.
+- [Confluence of Graph Rewriting with Interfaces](https://eprints.soton.ac.uk/406231/1/main.pdf) - confluence, termination, and critical-pair style issues for graph rewriting systems.
 - [Lost in the Middle](https://arxiv.org/abs/2307.03172) - positional failure modes in long-context use.
 - [Benchmarking Large Language Models in Retrieval-Augmented Generation](https://arxiv.org/abs/2309.01431) - evaluates noise robustness, negative rejection, information integration, and counterfactual robustness in RAG.
 - [Evaluation of Retrieval-Augmented Generation: A Survey](https://arxiv.org/html/2405.07437v1) - survey of RAG evaluation challenges and benchmark design.

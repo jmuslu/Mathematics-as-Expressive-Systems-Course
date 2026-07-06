@@ -21,6 +21,7 @@ Use [Problem Trail Style](../PROBLEM_TRAIL_STYLE.md) for analogy rules, bank rol
 - `module-17-21-category-composition-bank.md` - reserve and lecture-candidate problems for categories, universal properties, functors, databases, and operads.
 - `module-22-24-topology-sheaves-bank.md` - reserve and lecture-candidate problems for topology, persistence, and sheaf consistency.
 - `module-25-27-inference-optimization-bank.md` - reserve and lecture-candidate problems for message passing, graphical models, and constrained optimization.
+- `module-28-31-dynamics-evaluation-bank.md` - reserve and lecture-candidate problems for graph dynamics, rewriting, evaluation, and architecture specs.
 - `problem-template.md` - metadata template for future bank entries.
 
 ## Promotion Rule

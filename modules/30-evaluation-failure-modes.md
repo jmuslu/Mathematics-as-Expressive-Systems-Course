@@ -19,6 +19,20 @@ Accuracy alone is not enough. A memory system can answer correctly while its str
 
 Two paths support the same conclusion. One is valid, the other contains a contradiction. A scalar score may miss this; path validation should catch it.
 
+## Running Example: Debate Team Evaluation
+
+Imagine judging a debate team. It is not enough to ask whether the final answer sounded right.
+
+You would check:
+
+- Did they cite the right evidence?
+- Did their supporting path contradict itself?
+- Did they ignore an important counterexample?
+- Would the argument still work if speaker order changed?
+- Did confidence match past accuracy?
+
+That is the spirit of this module. Evaluation is not one grade. It is a panel of tests matched to the promises the system made.
+
 ## Formal Object
 
 Evaluation dimensions:

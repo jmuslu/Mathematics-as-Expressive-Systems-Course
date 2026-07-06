@@ -24,6 +24,20 @@ w_{t+1} = alpha w_t + reinforcement_t
 
 If alpha < 1, unused edges decay.
 
+## Running Example: Playlist Attention
+
+Imagine a playlist that slowly forgets songs you stop playing and strengthens songs you replay after a good dinner with friends.
+
+The song is not simply "liked" or "not liked." Its place in the playlist changes over time:
+
+```text
+next attention = decay * old attention + replay reinforcement
+```
+
+If a song is replayed every week, it may settle into a stable level. If it is ignored, it fades. If the app blindly boosts whatever was popular yesterday, it can trap you in the same mood forever.
+
+This is the human version of graph dynamics: the state is not a static fact, but a changing pattern of weights.
+
 ## Formal Object
 
 A dynamical system updates state by:
