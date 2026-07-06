@@ -29,7 +29,7 @@ const modules = [
   ["27", "Energy, Constraints, and Optimization", "modules/27-energy-constraints-optimization.md", "Choose the best feasible dinner plan under hard constraints."],
   ["28", "Dynamical Systems on Graphs", "modules/28-dynamical-systems-on-graphs.md", "Model playlist attention through decay, reinforcement, and attractors."],
   ["29", "Rewriting Systems and Structured Edits", "modules/29-rewriting-knowledge-evolution.md", "Clean shared study notes with legal edits and invariants."],
-  ["30", "Evaluating Arguments and Failure Modes", "modules/30-evaluation-failure-modes.md", "Test invariants, coherence, and transformation safety."],
+  ["30", "Evaluating Arguments and Failure Modes", "modules/30-evaluation-failure-modes.md", "Judge debate arguments by relevance, coherence, invariance, and calibration."],
   ["31", "Evidence Board Architecture Studio", "modules/31-architecture-studio.md", "Assemble the math into an evidence-board design specification."]
 ];
 

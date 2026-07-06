@@ -2,7 +2,7 @@
 
 ## Lecture Promise
 
-You will learn to evaluate an evidence pipeline by invariants, coherence, transformation safety, and validation quality.
+You will learn to evaluate arguments by invariants, coherence, transformation safety, and calibration quality.
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ Accuracy alone is not enough. An argument can reach the right answer while its s
 
 ## Base Case
 
-Two paths support the same conclusion. One is valid, the other contains a contradiction. A scalar score may miss this; path validation should catch it.
+Two paths support the same conclusion. One is valid, the other contains a contradiction. A scalar score may miss this; path evaluation should catch it.
 
 ## Running Example: Debate Team Evaluation
 
@@ -31,7 +31,7 @@ You would check:
 - Would the argument still work if speaker order changed?
 - Did confidence match past accuracy?
 
-That is the spirit of this module. Evaluation is not one grade. It is a panel of tests matched to the promises an argument pipeline made.
+That is the spirit of this module. Evaluation is not one grade. It is a panel of tests matched to the promises an argument made.
 
 ## Formal Object
 
@@ -58,13 +58,13 @@ Benchmarks can reward shallow retrieval and miss structural collapse.
 
 ## Design Connection
 
-Evaluation should test the mathematical promises of the evidence pipeline, not just the final answer string.
+Evaluation should test the mathematical promises of the argument, not just the final answer string.
 
 ## Hand Problem Trail
 
 ### Problem 30.1: Retrieval metrics
 
-A system returns 5 memories. Relevant items are at ranks 1, 3, and 5. Compute precision@5, recall@5, and F1@5 if there are 6 relevant items total.
+A debate assistant returns 5 evidence cards. Relevant cards are at ranks 1, 3, and 5. Compute precision@5, recall@5, and F1@5 if there are 6 relevant cards total.
 
 Answer check:
 
@@ -90,7 +90,7 @@ recall@5 = 0.5
 Recall is lower.
 ```
 
-The system found only half of all relevant items.
+The assistant found only half of all relevant cards.
 
 ### Problem 30.3: MRR
 
@@ -104,7 +104,7 @@ MRR = (1 + 1/4 + 1/10)/3 = 1.35/3 = 0.45
 
 ### Problem 30.4: NDCG by hand
 
-A retrieval system returns three evidence cards with graded relevance scores:
+A debate assistant returns three evidence cards with graded relevance scores:
 
 ```text
 rank 1: relevance 3
@@ -187,7 +187,7 @@ Answer check:
 No. Their restrictions disagree on stance.
 ```
 
-Evaluation should test the actual restriction maps the architecture claims to use.
+Evaluation should test the actual restriction maps the argument model claims to use.
 
 ### Problem 30.9: Decay stress test
 
@@ -197,7 +197,7 @@ A reasoning path has edge weights:
 0.9, 0.8, 0.4
 ```
 
-If the system drops edges below `0.5`, what happens to the path?
+If the evaluator drops edges below `0.5`, what happens to the path?
 
 Answer check:
 
@@ -209,7 +209,7 @@ Decay can destroy global reasoning even when most local edges look strong.
 
 ### Problem 30.10: Calibration test with ECE
 
-A validation system makes 10 predictions grouped into two confidence bins:
+A debate-judging model makes 10 predictions grouped into two confidence bins:
 
 ```text
 bin 1: 4 predictions, average confidence 0.60, accuracy 0.50
@@ -259,7 +259,7 @@ B. answer faithfulness
 C. answer relevance
 ```
 
-A correct-looking final answer can hide which part of the pipeline succeeded. Component-wise evaluation separates evidence selection, grounding, and response quality.
+A correct-looking final answer can hide which part of the argument process succeeded. Component-wise evaluation separates evidence selection, grounding, and response quality.
 
 ### Problem 30.12: Benchmark failure mode
 
@@ -271,4 +271,4 @@ Answer check:
 Possible answers: incoherent reasoning path, broken provenance, non-invariant graph score, failed sheaf gluing, overconfident posterior, unstable decay behavior.
 ```
 
-The evaluation should test the mathematical promises of the argument pipeline, not only the final sentence.
+The evaluation should test the mathematical promises of the argument, not only the final sentence.
