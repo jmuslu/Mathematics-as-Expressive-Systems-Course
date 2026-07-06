@@ -91,13 +91,13 @@ The design question is therefore:
 Should this object be invariant, equivariant, or neither?
 ```
 
-For a graph-level summary, invariance is often right. For a node-level state, equivariance is usually right. For a timestamped causal trace or reviewer disagreement, full permutation invariance may be wrong.
+For a whole-table summary, invariance is often right. For a per-seat state, equivariance is usually right. For a timestamped causal trace or reviewer disagreement, full permutation invariance may be wrong.
 
 ## Problem Ladder
 
 1. Average identity and swap matrices for a two-node permutation group.
 2. Find the invariant subspace of the swap action on R^2.
-3. Explain when averaging over graph relabelings is desirable.
+3. Explain when averaging over presentation relabelings is desirable.
 4. Verify R^2 = R for the two-node swap example.
 5. Build an invariant feature from x = (x1, x2, x3) under all coordinate permutations.
 6. Give an example where Reynolds averaging would destroy meaningful contrast.
@@ -247,9 +247,9 @@ R f(y,x) = (1/2)(y^2 x + x^2 y)
 
 Averaging built the invariance instead of hoping for it.
 
-### Problem 16.10: Graph feature averaging
+### Problem 16.10: Seating-label feature averaging
 
-A graph-level model gives two scores for two labelings of the same two-node graph:
+A whole-table model gives two scores for two labelings of the same two-seat chart:
 
 ```text
 f(A) = 8
