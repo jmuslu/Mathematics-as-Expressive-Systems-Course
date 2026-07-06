@@ -68,19 +68,154 @@ Compute one step from `x0=(10,0)`.
 
 Answer check: `x1=(8,2)`.
 
-### Problem 28.2: Decay only
+### Problem 28.2: Two steps of graph diffusion
+
+Using Problem 28.1, compute `x2`.
+
+Answer check:
+
+```text
+x1 = (8,2)
+x2_1 = 0.8(8) + 0.1(2) = 6.6
+x2_2 = 0.2(8) + 0.7(2) = 3.0
+x2 = (6.6,3.0)
+```
+
+Mass continues to move while some is retained locally.
+
+### Problem 28.3: Decay only
 
 If `x_{t+1}=0.9x_t` and `x0=100`, compute `x3`.
 
 Answer check: `x3 = 0.9^3*100 = 72.9`.
 
-### Problem 28.3: Fixed point
+### Problem 28.4: Decay with reinforcement
+
+Let:
+
+```text
+w_{t+1} = 0.8 w_t + 1
+w_0 = 0
+```
+
+Compute `w1`, `w2`, and `w3`.
+
+Answer check:
+
+```text
+w1 = 1
+w2 = 0.8(1)+1 = 1.8
+w3 = 0.8(1.8)+1 = 2.44
+```
+
+Reinforcement can counteract decay.
+
+### Problem 28.5: Fixed point
 
 Solve `x = 0.5x + 4`.
 
 Answer check: `0.5x=4`, so `x=8`.
 
-### Problem 28.4: Graph diffusion intuition
+### Problem 28.6: Fixed point of decay with reinforcement
+
+Solve the fixed point of:
+
+```text
+w_{t+1} = 0.8w_t + 1
+```
+
+Answer check:
+
+```text
+w = 0.8w + 1
+0.2w = 1
+w = 5
+```
+
+The update approaches a steady level when reinforcement balances decay.
+
+### Problem 28.7: Stability intuition
+
+For:
+
+```text
+x_{t+1} = a x_t
+```
+
+what happens when `|a| < 1`, `a = 1`, and `|a| > 1`?
+
+Answer check:
+
+```text
+|a| < 1: values decay toward 0
+a = 1: values stay fixed
+|a| > 1: values grow in magnitude
+```
+
+The multiplier controls stability in the one-dimensional case.
+
+### Problem 28.8: Popularity loop
+
+A node's score updates by:
+
+```text
+x_{t+1} = 1.2 x_t
+```
+
+starting from `x0=10`. Compute `x3`.
+
+Answer check:
+
+```text
+x3 = 1.2^3 * 10 = 17.28
+```
+
+Unchecked reinforcement can amplify early popularity.
+
+### Problem 28.9: Oversmoothing in a two-node graph
+
+The averaging update is:
+
+```text
+x_{t+1} = (mean(x_t), mean(x_t))
+```
+
+Starting from `(10,0)`, compute one step.
+
+Answer check:
+
+```text
+mean = 5
+x1 = (5,5)
+```
+
+Averaging creates agreement but erases contrast.
+
+### Problem 28.10: Path-level reinforcement
+
+A path `A -> B -> C` succeeds in validation. Name three possible places reinforcement could be applied.
+
+Answer check:
+
+```text
+node A/B/C weights, edge A-B and B-C weights, the whole path motif A-B-C
+```
+
+Reinforcement is a design choice about what object gets stronger.
+
+### Problem 28.11: Bad attractor
+
+What is a bad attractor in a memory graph dynamic?
+
+Answer check:
+
+```text
+A stable state the system tends to return to even though it is epistemically poor, such as a stale belief or self-reinforcing false path.
+```
+
+Convergence is not automatically correctness.
+
+### Problem 28.12: Graph diffusion intuition
 
 In Problem 28.1, what happened to mass at node 1?
 

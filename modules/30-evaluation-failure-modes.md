@@ -58,7 +58,21 @@ precision@5 = 3/5
 recall@5 = 3/6 = 1/2
 ```
 
-### Problem 30.2: MRR
+### Problem 30.2: Precision versus recall interpretation
+
+In Problem 30.1, is the bigger weakness precision or recall?
+
+Answer check:
+
+```text
+precision@5 = 0.6
+recall@5 = 0.5
+Recall is lower.
+```
+
+The system found only half of all relevant items.
+
+### Problem 30.3: MRR
 
 For three queries, the first relevant results appear at ranks 1, 4, and 10. Compute MRR.
 
@@ -68,14 +82,117 @@ Answer check:
 MRR = (1 + 1/4 + 1/10)/3 = 1.35/3 = 0.45
 ```
 
-### Problem 30.3: Invariance test
+### Problem 30.4: NDCG intuition
+
+A ranking puts highly useful items at ranks 1 and 2 in one run, and at ranks 8 and 9 in another. Which run should have higher NDCG?
+
+Answer check:
+
+```text
+The run with useful items at ranks 1 and 2.
+```
+
+NDCG rewards placing stronger results earlier.
+
+### Problem 30.5: Invariance test
 
 You relabel every node in a memory graph. A graph-level contradiction score changes from 0.7 to 0.4. What failure occurred?
 
 Answer check: the score is not permutation invariant, so it depends on representation artifacts.
 
-### Problem 30.4: Failure decomposition
+### Problem 30.6: Equivariance test
+
+A node-level embedding matrix `H` should satisfy:
+
+```text
+H(PAP^T) = P H(A)
+```
+
+If the rows do not permute with the nodes, what failure occurred?
+
+Answer check:
+
+```text
+The node-level representation is not permutation equivariant.
+```
+
+Graph-level and node-level outputs have different symmetry requirements.
+
+### Problem 30.7: Path contradiction test
+
+A reasoning path says:
+
+```text
+Source S supports Claim C
+Source S contradicts Claim C
+```
+
+What should an evaluation test flag?
+
+Answer check:
+
+```text
+It should flag a local-to-global consistency or contradiction-handling failure.
+```
+
+Correct final text is not enough if the supporting path is incoherent.
+
+### Problem 30.8: Sheaf consistency test
+
+Two retrieved passages agree on source identity but disagree on stance. If the sheaf overlap tracks stance, should they glue?
+
+Answer check:
+
+```text
+No. Their restrictions disagree on stance.
+```
+
+Evaluation should test the actual restriction maps the architecture claims to use.
+
+### Problem 30.9: Decay stress test
+
+A reasoning path has edge weights:
+
+```text
+0.9, 0.8, 0.4
+```
+
+If the system drops edges below `0.5`, what happens to the path?
+
+Answer check:
+
+```text
+The edge with weight 0.4 is dropped, so the path breaks.
+```
+
+Decay can destroy global reasoning even when most local edges look strong.
+
+### Problem 30.10: Calibration test
+
+Among 100 predictions made with confidence 0.8, about how many should be correct for good calibration?
+
+Answer check:
+
+```text
+About 80.
+```
+
+Confidence should mean something statistically testable.
+
+### Problem 30.11: Failure decomposition
 
 A model answers incorrectly even though the right document was retrieved. Name two possible non-retrieval failures.
 
 Answer check: ranking/placement failure, synthesis failure, contradiction handling failure, prompt integration failure, or validation failure.
+
+### Problem 30.12: Benchmark failure mode
+
+A benchmark only checks final answer strings. Name one structural failure it might miss.
+
+Answer check:
+
+```text
+Possible answers: incoherent reasoning path, broken provenance, non-invariant graph score, failed sheaf gluing, overconfident posterior, unstable decay behavior.
+```
+
+The evaluation should test the mathematical promises of the system, not only the final sentence.

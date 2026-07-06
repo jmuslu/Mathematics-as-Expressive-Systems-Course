@@ -81,7 +81,39 @@ timestamp: scalar or ordered label
 stance: finite label
 ```
 
-### Problem 31.2: Specify legal transformations
+### Problem 31.2: Specify an edge type
+
+Define a typed edge for support. Include source type, target type, and at least two fields.
+
+Answer check example:
+
+```text
+supports: Evidence -> Claim
+fields:
+  confidence: scalar
+  extraction_method: label
+  timestamp: ordered label
+```
+
+An edge type is a mathematical commitment about what relation is allowed.
+
+### Problem 31.3: Specify a hyperedge
+
+Define a hyperedge or multi-input relation for validation.
+
+Answer check example:
+
+```text
+validation_event: Claim x Evidence x Rule -> Status
+fields:
+  status: finite label
+  score: scalar
+  reviewer_or_model: reference
+```
+
+Some relations cannot be faithfully represented as independent pairwise edges.
+
+### Problem 31.4: Specify legal transformations
 
 For your memory graph, list three transformations that should preserve meaning and three that should change meaning.
 
@@ -92,7 +124,7 @@ preserve: node relabeling, equivalent schema migration, reordering retrieved can
 change: reversing support edge, deleting provenance, changing timestamp order
 ```
 
-### Problem 31.3: Pick invariants
+### Problem 31.5: Pick invariants
 
 Name five invariants your architecture should test.
 
@@ -106,7 +138,84 @@ local-to-global sheaf consistency
 calibrated posterior under evidence update
 ```
 
-### Problem 31.4: Build the design spec
+### Problem 31.6: Define one equivariant output
+
+Give an output that should move with node relabeling rather than stay fixed.
+
+Answer check example:
+
+```text
+node-level belief embeddings should satisfy H(PAP^T)=P H(A)
+```
+
+Node-level objects usually transform with the nodes.
+
+### Problem 31.7: Define one invariant output
+
+Give an output that should stay fixed under node relabeling.
+
+Answer check example:
+
+```text
+global contradiction score f(A) should satisfy f(PAP^T)=f(A)
+```
+
+Graph-level summaries usually ignore arbitrary node names.
+
+### Problem 31.8: Define a sheaf consistency test
+
+Write a local-to-global consistency rule for two nodes sharing an overlap.
+
+Answer check example:
+
+```text
+res_{u -> e}(x_u) = res_{v -> e}(x_v)
+```
+
+The restriction maps specify what agreement means.
+
+### Problem 31.9: Define a decay rule
+
+Write one decay/reinforcement update for an edge weight.
+
+Answer check example:
+
+```text
+w_{t+1} = 0.9 w_t + reinforcement_t
+```
+
+The architecture should say what decays and what can reinforce it.
+
+### Problem 31.10: Define a rewrite rule
+
+Write one guarded rewrite rule for duplicate claims.
+
+Answer check example:
+
+```text
+If two claims have same normalized text, same source, and compatible timestamps,
+merge them and preserve both original IDs as provenance.
+```
+
+Rewrite rules should include guards and provenance behavior.
+
+### Problem 31.11: Define an evaluation panel
+
+Name five evaluation tests for the architecture.
+
+Answer check example:
+
+```text
+retrieval recall
+path contradiction test
+permutation invariance test
+sheaf gluing test
+decay stress test
+```
+
+Evaluation should match the mathematical promises in the design.
+
+### Problem 31.12: Build the design spec
 
 Write one page with these headings:
 

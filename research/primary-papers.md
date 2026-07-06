@@ -134,10 +134,20 @@ Problem hooks:
 - [Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks](https://arxiv.org/abs/2005.11401) - parametric memory plus non-parametric retrieval.
 - [Improving language models by retrieving from trillions of tokens](https://arxiv.org/abs/2112.04426) - chunked retrieval and cross-attention at large scale.
 - [Augmenting Language Models with Long-Term Memory](https://arxiv.org/abs/2306.07174) - long-term memory cache for language models.
+- [A survey of dynamic graph neural networks](https://arxiv.org/abs/2404.18211) - temporal graph evolution, dynamic graph structure, and update mechanisms.
+- [Graph-based Agent Memory: Taxonomy, Techniques, and Applications](https://arxiv.org/html/2602.05665v1) - graph memory as dynamic structured memory with semantic, temporal, causal, and logical edges.
+- [An Introduction to Graph Rewriting](https://lig-membres.imag.fr/echahed/ISR-slides1and2.pdf) - graph transformation rules and pushout-style rewriting as controlled graph evolution.
+- [A Tutorial on Graph Transformation](https://research.utwente.nl/files/247999750/K_nig2018tutorial.pdf) - double-pushout graph transformation and rule-based graph modification.
 - [Lost in the Middle](https://arxiv.org/abs/2307.03172) - positional failure modes in long-context use.
+- [Benchmarking Large Language Models in Retrieval-Augmented Generation](https://arxiv.org/abs/2309.01431) - evaluates noise robustness, negative rejection, information integration, and counterfactual robustness in RAG.
+- [Evaluation of Retrieval-Augmented Generation: A Survey](https://arxiv.org/html/2405.07437v1) - survey of RAG evaluation challenges and benchmark design.
+- [Retrieval Augmented Generation Evaluation in the Era of Large Language Models](https://arxiv.org/html/2504.14891v1) - broad survey of RAG evaluation methods, datasets, and frameworks.
 
 Problem hooks:
 
 - Decompose a failure into representation, retrieval, validation, and synthesis errors.
 - Compare vector similarity with graph/path evidence.
 - Decide when a new memory should create a node, strengthen an edge, update a schema, or trigger contradiction handling.
+- Compute decay and reinforcement updates on nodes, edges, and paths.
+- Test termination and confluence of small rewrite systems.
+- Build an evaluation panel that includes retrieval metrics, invariance checks, sheaf consistency, calibration, and decay stress tests.
