@@ -135,10 +135,17 @@ function toTexBlock(body) {
   if (isAsciiMatrix(trimmed)) {
     return matrixBlockToTex(trimmed);
   }
-  return trimmed
+  const lines = trimmed
     .split("\n")
-    .map((line) => toTexInline(line.trim()))
-    .join(" \\\\\n");
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .map((line) => toTexInline(line));
+
+  if (lines.length === 1) return lines[0];
+
+  return `\\begin{aligned}
+${lines.join(" \\\\\n")}
+\\end{aligned}`;
 }
 
 function toTexInline(value) {
@@ -175,7 +182,22 @@ function toTexInline(value) {
   text = text.replace(/([A-Za-z])'(\s|$|[=,)])/g, "$1'$2");
   text = text.replace(/>=/g, "\\ge ");
   text = text.replace(/<=/g, "\\le ");
+  text = romanizeNamedIdentifiers(text);
   return text;
+}
+
+function romanizeNamedIdentifiers(text) {
+  const reserved = new Set([
+    "begin", "end", "bmatrix", "operatorname", "mathrm", "langle", "rangle",
+    "overline", "sqrt", "det", "cdot", "circ", "to", "leftarrow", "otimes",
+    "wedge", "lambda", "rho", "tau", "phi", "alpha", "beta", "varepsilon",
+    "pi", "ge", "le", "lVert", "rVert", "proj", "span"
+  ]);
+
+  return text.replace(/(^|[^\\A-Za-z])([A-Za-z][A-Za-z0-9]*)(?![A-Za-z])/g, (match, prefix, word) => {
+    if (reserved.has(word) || word.length === 1) return `${prefix}${word}`;
+    return `${prefix}\\mathrm{${word}}`;
+  });
 }
 
 function isAsciiMatrix(text) {
