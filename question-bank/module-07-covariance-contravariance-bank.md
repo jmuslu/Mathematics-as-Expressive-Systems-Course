@@ -231,7 +231,7 @@ Pairs naturally with `07.metric.lowering.nonorthogonal.a`.
 Module: 07
 Topic: slot grammar
 Role: conceptual check
-Status: lecture candidate
+Status: promoted in Module 07 Problem 7.10
 Source use: original
 Source note: Based on the course's product-discipline principle.
 License note: No source problem text copied.

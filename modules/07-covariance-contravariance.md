@@ -267,27 +267,28 @@ alpha(u) beta(v) - alpha(v) beta(u) = 2*0 - 4*0 = 0
 
 The directions are dependent, so the oriented area vanishes.
 
-### Problem 7.10: Identify the legal pairing
+### Problem 7.10: Slot grammar test
 
-For each expression, decide whether it is a legal pairing without adding extra structure:
+For each expression, mark it as legal without extra structure or illegal without extra structure.
 
 ```text
 A. covector(vector)
-B. vector(covector)
-C. covector covector by dot product
+B. vector + covector
+C. metric(vector, vector)
 D. 2-form(vector, vector)
+E. 2-form(covector, vector)
 ```
 
 Answer check:
 
 ```text
 A. legal
-B. not legal as written
-C. not legal without an inner product or metric
+C. legal if the metric is part of the structure
 D. legal
+E. illegal for an ordinary 2-form on vectors
 ```
 
-Variance is a grammar of slots. It prevents expressions from looking meaningful just because the dimensions match.
+Matching dimensions is weaker than matching slots. Variance is a grammar of operations: it keeps plausible-looking expressions from becoming meaningless just because their arrays have compatible lengths.
 
 ### Problem 7.11: A metric changes what can be identified
 
