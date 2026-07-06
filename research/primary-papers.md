@@ -71,10 +71,13 @@ Problem hooks:
 ## Category Theory, Schemas, And Provenance
 
 - [Seven Sketches in Compositionality](https://arxiv.org/abs/1803.05316) - applied category theory through databases, orders, circuits, dynamical systems, and sheaves.
+- [An Invitation to Applied Category Theory](https://brendanfong.com/fong_spivak_an_invitation.pdf) - PDF version of Seven Sketches for concrete exercises on categories, functors, databases, and wiring diagrams.
 - [MIT OCW Applied Category Theory](https://ocw.mit.edu/courses/18-s097-applied-category-theory-january-iap-2019/pages/lecture-videos-and-readings/) - public course readings that pair Seven Sketches with database, circuit, operad, and sheaf examples.
 - [Chapter 3: Databases: Categories, Functors, and (Co)Limits](https://ocw.mit.edu/courses/18-s097-applied-category-theory-january-iap-2019/pages/lecture-videos-and-readings/chapter-3-databases-categories-functors-and-co-limits/) - schema categories, Set-valued instances, natural transformations, and data migration.
 - [Chapter 6: Circuits: Hypergraph Categories and Operads](https://ocw.mit.edu/courses/18-s097-applied-category-theory-january-iap-2019/pages/lecture-videos-and-readings/chapter-6-circuits-hypergraph-categories-and-operads/) - wiring diagrams, hypergraph categories, decorated cospans, and operads.
 - [Functorial Data Migration](https://arxiv.org/abs/1009.1166) - database schemas as categories; instances as set-valued functors; schema change as functorial migration.
+- [Operads for Complex System Design Specification, Analysis and Synthesis](https://arxiv.org/pdf/2101.11115) - operads and wiring diagrams as typed compositional tools for system design.
+- [Using Category Theory to Organize and Operate on Information](https://dspivak.net/talks/pdfs/20171002-mcgill.pdf) - accessible talk notes framing operads as syntax for composition and wiring diagrams.
 - [Relational Foundations for Functorial Data Migration](https://arxiv.org/abs/1212.5303) - graph-presented schemas, path equations, and categorical instance categories.
 - [Functorial Data Migration: From Theory to Practice](https://arxiv.org/abs/1502.05947) - concrete data migration scenarios and the practical interpretation of schema functors.
 
