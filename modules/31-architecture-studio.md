@@ -2,7 +2,7 @@
 
 ## Lecture Promise
 
-You will assemble the course's mathematical objects into a design specification for a structured evidence board.
+You will assemble the course's mathematical objects into a design specification for a debate evidence board.
 
 ## Prerequisites
 
@@ -10,7 +10,7 @@ You will assemble the course's mathematical objects into a design specification 
 
 ## Design Target
 
-Design a debate or research evidence board. Specify:
+Design a debate evidence board for a team preparing arguments, objections, and rebuttals. Specify:
 
 - Node types
 - Edge types
@@ -37,7 +37,7 @@ Design a tiny graph with:
 
 ## Deliverable
 
-Write a mathematical architecture document:
+Write a mathematical design document:
 
 ```text
 state space
@@ -50,7 +50,7 @@ failure tests
 
 ## Failure Mode
 
-If the architecture cannot state what it preserves, it cannot be trusted as an argument board.
+If the design cannot state what it preserves, it cannot be trusted as an argument board.
 
 ## Problem Ladder
 
@@ -126,7 +126,7 @@ change: reversing support edge, deleting provenance, changing timestamp order
 
 ### Problem 31.5: Pick invariants
 
-Name five invariants your architecture should test.
+Name five invariants your debate-board design should test.
 
 Answer check examples:
 
@@ -184,7 +184,7 @@ Answer check example:
 w_{t+1} = 0.9 w_t + reinforcement_t
 ```
 
-The architecture should say what decays and what can reinforce it.
+The design should say what decays and what can reinforce it.
 
 ### Problem 31.10: Define a rewrite rule
 
@@ -201,7 +201,7 @@ Rewrite rules should include guards and provenance behavior.
 
 ### Problem 31.11: Match promises to evaluation tests
 
-An architecture promises:
+A debate-board design promises:
 
 ```text
 permutation-invariant graph scores
