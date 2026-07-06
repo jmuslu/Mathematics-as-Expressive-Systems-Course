@@ -11,7 +11,7 @@ const modules = [
   ["09", "Spectral Theory", "modules/09-spectral-theory.md", "Find stable modes, attractors, and directions that survive transformation."],
   ["10", "Graphs, Incidence, and Laplacians", "modules/10-graphs-incidence-laplacians.md", "Move from connected nodes to flows, cuts, and diffusion."],
   ["11", "Algebraic Graph Theory", "modules/11-algebraic-graph-theory.md", "Use spectra and automorphisms to reason about graph structure."],
-  ["12", "Hypergraphs and Simplicial Complexes", "modules/12-hypergraphs-simplicial-complexes.md", "Represent higher-order relations beyond pairwise edges."],
+  ["12", "Hypergraphs and Simplicial Complexes", "modules/12-hypergraphs-simplicial-complexes.md", "Represent group commitments beyond pairwise edges."],
   ["13", "Groups and Symmetry", "modules/13-groups-and-symmetry.md", "Identify legal transformations and what they preserve."],
   ["14", "Group Actions on Sets and Graphs", "modules/14-group-actions-on-graphs.md", "Make abstract symmetry act on graph states."],
   ["15", "Representations and Equivariance", "modules/15-representations-and-equivariance.md", "Turn symmetry into computation through linear representations."],

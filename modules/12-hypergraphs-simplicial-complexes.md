@@ -2,7 +2,7 @@
 
 ## Lecture Promise
 
-You will understand why edges are often too weak for knowledge systems, and how higher-order relations change the design space.
+You will understand why edges are often too weak for joint social situations, and how higher-order relations change the design space.
 
 ## Prerequisites
 
@@ -16,13 +16,13 @@ Pairwise edges cannot naturally represent a relation that only exists among thre
 
 ## Base Case
 
-The claim:
+The dinner commitment:
 
 ```text
-source S supports claim C under condition T
+Ari, Bea, and Cy share one reservation
 ```
 
-is not just S-C, C-T, and S-T. The relation is ternary.
+is not just Ari-Bea, Bea-Cy, and Ari-Cy. The relation is ternary.
 
 ## Running Example: Group Chat Plans
 
@@ -69,16 +69,16 @@ not merely as three pairwise associations. This analogy is imperfect, but useful
 
 ## Problem Ladder
 
-1. Represent a ternary evidence relation as a hyperedge.
+1. Represent a ternary dinner relation as a hyperedge.
 2. Convert a triangle into a filled 2-simplex.
 3. Explain what information is lost by replacing a hyperedge with pairwise edges.
 4. Compare a triangle graph with a filled 2-simplex.
 5. Explain why `u wedge v` vanishes when the directions collapse.
-6. Give a memory example where a joint evidence bundle should not be reduced to pairwise similarity.
+6. Give a social example where a joint commitment should not be reduced to pairwise similarity.
 
-## Memory-System Connection
+## Design Connection
 
-Second-brain memory needs higher-order evidence bundles, not just pairwise association.
+Some commitments belong to the whole group, not to pairwise associations.
 
 ## Hand Problem Trail
 
@@ -88,7 +88,7 @@ Classify each relation.
 
 1. Ari and Bea are friends.
 2. Ari, Bea, and Cy made one dinner reservation together.
-3. Source S supports claim C only under condition T.
+3. Ari, Bea, and Cy split one appetizer together.
 
 Answer check:
 
@@ -208,14 +208,14 @@ Yes. The boundary cycle is not filled.
 
 Adding the 2-simplex fills the loop.
 
-### Problem 12.11: Higher-order evidence bundle
+### Problem 12.11: Higher-order dinner bundle
 
-Give one example where three pieces of information support a conclusion jointly, but no pair alone is enough.
+Give one example where three dinner-plan facts work jointly, but no pair alone is enough.
 
 Answer check example:
 
 ```text
-A source, a timestamp, and a condition together validate a claim; any two alone leave ambiguity.
+A group reservation, a shared ride, and one person's allergy constraint together determine the restaurant choice; any two alone leave ambiguity.
 ```
 
 Higher-order relations prevent pairwise overclaiming.
