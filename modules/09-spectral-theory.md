@@ -58,11 +58,11 @@ Singular values measure action between input and output directions.
 
 1. Find eigenvectors of a diagonal matrix.
 2. Explain why Hermitian matrices have real spectra.
-3. Interpret stable graph modes as memory attractors.
+3. Interpret stable social modes as friendship attractors.
 
-## Memory-System Connection
+## Design Connection
 
-Spectral theory tells you what your graph dynamics converge toward.
+Spectral theory tells you which modes a repeated dynamic amplifies, damps, or preserves.
 
 ## Hand Problem Trail
 
@@ -235,12 +235,12 @@ Answer check: shared excitement grows by factor 3 each update; contrast grows by
 
 ### Problem 9.12: Failure mode - largest mode is not always best
 
-If the largest eigenmode of a memory dynamic corresponds to popularity rather than truth, what can go wrong?
+If the largest eigenmode of a friend-group dynamic corresponds to drama rather than care, what can go wrong?
 
 Answer check:
 
 ```text
-Repeated updates may amplify popular or frequently traversed beliefs even when they are false or low quality.
+Repeated updates may amplify the loudest or most contagious pattern even when it damages the group.
 ```
 
 A stable or growing spectral mode needs interpretation, not blind trust.
