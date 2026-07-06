@@ -12,7 +12,7 @@ You will understand graph evolution as a controlled rewriting process for struct
 
 ## Why The Old Object Fails
 
-Study-note cleanup uses graph edits:
+Shared study-sheet cleanup uses graph edits:
 
 - add note
 - merge duplicate
@@ -27,7 +27,7 @@ Without rewrite rules, evolution becomes ad hoc.
 A rewrite rule:
 
 ```text
-two equivalent notes with compatible meaning -> one merged note with both sources preserved
+two equivalent notes with compatible meaning -> one merged note with both origins preserved
 ```
 
 ## Running Example: Cleaning Study Notes
@@ -38,10 +38,10 @@ Suppose two friends are preparing for an exam and both write:
 "Eigenvectors keep direction."
 ```
 
-One note came from lecture, the other from a textbook. A careless cleanup rule might merge them and keep only one source. A better rewrite rule says:
+One note came from lecture, the other from a textbook. A careless cleanup rule might merge them and erase where each version came from. A better rewrite rule says:
 
 ```text
-same normalized statement + compatible meaning -> merged note with both sources preserved
+same normalized statement + compatible meaning -> merged note with both origins preserved
 ```
 
 The operation is not just deletion. It is a legal edit with a guard and a provenance rule. If another rule marks one version as contradicted before the merge, the order of edits matters. That is why rewriting needs termination, confluence, and critical-pair thinking.
@@ -56,13 +56,13 @@ Rewrite rules can fail to terminate, fail to be confluent, or erase important di
 
 ## Problem Ladder
 
-1. Write a rule for merging duplicate notes.
-2. Write a rule for correction insertion.
-3. Explain confluence in terms of note-cleanup order.
+1. Write a rule for merging duplicate study-sheet entries.
+2. Write a rule for inserting a correction without erasing the older version.
+3. Explain confluence in terms of shared-note cleanup order.
 
 ## Representation Design Connection
 
-Structured note evolution needs legal graph edits, not just append-only accumulation.
+Shared notes need legal graph edits, not just append-only accumulation or casual deletion.
 
 ## Hand Problem Trail
 
@@ -88,14 +88,14 @@ Answer check: `Paper1 indirectly supports TheoremX`.
 Rule:
 
 ```text
-two notes with same normalized statement and compatible meaning -> one merged note preserving both sources
+two notes with same normalized statement and compatible meaning -> one merged note preserving both origins
 ```
 
 Apply it to:
 
 ```text
-n1: "Eigenvectors keep direction.", source lecture, support 0.6
-n2: "eigenvectors keep direction", source textbook, support 0.7
+n1: "Eigenvectors keep direction.", origin lecture, support 0.6
+n2: "eigenvectors keep direction", origin textbook, support 0.7
 ```
 
 Answer check:
@@ -103,7 +103,7 @@ Answer check:
 ```text
 Merge n1 and n2 into one normalized note:
 "eigenvectors keep direction"
-sources = {lecture, textbook}
+origins = {lecture, textbook}
 support is reinforced by the chosen update rule.
 ```
 
@@ -209,7 +209,7 @@ A rule merges two notes. Name one piece of provenance the output should keep.
 Answer check:
 
 ```text
-Possible answers: original note IDs, sources, timestamps, support history, correction links.
+Possible answers: original note IDs, origins, timestamps, support history, correction links.
 ```
 
 Merging should not mean forgetting why the merged node exists.
@@ -227,7 +227,7 @@ Name one danger.
 Answer check:
 
 ```text
-The system may delete rare but important minority evidence or remove a weak signal needed for later correction detection.
+The cleanup may delete a rare but important warning or remove a weak signal needed for later correction detection.
 ```
 
 Rewrite rules need safety guards, not only thresholds.
