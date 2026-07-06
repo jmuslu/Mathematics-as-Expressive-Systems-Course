@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mathematics as Expressive Systems</title>
     <link rel="stylesheet" href="styles.css" />
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(", "\\)"]],
+          displayMath: [["\\[", "\\]"]]
+        },
+        svg: {
+          fontCache: "global"
+        }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
   </head>
   <body>
     <main class="page">
@@ -90,6 +102,15 @@ gluing: local data into global consistency</code></pre>
       <section id="lectures">
         <h2>Lectures</h2>
         <div id="lectureList"></div>
+      </section>
+
+      <hr />
+
+      <section id="reader" class="reader" aria-live="polite">
+        <p class="reader-kicker">Lecture Reader</p>
+        <article id="moduleReader" class="module-reader">
+          <h2>Loading lecture...</h2>
+        </article>
       </section>
 
       <hr />

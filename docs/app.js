@@ -35,6 +35,7 @@ const modules = [
 
 const tocList = document.querySelector("#tocList");
 const lectureList = document.querySelector("#lectureList");
+const moduleReader = document.querySelector("#moduleReader");
 
 tocList.innerHTML = modules.map(([id, title]) => `
   <li><a href="#module-${id}">${id}. ${title}</a></li>
@@ -44,6 +45,281 @@ lectureList.innerHTML = modules.map(([id, title, file, summary]) => `
   <article id="module-${id}" class="lecture">
     <h3>${id}. ${title}</h3>
     <p>${summary}</p>
-    <p><a href="${file}">Open lecture notes</a></p>
+    <p class="lecture-actions">
+      <button type="button" class="read-button" data-module-id="${id}">Read lecture</button>
+      <a href="${file}">Open Markdown</a>
+    </p>
   </article>
 `).join("<hr />");
+
+lectureList.addEventListener("click", (event) => {
+  const button = event.target.closest("button[data-module-id]");
+  if (!button) return;
+  loadModule(button.dataset.moduleId, true, true);
+});
+
+window.addEventListener("hashchange", () => {
+  const match = location.hash.match(/^#read-(\d{2})$/);
+  if (match) loadModule(match[1], false, true);
+});
+
+if (location.hash.match(/^#read-\d{2}$/)) {
+  loadModule(location.hash.slice(6), false, true);
+} else {
+  loadModule("00", false, false);
+}
+
+async function loadModule(id, updateHash, scrollToReader) {
+  const item = modules.find(([moduleId]) => moduleId === id);
+  if (!item) return;
+
+  const [moduleId, title, file] = item;
+  moduleReader.innerHTML = `<h2>${moduleId}. ${escapeHtml(title)}</h2><p>Loading lecture...</p>`;
+
+  try {
+    const response = await fetch(file);
+    if (!response.ok) throw new Error(`Could not load ${file}`);
+    const markdown = await response.text();
+    moduleReader.innerHTML = renderMarkdown(mathifyMarkdown(markdown));
+    moduleReader.querySelectorAll("a").forEach((link) => {
+      if (link.hostname && link.hostname !== location.hostname) {
+        link.rel = "noreferrer";
+      }
+    });
+    if (window.MathJax?.typesetPromise) {
+      await window.MathJax.typesetPromise([moduleReader]);
+    }
+    if (updateHash) {
+      history.pushState(null, "", `#read-${moduleId}`);
+    }
+    if (scrollToReader) {
+      document.querySelector("#reader").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  } catch (error) {
+    moduleReader.innerHTML = `
+      <h2>${moduleId}. ${escapeHtml(title)}</h2>
+      <p>Could not load this lecture. The Markdown file is still available here:
+      <a href="${file}">${file}</a>.</p>
+    `;
+  }
+}
+
+function mathifyMarkdown(markdown) {
+  return markdown
+    .replace(/```text\n([\s\S]*?)```/g, (_, body) => {
+      if (looksLikeMathBlock(body)) {
+        return `\n$$\n${toTexBlock(body)}\n$$\n`;
+      }
+      return `\n~~~text\n${body.trimEnd()}\n~~~\n`;
+    })
+    .replace(/`([^`\n]+)`/g, (_, body) => {
+      if (!looksLikeInlineMath(body)) return `\`${body}\``;
+      return `$${toTexInline(body)}$`;
+    });
+}
+
+function looksLikeMathBlock(body) {
+  const text = body.trim();
+  if (!text) return false;
+  if (text.includes(":") && !/[=+\-*/^<>()[\]]/.test(text)) return false;
+  return /[=+\-*/^<>()[\]{}]|\\|lambda|rho|phi|tau|alpha|beta|epsilon|tensor|wedge|sqrt|dot|det|proj|span|conjugate|matrix|->|<-/.test(text);
+}
+
+function looksLikeInlineMath(text) {
+  if (text.length > 80) return false;
+  return /[=+\-*/^<>()[\]{}]|lambda|rho|phi|tau|alpha|beta|epsilon|tensor|wedge|sqrt|dot|det|proj|span|conjugate|Hermitian|unitary|PAP|A\^|v\^|u\^|x_\{|x\^|P\(|F\(|G\(|N\(|f\(|g\(/.test(text);
+}
+
+function toTexBlock(body) {
+  const trimmed = body.trim();
+  if (isAsciiMatrix(trimmed)) {
+    return matrixBlockToTex(trimmed);
+  }
+  return trimmed
+    .split("\n")
+    .map((line) => toTexInline(line.trim()))
+    .join(" \\\\\n");
+}
+
+function toTexInline(value) {
+  let text = value.trim();
+  text = text.replace(/<([^>]+)>/g, "\\langle $1 \\rangle");
+  text = text.replace(/&/g, "\\&");
+  text = text.replace(/->/g, "\\to ");
+  text = text.replace(/<-/g, "\\leftarrow ");
+  text = text.replace(/\bo\b/g, "\\circ ");
+  text = text.replace(/\btensor\b/g, "\\otimes");
+  text = text.replace(/\bkron\b/g, "\\otimes");
+  text = text.replace(/\bwedge\b/g, "\\wedge");
+  text = text.replace(/\bdot\b/g, "\\cdot");
+  text = text.replace(/\bconjugate\(([^)]+)\)/g, "\\overline{$1}");
+  text = text.replace(/\bsqrt\(([^)]+)\)/g, "\\sqrt{$1}");
+  text = text.replace(/\bsqrt([A-Za-z0-9_+\-*/^ ]+)/g, "\\sqrt{$1}");
+  text = text.replace(/\blambda\b/g, "\\lambda");
+  text = text.replace(/\brho\b/g, "\\rho");
+  text = text.replace(/\btau\b/g, "\\tau");
+  text = text.replace(/\bphi\b/g, "\\phi");
+  text = text.replace(/\balpha\b/g, "\\alpha");
+  text = text.replace(/\bbeta\b/g, "\\beta");
+  text = text.replace(/\bepsilon\b/g, "\\varepsilon");
+  text = text.replace(/\bpi_([A-Za-z0-9]+)/g, "\\pi_{$1}");
+  text = text.replace(/\bproj_([A-Za-z0-9]+)/g, "\\operatorname{proj}_{$1}");
+  text = text.replace(/\bspan\(([^)]+)\)/g, "\\operatorname{span}($1)");
+  text = text.replace(/\bdet\(([^)]+)\)/g, "\\det($1)");
+  text = text.replace(/\|\|([^|]+)\|\|_([A-Za-z0-9]+)/g, "\\lVert $1 \\rVert_{$2}");
+  text = text.replace(/\|\|([^|]+)\|\|/g, "\\lVert $1 \\rVert");
+  text = text.replace(/([A-Za-z0-9)])\*/g, "$1^*");
+  text = text.replace(/\b([A-Za-z])hat\b/g, "\\hat{$1}");
+  text = text.replace(/\^([A-Za-z0-9]+)/g, "^{$1}");
+  text = text.replace(/_([A-Za-z0-9]+)/g, "_{$1}");
+  text = text.replace(/([A-Za-z])'(\s|$|[=,)])/g, "$1'$2");
+  text = text.replace(/>=/g, "\\ge ");
+  text = text.replace(/<=/g, "\\le ");
+  return text;
+}
+
+function isAsciiMatrix(text) {
+  const lines = text.split("\n").filter(Boolean);
+  return lines.length > 1 && lines.every((line) => /^\s*\[[^\]]+\]\s*$/.test(line));
+}
+
+function matrixBlockToTex(text) {
+  const rows = text.split("\n").map((line) => {
+    return line.replace(/^\s*\[|\]\s*$/g, "").trim().split(/\s+/).join(" & ");
+  });
+  return `\\begin{bmatrix}\n${rows.join(" \\\\\n")}\n\\end{bmatrix}`;
+}
+
+function renderMarkdown(markdown) {
+  const lines = markdown.split("\n");
+  const html = [];
+  let i = 0;
+
+  while (i < lines.length) {
+    const line = lines[i];
+    if (!line.trim()) {
+      i += 1;
+      continue;
+    }
+
+    if (line.startsWith("~~~")) {
+      const language = line.slice(3).trim();
+      const body = [];
+      i += 1;
+      while (i < lines.length && !lines[i].startsWith("~~~")) {
+        body.push(lines[i]);
+        i += 1;
+      }
+      i += 1;
+      html.push(`<pre><code${language ? ` class="language-${language}"` : ""}>${escapeHtml(body.join("\n"))}</code></pre>`);
+      continue;
+    }
+
+    if (line.trim() === "$$") {
+      const body = [];
+      i += 1;
+      while (i < lines.length && lines[i].trim() !== "$$") {
+        body.push(lines[i]);
+        i += 1;
+      }
+      i += 1;
+      html.push(`<div class="math-block">\\[${body.join("\n")}\\]</div>`);
+      continue;
+    }
+
+    const heading = line.match(/^(#{1,4})\s+(.*)$/);
+    if (heading) {
+      const level = heading[1].length + 1;
+      html.push(`<h${level}>${renderInline(heading[2])}</h${level}>`);
+      i += 1;
+      continue;
+    }
+
+    if (/^\|.+\|$/.test(line) && i + 1 < lines.length && /^\|\s*:?-+/.test(lines[i + 1])) {
+      const headers = splitTableRow(line);
+      i += 2;
+      const rows = [];
+      while (i < lines.length && /^\|.+\|$/.test(lines[i])) {
+        rows.push(splitTableRow(lines[i]));
+        i += 1;
+      }
+      html.push(renderTable(headers, rows));
+      continue;
+    }
+
+    if (/^\s*[-*]\s+/.test(line)) {
+      const items = [];
+      while (i < lines.length && /^\s*[-*]\s+/.test(lines[i])) {
+        items.push(lines[i].replace(/^\s*[-*]\s+/, ""));
+        i += 1;
+      }
+      html.push(`<ul>${items.map((item) => `<li>${renderInline(item)}</li>`).join("")}</ul>`);
+      continue;
+    }
+
+    if (/^\s*\d+\.\s+/.test(line)) {
+      const items = [];
+      while (i < lines.length && /^\s*\d+\.\s+/.test(lines[i])) {
+        items.push(lines[i].replace(/^\s*\d+\.\s+/, ""));
+        i += 1;
+      }
+      html.push(`<ol>${items.map((item) => `<li>${renderInline(item)}</li>`).join("")}</ol>`);
+      continue;
+    }
+
+    const paragraph = [line.trim()];
+    i += 1;
+    while (
+      i < lines.length &&
+      lines[i].trim() &&
+      !/^(#{1,4})\s+/.test(lines[i]) &&
+      !lines[i].startsWith("~~~") &&
+      lines[i].trim() !== "$$" &&
+      !/^\s*[-*]\s+/.test(lines[i]) &&
+      !/^\s*\d+\.\s+/.test(lines[i]) &&
+      !/^\|.+\|$/.test(lines[i])
+    ) {
+      paragraph.push(lines[i].trim());
+      i += 1;
+    }
+    html.push(`<p>${renderInline(paragraph.join(" "))}</p>`);
+  }
+
+  return html.join("\n");
+}
+
+function renderInline(text) {
+  return text.split(/(\$[^$]+\$)/g).map((part) => {
+    if (part.startsWith("$") && part.endsWith("$")) {
+      return `\\(${part.slice(1, -1)}\\)`;
+    }
+    return escapeHtml(part)
+      .replace(/`([^`]+)`/g, "<code>$1</code>")
+      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+      .replace(/\*([^*]+)\*/g, "<em>$1</em>");
+  }).join("");
+}
+
+function renderTable(headers, rows) {
+  return `
+    <div class="table-wrap">
+      <table>
+        <thead><tr>${headers.map((cell) => `<th>${renderInline(cell)}</th>`).join("")}</tr></thead>
+        <tbody>${rows.map((row) => `<tr>${row.map((cell) => `<td>${renderInline(cell)}</td>`).join("")}</tr>`).join("")}</tbody>
+      </table>
+    </div>
+  `;
+}
+
+function splitTableRow(line) {
+  return line.trim().replace(/^\||\|$/g, "").split("|").map((cell) => cell.trim());
+}
+
+function escapeHtml(value) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}

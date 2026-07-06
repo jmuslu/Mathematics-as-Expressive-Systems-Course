@@ -72,6 +72,10 @@ a {
   color: var(--link);
 }
 
+button {
+  font: inherit;
+}
+
 ul,
 ol {
   padding-left: 28px;
@@ -113,6 +117,102 @@ code {
   color: var(--muted);
   font-family: ui-sans-serif, system-ui, sans-serif;
   font-size: 1rem;
+}
+
+.lecture-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.read-button {
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  background: var(--ink);
+  color: var(--paper);
+  cursor: pointer;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1;
+  padding: 8px 12px;
+}
+
+.read-button:hover,
+.read-button:focus-visible {
+  background: #374151;
+}
+
+.reader {
+  scroll-margin-top: 18px;
+}
+
+.reader-kicker {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.module-reader {
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
+
+.module-reader h2 {
+  margin-top: 28px;
+}
+
+.module-reader h2:first-child {
+  margin-top: 0;
+}
+
+.module-reader h3 {
+  margin-top: 24px;
+  font-size: 1.55rem;
+}
+
+.module-reader h4 {
+  margin: 22px 0 8px;
+  font-size: 1.18rem;
+}
+
+.module-reader p {
+  margin: 0 0 14px;
+}
+
+.module-reader .math-block {
+  overflow-x: auto;
+  margin: 16px 0;
+  padding: 8px 0;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin: 18px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--line);
+  padding: 10px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  color: var(--ink);
+  font-weight: 700;
 }
 
 @media (max-width: 720px) {
