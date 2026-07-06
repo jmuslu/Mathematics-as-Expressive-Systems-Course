@@ -269,14 +269,29 @@ pairs (member, payment_form) with the same team.
 
 Many joins are pullbacks in disguise.
 
-### Problem 20.11: Migration as pullback along a schema map
+### Problem 20.11: Schema migration direction
 
-Suppose a new schema forgets `ValidationState` and keeps only `Claim -> Source`. Is this migration adding information or forgetting information?
+Old schema:
+
+```text
+Claim -> Source
+Claim -> Topic
+Claim -> Confidence
+```
+
+New schema:
+
+```text
+Claim -> Source
+Claim -> Topic
+```
+
+Is moving old data to the new schema mainly forgetting information or adding information?
 
 Answer check:
 
 ```text
-It is forgetting information.
+It forgets information: Confidence is dropped.
 ```
 
 Schema maps can induce data migration, but the direction and information flow must be tracked carefully.

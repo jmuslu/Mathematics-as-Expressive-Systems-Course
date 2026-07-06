@@ -925,7 +925,7 @@ Useful direct example of instances as functors.
 Module: 20
 Topic: schema migration direction
 Role: conceptual check
-Status: reserve
+Status: promoted in Module 20 Problem 20.11
 Source use: original, source-informed
 Source note: Inspired by functorial data migration.
 License note: No source problem text copied.
