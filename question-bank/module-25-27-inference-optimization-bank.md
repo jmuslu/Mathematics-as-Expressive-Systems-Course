@@ -498,7 +498,7 @@ Good hand-checkable explaining-away variant.
 Module: 26
 Topic: Markov blanket
 Role: modeling interpretation
-Status: reserve
+Status: promoted in Module 26 Problem 26.9
 Source use: original
 Source note: Course-style ordinary analogy for Markov blanket.
 License note: No source problem text copied.

@@ -216,21 +216,23 @@ Hidden common causes are a major source of false confidence.
 In a Bayesian network, a node's Markov blanket consists of its parents, children, and co-parents of its children. For:
 
 ```text
-A -> B <- C
-B -> D
-E -> D
+Weather -> PatioChoice
+Budget -> RestaurantChoice
+PatioChoice -> Satisfaction
+RestaurantChoice -> Satisfaction
+Mood -> Satisfaction
 ```
 
-What is the Markov blanket of B?
+What is the Markov blanket of `RestaurantChoice`?
 
 Answer check:
 
 ```text
-Parents of B: A, C
-Children of B: D
-Co-parents of B's child D: E
+Parent: Budget
+Child: Satisfaction
+Co-parents of child Satisfaction: PatioChoice, Mood
 
-Markov blanket: {A, C, D, E}
+Markov blanket = {Budget, Satisfaction, PatioChoice, Mood}
 ```
 
 The Markov blanket is the local information boundary for a node.
