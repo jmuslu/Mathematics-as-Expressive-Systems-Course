@@ -108,14 +108,14 @@ Category theory is the language for comparing memory states, schemas, retrieval 
 Objects:
 
 ```text
-RawMemory, ValidatedClaim, Summary
+Idea, Draft, Slides
 ```
 
 Morphisms:
 
 ```text
-validate: RawMemory -> ValidatedClaim
-summarize: ValidatedClaim -> Summary
+draft: Idea -> Draft
+outline: Draft -> Slides
 ```
 
 What composite morphism must exist?
@@ -123,7 +123,7 @@ What composite morphism must exist?
 Answer check:
 
 ```text
-summarize o validate: RawMemory -> Summary
+outline o draft: Idea -> Slides
 ```
 
 Composition says the two-step workflow is itself a typed arrow.
@@ -135,27 +135,27 @@ Write the identity morphism for each object.
 Answer check:
 
 ```text
-id_RawMemory: RawMemory -> RawMemory
-id_ValidatedClaim: ValidatedClaim -> ValidatedClaim
-id_Summary: Summary -> Summary
+id_Idea: Idea -> Idea
+id_Draft: Draft -> Draft
+id_Slides: Slides -> Slides
 ```
 
 An identity morphism is the "do nothing but keep the type" map.
 
 ### Problem 17.3: Identity laws
 
-Using `validate: RawMemory -> ValidatedClaim`, simplify:
+Using `draft: Idea -> Draft`, simplify:
 
 ```text
-validate o id_RawMemory
-id_ValidatedClaim o validate
+draft o id_Idea
+id_Draft o draft
 ```
 
 Answer check:
 
 ```text
-validate o id_RawMemory = validate
-id_ValidatedClaim o validate = validate
+draft o id_Idea = draft
+id_Draft o draft = draft
 ```
 
 Identity maps should not change a pipeline.
@@ -165,36 +165,36 @@ Identity maps should not change a pipeline.
 Suppose also:
 
 ```text
-embed: Summary -> Vector
+present: Slides -> Presentation
 ```
 
 Compare:
 
 ```text
-embed o (summarize o validate)
-(embed o summarize) o validate
+present o (outline o draft)
+(present o outline) o draft
 ```
 
 Answer check:
 
 ```text
-summarize o validate: RawMemory -> Summary
-embed o (summarize o validate): RawMemory -> Vector
+outline o draft: Idea -> Slides
+present o (outline o draft): Idea -> Presentation
 
-embed o summarize: ValidatedClaim -> Vector
-(embed o summarize) o validate: RawMemory -> Vector
+present o outline: Draft -> Presentation
+(present o outline) o draft: Idea -> Presentation
 ```
 
 Both composites are the same legal typed path. Associativity means parentheses do not change a legal chain of composition.
 
 ### Problem 17.5: Category error
 
-Why is `validate o summarize` not legal in this workflow?
+Why is `draft o outline` not legal in this workflow?
 
 Answer check:
 
 ```text
-summarize outputs Summary, but validate expects RawMemory as input.
+outline outputs Slides, but draft expects Idea as input.
 ```
 
 Category theory catches type errors before computation begins.
@@ -225,13 +225,13 @@ Morphisms: linear maps
 
 The morphisms are not arbitrary functions. They must preserve vector-space structure.
 
-### Problem 17.8: A graph morphism test
+### Problem 17.8: A friendship graph morphism test
 
-Let graph `G` have one edge `a-b`. Let graph `H` have one edge `1-2`. Define:
+Let a small friendship graph `G` have one edge `Ari-Bea`. Let a role graph `H` have one edge `Planner-Designer`. Define:
 
 ```text
-f(a)=1
-f(b)=2
+f(Ari)=Planner
+f(Bea)=Designer
 ```
 
 Does `f` preserve adjacency?
@@ -239,18 +239,18 @@ Does `f` preserve adjacency?
 Answer check:
 
 ```text
-Yes. The edge a-b maps to the edge 1-2.
+Yes. The friendship edge Ari-Bea maps to the allowed collaboration edge Planner-Designer.
 ```
 
 A graph morphism must send structure to structure.
 
 ### Problem 17.9: A failed graph morphism
 
-Let `G` still have edge `a-b`, but let `H` have two nodes `1,2` and no edge. Define:
+Let `G` still have friendship edge `Ari-Bea`, but let `H` have roles `Planner, Designer` and no collaboration edge between them. Define:
 
 ```text
-f(a)=1
-f(b)=2
+f(Ari)=Planner
+f(Bea)=Designer
 ```
 
 Is `f` a graph morphism if adjacency must be preserved?
@@ -258,7 +258,7 @@ Is `f` a graph morphism if adjacency must be preserved?
 Answer check:
 
 ```text
-No. The edge a-b would map to a non-edge 1-2.
+No. The friendship edge Ari-Bea would map to a missing collaboration edge Planner-Designer.
 ```
 
 The function on nodes exists, but it does not preserve the graph structure.

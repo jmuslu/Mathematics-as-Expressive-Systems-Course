@@ -111,6 +111,63 @@ Typed memory transforms should state their preservation rule, not just their inp
 
 Useful for graduate-level precision about morphism choice.
 
+## 17.friendship-graph-morphism.a
+
+```text
+Module: 17
+Topic: graph morphisms as structure-preserving maps
+Role: computation / conceptual check
+Status: promoted
+Source use: original, source-informed
+Source note: Inspired by applied category theory examples that compare categories by their chosen morphisms.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A friendship graph has one edge:
+
+```text
+Ari -- Bea
+```
+
+A role graph has one collaboration edge:
+
+```text
+Planner -- Designer
+```
+
+Define:
+
+```text
+f(Ari)=Planner
+f(Bea)=Designer
+```
+
+Does `f` preserve adjacency? What changes if the role graph has the same two nodes but no collaboration edge?
+
+## Answer Check
+
+```text
+With the Planner-Designer edge: yes, the edge Ari-Bea maps to an edge.
+Without that edge: no, the edge Ari-Bea maps to a non-edge.
+```
+
+The same node assignment can be a graph morphism in one target graph and fail in another.
+
+## Intuition
+
+A morphism is not just a renaming. It must preserve the structure the category cares about.
+
+## Modeling Implication
+
+When translating one relational system into another, the target must contain the relationships that the source promises to preserve.
+
+## Reserve Notes
+
+Promoted into Module 17 as the ordinary human version of the graph morphism/failure-mode pair.
+
 ## 17.isomorphism.lost-information.a
 
 ```text
