@@ -275,8 +275,21 @@ E1 and E2 are conditionally independent given Class.
 
 This assumption may be useful even when imperfect, but it is still a modeling commitment.
 
-### Problem 26.12: Design assumption
+### Problem 26.12: Missing edge as a design assumption
 
-What does an edge absence mean in a graphical model?
+A model has:
 
-Answer check: it encodes an independence assumption, not ignorance. This is a modeling commitment.
+```text
+SourceQuality -> EvidenceAccuracy
+ClaimTruth -> EvidenceAccuracy
+```
+
+but no edge from `SourceQuality` to `ClaimTruth`. What assumption is the model making before observing evidence?
+
+Answer check:
+
+```text
+It assumes SourceQuality and ClaimTruth are independent a priori, unless connected through other variables.
+```
+
+An absent edge is not just a blank space. It encodes a simplifying assumption that should be documented.

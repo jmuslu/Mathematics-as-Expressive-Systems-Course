@@ -547,7 +547,7 @@ Natural analogy without memory-system premise.
 Module: 26
 Topic: missing edge assumption
 Role: failure mode
-Status: lecture candidate
+Status: promoted in Module 26 Problem 26.12
 Source use: original, source-informed
 Source note: Inspired by PGM notes on graph structure and conditional independence.
 License note: No source problem text copied.
