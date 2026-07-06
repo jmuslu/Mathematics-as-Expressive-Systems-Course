@@ -57,7 +57,7 @@ If a member maps to a team and a payment status, then every concrete member row 
 
 ## Failure Mode
 
-Overly rigid schemas block discovery. Overly loose schemas make validation impossible.
+Overly rigid schemas block discovery. Overly loose schemas make consistency checking impossible.
 
 ## Problem Ladder
 
