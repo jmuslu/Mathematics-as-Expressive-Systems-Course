@@ -18,9 +18,9 @@ Source posture: original course problems inspired by public applied category the
 Module: 17
 Topic: associativity of composition
 Role: computation
-Status: lecture candidate
+Status: promoted in Module 17 Problem 17.4
 Source use: original, source-informed
-Source note: Inspired by basic category composition laws.
+Source note: Inspired by basic category composition laws and applied-category emphasis on compositional workflows.
 License note: No source problem text copied.
 Verification status: checked by hand
 ```

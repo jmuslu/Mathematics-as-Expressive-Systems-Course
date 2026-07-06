@@ -162,30 +162,32 @@ Identity maps should not change a pipeline.
 
 ### Problem 17.4: Associativity by example
 
-Suppose also:
+A classroom workflow has typed arrows:
 
 ```text
-present: Slides -> Presentation
+draft: Idea -> Paragraph
+revise: Paragraph -> Essay
+submit: Essay -> Portfolio
 ```
 
-Compare:
+Write the source and target of both parenthesized composites:
 
 ```text
-present o (outline o draft)
-(present o outline) o draft
+submit o (revise o draft)
+(submit o revise) o draft
 ```
 
 Answer check:
 
 ```text
-outline o draft: Idea -> Slides
-present o (outline o draft): Idea -> Presentation
+revise o draft: Idea -> Essay
+submit o (revise o draft): Idea -> Portfolio
 
-present o outline: Draft -> Presentation
-(present o outline) o draft: Idea -> Presentation
+submit o revise: Paragraph -> Portfolio
+(submit o revise) o draft: Idea -> Portfolio
 ```
 
-Both composites are the same legal typed path. Associativity means parentheses do not change a legal chain of composition.
+Both composites are the same legal typed path. Associativity means a multi-step workflow can be treated as one arrow once the types line up.
 
 ### Problem 17.5: Category error
 
