@@ -146,7 +146,7 @@ w = 0.8w + 1
 w = 5
 ```
 
-The update approaches a steady level when reinforcement balances decay.
+Since `|0.8| < 1`, the update approaches this steady level when reinforcement balances decay.
 
 ### Problem 28.7: Stability intuition
 
@@ -176,12 +176,13 @@ A node's score updates by:
 x_{t+1} = 1.2 x_t
 ```
 
-starting from `x0=10`. Compute `x3`.
+starting from `x0=10`. Compute `x3` and decide whether the zero fixed point is stable.
 
 Answer check:
 
 ```text
 x3 = 1.2^3 * 10 = 17.28
+|1.2| > 1, so x=0 is unstable.
 ```
 
 Unchecked reinforcement can amplify early popularity.

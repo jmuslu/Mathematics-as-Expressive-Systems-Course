@@ -170,7 +170,10 @@ Starting from A, can both paths reach the same normal form?
 Answer check:
 
 ```text
-Yes. A -> C directly, and A -> B -> C.
+Path 1: A -> C
+Path 2: A -> B -> C
+
+Both paths reach C.
 ```
 
 Different rewrite orders can still agree if they join.
@@ -192,7 +195,14 @@ Answer check:
 Do the two rewrite orders lead to compatible final states?
 ```
 
-Critical pairs expose order-dependence.
+For example:
+
+```text
+R1 then R2: contradicted merged claim
+R2 then R1: merged contradicted claim
+```
+
+If those final states differ in provenance, confidence, or contradiction links, the rewrite system has an order-dependence problem. Critical pairs expose that risk.
 
 ### Problem 29.9: Provenance-preserving rewrite
 

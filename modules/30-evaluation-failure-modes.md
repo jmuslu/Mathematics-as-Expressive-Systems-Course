@@ -63,13 +63,18 @@ Evaluation should test the mathematical promises of the architecture, not just t
 
 ### Problem 30.1: Retrieval metrics
 
-A system returns 5 memories. Relevant items are at ranks 1, 3, and 5. Compute precision@5 and recall@5 if there are 6 relevant items total.
+A system returns 5 memories. Relevant items are at ranks 1, 3, and 5. Compute precision@5, recall@5, and F1@5 if there are 6 relevant items total.
 
 Answer check:
 
 ```text
 precision@5 = 3/5
 recall@5 = 3/6 = 1/2
+
+F1@5 = 2PR/(P+R)
+     = 2(3/5)(1/2)/(3/5 + 1/2)
+     = (3/5)/(11/10)
+     = 6/11
 ```
 
 ### Problem 30.2: Precision versus recall interpretation
