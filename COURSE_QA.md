@@ -36,7 +36,7 @@ base case -> by-hand manipulation -> answer check -> intuition -> modeling or de
 
 Not every problem needs every label, but the trail as a whole should move through that pattern.
 
-For analogy and promotion guidance, use `PROBLEM_TRAIL_STYLE.md`. The short version is: the central bank can be broad, but lecture problems should be selected for the local mathematical principle rather than forced into the final architecture too early.
+For analogy and promotion guidance, use `PROBLEM_TRAIL_STYLE.md`. The short version is: the central bank can be broad, but lecture problems should be selected for the local mathematical principle rather than forced into a final design too early.
 
 ## Source Gate
 

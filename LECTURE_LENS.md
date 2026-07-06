@@ -16,7 +16,7 @@ Each lecture should contain these pieces.
 8. Failure mode: when the object misleads, breaks, or becomes expensive.
 9. Invariants: what survives transformation or approximation.
 10. Problem ladder: direct, transfer, interpretation, and failure-mode problems.
-11. Design connection: why the local mathematical move matters for structured knowledge systems.
+11. Design connection: why the local mathematical move matters for the motivating expressive system.
 
 ## The Three Design Moves
 
