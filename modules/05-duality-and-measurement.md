@@ -11,10 +11,10 @@ You will understand dual spaces as the mathematics of tests, scores, constraints
 
 ## Why The Old Object Fails
 
-A memory state is not enough. You also need functions that evaluate it:
+A profile is not enough. You also need functions that evaluate it:
 
 ```text
-relevance, trust, contradiction, freshness, support
+kindness, humor, availability, trust, effort
 ```
 
 These are covectors.
@@ -67,9 +67,9 @@ V -> F
 2. Interpret a constraint as a covector.
 3. Explain why validation is a dual operation.
 
-## Memory-System Connection
+## Design Connection
 
-Every scoring rule is a measurement. Duality makes those measurements explicit.
+Every scoring rule is a measurement. Duality makes those measurements explicit, including what they cannot see.
 
 ## Hand Problem Trail
 
@@ -271,24 +271,24 @@ The vector-covector pairing is a scalar.
 
 ### Problem 5.11: Design a validation test
 
-You want a scalar score that rewards source quality, rewards independent corroboration twice as much, and penalizes contradiction three times as much. Write the covector for state `(quality, corroboration, contradiction)`.
+You want a scalar score that rewards kindness, rewards reliability twice as much, and penalizes unavailability three times as much. Write the covector for state `(kindness, reliability, unavailability)`.
 
 Answer check: `phi = [1, 2, -3]`.
 
 ### Problem 5.12: Measurement failure
 
-A score covector ignores contradiction:
+A score covector ignores unavailability:
 
 ```text
 phi = [1,2,0]
 ```
 
-for state `(quality, corroboration, contradiction)`. What can go wrong?
+for state `(kindness, reliability, unavailability)`. What can go wrong?
 
 Answer check:
 
 ```text
-High-quality and corroborated claims can score well even when contradiction is large, because the test cannot see the contradiction coordinate.
+A kind and reliable profile can score well even when unavailability is large, because the test cannot see the unavailability coordinate.
 ```
 
 Every measurement makes some directions visible and others invisible.
