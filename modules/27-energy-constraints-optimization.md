@@ -246,23 +246,24 @@ x=2
 
 A penalty trades off the original objective against constraint violation.
 
-### Problem 27.11: Wrong objective failure
+### Problem 27.11: Wrong energy can oversmooth
 
-A validation system minimizes only:
+A validation objective minimizes:
 
 ```text
-number of contradictions
+sum over edges (belief_u - belief_v)^2
 ```
 
-Name one bad behavior this can reward.
+Name one useful behavior and one dangerous behavior this objective can create.
 
 Answer check:
 
 ```text
-It may delete minority evidence, ignore uncertain claims, or merge incompatible claims just to reduce visible contradiction.
+Useful: it encourages neighboring beliefs to agree.
+Dangerous: it can oversmooth real disagreement or minority evidence.
 ```
 
-An explicit objective is debuggable, but only if it represents the right values.
+Every objective encodes a value judgment. Low energy is only good if the energy function penalizes the right failures.
 
 ### Problem 27.12: Memory interpretation
 

@@ -841,7 +841,7 @@ Good extension of the current penalty example.
 Module: 27
 Topic: objective failure mode
 Role: failure mode
-Status: lecture candidate
+Status: promoted in Module 27 Problem 27.11
 Source use: original
 Source note: Original course problem aligned with validation objective design.
 License note: No source problem text copied.
