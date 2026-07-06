@@ -86,16 +86,16 @@ Second-brain memory needs higher-order evidence bundles, not just pairwise assoc
 
 Classify each relation.
 
-1. Source S cites paper P.
-2. Source S supports claim C only under condition T.
-3. Three memories form one contradiction cycle.
+1. Ari and Bea are friends.
+2. Ari, Bea, and Cy made one dinner reservation together.
+3. Source S supports claim C only under condition T.
 
 Answer check:
 
 ```text
 1. edge
 2. hyperedge
-3. hyperedge or 2-simplex, depending on whether faces are included
+3. hyperedge
 ```
 
 ### Problem 12.2: Encode a ternary relation
@@ -103,7 +103,7 @@ Answer check:
 Represent:
 
 ```text
-source S supports claim C under condition T
+Ari, Bea, and Cy made one dinner reservation together
 ```
 
 as one hyperedge.
@@ -111,22 +111,22 @@ as one hyperedge.
 Answer check:
 
 ```text
-{S, C, T}
+{Ari, Bea, Cy}
 ```
 
-The relation belongs to the triple, not to three independent pairs.
+The reservation belongs to the triple, not to three independent pairwise friendships.
 
 ### Problem 12.3: Pairwise shadow
 
-If the hyperedge `{S,C,T}` is replaced by pairwise edges, which edges appear?
+If the hyperedge `{Ari,Bea,Cy}` is replaced by pairwise edges, which edges appear?
 
 Answer check:
 
 ```text
-S-C, S-T, C-T
+Ari-Bea, Ari-Cy, Bea-Cy
 ```
 
-The pairwise shadow loses the fact that support only holds for the whole triple.
+The pairwise shadow loses the fact that there was one three-person commitment rather than three separate pairwise plans.
 
 ### Problem 12.4: Triangle versus filled triangle
 

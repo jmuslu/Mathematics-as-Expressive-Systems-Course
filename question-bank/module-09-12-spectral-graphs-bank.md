@@ -398,9 +398,9 @@ This is a conceptual reserve problem; promote only if the module needs a sharper
 Module: 12
 Topic: hyperedges versus pairwise edges
 Role: conceptual check
-Status: lecture candidate
+Status: promoted in Module 12 Problems 12.1-12.3
 Source use: original, source-informed
-Source note: Inspired by higher-order network sources and the live group-chat running example.
+Source note: Inspired by higher-order network sources on multiway interactions and the live group-chat running example.
 License note: No source problem text copied.
 Verification status: checked by hand
 ```
