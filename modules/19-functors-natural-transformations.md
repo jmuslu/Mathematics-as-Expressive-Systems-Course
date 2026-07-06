@@ -27,6 +27,26 @@ graph map -> function between node sets
 
 It preserves identity and composition.
 
+## Running Example: Moving Notes Between Apps
+
+Suppose you move class notes from a notebook app into a flashcard app.
+
+The notebook has:
+
+```text
+page -> heading -> bullet
+```
+
+The flashcard app has:
+
+```text
+deck -> card -> prompt
+```
+
+A good translation does not merely copy words. It preserves relationships: bullets under the same heading should become cards in the same deck, and following a page-to-heading link before translating should agree with translating first and then following the corresponding deck relation.
+
+That is the functor/naturality idea in ordinary clothes: structure-preserving translation, not loose export.
+
 ## Formal Object
 
 A functor F: C -> D maps:

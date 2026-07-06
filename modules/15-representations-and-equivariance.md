@@ -31,6 +31,18 @@ rho(r) = [0 -1]
 
 Applying rho(r) four times gives the identity.
 
+## Running Example: Dance Moves As Matrices
+
+A dance routine can have an abstract move:
+
+```text
+turn 90 degrees
+```
+
+But a dancer needs that move as an actual body transformation. In coordinates, the turn becomes a matrix. Doing the move twice should match the matrix for a 180-degree turn. Doing it four times should return to the starting pose.
+
+Representation theory turns the abstract rulebook of moves into linear actions on a space where computation can happen.
+
 ## Formal Object
 
 A representation of G on V is a map:

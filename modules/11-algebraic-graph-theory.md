@@ -18,6 +18,20 @@ Ordinary graph theory can describe paths. Algebraic graph theory reveals hidden 
 
 Two graph drawings may look different but be isomorphic. Algebraic invariants help detect sameness.
 
+## Running Example: Detective Boards
+
+Two detectives draw the same case board differently. One puts the witness at the top and the suspect on the left. The other puts the suspect at the center and the witness on the right.
+
+If the same connections are present, the boards may be the same graph under relabeling. If one board has a hidden symmetry, like two interchangeable witnesses with identical connections, an automorphism exposes it.
+
+Algebraic graph theory asks which features survive the drawing:
+
+```text
+same structure, different names or layout
+```
+
+The point is to detect structure, not handwriting.
+
 ## Formal Object
 
 Algebraic graph theory studies graphs using matrices, eigenvalues, automorphism groups, and related algebraic structure.

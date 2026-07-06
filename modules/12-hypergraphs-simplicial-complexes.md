@@ -24,6 +24,18 @@ source S supports claim C under condition T
 
 is not just S-C, C-T, and S-T. The relation is ternary.
 
+## Running Example: Group Chat Plans
+
+In a group chat, three friends might agree:
+
+```text
+Ari, Bea, Cy are going to the concert together
+```
+
+That is not the same as three pairwise friendships. Ari and Bea may be friends, Bea and Cy may be friends, and Ari and Cy may be friends, but the concert plan is a single three-person commitment.
+
+A hyperedge records the joint event. A filled simplex says the whole group belongs together as one higher-order piece, with lower-dimensional faces available when the model wants them.
+
 ## Formal Object
 
 A hypergraph allows edges connecting any number of nodes. A simplicial complex closes higher-order relations under faces.
