@@ -1,4 +1,4 @@
-# Module 25: Message Passing and Belief Propagation
+# Module 25: Message Passing and Dinner Rumors
 
 ## Lecture Promise
 

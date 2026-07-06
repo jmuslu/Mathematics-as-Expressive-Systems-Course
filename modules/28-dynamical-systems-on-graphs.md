@@ -1,4 +1,4 @@
-# Module 28: Dynamical Systems on Graphs
+# Module 28: Dynamical Systems on Graphs and Playlist Attention
 
 ## Lecture Promise
 

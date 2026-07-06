@@ -1,4 +1,4 @@
-# Module 26: Probabilistic Graphical Models
+# Module 26: Probabilistic Graphical Models and Restaurant Recommendations
 
 ## Lecture Promise
 

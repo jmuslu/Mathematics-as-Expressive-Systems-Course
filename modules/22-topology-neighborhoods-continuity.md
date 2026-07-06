@@ -1,4 +1,4 @@
-# Module 22: Topology, Neighborhoods, and Continuity
+# Module 22: Topology, Neighborhoods, and Friendship Thresholds
 
 ## Lecture Promise
 

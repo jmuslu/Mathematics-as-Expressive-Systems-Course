@@ -1,4 +1,4 @@
-# Module 24: Sheaves and Local-to-Global Consistency
+# Module 24: Sheaves and Local Dinner Reports
 
 ## Lecture Promise
 

@@ -1,4 +1,4 @@
-# Module 27: Energy, Constraints, and Optimization
+# Module 27: Energy, Constraints, and Dinner Planning
 
 ## Lecture Promise
 

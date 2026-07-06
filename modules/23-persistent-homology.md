@@ -1,4 +1,4 @@
-# Module 23: Persistent Homology
+# Module 23: Persistent Homology and Friendship Circles
 
 ## Lecture Promise
 
