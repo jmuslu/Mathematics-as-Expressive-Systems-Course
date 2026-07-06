@@ -110,11 +110,46 @@ A(2,3) = (2+3,3) = (5,3)
 
 The second coordinate is preserved while the first mixes in the second.
 
-### Problem 3.3: Apply the transformation
+### Problem 3.3: Self-discovery consistency check
 
-For `x = (7, 2)`, compute `Ax`.
+Someone says their weekly energy has two hidden causes:
 
-Answer check: `Ax = (5, 2)`.
+```text
+x = sleep quality
+y = social overload
+```
+
+Three observations give:
+
+```text
+x + y = 7
+2x + y = 11
+x - y = 1
+```
+
+Use elimination to decide whether these observations are mutually consistent.
+
+Answer check:
+
+Subtract the first equation from the second:
+
+```text
+x = 4
+```
+
+Then the first equation gives:
+
+```text
+y = 3
+```
+
+Check the third:
+
+```text
+x - y = 4 - 3 = 1
+```
+
+All three equations are consistent. Elimination exposes whether different observations can live in the same hidden state.
 
 ### Problem 3.4: Test linearity
 

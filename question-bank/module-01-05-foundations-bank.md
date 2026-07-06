@@ -146,7 +146,7 @@ This is a cleaner bank version of the classic ticket setup, rewritten for the co
 Module: 03
 Topic: Gaussian elimination as constraint revelation
 Role: guided derivation
-Status: reserve
+Status: promoted in Module 03 Problem 3.3
 Source use: original, source-informed
 Source note: Inspired by local self-discovery/Gaussian-elimination lecture framing.
 License note: No source problem text copied.
