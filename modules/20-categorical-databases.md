@@ -211,15 +211,45 @@ The components must also respect schema arrows like `team`.
 
 ### Problem 20.9: Naturality for a database migration
 
-Let `eta_Member(jo)=jo-2026` and `eta_Team(debate)=debate-team`. If `team(jo)=debate`, what must hold in the target instance?
+Two database instances share the schema:
+
+```text
+Ticket -> Event
+```
+
+Instance `F` has:
+
+```text
+Ticket = {t1}
+Event = {e1}
+event(t1)=e1
+```
+
+Instance `G` has:
+
+```text
+Ticket = {ticket-001}
+Event = {concert-A}
+event(ticket-001)=concert-A
+```
+
+A migration has components:
+
+```text
+eta_Ticket(t1)=ticket-001
+eta_Event(e1)=concert-A
+```
+
+Check naturality for `event`.
 
 Answer check:
 
 ```text
-team(jo-2026) = debate-team
+G(event)(eta_Ticket(t1)) = G(event)(ticket-001) = concert-A
+eta_Event(F(event)(t1)) = eta_Event(e1) = concert-A
 ```
 
-Migrating a member and then looking up their team must agree with looking up the team and then migrating it.
+Both paths agree. Migrating a ticket and then asking for its event matches asking for the event first and then migrating that event.
 
 ### Problem 20.10: Pullback query
 

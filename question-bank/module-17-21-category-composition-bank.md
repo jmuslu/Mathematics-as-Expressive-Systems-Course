@@ -858,7 +858,7 @@ Pairs with the previous problem.
 Module: 20
 Topic: natural transformation between instances
 Role: derivation
-Status: reserve
+Status: promoted in Module 20 Problem 20.9
 Source use: original, source-informed
 Source note: Inspired by instances as Set-valued functors and natural transformations between instances.
 License note: No source problem text copied.
