@@ -744,6 +744,69 @@ Categorical schemas make hidden assumptions explicit and testable.
 
 Good ordinary database example for Module 20.
 
+## 20.roster-path-equation.a
+
+```text
+Module: 20
+Topic: categorical database path equation
+Role: computation / consistency check
+Status: promoted
+Source use: original, source-informed
+Source note: Inspired by categorical database examples where schemas are categories with path equations and instances are Set-valued functors.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A club roster schema has:
+
+```text
+Member -> Team -> Captain -> Email
+Member -> Team -> Email
+```
+
+with arrows:
+
+```text
+team: Member -> Team
+captain: Team -> Captain
+captainEmail: Captain -> Email
+teamContact: Team -> Email
+```
+
+Write the path equation saying a member's team captain email agrees with the team's official contact email. Then check it for:
+
+```text
+team(jo)=debate
+captain(debate)=ana
+captainEmail(ana)=debate-club@northeastern.edu
+teamContact(debate)=debate-club@northeastern.edu
+```
+
+## Answer Check
+
+```text
+captainEmail o captain o team = teamContact o team
+
+(captainEmail o captain o team)(jo) = debate-club@northeastern.edu
+(teamContact o team)(jo) = debate-club@northeastern.edu
+```
+
+The equation holds for `jo`.
+
+## Intuition
+
+A path equation says that two legal ways of walking through the schema must return the same row-level value.
+
+## Modeling Implication
+
+Categorical schemas turn consistency into a checkable structural requirement rather than an informal naming convention.
+
+## Reserve Notes
+
+Promoted into Module 20 to align the path-equation calculation with the club-roster running example.
+
 ## 20.path-equation.violation.a
 
 ```text

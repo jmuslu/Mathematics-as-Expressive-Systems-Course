@@ -77,40 +77,40 @@ Typed memory is the difference between a pile of facts and an epistemic graph.
 Objects:
 
 ```text
-Claim, Source, Document
+Member, Team, Captain
 ```
 
 Arrows:
 
 ```text
-madeBy: Claim -> Source
-appearsIn: Claim -> Document
+team: Member -> Team
+captain: Team -> Captain
 ```
 
 Draw the schema and identify the object sets an instance must provide.
 
-Answer check: an instance provides sets of claims, sources, and documents, plus functions for `madeBy` and `appearsIn`.
+Answer check: an instance provides sets of members, teams, and captains, plus functions for `team` and `captain`.
 
 ### Problem 20.2: One concrete instance
 
 Let:
 
 ```text
-Claim = {c1,c2}
-Source = {s1}
-Document = {d1,d2}
-madeBy(c1)=s1
-madeBy(c2)=s1
-appearsIn(c1)=d1
-appearsIn(c2)=d2
+Member = {jo, kai}
+Team = {debate, robotics}
+Captain = {ana, ben}
+team(jo)=debate
+team(kai)=robotics
+captain(debate)=ana
+captain(robotics)=ben
 ```
 
-Which table does `appearsIn` behave like?
+Which table does `team` behave like?
 
 Answer check:
 
 ```text
-It behaves like a foreign-key column from Claim rows to Document rows.
+It behaves like a foreign-key column from Member rows to Team rows.
 ```
 
 In a categorical instance, arrows become functions between row sets.
@@ -120,36 +120,45 @@ In a categorical instance, arrows become functions between row sets.
 Suppose also:
 
 ```text
-sourceOrg: Source -> Organization
-docOrg: Document -> Organization
+captainEmail: Captain -> Email
+teamContact: Team -> Email
 ```
 
-Write a path equation saying a claim's source organization should match the document organization.
+Write a path equation saying a member's team captain email should match the official team contact email.
 
-Answer check: `sourceOrg o madeBy = docOrg o appearsIn`.
+Answer check: `captainEmail o captain o team = teamContact o team`.
 
 ### Problem 20.4: Find violation
 
-Given `madeBy(c)=s`, `appearsIn(c)=d`, `sourceOrg(s)=OpenAI`, and `docOrg(d)=MIT`, does the path equation hold?
+Given:
+
+```text
+team(jo)=debate
+captain(debate)=ana
+captainEmail(ana)=ana@northeastern.edu
+teamContact(debate)=debate-club@northeastern.edu
+```
+
+does the path equation hold for `jo`?
 
 Answer check:
 
 ```text
-(sourceOrg o madeBy)(c) = sourceOrg(s) = OpenAI
-(docOrg o appearsIn)(c) = docOrg(d) = MIT
+(captainEmail o captain o team)(jo) = captainEmail(captain(debate)) = captainEmail(ana) = ana@northeastern.edu
+(teamContact o team)(jo) = teamContact(debate) = debate-club@northeastern.edu
 ```
 
-No. The two paths return different organizations.
+No. The two paths return different email addresses.
 
 ### Problem 20.5: Find satisfaction
 
 Given:
 
 ```text
-madeBy(c)=s
-appearsIn(c)=d
-sourceOrg(s)=Northeastern
-docOrg(d)=Northeastern
+team(jo)=debate
+captain(debate)=ana
+captainEmail(ana)=debate-club@northeastern.edu
+teamContact(debate)=debate-club@northeastern.edu
 ```
 
 does the path equation hold?
@@ -157,8 +166,8 @@ does the path equation hold?
 Answer check:
 
 ```text
-(sourceOrg o madeBy)(c) = sourceOrg(s) = Northeastern
-(docOrg o appearsIn)(c) = docOrg(d) = Northeastern
+(captainEmail o captain o team)(jo) = debate-club@northeastern.edu
+(teamContact o team)(jo) = debate-club@northeastern.edu
 ```
 
 Yes. The equation is checkable row by row.
@@ -171,53 +180,53 @@ Answer check: they make consistency constraints explicit and checkable.
 
 ### Problem 20.7: Add a contradiction relation
 
-Extend the schema with a contradiction relation between claims:
+Extend the roster schema with a scheduling conflict relation between members:
 
 ```text
-contradicts: Contradiction -> Claim
-contradictedBy: Contradiction -> Claim
+memberA: Conflict -> Member
+memberB: Conflict -> Member
 ```
 
-Why use a separate `Contradiction` object instead of a single edge label?
+Why use a separate `Conflict` object instead of a single edge label?
 
 Answer check:
 
 ```text
-The contradiction can carry its own metadata, such as source, time, severity, or resolution status.
+The conflict can carry its own metadata, such as meeting time, severity, resolution status, or who reported it.
 ```
 
 Turning an edge into an object lets the relation have attributes.
 
 ### Problem 20.8: Instance category intuition
 
-Two database instances on the same schema can be connected by a natural transformation. What does its component at `Claim` do?
+Two database instances on the same schema can be connected by a natural transformation. What does its component at `Member` do?
 
 Answer check:
 
 ```text
-It maps claim rows in the first instance to claim rows in the second instance.
+It maps member rows in the first instance to member rows in the second instance.
 ```
 
-The components must also respect schema arrows like `madeBy`.
+The components must also respect schema arrows like `team`.
 
 ### Problem 20.9: Naturality for a database migration
 
-Let `eta_Claim(c)=c'` and `eta_Source(s)=s'`. If `madeBy(c)=s`, what must hold in the target instance?
+Let `eta_Member(jo)=jo-2026` and `eta_Team(debate)=debate-team`. If `team(jo)=debate`, what must hold in the target instance?
 
 Answer check:
 
 ```text
-madeBy(c') = s'
+team(jo-2026) = debate-team
 ```
 
-Migrating a claim and then looking up its source must agree with looking up the source and then migrating it.
+Migrating a member and then looking up their team must agree with looking up the team and then migrating it.
 
 ### Problem 20.10: Pullback query
 
 A schema has:
 
 ```text
-Claim -> Topic <- Document
+Member -> Team <- PaymentForm
 ```
 
 What does the pullback query return?
@@ -225,7 +234,7 @@ What does the pullback query return?
 Answer check:
 
 ```text
-pairs (claim, document) with the same topic.
+pairs (member, payment_form) with the same team.
 ```
 
 Many joins are pullbacks in disguise.
