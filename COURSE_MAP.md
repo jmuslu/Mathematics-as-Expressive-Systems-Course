@@ -2,27 +2,27 @@
 
 ## Destination
 
-The course is aimed at mathematical judgment for building an LLM second brain:
+The course is aimed at mathematical judgment for building expressive systems:
 
-> A dynamic epistemic graph whose memories, claims, validations, transformations, decay, and reinforcement rules can be reasoned about instead of merely tuned.
+> Structured representations whose states, transformations, invariants, constraints, uncertainty, dynamics, and failure modes can be reasoned about instead of merely tuned.
 
-This is broader than RAG. RAG is one implementation pattern. The deeper object is a living knowledge system:
+This includes debate boards, study notes, friendship profiles, dinner plans, recommendation graphs, and external-memory systems. RAG is one implementation pattern, not the whole destination. The deeper object is a structured system whose local pieces, typed relations, and updates remain mathematically legible:
 
 ```text
-local memories -> typed relations -> transformations -> validation loops -> global structure
+local pieces -> typed relations -> transformations -> consistency checks -> global structure
 ```
 
 ## Design Questions
 
 The course returns to these questions repeatedly:
 
-1. What is a valid memory state?
+1. What is a valid represented state?
 2. Which graph transformations preserve meaning?
 3. Which invariants should survive compression, decay, or node relabeling?
-4. How does local evidence patch into global belief?
+4. How does local information patch into a global assignment?
 5. When does a reasoning path remain coherent across hops?
 6. What does reinforcement strengthen: nodes, edges, paths, motifs, or sections?
-7. What does decay destroy first: facts, paths, clusters, or global consistency?
+7. What does decay destroy first: weights, paths, clusters, or global consistency?
 
 ## Product Atlas Thread
 
@@ -51,7 +51,7 @@ The product thread emphasizes slots, dual spaces, non-degenerate Hermitian forms
 | II | Structure and invariance | Groups, actions, representations, equivariance |
 | III | Graphs as systems | Algebraic graph theory, spectra, flows, hypergraphs |
 | IV | Composition and typing | Categories, functors, databases, operads |
-| V | Topology of memory | Simplicial complexes, persistence, sheaves |
+| V | Topology of local structure | Simplicial complexes, persistence, sheaves |
 | VI | Uncertainty and validation | Graphical models, belief propagation, constraints |
 | VII | Dynamics and design | Reinforcement, decay, consolidation, evaluation |
 
@@ -60,37 +60,37 @@ The product thread emphasizes slots, dual spaces, non-degenerate Hermitian forms
 | # | Module | Core capability |
 | --- | --- | --- |
 | 00 | How To Work This Course | Learn by base cases and operations |
-| 01 | Scalars and Closure | Know what one coordinate is allowed to express |
-| 02 | Vectors, Bases, and State Spaces | Represent memory states |
-| 03 | Linear Maps and Change | Treat transformations as objects |
-| 04 | Projection, Error, and Approximation | Measure best available representation |
-| 05 | Duality and Measurement | Represent constraints, tests, and scores |
-| 06 | Tensors and Typed Relations | Model multi-way relations |
-| 07 | Covariance and Contravariance | Track how objects transform |
-| 08 | Inner Products and Hermitian Structure | Preserve geometry over richer scalars |
-| 09 | Spectral Theory | Find stable modes of evolution |
-| 10 | Graphs, Incidence, and Laplacians | Move from nodes to systems |
-| 11 | Algebraic Graph Theory | Use spectra, automorphisms, and cuts |
-| 12 | Hypergraphs and Simplicial Complexes | Represent relations beyond edges |
-| 13 | Groups and Symmetry | Identify legal transformations |
-| 14 | Group Actions on Sets and Graphs | Understand relabeling and invariance |
-| 15 | Representations and Equivariance | Turn symmetry into computation |
-| 16 | Invariant Operators and Averaging | Build safe transformations |
-| 17 | Category Theory I: Objects and Morphisms | Reason about structure-preserving maps |
-| 18 | Category Theory II: Universal Properties | Recognize canonical constructions |
-| 19 | Functors and Natural Transformations | Translate between systems |
-| 20 | Categorical Databases and Schemas | Treat knowledge structure as typed data |
-| 21 | Operads and Compositional Systems | Compose many-input processes |
-| 22 | Topology, Neighborhoods, and Continuity | Separate geometry from persistent structure |
-| 23 | Persistent Homology | Track what survives across thresholds |
-| 24 | Sheaves and Local-to-Global Consistency | Patch local claims into global belief |
-| 25 | Message Passing and Belief Propagation | Validate through graph-local updates |
-| 26 | Probabilistic Graphical Models | Model uncertainty over structured memory |
-| 27 | Energy, Constraints, and Optimization | Design stable validation objectives |
-| 28 | Dynamical Systems on Graphs | Study reinforcement, decay, and convergence |
-| 29 | Rewriting Systems and Knowledge Evolution | Control graph edits and closure |
-| 30 | Evaluation and Failure Modes | Test invariants, coherence, and robustness |
-| 31 | Architecture Studio | Design the second-brain math spec |
+| 01 | Scalars, Coordinates, and Friendship Intensity | Know what one coordinate is allowed to express |
+| 02 | Vector Spaces, Reachability, and Friendship Profiles | Represent multi-trait profiles and reachable combinations |
+| 03 | Linear Maps and Changing Perspective | Treat advice and perspective shifts as transformations |
+| 04 | Projection, Error, and Misunderstanding | Measure best available representation and residual error |
+| 05 | Duality, Measurement, and Dating Standards | Represent standards, constraints, tests, and scores |
+| 06 | Tensors and Dinner Table Relations | Model typed multi-slot relations |
+| 07 | Covariance, Contravariance, and Budget Units | Track how objects transform under unit changes |
+| 08 | Hermitian Structure and Playlist Phase | Preserve magnitude and phase over complex scalars |
+| 09 | Spectral Theory and Friendship Moods | Find stable modes of repeated updates |
+| 10 | Graphs, Incidence, and Party Tension | Move from connected nodes to flows, cuts, and smoothing |
+| 11 | Algebraic Graph Theory and Detective Boards | Use spectra, automorphisms, and graph structure |
+| 12 | Hypergraphs, Simplicial Complexes, and Group Commitments | Represent group commitments beyond pairwise edges |
+| 13 | Groups, Symmetry, and Party-Game Moves | Identify legal moves and what they preserve |
+| 14 | Group Actions and Seating Chart Relabeling | Understand relabeling and invariance |
+| 15 | Representations, Equivariance, and Dance Moves | Turn symmetry into linear computation |
+| 16 | Invariant Operators and Reviewer Averaging | Build invariant judgments by averaging |
+| 17 | Category Theory I: Group Project Workflows | Reason about typed stages and structure-preserving arrows |
+| 18 | Universal Properties and Lunch Orders | Recognize objects by their mapping behavior |
+| 19 | Functors, Natural Transformations, and App Translations | Translate between systems coherently |
+| 20 | Categorical Databases and Club Roster Schemas | Treat typed roster structure as categorical data |
+| 21 | Operads and Dinner-Plan Composition | Compose typed many-input processes |
+| 22 | Topology, Neighborhoods, and Friendship Thresholds | Separate geometry from persistent structure |
+| 23 | Persistent Homology and Friendship Circles | Track what survives across thresholds |
+| 24 | Sheaves and Local Dinner Reports | Glue local reports into global consistency |
+| 25 | Message Passing and Dinner Rumors | Update probabilities through graph-local messages |
+| 26 | Probabilistic Graphical Models and Restaurant Recommendations | Model hidden causes and correlated observations |
+| 27 | Energy, Constraints, and Dinner Planning | Choose the best feasible option under hard constraints |
+| 28 | Dynamical Systems on Graphs and Playlist Attention | Study reinforcement, decay, convergence, and attractors |
+| 29 | Rewriting Systems and Structured Edits | Control legal edits, guards, and normal forms |
+| 30 | Evaluating Arguments and Failure Modes | Test relevance, coherence, invariance, and calibration |
+| 31 | Evidence Board Architecture Studio | Design a debate evidence-board math spec |
 
 ## Study Output
 
@@ -100,7 +100,7 @@ For each module, produce:
 - One definition card
 - One invariant
 - One failure mode
-- One graph/memory design implication
+- One design implication for the motivating expressive system
 - One completed 12-problem hand trail with answer checks
 - At least one interpretation problem that connects the calculation back to the motivating scenario
 

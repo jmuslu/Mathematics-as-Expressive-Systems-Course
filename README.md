@@ -1,10 +1,10 @@
 # Mathematics as Expressive Systems
 
-A self-paced applied mathematics course for designing dynamic epistemic graphs and LLM second-brain systems.
+A self-paced applied mathematics course for designing expressive systems: structured representations, transformations, invariants, constraints, uncertainty, and dynamics.
 
 The guiding idea:
 
-> External memory is not just retrieval. It is a structured evolving knowledge system whose transformations, invariants, validations, and failure modes should be mathematically legible.
+> A mathematical object becomes useful when you know what it can express, what operations it makes legal, what it preserves, and how it fails.
 
 ## What This Course Is For
 
@@ -16,10 +16,10 @@ This course is for building mathematical taste around:
 - Tensors and typed relations
 - Category theory and compositionality
 - Topology, persistence, and sheaves
-- Probabilistic validation and message passing
+- Probabilistic modeling and message passing
 - Decay, reinforcement, consolidation, and graph evolution
 
-The destination is broader than RAG or vector search. Those are applications. The deeper target is the design of an external cognitive architecture: a living graph of claims, context, evidence, validations, and transformations.
+The examples move through friendship profiles, dinner plans, dating standards, playlists, study notes, rosters, debate boards, and recommendation graphs. External memory, RAG, and vector search remain useful applications, but the course is not forced around them.
 
 ## Start Here
 
@@ -42,7 +42,7 @@ There are 32 modules, grouped into seven parts:
 2. Structure and invariance
 3. Graphs as systems
 4. Composition and typing
-5. Topology of memory
+5. Topology of local structure
 6. Uncertainty and validation
 7. Dynamics and design
 

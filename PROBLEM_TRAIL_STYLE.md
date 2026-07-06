@@ -39,7 +39,7 @@ Good analogies are local:
 - budgets, units, exchange rates, and legal transformations,
 - rumors, revisions, decay, reinforcement, and source reliability.
 
-The final memory-system design can appear after the calculation as an interpretation. It should not usually be the premise of the analogy. A module on tensors can be about a dinner table before it becomes about typed multi-way relations. A module on sheaves can be about witnesses agreeing locally before it becomes about global belief. A module on group actions can be about relabeling seats or teams before it becomes about invariant architecture.
+The final design interpretation can appear after the calculation. It should not usually be the premise of the analogy. A module on tensors can be about a dinner table before it becomes about typed multi-way relations. A module on sheaves can be about witnesses agreeing locally before it becomes about local-to-global consistency. A module on group actions can be about relabeling seats or teams before it becomes about invariant structure.
 
 Avoid analogies that are only plausible because the course's end goal exists. If the scenario would sound strange in an ordinary applied math lecture, replace it with a simpler human or operational setup.
 
