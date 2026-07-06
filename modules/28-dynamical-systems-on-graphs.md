@@ -2,7 +2,7 @@
 
 ## Lecture Promise
 
-You will understand reinforcement, decay, and consolidation as dynamics on graph states.
+You will understand reinforcement, decay, diffusion, and attractors as dynamics on graph states.
 
 ## Prerequisites
 
@@ -65,7 +65,7 @@ Dynamics can converge to bad attractors:
 
 ## Representation Design Connection
 
-Decay and reinforcement can operate on nodes, edges, paths, motifs, and consistency scores, not only isolated scalar facts.
+Decay and reinforcement can operate on nodes, edges, paths, motifs, and consistency scores, not only isolated scalar weights.
 
 ## Hand Problem Trail
 
