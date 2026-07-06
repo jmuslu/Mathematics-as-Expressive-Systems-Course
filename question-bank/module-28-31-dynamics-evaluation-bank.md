@@ -740,7 +740,7 @@ Good integration problem linking Modules 28 and 30.
 Module: 31
 Topic: architecture specification
 Role: modeling interpretation
-Status: lecture candidate
+Status: promoted
 Source use: original, source-informed
 Source note: Inspired by graph-based agent memory lifecycle and evaluation sources.
 License note: No source problem text copied.
@@ -781,7 +781,7 @@ The final design document should test the course's whole vocabulary, not just na
 
 ## Reserve Notes
 
-Good capstone diagnostic.
+Promoted into Module 31 as the final mathematical-contract audit.
 
 ## 31.evaluation-alignment.a
 

@@ -215,17 +215,28 @@ decay stress test
 
 Evaluation should match the mathematical promises in the design.
 
-### Problem 31.12: Build the design spec
+### Problem 31.12: Audit the mathematical contract
 
-Write one page with these headings:
+A design spec says:
 
 ```text
-Objects
-Operations
-Products
-Invariants
-Failure modes
-Evaluation tests
+We store claims in a graph and retrieve useful memories.
 ```
 
-Answer check: the spec should identify mathematical commitments, not implementation details only.
+Name five mathematical commitments missing from this spec.
+
+Answer check:
+
+```text
+Possible answers:
+node and edge types
+state space
+legal transformations
+invariants
+restriction maps or consistency rules
+decay and reinforcement dynamics
+rewrite rules and guards
+evaluation tests
+```
+
+The final design document should test the course's whole vocabulary, not just name a graph.
