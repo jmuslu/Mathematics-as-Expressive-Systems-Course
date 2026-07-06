@@ -677,7 +677,7 @@ Good for emphasizing projection behavior.
 Module: 16
 Topic: invariant projection failure mode
 Role: failure mode
-Status: lecture candidate
+Status: promoted in Module 16 Problem 16.12
 Source use: original
 Source note: Course-style analogy aligned to Reynolds averaging.
 License note: No source problem text copied.

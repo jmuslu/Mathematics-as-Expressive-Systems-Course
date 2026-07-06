@@ -2,7 +2,7 @@
 
 ## Lecture Promise
 
-You will understand how invariant subspaces can be constructed by averaging over a group, and why this matters for safe graph features.
+You will understand how invariant subspaces can be constructed by averaging over a group, and why this matters for reliable features.
 
 ## Prerequisites
 
@@ -83,7 +83,7 @@ So Rv is invariant.
 
 Averaging can erase useful asymmetric information.
 
-If a memory graph needs direction, source, or causal order, forcing invariance may destroy exactly what validation requires.
+If a representation needs direction, source, disagreement, or causal order, forcing invariance may destroy exactly what the model needs.
 
 The design question is therefore:
 
@@ -91,7 +91,7 @@ The design question is therefore:
 Should this object be invariant, equivariant, or neither?
 ```
 
-For a graph-level contradiction score, invariance is often right. For a node-level belief state, equivariance is usually right. For a timestamped causal trace, full permutation invariance may be wrong.
+For a graph-level summary, invariance is often right. For a node-level state, equivariance is usually right. For a timestamped causal trace or reviewer disagreement, full permutation invariance may be wrong.
 
 ## Problem Ladder
 
@@ -100,11 +100,11 @@ For a graph-level contradiction score, invariance is often right. For a node-lev
 3. Explain when averaging over graph relabelings is desirable.
 4. Verify R^2 = R for the two-node swap example.
 5. Build an invariant feature from x = (x1, x2, x3) under all coordinate permutations.
-6. Give an example where Reynolds averaging would destroy provenance.
+6. Give an example where Reynolds averaging would destroy meaningful contrast.
 
-## Memory-System Connection
+## Representation Design Connection
 
-Invariant operators create features that ignore arbitrary graph presentation while preserving structural meaning.
+Invariant operators create features that ignore arbitrary presentation while preserving the chosen structural meaning.
 
 ## Hand Problem Trail
 
@@ -285,22 +285,22 @@ So R(R(f)) = R(f) = (x+y+z)/3.
 
 Once a feature is in the invariant subspace, more averaging does not move it or recover anything already erased.
 
-### Problem 16.12: Failure mode - averaging away direction
+### Problem 16.12: Failure mode - averaging away disagreement
 
-Suppose `(3,7)` means:
+Two reviewers score the same proposal:
 
 ```text
-left-to-right evidence = 3
-right-to-left evidence = 7
+reviewer A = 2
+reviewer B = 8
 ```
 
-Why might Reynolds averaging be a bad idea?
+The swap-average Reynolds operator sends `(2,8)` to `(5,5)`. What information has been erased?
 
 Answer check:
 
 ```text
-Averaging gives (5,5), which removes the directional imbalance.
-If direction is meaningful, invariance destroys information the model needs.
+The average score 5 is preserved.
+The disagreement or contrast (-3,3) is erased.
 ```
 
-Invariant construction is powerful only after deciding which differences are allowed to disappear.
+Invariant averaging keeps what is shared under the symmetry and discards what changes. If disagreement is meaningful evidence, full invariance is too aggressive.
