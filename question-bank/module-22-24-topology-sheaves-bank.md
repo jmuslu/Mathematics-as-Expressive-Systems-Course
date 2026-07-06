@@ -7,10 +7,12 @@ Source posture: original course problems inspired by public sources on topology,
 - [Persistent Homology: Theory and Practice](https://pub.ista.ac.at/~edels/Papers/2012-11-PHTheoryPractice.pdf)
 - [Persistent Homology: A Survey](https://webhomes.maths.ed.ac.uk/~v1ranick/papers/edelhare.pdf)
 - [A User's Guide to Topological Data Analysis](https://learning-analytics.info/index.php/JLA/article/view/5196)
+- [Barcodes: The Persistent Topology of Data](https://www2.math.upenn.edu/~ghrist/preprints/barcodes.pdf)
 - [Topological Data Analysis: Mapper, Persistence and Applications](https://dioscuri-tda.org/documents/paris_2021_data_science_school/slides/TDA_Tutorial.pdf)
 - [A gentle introduction to sheaves on graphs](https://www.jakobhansen.org/publications/gentleintroduction.pdf)
 - [A Very Elementary Introduction to Sheaves](https://arxiv.org/pdf/2202.01379)
 - [A Sheaf-Theoretic Framework for Knowledge Graph Embedding](https://proceedings.mlr.press/v206/gebhart23a/gebhart23a.pdf)
+- [Laplacians of Cellular Sheaves](https://repository.upenn.edu/bitstreams/d0719f4d-5bb3-4066-82df-158fceab9a11/download)
 
 ## 22.open-set.subspace.a
 
@@ -805,3 +807,226 @@ Local-to-global agreement must be combined with source reliability, calibration,
 ## Reserve Notes
 
 Important conceptual guardrail for Module 24.
+
+## 22.neighborhood.friendship-radius.a
+
+```text
+Module: 22
+Topic: neighborhoods and local stability
+Role: computation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by standard topology neighborhood examples and the course's friendship-threshold framing.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A friendship-score line uses ordinary distance. A person's current trust score is:
+
+```text
+x = 6
+```
+
+The neighborhood of radius `1.5` around `x` is:
+
+```text
+N = (6 - 1.5, 6 + 1.5)
+```
+
+Compute `N`. Does the score `7.6` lie in this neighborhood?
+
+## Answer Check
+
+```text
+N = (4.5, 7.5)
+```
+
+The score `7.6` is not in `N`, because:
+
+```text
+7.6 > 7.5
+```
+
+## Intuition
+
+A neighborhood is a local region around a point, not a vague feeling of closeness.
+
+## Modeling Implication
+
+When a system says two states are "near," it should specify the metric and radius that make the claim true.
+
+## Reserve Notes
+
+Good low-friction Module 22 warm-up before continuity and covers.
+
+## 22.continuity.preference-jump.a
+
+```text
+Module: 22
+Topic: discontinuity as sudden decision jump
+Role: counterexample
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by standard step-function discontinuity examples, rewritten in a dinner-preference setting.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A dinner app assigns:
+
+```text
+f(x) = 0 if x < 5
+f(x) = 1 if x >= 5
+```
+
+where `x` is a spice preference score. Explain why `f` is not continuous at `x=5`.
+
+## Answer Check
+
+Values just below `5` give:
+
+```text
+f(4.9) = 0
+```
+
+At `5`, the value is:
+
+```text
+f(5) = 1
+```
+
+Arbitrarily small changes around `5` can change the output from `0` to `1`, so the map jumps at `5`.
+
+## Intuition
+
+Continuity means small input changes should not force sudden output jumps.
+
+## Modeling Implication
+
+Threshold rules are interpretable, but they create boundary effects that should be treated as design choices.
+
+## Reserve Notes
+
+Useful failure-mode reserve for linking topology to model behavior.
+
+## 23.zero-dimensional.persistence.choice.a
+
+```text
+Module: 23
+Topic: H0 merge convention
+Role: conceptual check
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by persistent-homology barcode examples and elder-rule explanations.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+Three study partners start as separate components at time `0`. Edges appear:
+
+```text
+Ari-Bea at time 2
+Bea-Cy at time 5
+```
+
+If Ari's component is declared the oldest survivor, give one possible set of `H0` intervals.
+
+## Answer Check
+
+All three components are born at `0`.
+
+When `Ari-Bea` appears at time `2`, Bea's component can die:
+
+```text
+Bea: [0,2]
+```
+
+When `Bea-Cy` appears at time `5`, Cy's component can die into the existing Ari-Bea component:
+
+```text
+Cy: [0,5]
+```
+
+Ari's component persists:
+
+```text
+Ari: [0,infinity)
+```
+
+## Intuition
+
+The component count is canonical; the human-readable names of dying components depend on the merge convention.
+
+## Modeling Implication
+
+Persistence summaries should separate invariant structure from labeling choices used to explain it.
+
+## Reserve Notes
+
+Good precision problem for avoiding overinterpretation of named bars.
+
+## 24.sheaf.coboundary.two-witnesses.a
+
+```text
+Module: 24
+Topic: sheaf coboundary residual
+Role: computation
+Status: reserve
+Source use: original, source-informed
+Source note: Inspired by graph-sheaf residual formulas and cellular sheaf Laplacian sources.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+Two witnesses report arrival times:
+
+```text
+x_A = 7
+x_B = 9
+```
+
+The overlap compares A directly but subtracts one hour from B because B reports in a different time zone:
+
+```text
+res_{A -> e}(x) = x
+res_{B -> e}(y) = y - 1
+```
+
+Compute the coboundary residual:
+
+```text
+res_{A -> e}(x_A) - res_{B -> e}(x_B)
+```
+
+and its squared value.
+
+## Answer Check
+
+```text
+res_{A -> e}(7) = 7
+res_{B -> e}(9) = 8
+residual = 7 - 8 = -1
+squared residual = 1
+```
+
+The local reports are close but not exactly compatible under the chosen restrictions.
+
+## Intuition
+
+The residual measures disagreement after translating local reports into the overlap language.
+
+## Modeling Implication
+
+Approximate global consistency can be measured by residuals, but the result depends on the restriction maps.
+
+## Reserve Notes
+
+Good bridge from ordinary witness stories to sheaf-Laplacian-style consistency.
