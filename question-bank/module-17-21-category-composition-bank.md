@@ -1107,13 +1107,64 @@ Typed composition prevents semantically plausible but invalid pipeline connectio
 
 Good operational bridge from operads to validation pipelines.
 
+## 21.dinner-wiring.type-check.a
+
+```text
+Module: 21
+Topic: typed plugging
+Role: conceptual check / failure mode
+Status: promoted
+Source use: original, source-informed
+Source note: Inspired by operads and wiring diagrams as typed port-and-slot composition.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+Available operations:
+
+```text
+findReservation: Restaurant -> Reservation
+estimateCost: Restaurant -> Cost
+planDinner: Shortlist x Reservation x Transportation -> DinnerPlan
+```
+
+Which operation can be plugged into the Reservation slot of `planDinner`, and which cannot?
+
+## Answer Check
+
+```text
+findReservation can be plugged in because its output type is Reservation.
+estimateCost cannot be plugged in because its output type is Cost.
+```
+
+The valid composite has type:
+
+```text
+planDinner(Shortlist, findReservation(Restaurant), Transportation):
+Shortlist x Restaurant x Transportation -> DinnerPlan
+```
+
+## Intuition
+
+A useful output is not automatically a compatible output. The slot decides what type can be wired in.
+
+## Modeling Implication
+
+Typed wiring prevents plausible but invalid process compositions.
+
+## Reserve Notes
+
+Promoted into Module 21 to keep the type-checking problems inside the dinner-planning running example.
+
 ## 21.hyperedge.operation.distinction.a
 
 ```text
 Module: 21
 Topic: hyperedge versus operation
 Role: conceptual check
-Status: reserve
+Status: promoted
 Source use: original, source-informed
 Source note: Inspired by the distinction between relations, hypergraphs, and typed operations in applied category theory.
 License note: No source problem text copied.

@@ -88,17 +88,17 @@ Validation loops are compositional operations, not merely graph traversals.
 
 ### Problem 21.1: Operation with slots
 
-A validation operation has type `validate: Claim x Source x Evidence -> Status`. Name the three input slots and the output type.
+A dinner-planning operation has type `chooseRestaurant: Preferences x Budget x Neighborhood -> Shortlist`. Name the three input slots and the output type.
 
-Answer check: inputs are Claim, Source, Evidence; output is Status.
+Answer check: inputs are Preferences, Budget, Neighborhood; output is Shortlist.
 
 ### Problem 21.2: Slot order matters
 
 Compare:
 
 ```text
-validate: Claim x Source x Evidence -> Status
-validate': Source x Claim x Evidence -> Status
+chooseRestaurant: Preferences x Budget x Neighborhood -> Shortlist
+chooseRestaurant': Budget x Preferences x Neighborhood -> Shortlist
 ```
 
 Are these automatically the same operation?
@@ -116,21 +116,21 @@ Operadic typing tracks slots, not just a bag of inputs.
 Suppose:
 
 ```text
-validate: Claim x Evidence -> ValidatedClaim
-summarize: ValidatedClaim x Context -> Summary
+chooseMain: Guest x Budget -> MainDish
+pairDrink: MainDish x Preference -> DrinkPairing
 ```
 
-Write the composite operation type after plugging validate into summarize's first slot.
+Write the composite operation type after plugging `chooseMain` into `pairDrink`'s first slot.
 
 Answer check:
 
 ```text
-summarize(validate(Claim, Evidence), Context)
+pairDrink(chooseMain(Guest, Budget), Preference)
 
-Claim x Evidence x Context -> Summary
+Guest x Budget x Preference -> DrinkPairing
 ```
 
-The output of `validate` fills the first typed slot of `summarize`.
+The output of `chooseMain` fills the first typed slot of `pairDrink`.
 
 ### Problem 21.4: Draw the operation tree
 
@@ -139,9 +139,9 @@ For the composite in Problem 21.3, describe the tree in words.
 Answer check:
 
 ```text
-Claim and Evidence feed into validate.
-The output ValidatedClaim and Context feed into summarize.
-The final output is Summary.
+Guest and Budget feed into chooseMain.
+The output MainDish and Preference feed into pairDrink.
+The final output is DrinkPairing.
 ```
 
 Operads remember dependency shape, not merely input count.
@@ -151,9 +151,9 @@ Operads remember dependency shape, not merely input count.
 Classify each as product-like or composition-like.
 
 1. Pair a claim with a source.
-2. Run validation, then summarization.
+2. Choose a main dish, then pair a drink with it.
 3. Build a joint feature space from text and graph features.
-4. Plug one reasoning operation into another.
+4. Plug one dinner-planning operation into another.
 
 Answer check:
 
@@ -166,9 +166,9 @@ Answer check:
 
 ### Problem 21.6: Dependency loss
 
-Why is flattening `Claim x Evidence x Rule -> Status` into pairwise edges dangerous?
+Why is flattening `Guest x Ingredient x AllergyRule -> SafeDishDecision` into pairwise edges dangerous?
 
-Answer check: it can hide that the status depends on all three inputs jointly.
+Answer check: it can hide that the safety decision depends on all three inputs jointly.
 
 ### Problem 21.7: Binary operation associativity is extra structure
 
@@ -214,19 +214,19 @@ Some operations allow parentheses to be ignored; others do not.
 Suppose:
 
 ```text
-extractEvidence: Passage -> Evidence
-validate: Claim x Evidence -> ValidatedClaim
+findReservation: Restaurant -> Reservation
+planDinner: Shortlist x Reservation x Transportation -> DinnerPlan
 ```
 
-Can `extractEvidence` be plugged into the Evidence slot of `validate`?
+Can `findReservation` be plugged into the Reservation slot of `planDinner`?
 
 Answer check:
 
 ```text
-Yes. Its output type is Evidence, which matches the second input slot of validate.
+Yes. Its output type is Reservation, which matches the second input slot of planDinner.
 
-validate(Claim, extractEvidence(Passage)):
-Claim x Passage -> ValidatedClaim
+planDinner(Shortlist, findReservation(Restaurant), Transportation):
+Shortlist x Restaurant x Transportation -> DinnerPlan
 ```
 
 Operadic composition is type-checked plugging.
@@ -236,16 +236,16 @@ Operadic composition is type-checked plugging.
 Suppose:
 
 ```text
-extractTopic: Passage -> Topic
-validate: Claim x Evidence -> ValidatedClaim
+estimateCost: Restaurant -> Cost
+planDinner: Shortlist x Reservation x Transportation -> DinnerPlan
 ```
 
-Can `extractTopic` be plugged into the Evidence slot of `validate`?
+Can `estimateCost` be plugged into the Reservation slot of `planDinner`?
 
 Answer check:
 
 ```text
-No. Topic is not Evidence.
+No. Cost is not Reservation.
 ```
 
 The operation may be useful elsewhere, but this slot does not accept it.
@@ -255,13 +255,13 @@ The operation may be useful elsewhere, but this slot does not accept it.
 A hyperedge connects:
 
 ```text
-Claim, Evidence, Rule
+Guest, Ingredient, Allergy
 ```
 
 An operation has type:
 
 ```text
-Claim x Evidence x Rule -> Status
+Guest x Ingredient x Allergy -> SafeDishDecision
 ```
 
 What does the operation add beyond the hyperedge?
@@ -279,7 +279,7 @@ Hyperedges say "these inputs are related." Operations say "these inputs produce 
 A pipeline step says:
 
 ```text
-combine retrieved passages
+combine dinner preferences
 ```
 
 Name three mathematically different things this could mean.
@@ -287,7 +287,7 @@ Name three mathematically different things this could mean.
 Answer check:
 
 ```text
-Possible answers: concatenate, average embeddings, take a product, apply attention, vote, intersect claims, union evidence, run a validation operation.
+Possible answers: average scores, vote, take an intersection of acceptable restaurants, union all suggestions, rank by budget, filter by dietary constraints, or run a typed negotiation operation.
 ```
 
 "Combine" is not a mathematical operation until its type and rule are named.
