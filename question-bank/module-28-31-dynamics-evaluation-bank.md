@@ -114,7 +114,7 @@ Connects dynamics to Reynolds averaging and oversmoothing.
 Module: 28
 Topic: threshold event under decay
 Role: computation
-Status: lecture candidate
+Status: promoted in Module 28 Problem 28.12
 Source use: original
 Source note: Original decay stress-test problem.
 License note: No source problem text copied.

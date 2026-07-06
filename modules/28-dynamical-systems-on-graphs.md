@@ -230,8 +230,24 @@ A stable state the system tends to return to even though it is epistemically poo
 
 Convergence is not automatically correctness.
 
-### Problem 28.12: Graph diffusion intuition
+### Problem 28.12: Threshold event under decay
 
-In Problem 28.1, what happened to mass at node 1?
+An edge starts at weight `1.0` and decays by:
 
-Answer check: most stayed at node 1, some moved to node 2. The matrix encodes retention and propagation.
+```text
+w_{t+1} = 0.7w_t
+```
+
+The system drops edges below `0.4`. After how many updates is the edge first dropped?
+
+Answer check:
+
+```text
+w1 = 0.7
+w2 = 0.49
+w3 = 0.343
+```
+
+It is first below `0.4` after 3 updates.
+
+Smooth decay can cause a discrete graph change when an edge crosses a deletion threshold.
