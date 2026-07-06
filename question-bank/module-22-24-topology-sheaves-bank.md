@@ -621,7 +621,7 @@ Good graduate-depth upgrade beyond equality-only sheaves.
 Module: 24
 Topic: sheaf consistency residual
 Role: computation
-Status: reserve
+Status: promoted in Module 24 Problem 24.7
 Source use: original, source-informed
 Source note: Inspired by sheaf Laplacian and approximate global section ideas.
 License note: No source problem text copied.

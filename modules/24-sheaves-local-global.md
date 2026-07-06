@@ -186,23 +186,38 @@ res_{B -> e}(5) = 2(5) = 10
 
 Yes. Local values do not need to be numerically equal if the restriction maps translate them into the same overlap language.
 
-### Problem 24.7: Restriction that forgets stance
+### Problem 24.7: Sheaf disagreement residual
 
-Node A stores a pair:
+Use the same restriction maps:
 
 ```text
-(source, stance) = (s1, support)
+res_{A -> e}(x) = x
+res_{B -> e}(y) = 2y
 ```
 
-The edge overlap records only source. What is the restriction?
+Now let:
+
+```text
+x_A = 9
+x_B = 5
+```
+
+Compute the edge disagreement:
+
+```text
+res_{A -> e}(x_A) - res_{B -> e}(x_B)
+```
+
+and its squared residual.
 
 Answer check:
 
 ```text
-res((s1, support)) = s1
+disagreement = 9 - 2(5) = -1
+squared residual = 1
 ```
 
-Restrictions decide which part of local information must agree.
+Approximate consistency can be measured by how far overlap restrictions disagree.
 
 ### Problem 24.8: Two restriction designs
 
