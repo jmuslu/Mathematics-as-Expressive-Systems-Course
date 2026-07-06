@@ -72,7 +72,7 @@ Bad translations lose structure. For example, a migration may keep tables while 
 
 ## Representation Design Connection
 
-Functors formalize representation changes: notes to flashcards, schemas to database instances, graphs to node sets, and structured records to exported tables.
+Functors formalize representation changes: notebook pages to flashcard decks, restaurant labels to fuller menu names, schemas to database instances, and structured records to exported tables.
 
 ## Hand Problem Trail
 
