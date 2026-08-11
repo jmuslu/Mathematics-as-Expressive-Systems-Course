@@ -18,6 +18,7 @@ This course is for building mathematical taste around:
 - Topology, persistence, and sheaves
 - Probabilistic modeling and message passing
 - Decay, reinforcement, consolidation, and graph evolution
+- Operator spectra, feedback gain, stability, and observability
 
 The examples move through friendship profiles, dinner plans, dating standards, playlists, study notes, rosters, debate boards, and recommendation graphs. External memory, RAG, and vector search remain useful applications, but the course is not forced around them.
 
@@ -37,7 +38,7 @@ The examples move through friendship profiles, dinner plans, dating standards, p
 
 ## Modules
 
-There are 32 modules, grouped into seven parts:
+There are 36 modules, grouped into eight parts:
 
 1. Foundations of representation
 2. Structure and invariance
@@ -46,6 +47,7 @@ There are 32 modules, grouped into seven parts:
 5. Topology of local structure
 6. Uncertainty and validation
 7. Dynamics and design
+8. Spectra, feedback, and control
 
 See [Course Map](COURSE_MAP.md) for the full sequence.
 

@@ -23,6 +23,8 @@ The course returns to these questions repeatedly:
 5. When does a reasoning path remain coherent across hops?
 6. What does reinforcement strengthen: nodes, edges, paths, motifs, or sections?
 7. What does decay destroy first: weights, paths, clusters, or global consistency?
+8. What is the gain on reinforcement, and does the closed loop settle, drift, or oscillate?
+9. Can an outside checker reconstruct the internal state from what the system reports?
 
 ## Product Atlas Thread
 
@@ -54,6 +56,7 @@ The product thread emphasizes slots, dual spaces, non-degenerate Hermitian forms
 | V | Topology of local structure | Simplicial complexes, persistence, sheaves |
 | VI | Uncertainty and validation | Graphical models, belief propagation, constraints |
 | VII | Dynamics and design | Reinforcement, decay, consolidation, evaluation |
+| VIII | Spectra, feedback, and control | Operator spectra, gain, stability, observability, scheduling |
 
 ## Modules
 
@@ -90,7 +93,11 @@ The product thread emphasizes slots, dual spaces, non-degenerate Hermitian forms
 | 28 | Dynamical Systems on Graphs and Playlist Attention | Study reinforcement, decay, convergence, and attractors |
 | 29 | Rewriting Systems and Structured Edits | Control legal edits, guards, and normal forms |
 | 30 | Evaluating Arguments and Failure Modes | Test relevance, coherence, invariance, and calibration |
-| 31 | Evidence Board Architecture Studio | Design a debate evidence-board math spec |
+| 32 | Transforms, Operator Spectra, and Group Chat Rhythm | Read a spectrum when there is no matrix and no characteristic polynomial |
+| 33 | Feedback, Gain, and Study-Group Workload | Steer a system to a target by choosing a gain |
+| 34 | Controllability, Observability, and the Outside Judge | Test whether a state can be reached and whether it can be seen |
+| 35 | Adaptive Control, Gain Scheduling, and Selective Plasticity | Vary a gain by context without destabilizing the loop |
+| 36 | Evidence Board Architecture Studio | Design a debate evidence-board math spec |
 
 ## Study Output
 

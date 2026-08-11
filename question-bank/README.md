@@ -24,7 +24,8 @@ Use [Problem Trail Style](../PROBLEM_TRAIL_STYLE.md) for analogy rules, bank rol
 - `module-17-21-category-composition-bank.md` - reserve and lecture-candidate problems for group-project workflows, universal properties, app translations, roster schemas, and operads.
 - `module-22-24-topology-sheaves-bank.md` - reserve and lecture-candidate problems for friendship thresholds, persistence, and local-to-global sheaf consistency.
 - `module-25-27-inference-optimization-bank.md` - reserve and lecture-candidate problems for dinner rumors, restaurant recommendation models, and constrained dinner planning.
-- `module-28-31-dynamics-evaluation-bank.md` - reserve and lecture-candidate problems for playlist dynamics, shared-note rewriting, debate evaluation, and evidence-board design specs.
+- `module-28-30-dynamics-evaluation-bank.md` - reserve and lecture-candidate problems for playlist dynamics, shared-note rewriting, and debate evaluation.
+- `module-32-36-spectra-control-studio-bank.md` - reserve and lecture-candidate problems for operator spectra, feedback gain and stability, controllability and observability, gain scheduling, and evidence-board design specs.
 - `problem-template.md` - metadata template for future bank entries.
 
 ## Promotion Rule

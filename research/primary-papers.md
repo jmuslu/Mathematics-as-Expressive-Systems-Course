@@ -171,6 +171,27 @@ Problem hooks:
 - Use Bayes' rule to update a claim after positive or negative evidence.
 - Solve a constrained optimization problem by substitution, Lagrange multipliers, and KKT boundary reasoning.
 
+## Operator Spectra, Feedback, And Control
+
+- [MIT OpenCourseWare 6.003 Signals and Systems](https://ocw.mit.edu/courses/6-003-signals-and-systems-fall-2011/) - eigenfunctions of linear time-invariant systems, and transforms as the basis in which filtering becomes multiplication.
+- [MIT OpenCourseWare 16.30 Feedback Control Systems](https://ocw.mit.edu/courses/16-30-feedback-control-systems-fall-2010/) - gain, closed-loop poles, steady-state error, and state-space design.
+- [MIT OpenCourseWare 6.241J Dynamic Systems and Control](https://ocw.mit.edu/courses/6-241j-dynamic-systems-and-control-spring-2011/) - controllability and observability rank tests, duality, and Lyapunov stability.
+- Astrom and Murray, *Feedback Systems: An Introduction for Scientists and Engineers* - the standard open textbook for gain selection, stability margins, and why proportional control leaves an offset.
+- Kalman, *On the General Theory of Control Systems* - the origin of the controllability and observability conditions used in Module 34.
+- Liberzon, *Switching in Systems and Control* - why a schedule built from individually stable modes can still diverge, and what a common Lyapunov function buys.
+
+These six anchors are orientation material for Part VIII. The three OpenCourseWare links should be re-verified before the trail is cited publicly, and the three book and paper entries are listed by title because no source problem text is reused.
+
+Problem hooks:
+
+- Confirm that a complex exponential is an eigenfunction of differentiation, and that a real sinusoid is not.
+- Translate a continuous decay rate into a per-step multiplier and check that both stability tests agree.
+- Find the full range of feedback gains that stabilizes a drifting first-order plant.
+- Compute the steady-state offset of proportional control and explain why raising the gain alone does not remove it.
+- Build controllability and observability matrices for a two-state system and read off the unreachable or invisible directions.
+- Exhibit an unstable mode that never reaches the output, and explain why longer output monitoring cannot detect it.
+- Multiply two individually stable step matrices and use the trace to show the switched schedule diverges.
+
 ## Retrieval And Long-Term Memory Systems
 
 - [Generalization through Memorization: Nearest Neighbor Language Models](https://arxiv.org/abs/1911.00172) - interpolation between parametric prediction and kNN datastore memory.

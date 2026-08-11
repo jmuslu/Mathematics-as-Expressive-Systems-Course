@@ -179,7 +179,12 @@ if (-not (Test-Path $questionBankReadme)) {
     }
   }
 
-  for ($moduleIndex = 1; $moduleIndex -le 31; $moduleIndex++) {
+  $lectureModuleNumbers = $moduleFiles |
+    ForEach-Object { [int][regex]::Match($_.Name, '^(\d+)').Groups[1].Value } |
+    Where-Object { $_ -gt 0 } |
+    Sort-Object
+
+  foreach ($moduleIndex in $lectureModuleNumbers) {
     $moduleKey = "{0:D2}" -f $moduleIndex
     $moduleBankCount = if ($bankEntryCountsByModule.ContainsKey($moduleKey)) {
       $bankEntryCountsByModule[$moduleKey]
@@ -219,4 +224,4 @@ if ($issues.Count -gt 0) {
   exit 1
 }
 
-Write-Output "Course audit passed: $($moduleFiles.Count) modules, depth headings for modules 01-31, 12 problems and answer checks each, at least 4 structured bank entries per module, with valid problem references, question-bank index, bank metadata, and QA counts."
+Write-Output "Course audit passed: $($moduleFiles.Count) modules, depth headings for modules 01-36, 12 problems and answer checks each, at least 4 structured bank entries per module, with valid problem references, question-bank index, bank metadata, and QA counts."

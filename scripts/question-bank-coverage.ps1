@@ -34,7 +34,12 @@ if (Test-Path $pilotPath) {
 
 Write-Output "Structured question-bank entries by module"
 Write-Output "------------------------------------------"
-for ($i = 1; $i -le 31; $i++) {
+$lectureModuleNumbers = Get-ChildItem -Path "modules" -Filter "*.md" |
+  ForEach-Object { [int][regex]::Match($_.Name, '^(\d+)').Groups[1].Value } |
+  Where-Object { $_ -gt 0 } |
+  Sort-Object
+
+foreach ($i in $lectureModuleNumbers) {
   $module = "{0:D2}" -f $i
   $count = if ($counts.ContainsKey($module)) { $counts[$module] } else { 0 }
   $note = ""

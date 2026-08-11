@@ -30,7 +30,11 @@ const modules = [
   ["28", "Dynamical Systems on Graphs and Playlist Attention", "modules/28-dynamical-systems-on-graphs.md", "Model playlist attention through decay, reinforcement, and attractors."],
   ["29", "Rewriting Systems and Structured Edits", "modules/29-rewriting-knowledge-evolution.md", "Clean shared study notes with legal edits and invariants."],
   ["30", "Evaluating Arguments and Failure Modes", "modules/30-evaluation-failure-modes.md", "Judge debate arguments by relevance, coherence, invariance, and calibration."],
-  ["31", "Evidence Board Architecture Studio", "modules/31-architecture-studio.md", "Assemble the course into a debate evidence-board design."]
+  ["32", "Transforms, Operator Spectra, and Group Chat Rhythm", "modules/32-transforms-operator-spectra.md", "Read a spectrum when there is no matrix and no characteristic polynomial."],
+  ["33", "Feedback, Gain, and Study-Group Workload", "modules/33-feedback-gain-stability.md", "Steer a drifting system to a target by choosing a gain."],
+  ["34", "Controllability, Observability, and the Outside Judge", "modules/34-controllability-observability.md", "Test whether a state can be reached and whether it can be seen."],
+  ["35", "Adaptive Control, Gain Scheduling, and Selective Plasticity", "modules/35-adaptive-control-gain-scheduling.md", "Vary a gain by context without destabilizing the loop."],
+  ["36", "Evidence Board Architecture Studio", "modules/36-architecture-studio.md", "Assemble the course into a debate evidence-board design."]
 ];
 
 const questionBanks = [
@@ -43,7 +47,8 @@ const questionBanks = [
   { modules: ["17", "18", "19", "20", "21"], file: "question-bank/module-17-21-category-composition-bank.md", label: "Category And Composition Reserve Bank" },
   { modules: ["22", "23", "24"], file: "question-bank/module-22-24-topology-sheaves-bank.md", label: "Topology And Sheaves Reserve Bank" },
   { modules: ["25", "26", "27"], file: "question-bank/module-25-27-inference-optimization-bank.md", label: "Inference And Optimization Reserve Bank" },
-  { modules: ["28", "29", "30", "31"], file: "question-bank/module-28-31-dynamics-evaluation-bank.md", label: "Dynamics And Evaluation Reserve Bank" }
+  { modules: ["28", "29", "30"], file: "question-bank/module-28-30-dynamics-evaluation-bank.md", label: "Dynamics And Evaluation Reserve Bank" },
+  { modules: ["32", "33", "34", "35", "36"], file: "question-bank/module-32-36-spectra-control-studio-bank.md", label: "Spectra And Control Reserve Bank" }
 ];
 
 const tocList = document.querySelector("#tocList");
@@ -284,6 +289,10 @@ ${lines.join(" \\\\\n")}
 
 function toTexInline(value) {
   let text = value.trim();
+  // "<->" is a two-way correspondence, not an angle-bracket pair around "-".
+  // It has to be consumed before the pairing rule below can claim it.
+  text = text.replace(/<->/g, "\\leftrightarrow ");
+  text = text.replace(/\+\/-/g, "\\pm ");
   text = text.replace(/<([^>]+)>/g, "\\langle $1 \\rangle");
   text = text.replace(/&/g, "\\&");
   text = text.replace(/->/g, "\\to ");
@@ -296,7 +305,7 @@ function toTexInline(value) {
   text = text.replace(/\bconjugate\(([^)]+)\)/g, "\\overline{$1}");
   text = text.replace(/\bsqrt\(([^)]+)\)/g, "\\sqrt{$1}");
   text = text.replace(/\bsqrt([A-Za-z0-9_+\-*/^ ]+)/g, "\\sqrt{$1}");
-  text = text.replace(/\b(lambda|rho|tau|phi|alpha|beta|epsilon)_([A-Za-z0-9]+)/g, (_, greek, subscript) => `${greekMap(greek)}_{${subscript}}`);
+  text = text.replace(/\b(lambda|rho|tau|phi|alpha|beta|epsilon|sigma|omega|mu|theta|eta|delta|gamma|nu|kappa|psi)_([A-Za-z0-9]+)/g, (_, greek, subscript) => `${greekMap(greek)}_{${subscript}}`);
   text = text.replace(/\blambda\b/g, "\\lambda");
   text = text.replace(/\brho\b/g, "\\rho");
   text = text.replace(/\btau\b/g, "\\tau");
@@ -304,20 +313,53 @@ function toTexInline(value) {
   text = text.replace(/\balpha\b/g, "\\alpha");
   text = text.replace(/\bbeta\b/g, "\\beta");
   text = text.replace(/\bepsilon\b/g, "\\varepsilon");
+  text = text.replace(/\bsigma\b/g, "\\sigma");
+  text = text.replace(/\bomega\b/g, "\\omega");
+  text = text.replace(/\bmu\b/g, "\\mu");
+  text = text.replace(/\btheta\b/g, "\\theta");
+  text = text.replace(/\b(?:eta)\b/g, "\\eta");
+  text = text.replace(/\bdelta\b/g, "\\delta");
+  text = text.replace(/\bgamma\b/g, "\\gamma");
+  text = text.replace(/\bnu\b/g, "\\nu");
+  text = text.replace(/\bkappa\b/g, "\\kappa");
+  text = text.replace(/\bpsi\b/g, "\\psi");
   text = text.replace(/\bpi_([A-Za-z0-9]+)/g, "\\pi_{$1}");
   text = text.replace(/\bproj_([A-Za-z0-9]+)/g, "\\operatorname{proj}_{$1}");
   text = text.replace(/\bspan\(([^)]+)\)/g, "\\operatorname{span}($1)");
   text = text.replace(/\bdet\(([^)]+)\)/g, "\\det($1)");
   text = text.replace(/\|\|([^|]+)\|\|_([A-Za-z0-9]+)/g, "\\lVert $1 \\rVert_{$2}");
   text = text.replace(/\|\|([^|]+)\|\|/g, "\\lVert $1 \\rVert");
+  // A star between two digits is multiplication, never an adjoint. Convert it
+  // first so the adjoint rule below cannot turn "0.9^3*100" into a second
+  // exponent. Stars after a letter or a closing paren still mean adjoint,
+  // which keeps dual-basis notation such as "e1*(4,7)" intact.
+  text = text.replace(/(\d)\s*\*\s*(\d)/g, "$1 \\cdot $2");
   text = text.replace(/([A-Za-z0-9)])\*/g, "$1^*");
   text = text.replace(/\b([A-Za-z])hat\b/g, "\\hat{$1}");
+  // An identifier with two or more underscores is a snake_case name, not a
+  // stack of subscripts. Park it behind a placeholder so the subscript rule
+  // below cannot turn it into "a_{b}_{c}", which TeX rejects as a double
+  // subscript, then restore it as literal upright text.
+  const snakeCaseNames = [];
+  text = text.replace(/\b[A-Za-z][A-Za-z0-9]*(?:_[A-Za-z0-9]+){2,}/g, (name) => {
+    snakeCaseNames.push(name);
+    return `\uE000${snakeCaseNames.length - 1}\uE001`;
+  });
   text = text.replace(/\^([A-Za-z0-9]+)/g, "^{$1}");
   text = text.replace(/_([A-Za-z0-9]+)/g, "_{$1}");
   text = text.replace(/([A-Za-z])'(\s|$|[=,)])/g, "$1'$2");
   text = text.replace(/>=/g, "\\ge ");
   text = text.replace(/<=/g, "\\le ");
+  // "Person x Meal" is a product of types, not a variable named x sitting
+  // between them. Only a lowercase x flanked by capitalised type names is
+  // rewritten, so ordinary variables such as x_t are left alone.
+  text = text.replace(/([A-Z][A-Za-z0-9]*) x (?=[A-Z])/g, "$1 \\times ");
+  // "x1" and "w3" are the same indexed quantities as "x_1" and "w_3". Without
+  // this the course renders "w_{t+1}" as a subscript but "w1" as upright text
+  // two lines later. Group names such as C3 and S3 subscript correctly too.
+  text = text.replace(/\b([A-Za-z])(\d+)\b/g, "$1_{$2}");
   text = romanizeNamedIdentifiers(text);
+  text = text.replace(/\uE000(\d+)\uE001/g, (_, index) => `\\mathrm{${snakeCaseNames[Number(index)].replace(/_/g, "\\_")}}`);
   return text;
 }
 
@@ -331,7 +373,9 @@ function romanizeNamedIdentifiers(text) {
     "begin", "end", "bmatrix", "operatorname", "mathrm", "langle", "rangle",
     "overline", "sqrt", "det", "cdot", "circ", "to", "leftarrow", "otimes",
     "wedge", "lambda", "rho", "tau", "phi", "alpha", "beta", "varepsilon",
-    "pi", "ge", "le", "lVert", "rVert", "proj", "span"
+    "pi", "ge", "le", "lVert", "rVert", "proj", "span",
+    "sigma", "omega", "mu", "theta", "eta", "delta", "gamma", "nu", "kappa",
+    "psi", "times", "pm", "leftrightarrow"
   ]);
 
   return text.replace(/(^|[^\\A-Za-z])([A-Za-z][A-Za-z0-9]*)(?![A-Za-z])/g, (match, prefix, word) => {

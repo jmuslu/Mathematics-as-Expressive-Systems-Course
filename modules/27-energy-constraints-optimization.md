@@ -254,7 +254,7 @@ dL/dx = 2(x-3) + mu
 0 = 2(2-3) + mu
 mu = 2
 
-mu >= 0 and mu*g(2)=2*0=0
+mu >= 0 and mu g(2) = 2(0) = 0
 ```
 
 The budget cap is active: it is exactly what prevents the group from choosing the unconstrained 30 dollar option.
