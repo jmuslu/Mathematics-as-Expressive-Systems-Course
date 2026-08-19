@@ -1,4 +1,4 @@
-# Module 32: Transforms, Operator Spectra, and Group Chat Rhythm
+# Module 31: Transforms, Operator Spectra, and Group Chat Rhythm
 
 ## Lecture Promise
 
@@ -142,7 +142,7 @@ Choosing a transform is choosing which decomposition of a signal you are willing
 
 ## Hand Problem Trail
 
-### Problem 32.1: Eigenfunction of differentiation
+### Problem 31.1: Eigenfunction of differentiation
 
 Is `f(t) = e^{3t}` an eigenfunction of `d/dt`? If so, give the eigenvalue.
 
@@ -154,7 +154,7 @@ d/dt e^{3t} = 3 e^{3t}
 
 Yes, with eigenvalue `3`. The function returns scaled, not reshaped.
 
-### Problem 32.2: Why the sine is not the eigenfunction
+### Problem 31.2: Why the sine is not the eigenfunction
 
 Compute `d/dt sin(t)` and `d/dt e^{jt}`. Which one is an eigenfunction of `d/dt`?
 
@@ -167,7 +167,7 @@ d/dt e^{jt} = j e^{jt}    scaled by j, eigenfunction
 
 The complex exponential is the eigenfunction. This is why phase-carrying complex scalars from Module 08 are the natural language here: a real sinusoid is a sum of two eigenfunctions, not one.
 
-### Problem 32.3: Second derivative of a sinusoid
+### Problem 31.3: Second derivative of a sinusoid
 
 Compute `d^2/dt^2 sin(omega t)` and give the eigenvalue.
 
@@ -180,7 +180,7 @@ d^2/dt^2 sin(omega t) = -omega^2 sin(omega t)
 
 The eigenvalue is `-omega^2`. Sine is not an eigenfunction of the first derivative but is one of the second.
 
-### Problem 32.4: Continuous decay
+### Problem 31.4: Continuous decay
 
 Solve `dx/dt = -0.5x` with `x(0) = 8`, and give `x(2)`.
 
@@ -193,7 +193,7 @@ x(2) = 8 e^{-1}
 
 Numerically about `2.943`.
 
-### Problem 32.5: Reading a complex rate
+### Problem 31.5: Reading a complex rate
 
 A mode has `s = -0.5 + 2j`. Describe its behavior in words, and state its envelope.
 
@@ -206,7 +206,7 @@ imaginary part 2: oscillates at 2 radians per unit time
 
 It is a shrinking oscillation. The two parts of the same complex number answer two different questions.
 
-### Problem 32.6: Why there is no characteristic polynomial
+### Problem 31.6: Why there is no characteristic polynomial
 
 For any complex `lambda`, exhibit an eigenfunction of `d/dt` with that eigenvalue. What does this say about the spectrum?
 
@@ -218,7 +218,7 @@ d/dt e^{lambda t} = lambda e^{lambda t} for every complex lambda
 
 Every complex number is an eigenvalue, so the spectrum is the whole plane. No finite polynomial has that root set, which is why the determinant recipe cannot be the definition.
 
-### Problem 32.7: A transform turns filtering into multiplication
+### Problem 31.7: A transform turns filtering into multiplication
 
 A filter multiplies the mode at frequency `omega` by `H(omega) = 1/(1+omega)`. An input has a component of size `4` at `omega = 0` and a component of size `6` at `omega = 3`. Compute the output components.
 
@@ -231,7 +231,7 @@ omega = 3: 6 * 1/(1+3) = 1.5
 
 The slow component passes untouched and the fast component is cut to a quarter. In the eigenbasis the filter is just multiplication, one number per mode.
 
-### Problem 32.8: Continuous rate to discrete factor
+### Problem 31.8: Continuous rate to discrete factor
 
 A quantity decays continuously at rate `a = -ln 2` per week. What is the per-week multiplier, and does it agree with the discrete stability test?
 
@@ -244,7 +244,7 @@ multiplier = e^{-ln 2} = 0.5
 
 Both tests say stable. The two stability boundaries, `Re(s) = 0` and `|z| = 1`, correspond under `z = e^{s}`.
 
-### Problem 32.9: Two stability tests
+### Problem 31.9: Two stability tests
 
 Classify `s = -2 + 5j` as a continuous-time mode, and `z = 0.9 - 0.5j` as a discrete-time mode.
 
@@ -257,7 +257,7 @@ z: |z|^2 = 0.81 + 0.25 = 1.06, so |z| > 1, unstable
 
 The discrete mode is unstable despite both of its parts being smaller than one. Magnitude is the test, not the individual coordinates.
 
-### Problem 32.10: The spectrum does not determine everything
+### Problem 31.10: The spectrum does not determine everything
 
 For:
 
@@ -279,7 +279,7 @@ nullspace is spanned by (1,0) only
 
 There is one independent eigenvector for a repeated eigenvalue, so `A` is defective. Powers of `A` grow like `t * 2^t`, a factor the eigenvalue list alone never shows.
 
-### Problem 32.11: Decomposing the group chat
+### Problem 31.11: Decomposing the group chat
 
 Message counts per day are modeled as a steady baseline, a weekly cycle, and a fading burst after an event. Assign each piece to a spectral component.
 
@@ -293,7 +293,7 @@ fading burst:  a decaying mode, s = sigma < 0
 
 Each of the three lives in its own slot, and each evolves without disturbing the others.
 
-### Problem 32.12: Failure mode - trusting the eigenvalue list
+### Problem 31.12: Failure mode - trusting the eigenvalue list
 
 Someone reports that a system's spectrum is `{-1, -1}` and concludes the response falls smoothly from its starting value with no rise. Give a counterexample.
 

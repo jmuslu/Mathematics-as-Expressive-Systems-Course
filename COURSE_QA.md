@@ -23,7 +23,7 @@ Every lecture module after orientation should also expose the depth spine:
 
 Module 00 is the orientation exception: it teaches the spine rather than using it as an ordinary lecture topic.
 
-The structured question bank should have at least four reserve entries for every module from 01 through 36.
+The structured question bank should have at least four reserve entries for every module from 01 through 35.
 
 Current status:
 
@@ -33,7 +33,7 @@ Current status:
 432 total module hand problems
 34 running examples in lecture modules
 12 reserve bank files plus the problem template
-209 bank problem/reserve entries
+213 bank problem/reserve entries
 ```
 
 The running examples are intentionally not universal. Orientation, scalar setup, and final studio modules can stay cleaner when the surrounding modules already carry enough friendship, dinner, dating, social-media, debate, witness, party, and graph-design scenarios.
@@ -70,7 +70,7 @@ Run:
 The script checks:
 
 - renderer JavaScript syntax,
-- depth-heading presence for Modules 01-36,
+- depth-heading presence for Modules 01-35,
 - hand-trail presence,
 - problem count,
 - answer-check count,
@@ -91,7 +91,7 @@ The course currently has:
 - a complete 36-module lecture sequence,
 - accepted tutorial-style website structure with in-page rendered Markdown and MathJax,
 - a 12-problem hand trail in every module,
-- central question banks covering modules 01-36,
+- central question banks covering modules 01-35,
 - source-use policy and primary-paper trail,
 - running examples spread through the course without forcing every module into an analogy,
 - automated checks for renderer syntax, module depth shape, problem references, bank index drift, and structured bank-entry metadata.

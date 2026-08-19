@@ -113,6 +113,27 @@ res_{B -> e}(x_B) = (Rae,8)
 
 so no global section can contain both local reports without changing one of them.
 
+## Locality Has a Radius
+
+Gluing is a check run on reports you already hold. It says nothing about how far a node must see in order to produce its report in the first place.
+
+Give every node a radius. A rule of radius `r` lets a node see everything within `r` hops of itself and nothing beyond, and it must decide that node's local state from that view alone.
+
+The question now has two levels:
+
+```text
+does a global section exist?
+can any radius-r rule produce one?
+```
+
+Sheaf gluing answers the first. The second is a different question, and its answer can be no even when the first answer is yes.
+
+The reason is symmetry. On a cycle, a node of radius `r` sees a path of `2r+1` nodes and nothing that names its position. Every node sees the same thing. A deterministic rule handed identical inputs must return identical outputs, so every node receives the same state, and any constraint that forces neighbors to differ is violated at every edge.
+
+This is the invariance of Module 14 read as an obstruction rather than a virtue. A transitive automorphism group means no local view distinguishes one node from another, and a rule that can only see locally inherits that blindness. Problem 24.11 runs the argument on a six-cycle.
+
+The general form is worth naming, because it is the same move as the cospectral warning in Module 11 and the indistinguishable states of Problem 33.5: exhibit two situations the observer cannot separate, then show the correct answers differ.
+
 ## Invariants
 
 A sheaf calculation preserves the overlap schema. You may change local reports, choose different restriction maps, or enlarge the cover, but compatibility always means equality after restriction to the same overlap.
@@ -125,6 +146,8 @@ Local consistency does not guarantee truth. It only guarantees compatibility acr
 
 Bad restriction maps create false peace. Overly strict restriction maps create false contradiction.
 
+A third failure is a condition that is checkable but not locally reachable. A sheaf can declare a consistency requirement whose global sections certainly exist, while no bounded-radius rule can produce one. Declaring a condition and being able to reach it from local views are separate claims, and only the first is settled by gluing.
+
 ## Problem Ladder
 
 1. Draw a two-node sheaf with an overlap.
@@ -132,11 +155,14 @@ Bad restriction maps create false peace. Overly strict restriction maps create f
 3. Explain global section as a coherent local-to-global assignment.
 4. Design two different restriction maps for the same two-report example and compare the contradictions they detect.
 5. Explain why finding related reports is weaker than checking sheaf consistency.
-6. Describe how an update might act on a global section rather than on isolated local plans.
+6. Show a graph where a global section exists but no radius-1 rule can produce it.
+7. Describe how an update might act on a global section rather than on isolated local plans.
 
 ## Representation Design Connection
 
 Sheaves are the mature model for local-to-global consistency: local contexts patch into a global assignment only when restrictions agree.
+
+Existence and reachability are separate design commitments. A system that validates consistency by gluing has shown that a coherent global state is possible, not that its own local update rules can ever arrive at one. Stating the radius those rules are allowed is the second half of the specification.
 
 ## Hand Problem Trail
 
@@ -312,29 +338,27 @@ What is the difference between failing to find related reports and failing to gl
 
 Answer check: the first failure means the relevant local reports were not found. The second means local reports were found but their shared details do not consistently glue.
 
-### Problem 24.11: Global section on a triangle
+### Problem 24.11: Symmetry defeats a local rule
 
-A triangle graph has node values:
+Each node holds a value in `{red, blue}` and every edge requires its two endpoints to differ, so a global section is a proper two-coloring. The nodes carry no names, so a rule sees only the shape of its radius-1 neighborhood.
 
-```text
-x1 = red
-x2 = red
-x3 = red
-```
-
-Every edge requires equality. Is this a global section?
+On a six-cycle, decide whether a global section exists, then decide whether a deterministic radius-1 rule can produce one.
 
 Answer check:
 
 ```text
-edge (1,2): red = red
-edge (2,3): red = red
-edge (1,3): red = red
+global section: red, blue, red, blue, red, blue
+                every edge joins a red to a blue, so it exists
 
-Yes.
+radius-1 view: each node sees itself and its two neighbors, a path of 3
+               that view is identical at all six nodes
+
+a deterministic rule given identical inputs returns identical outputs
+so all six nodes receive the same value
+every edge then joins two equal values and the constraint fails
 ```
 
-Every local pair is compatible, so the whole assignment glues.
+A global section exists and no anonymous radius-1 rule reaches it. The obstruction is not the size of the radius but the cycle's symmetry: the automorphism group acts transitively on the nodes, so no local view can distinguish one node from another.
 
 ### Problem 24.12: Failure mode - false peace
 

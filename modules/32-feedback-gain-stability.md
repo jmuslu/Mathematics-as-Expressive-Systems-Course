@@ -1,4 +1,4 @@
-# Module 33: Feedback, Gain, and Study-Group Workload
+# Module 32: Feedback, Gain, and Study-Group Workload
 
 ## Lecture Promise
 
@@ -136,7 +136,7 @@ Every decay-and-reinforcement rule in this course is a loop with the gain chosen
 
 ## Hand Problem Trail
 
-### Problem 33.1: The open loop drifts
+### Problem 32.1: The open loop drifts
 
 With no control, `x_{t+1} = 1.2 x_t` and `x_0 = 2`. Compute `x_3` and state whether the loop is stable.
 
@@ -150,7 +150,7 @@ x_3 = 3.456
 
 Since `1.2 > 1`, the workload grows without bound. This is the plant before any feedback is added.
 
-### Problem 33.2: Close the loop
+### Problem 32.2: Close the loop
 
 With `a = 1.2`, `b = 1`, and `k = 0.5`, compute the closed-loop factor and classify it.
 
@@ -163,7 +163,7 @@ c = 1.2 - 0.5 = 0.7
 
 A single subtraction converts an unstable plant into a stable loop.
 
-### Problem 33.3: Stable gain range
+### Problem 32.3: Stable gain range
 
 For `a = 1.2` and `b = 1`, find every gain `k` that stabilizes the loop.
 
@@ -177,7 +177,7 @@ Answer check:
 
 Both bounds matter. Too little reaction and too much reaction both fail.
 
-### Problem 33.4: Where the loop settles
+### Problem 32.4: Where the loop settles
 
 With `k = 1` and `r = 5`, find the closed-loop fixed point and the steady-state error.
 
@@ -192,9 +192,9 @@ error = 6.25 - 5 = 1.25
 
 The loop is stable but does not reach the target.
 
-### Problem 33.5: More gain, less offset
+### Problem 32.5: More gain, less offset
 
-Repeat Problem 33.4 with `k = 2`. Report the fixed point, the error, and the closed-loop factor.
+Repeat Problem 32.4 with `k = 2`. Report the fixed point, the error, and the closed-loop factor.
 
 Answer check:
 
@@ -208,7 +208,7 @@ error = 0.5556
 
 The offset shrank, but `c` is now negative, so the approach alternates above and below the target instead of arriving from one side.
 
-### Problem 33.6: Too much gain
+### Problem 32.6: Too much gain
 
 Repeat with `k = 2.5`, starting from an error of `1`. Compute three steps of the error and classify.
 
@@ -223,7 +223,7 @@ e_3 = -2.197
 
 The error flips sign every week and grows. Overcorrection is a distinct failure from undercorrection, and it looks like instability plus oscillation.
 
-### Problem 33.7: Wrong sign
+### Problem 32.7: Wrong sign
 
 Use `u_t = +k(x_t - r)` with `k = 0.5` instead of the negative sign. Compute the closed-loop factor.
 
@@ -235,7 +235,7 @@ c = 1.2 + 0.5 = 1.7
 
 The loop is worse than doing nothing. Positive feedback adds to the drift, which is why the sign convention is part of the definition rather than a detail.
 
-### Problem 33.8: A decreasing quantity certifies convergence
+### Problem 32.8: A decreasing quantity certifies convergence
 
 Let `V(x) = (x - x*)^2`. Show how `V` changes in one step of the closed loop, and state the condition for it to decrease.
 
@@ -249,7 +249,7 @@ decreases whenever c^2 < 1, that is |c| < 1
 
 The squared distance to the fixed point shrinks by a fixed ratio each step. Exhibiting such a quantity is a proof of convergence, not an observation about a simulation.
 
-### Problem 33.9: When the offset disappears
+### Problem 32.9: When the offset disappears
 
 Suppose the plant does not drift, so `a = 1`, with `b = 1` and gain `k`. Find the fixed point.
 
@@ -262,9 +262,9 @@ k x* = k r
 x* = r
 ```
 
-With `a = 1` the offset vanishes for every valid gain. The offset in Problem 33.4 came from the drift, not from proportional control being wrong in general.
+With `a = 1` the offset vanishes for every valid gain. The offset in Problem 32.4 came from the drift, not from proportional control being wrong in general.
 
-### Problem 33.10: Three weeks of the loop
+### Problem 32.10: Three weeks of the loop
 
 Using `a = 1.2`, `b = 1`, `k = 1`, `r = 5`, and `x_0 = 0`, compute `x_1`, `x_2`, and `x_3`.
 
@@ -276,9 +276,9 @@ x_2 = 0.2(5) + 5 = 6
 x_3 = 0.2(6) + 5 = 6.2
 ```
 
-The values climb toward the fixed point `6.25` found in Problem 33.4.
+The values climb toward the fixed point `6.25` found in Problem 32.4.
 
-### Problem 33.11: Naming the parts
+### Problem 32.11: Naming the parts
 
 For the study group, identify what `a`, `b`, `k`, and `r` each represent.
 
@@ -293,7 +293,7 @@ r: the workload level the group is aiming for
 
 Naming these separately is what makes the design checkable. A single "we adjust as needed" collapses four different commitments into one word.
 
-### Problem 33.12: Failure mode - reinforcement with no target
+### Problem 32.12: Failure mode - reinforcement with no target
 
 The popularity loop `x_{t+1} = 1.2 x_t` from Problem 28.8 is a feedback loop with a missing piece. Name the missing piece and the minimum change that stabilizes it.
 

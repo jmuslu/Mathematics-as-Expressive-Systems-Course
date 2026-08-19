@@ -1,4 +1,4 @@
-# Module 35: Adaptive Control, Gain Scheduling, and Selective Plasticity
+# Module 34: Adaptive Control, Gain Scheduling, and Selective Plasticity
 
 ## Lecture Promise
 
@@ -12,7 +12,7 @@ You will understand a gain that changes with context, and why a schedule built f
 
 ## Why The Old Object Fails
 
-Module 33 chose one gain and kept it. That single number has to serve two conflicting jobs: react fast enough to track real change, and react slowly enough to ignore noise. One constant cannot do both, so a fixed gain is always a compromise struck at a single operating point.
+Module 32 chose one gain and kept it. That single number has to serve two conflicting jobs: react fast enough to track real change, and react slowly enough to ignore noise. One constant cannot do both, so a fixed gain is always a compromise struck at a single operating point.
 
 The obvious repair is to let the gain depend on context. That repair introduces a problem with no counterpart in the fixed-gain case: the system is now a different system at different times, and stability of each version separately does not imply stability of the whole.
 
@@ -68,7 +68,7 @@ Freezing the schedule and checking each setting is a necessary test, never a suf
 
 ## Worked Derivation
 
-Take the plant from Module 33, with `a = 1.2` and `b = 1`, and a two-entry schedule:
+Take the plant from Module 32, with `a = 1.2` and `b = 1`, and a two-entry schedule:
 
 ```text
 quiet context:    k = 0.3, c = 1.2 - 0.3 = 0.9
@@ -103,7 +103,7 @@ Two stable modes, switched between, produce an unstable system. Nothing was wron
 ## Invariants
 
 - Each frozen closed loop keeps its own spectrum while the context is held
-- The stable gain range from Module 33 still bounds every admissible schedule entry
+- The stable gain range from Module 32 still bounds every admissible schedule entry
 - If one quantity decreases under every mode, the switched loop is stable regardless of switching order
 
 The last item is the useful positive result. A quantity that shrinks under all modes at once is a common certificate, and it converts a hard question about every possible schedule into a single check.
@@ -130,7 +130,7 @@ Selective plasticity is usually described as a policy: some things should update
 
 ## Hand Problem Trail
 
-### Problem 35.1: Frozen check, quiet context
+### Problem 34.1: Frozen check, quiet context
 
 With `a = 1.2`, `b = 1`, and `k = 0.3`, compute the closed-loop factor and classify it.
 
@@ -143,7 +143,7 @@ c = 1.2 - 0.3 = 0.9
 
 Slow correction, but the drift is still overcome.
 
-### Problem 35.2: Frozen check, volatile context
+### Problem 34.2: Frozen check, volatile context
 
 Repeat with `k = 1.5`.
 
@@ -156,7 +156,7 @@ c = 1.2 - 1.5 = -0.3
 
 Stable and faster, but the negative factor means the error alternates in sign as it shrinks.
 
-### Problem 35.3: One scheduled step
+### Problem 34.3: One scheduled step
 
 The schedule sets `k = 0.3` in a quiet week and `k = 1.5` in a volatile week. With `r = 5` and `x_t = 9`, compute the next value in each context.
 
@@ -169,7 +169,7 @@ volatile: x = -0.3(9) + (1)(1.5)(5) = -2.7 + 7.5 = 4.8
 
 The same state produces very different next steps. The schedule is doing real work.
 
-### Problem 35.4: Product of two stable matrices
+### Problem 34.4: Product of two stable matrices
 
 For the `A1` and `A2` of the worked derivation, compute the product `A2 A1`.
 
@@ -182,9 +182,9 @@ A2 A1 = [0.25  1   ]
 
 Each factor has spectral radius `0.5`. The product does not.
 
-### Problem 35.5: Trace argument
+### Problem 34.5: Trace argument
 
-Using the product from Problem 35.4, decide whether the alternating schedule is stable without computing eigenvalues exactly.
+Using the product from Problem 34.4, decide whether the alternating schedule is stable without computing eigenvalues exactly.
 
 Answer check:
 
@@ -197,7 +197,7 @@ so at least one eigenvalue exceeds 1: unstable
 
 The trace alone settles it. Two stable modes switched in alternation produce divergence.
 
-### Problem 35.6: Watch it diverge
+### Problem 34.6: Watch it diverge
 
 Starting from `x_0 = (1, 0)`, apply `A1` then `A2`, then `A1` then `A2` again.
 
@@ -212,7 +212,7 @@ A2 (2.125, 0.5) = (1.0625, 4.5)
 
 The state grows steadily even though every single step was a stable map.
 
-### Problem 35.7: A candidate certificate fails
+### Problem 34.7: A candidate certificate fails
 
 Test whether the squared length `V(x) = x_1^2 + x_2^2` decreases under `A1` alone, using `x = (0, 1)`.
 
@@ -226,7 +226,7 @@ V after  = 4 + 0.25 = 4.25
 
 It increases. A stable matrix need not shrink the ordinary squared length at every step, so this `V` is not a certificate for `A1`, let alone a common one for the schedule.
 
-### Problem 35.8: A gain that chases noise
+### Problem 34.8: A gain that chases noise
 
 The schedule sets `k_t = 0.3 + 0.5 * d_t`, where `d_t` is the size of the last observed change. The true state is constant at `4`, but the measurement alternates between `4.4` and `3.6`. Compute `d_t` and `k_t`.
 
@@ -239,7 +239,7 @@ k_t = 0.3 + 0.5(0.8) = 0.7
 
 The gain more than doubles although the underlying state never moved. Adaptation driven by raw measurement change cannot distinguish a real shift from noise.
 
-### Problem 35.9: Bounding the schedule
+### Problem 34.9: Bounding the schedule
 
 Every entry of the schedule must keep its frozen loop stable for `a = 1.2` and `b = 1`. Give the admissible range, and decide whether an entry of `k = 2.4` is allowed.
 
@@ -251,9 +251,9 @@ k = 2.4 gives c = -1.2, magnitude above 1
 not allowed
 ```
 
-This is the Module 33 range reused as a constraint on the whole table.
+This is the Module 32 range reused as a constraint on the whole table.
 
-### Problem 35.10: Rate limiting the gain
+### Problem 34.10: Rate limiting the gain
 
 The gain may move by at most `0.2` per step. How many steps are needed to go from `k = 0.3` to `k = 1.5`?
 
@@ -264,9 +264,9 @@ Answer check:
 1.2 / 0.2 = 6 steps
 ```
 
-Rate limiting is a second design choice on top of the table. It restricts which switching sequences can occur at all, which is one practical way to rule out the alternation in Problem 35.6.
+Rate limiting is a second design choice on top of the table. It restricts which switching sequences can occur at all, which is one practical way to rule out the alternation in Problem 34.6.
 
-### Problem 35.11: Assigning plasticity
+### Problem 34.11: Assigning plasticity
 
 For the shared notes page, decide which sections should get a high gain and which a low gain, and justify each with a property of the underlying quantity.
 
@@ -282,7 +282,7 @@ low gain:  the course summary, because the true value changes
 
 The right gain follows from how fast the underlying quantity actually moves relative to the noise, not from how important the section feels.
 
-### Problem 35.12: Failure mode - the scheduler inside the loop
+### Problem 34.12: Failure mode - the scheduler inside the loop
 
 A system raises its learning rate whenever its recent updates have been large. Explain what feedback loop this creates and what must be checked.
 
@@ -295,4 +295,4 @@ The scheduler and plant must be analyzed as one combined system,
 and its stability checked, not each piece separately.
 ```
 
-Scheduling on a variable the loop controls is not scheduling. It is an extra feedback path, and it needs the same treatment as any other loop in Module 33.
+Scheduling on a variable the loop controls is not scheduling. It is an extra feedback path, and it needs the same treatment as any other loop in Module 32.

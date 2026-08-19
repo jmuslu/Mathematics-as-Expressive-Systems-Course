@@ -1,4 +1,4 @@
-# Module 36: Evidence Board Architecture Studio
+# Module 35: Evidence Board Architecture Studio
 
 ## Lecture Promise
 
@@ -132,7 +132,7 @@ This is where the mathematics becomes design practice.
 
 ## Hand Problem Trail
 
-### Problem 36.1: Specify an evidence-board object
+### Problem 35.1: Specify an evidence-board object
 
 Define an evidence-card node type with at least five fields. Mark which fields are scalars, vectors, labels, or references.
 
@@ -147,7 +147,7 @@ timestamp: scalar or ordered label
 stance: finite label
 ```
 
-### Problem 36.2: Specify an edge type
+### Problem 35.2: Specify an edge type
 
 Define a typed edge for support. Include source type, target type, and at least two fields.
 
@@ -163,7 +163,7 @@ fields:
 
 An edge type is a mathematical commitment about what relation is allowed.
 
-### Problem 36.3: Specify a hyperedge
+### Problem 35.3: Specify a hyperedge
 
 Define a hyperedge or multi-input relation for validation.
 
@@ -179,7 +179,7 @@ fields:
 
 Some relations cannot be faithfully represented as independent pairwise edges.
 
-### Problem 36.4: Specify legal transformations
+### Problem 35.4: Specify legal transformations
 
 For your evidence-board graph, list three transformations that should preserve meaning and three that should change meaning.
 
@@ -190,7 +190,7 @@ preserve: node relabeling, equivalent schema migration, reordering retrieved can
 change: reversing support edge, deleting provenance, changing timestamp order
 ```
 
-### Problem 36.5: Pick invariants
+### Problem 35.5: Pick invariants
 
 Name five invariants your debate-board design should test.
 
@@ -204,7 +204,7 @@ local-to-global sheaf consistency
 calibrated posterior under evidence update
 ```
 
-### Problem 36.6: Define one equivariant output
+### Problem 35.6: Define one equivariant output
 
 Give an output that should move with node relabeling rather than stay fixed.
 
@@ -216,7 +216,7 @@ node-level evidence embeddings should satisfy H(PAP^T)=P H(A)
 
 Node-level objects usually transform with the nodes.
 
-### Problem 36.7: Define one invariant output
+### Problem 35.7: Define one invariant output
 
 Give an output that should stay fixed under node relabeling.
 
@@ -228,7 +228,7 @@ global contradiction score f(A) should satisfy f(PAP^T)=f(A)
 
 Graph-level summaries usually ignore arbitrary node names.
 
-### Problem 36.8: Define a sheaf consistency test
+### Problem 35.8: Define a sheaf consistency test
 
 Write a local-to-global consistency rule for two nodes sharing an overlap.
 
@@ -240,7 +240,7 @@ res_{u -> e}(x_u) = res_{v -> e}(x_v)
 
 The restriction maps specify what agreement means.
 
-### Problem 36.9: Define a decay rule
+### Problem 35.9: Define a decay rule
 
 Write one decay/reinforcement update for an edge weight.
 
@@ -252,7 +252,7 @@ w_{t+1} = 0.9 w_t + reinforcement_t
 
 The design should say what decays and what can reinforce it.
 
-### Problem 36.10: Define a rewrite rule
+### Problem 35.10: Define a rewrite rule
 
 Write one guarded rewrite rule for duplicate conclusion cards.
 
@@ -265,7 +265,7 @@ merge them and preserve both original IDs as provenance.
 
 Rewrite rules should include guards and provenance behavior.
 
-### Problem 36.11: Match promises to evaluation tests
+### Problem 35.11: Match promises to evaluation tests
 
 A debate-board design promises:
 
@@ -287,7 +287,7 @@ decay-aware retrieval paths: decay edge weights and check whether valid paths su
 
 Evaluation should match the mathematical promises in the design. A promise without a test is just decoration.
 
-### Problem 36.12: Audit the mathematical contract
+### Problem 35.12: Audit the mathematical contract
 
 A design spec says:
 

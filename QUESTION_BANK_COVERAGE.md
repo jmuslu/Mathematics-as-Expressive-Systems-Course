@@ -34,27 +34,25 @@ Run:
 21: 6
 22: 7
 23: 7
-24: 7
-25: 6
+24: 9
+25: 8
 26: 6
 27: 6
 28: 6
 29: 6
 30: 7
+31: 4
 32: 4
 33: 4
 34: 4
-35: 4
-36: 6
+35: 6
 ```
-
-There is no Module 31. The evidence-board studio moved to Module 36 when Part VIII was added, and the numbers 32 through 35 are the new spectra-and-control modules.
 
 ## Expansion Priorities
 
 1. Expand Modules 01-05 with more reserve problems for scalar systems, span, linear maps, projection, and dual measurements.
-2. Expand Modules 32-35 with more operator-spectrum, gain-range, rank-test, and switched-stability problems, since each is currently at the four-entry minimum.
-3. Add more capstone-style Module 36 design-specification reserves once the earlier mathematical banks are less uneven.
+2. Expand Modules 31-34 with more operator-spectrum, gain-range, rank-test, and switched-stability problems, since each is currently at the four-entry minimum.
+3. Add more capstone-style Module 35 design-specification reserves once the earlier mathematical banks are less uneven.
 
 ## Promotion Guidance
 

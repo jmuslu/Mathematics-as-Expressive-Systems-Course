@@ -1,4 +1,4 @@
-# Modules 32-36 Bank: Operator Spectra, Feedback, Observability, Adaptive Gain, and Evidence-Board Design
+# Modules 31-35 Bank: Operator Spectra, Feedback, Observability, Adaptive Gain, and Evidence-Board Design
 
 Source posture: original course problems informed by standard public control-theory and signals-and-systems teaching material, plus the existing graph-memory and evaluation sources used elsewhere in this bank. These are reserve candidates, not promoted lecture text.
 
@@ -13,13 +13,13 @@ Source posture: original course problems informed by standard public control-the
 
 Link check note: the three OpenCourseWare URLs above should be re-verified before this bank is cited publicly. The three book and paper anchors are listed by title because they are used for orientation only, and no source problem text is reused.
 
-## 32.eigenfunction.differentiation.a
+## 31.eigenfunction.differentiation.a
 
 ```text
-Module: 32
+Module: 31
 Topic: eigenfunctions of an operator with no matrix
 Role: base case
-Status: promoted in Module 32 Problem 32.1
+Status: promoted in Module 31 Problem 31.1
 Source use: original, source-informed
 Source note: Standard signals-and-systems framing of the complex exponential as the eigenfunction of differentiation.
 License note: No source problem text copied.
@@ -56,10 +56,10 @@ Choosing a transform means choosing the family of signals a process acts on by s
 
 Good warm-up before the continuous-versus-discrete stability comparison.
 
-## 32.spectrum.continuous.a
+## 31.spectrum.continuous.a
 
 ```text
-Module: 32
+Module: 31
 Topic: why an operator spectrum need not be a finite list
 Role: derivation
 Status: reserve
@@ -96,13 +96,13 @@ A system whose state is a signal rather than a short vector needs the general no
 
 Pairs with the defective-matrix entry to show both directions in which the naive eigenvalue picture is incomplete.
 
-## 32.stability.continuous-discrete.a
+## 31.stability.continuous-discrete.a
 
 ```text
-Module: 32
+Module: 31
 Topic: translating a continuous rate into a discrete multiplier
 Role: computation
-Status: promoted in Module 32 Problem 32.8
+Status: promoted in Module 31 Problem 31.8
 Source use: original, source-informed
 Source note: Standard sampled-data correspondence between the left half-plane and the unit disk.
 License note: No source problem text copied.
@@ -133,13 +133,13 @@ A design stated as a half-life and a design stated as a per-step multiplier are 
 
 Useful for connecting Module 28's discrete decay rules to continuous-time language.
 
-## 32.defective.transient.a
+## 31.defective.transient.a
 
 ```text
-Module: 32
+Module: 31
 Topic: transient growth inside a stable spectrum
 Role: failure mode
-Status: promoted in Module 32 Problem 32.12
+Status: promoted in Module 31 Problem 31.12
 Source use: original, source-informed
 Source note: Standard Jordan-block example from linear systems courses.
 License note: No source problem text copied.
@@ -171,15 +171,15 @@ A stability claim is not a claim about the transient. Both need to be stated whe
 
 ## Reserve Notes
 
-Could be extended into a full worked Jordan-form trail if Module 32 is ever expanded.
+Could be extended into a full worked Jordan-form trail if Module 31 is ever expanded.
 
-## 33.closed-loop.gain-range.a
+## 32.closed-loop.gain-range.a
 
 ```text
-Module: 33
+Module: 32
 Topic: the set of gains that stabilize a drifting plant
 Role: derivation
-Status: promoted in Module 33 Problem 33.3
+Status: promoted in Module 32 Problem 32.3
 Source use: original, source-informed
 Source note: Standard first-order proportional-control example from open control textbooks.
 License note: No source problem text copied.
@@ -209,12 +209,12 @@ A tuning knob should be published with its admissible interval, not just its cur
 
 ## Reserve Notes
 
-Same shape as the Module 33 lecture problem with different numbers, suitable as a check-yourself variant.
+Same shape as the Module 32 lecture problem with different numbers, suitable as a check-yourself variant.
 
-## 33.steady-state-error.a
+## 32.steady-state-error.a
 
 ```text
-Module: 33
+Module: 32
 Topic: why proportional feedback leaves an offset
 Role: derivation
 Status: reserve
@@ -252,13 +252,13 @@ An offset that cannot be tuned away is a signal that the control law needs anoth
 
 A good setup for introducing integral action if the course ever adds a second feedback module.
 
-## 33.lyapunov.contraction.a
+## 32.lyapunov.contraction.a
 
 ```text
-Module: 33
+Module: 32
 Topic: certifying convergence with a decreasing quantity
 Role: derivation
-Status: promoted in Module 33 Problem 33.8
+Status: promoted in Module 32 Problem 32.8
 Source use: original, source-informed
 Source note: Standard quadratic Lyapunov argument for a scalar linear loop.
 License note: No source problem text copied.
@@ -289,13 +289,13 @@ Any decay-and-reinforcement rule in the course can be argued about this way once
 
 Generalizes to the matrix case with `V(x) = x^T P x`, which would be the natural next problem.
 
-## 33.positive-feedback.a
+## 32.positive-feedback.a
 
 ```text
-Module: 33
+Module: 32
 Topic: sign of feedback
 Role: failure mode
-Status: promoted in Module 33 Problem 33.7
+Status: promoted in Module 32 Problem 32.7
 Source use: original, source-informed
 Source note: Standard negative-versus-positive feedback comparison.
 License note: No source problem text copied.
@@ -325,13 +325,13 @@ A reinforcement rule with no opposing term is positive feedback by default, whic
 
 Connects directly to the Module 28 popularity-loop problem.
 
-## 34.controllability.rank.a
+## 33.controllability.rank.a
 
 ```text
-Module: 34
+Module: 33
 Topic: reachability of a diagonal two-state system
 Role: base case
-Status: promoted in Module 34 Problem 34.1
+Status: promoted in Module 33 Problem 33.1
 Source use: original, source-informed
 Source note: Standard Kalman rank-test example.
 License note: No source problem text copied.
@@ -365,10 +365,10 @@ If part of a stored state has no path from any input, no controller can repair i
 
 Different numbers from the lecture version, usable as a self-check.
 
-## 34.observability.rank.a
+## 33.observability.rank.a
 
 ```text
-Module: 34
+Module: 33
 Topic: reconstructing state from a scalar output
 Role: computation
 Status: reserve
@@ -408,13 +408,13 @@ What a system reports decides whether outside checking is possible at all, indep
 
 Pairs with the silent-divergence entry as the positive and negative cases.
 
-## 34.silent-divergence.a
+## 33.silent-divergence.a
 
 ```text
-Module: 34
+Module: 33
 Topic: an unstable mode hidden from the output
 Role: failure mode
-Status: promoted in Module 34 Problem 34.6
+Status: promoted in Module 33 Problem 33.6
 Source use: original, source-informed
 Source note: Standard unobservable-unstable-mode example.
 License note: No source problem text copied.
@@ -452,13 +452,13 @@ A monitoring claim needs a rank check behind it. A longer record of quiet output
 
 Stronger growth than the lecture version, useful when the point needs to be unmissable.
 
-## 34.duality.transpose.a
+## 33.duality.transpose.a
 
 ```text
-Module: 34
+Module: 33
 Topic: observability as controllability of the transpose
 Role: derivation
-Status: promoted in Module 34 Problem 34.7
+Status: promoted in Module 33 Problem 33.7
 Source use: original, source-informed
 Source note: Standard duality statement from linear systems theory.
 License note: No source problem text copied.
@@ -497,13 +497,13 @@ Design work on what a system exposes and design work on what it can be steered b
 
 A non-symmetric `A` makes the transpose visible; a symmetric one hides the point.
 
-## 35.frozen-versus-switched.a
+## 34.frozen-versus-switched.a
 
 ```text
-Module: 35
+Module: 34
 Topic: individually stable modes that switch into instability
 Role: derivation
-Status: promoted in Module 35 Problems 35.4 and 35.5
+Status: promoted in Module 34 Problems 35.4 and 35.5
 Source use: original, source-informed
 Source note: Standard switched-system counterexample of the shape used in the switching-stability literature.
 License note: No source problem text copied.
@@ -550,10 +550,10 @@ A plasticity policy that switches between safe settings still needs its own stab
 
 Larger off-diagonal entries than the lecture version, so the trace argument is even more immediate.
 
-## 35.common-certificate.a
+## 34.common-certificate.a
 
 ```text
-Module: 35
+Module: 34
 Topic: when a switched schedule is safe
 Role: derivation
 Status: reserve
@@ -591,13 +591,13 @@ The positive result for scheduled systems is a single quantity that decreases ev
 
 Extending to `V(x) = x^T P x` with a shared `P` is the natural harder version.
 
-## 35.noise-driven-gain.a
+## 34.noise-driven-gain.a
 
 ```text
-Module: 35
+Module: 34
 Topic: adaptation that responds to noise
 Role: failure mode
-Status: promoted in Module 35 Problem 35.8
+Status: promoted in Module 34 Problem 34.8
 Source use: original, source-informed
 Source note: Standard caution about adaptation driven by raw measurement variation.
 License note: No source problem text copied.
@@ -630,13 +630,13 @@ A plasticity rule needs a noise model, or at least a threshold, before it is all
 
 A follow-up could push the gain outside the stable range to combine both failure modes.
 
-## 35.rate-limit.a
+## 34.rate-limit.a
 
 ```text
-Module: 35
+Module: 34
 Topic: limiting how fast a gain may move
 Role: computation
-Status: promoted in Module 35 Problem 35.10
+Status: promoted in Module 34 Problem 34.10
 Source use: original, source-informed
 Source note: Standard rate-limiting practice in gain-scheduled control.
 License note: No source problem text copied.
@@ -668,10 +668,10 @@ A plasticity policy has at least three parts: the table of gains, the admissible
 
 Could be paired with a version where the shortest admissible path leaves the stable range and must be rerouted.
 
-## 36.architecture-math-contract.a
+## 35.architecture-math-contract.a
 
 ```text
-Module: 36
+Module: 35
 Topic: evidence-board design specification
 Role: modeling interpretation
 Status: promoted
@@ -715,15 +715,15 @@ The final design document should test the course's whole vocabulary, not just na
 
 ## Reserve Notes
 
-Promoted into Module 36 as the final mathematical-contract audit.
+Promoted into Module 35 as the final mathematical-contract audit.
 
-## 36.evaluation-alignment.a
+## 35.evaluation-alignment.a
 
 ```text
-Module: 36
+Module: 35
 Topic: evaluation alignment
 Role: conceptual check
-Status: promoted in Module 36 Problem 36.11
+Status: promoted in Module 35 Problem 35.11
 Source use: original
 Source note: Original evidence-board studio audit problem.
 License note: No source problem text copied.
@@ -762,10 +762,10 @@ Design and evaluation should be co-designed.
 
 Useful final-module bridge from specification to QA.
 
-## 36.rewrite-dynamics-conflict.a
+## 35.rewrite-dynamics-conflict.a
 
 ```text
-Module: 36
+Module: 35
 Topic: design conflict
 Role: failure mode
 Status: reserve
@@ -806,10 +806,10 @@ The final spec should include rule precedence or conflict-resolution policy.
 
 Good capstone failure-mode exercise.
 
-## 36.local-global-studio-test.a
+## 35.local-global-studio-test.a
 
 ```text
-Module: 36
+Module: 35
 Topic: studio integration and local-to-global validation
 Role: modeling interpretation
 Status: reserve
@@ -867,10 +867,10 @@ A capstone design should specify how local validations glue, how disagreements a
 
 Good final studio reserve because it forces the student to combine sheaves, rewriting, and evaluation.
 
-## 36.capstone.object-operation-invariant.a
+## 35.capstone.object-operation-invariant.a
 
 ```text
-Module: 36
+Module: 35
 Topic: capstone mathematical contract
 Role: guided derivation
 Status: reserve
@@ -915,10 +915,10 @@ The capstone contract turns course vocabulary into testable engineering commitme
 
 Good final studio reserve for forcing specificity.
 
-## 36.human-example.fit-check.a
+## 35.human-example.fit-check.a
 
 ```text
-Module: 36
+Module: 35
 Topic: analogy and design fit
 Role: conceptual check
 Status: reserve

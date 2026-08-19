@@ -224,4 +224,4 @@ if ($issues.Count -gt 0) {
   exit 1
 }
 
-Write-Output "Course audit passed: $($moduleFiles.Count) modules, depth headings for modules 01-36, 12 problems and answer checks each, at least 4 structured bank entries per module, with valid problem references, question-bank index, bank metadata, and QA counts."
+Write-Output "Course audit passed: $($moduleFiles.Count) modules, depth headings for modules 01-35, 12 problems and answer checks each, at least 4 structured bank entries per module, with valid problem references, question-bank index, bank metadata, and QA counts."

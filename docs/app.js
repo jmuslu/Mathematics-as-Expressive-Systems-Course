@@ -30,11 +30,11 @@ const modules = [
   ["28", "Dynamical Systems on Graphs and Playlist Attention", "modules/28-dynamical-systems-on-graphs.md", "Model playlist attention through decay, reinforcement, and attractors."],
   ["29", "Rewriting Systems and Structured Edits", "modules/29-rewriting-knowledge-evolution.md", "Clean shared study notes with legal edits and invariants."],
   ["30", "Evaluating Arguments and Failure Modes", "modules/30-evaluation-failure-modes.md", "Judge debate arguments by relevance, coherence, invariance, and calibration."],
-  ["32", "Transforms, Operator Spectra, and Group Chat Rhythm", "modules/32-transforms-operator-spectra.md", "Read a spectrum when there is no matrix and no characteristic polynomial."],
-  ["33", "Feedback, Gain, and Study-Group Workload", "modules/33-feedback-gain-stability.md", "Steer a drifting system to a target by choosing a gain."],
-  ["34", "Controllability, Observability, and the Outside Judge", "modules/34-controllability-observability.md", "Test whether a state can be reached and whether it can be seen."],
-  ["35", "Adaptive Control, Gain Scheduling, and Selective Plasticity", "modules/35-adaptive-control-gain-scheduling.md", "Vary a gain by context without destabilizing the loop."],
-  ["36", "Evidence Board Architecture Studio", "modules/36-architecture-studio.md", "Assemble the course into a debate evidence-board design."]
+  ["31", "Transforms, Operator Spectra, and Group Chat Rhythm", "modules/31-transforms-operator-spectra.md", "Read a spectrum when there is no matrix and no characteristic polynomial."],
+  ["32", "Feedback, Gain, and Study-Group Workload", "modules/32-feedback-gain-stability.md", "Steer a drifting system to a target by choosing a gain."],
+  ["33", "Controllability, Observability, and the Outside Judge", "modules/33-controllability-observability.md", "Test whether a state can be reached and whether it can be seen."],
+  ["34", "Adaptive Control, Gain Scheduling, and Selective Plasticity", "modules/34-adaptive-control-gain-scheduling.md", "Vary a gain by context without destabilizing the loop."],
+  ["35", "Evidence Board Architecture Studio", "modules/35-architecture-studio.md", "Assemble the course into a debate evidence-board design."]
 ];
 
 const questionBanks = [
@@ -48,7 +48,7 @@ const questionBanks = [
   { modules: ["22", "23", "24"], file: "question-bank/module-22-24-topology-sheaves-bank.md", label: "Topology And Sheaves Reserve Bank" },
   { modules: ["25", "26", "27"], file: "question-bank/module-25-27-inference-optimization-bank.md", label: "Inference And Optimization Reserve Bank" },
   { modules: ["28", "29", "30"], file: "question-bank/module-28-30-dynamics-evaluation-bank.md", label: "Dynamics And Evaluation Reserve Bank" },
-  { modules: ["32", "33", "34", "35", "36"], file: "question-bank/module-32-36-spectra-control-studio-bank.md", label: "Spectra And Control Reserve Bank" }
+  { modules: ["31", "32", "33", "34", "35"], file: "question-bank/module-31-35-spectra-control-studio-bank.md", label: "Spectra And Control Reserve Bank" }
 ];
 
 const tocList = document.querySelector("#tocList");
@@ -289,6 +289,19 @@ ${lines.join(" \\\\\n")}
 
 function toTexInline(value) {
   let text = value.trim();
+  // Braces in the source are almost always set notation: {e, r, r^2} or
+  // span{(1,1)}. TeX reads a bare brace as grouping and renders nothing, so
+  // the set silently loses its braces. Park the author's own grouping after
+  // "_" or "^", escape whatever braces are left, then put the grouping back.
+  // Later rules generate their own {...} for subscripts, which must stay bare.
+  const grouped = [];
+  text = text.replace(/([_^])\{([^{}]*)\}/g, (_, marker, inner) => {
+    grouped.push(marker + "{" + inner + "}");
+    return `${grouped.length - 1}`;
+  });
+  const backslash = String.fromCharCode(92);
+  text = text.replace(/\{/g, backslash + "{").replace(/\}/g, backslash + "}");
+  text = text.replace(/(\d+)/g, (_, index) => grouped[Number(index)]);
   // "<->" is a two-way correspondence, not an angle-bracket pair around "-".
   // It has to be consumed before the pairing rule below can claim it.
   text = text.replace(/<->/g, "\\leftrightarrow ");

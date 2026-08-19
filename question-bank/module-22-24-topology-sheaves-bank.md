@@ -1030,3 +1030,89 @@ Approximate global consistency can be measured by residuals, but the result depe
 ## Reserve Notes
 
 Good bridge from ordinary witness stories to sheaf-Laplacian-style consistency.
+
+## 24.locality.symmetry-obstruction.a
+
+```text
+Module: 24
+Topic: a global section that no local rule can reach
+Role: derivation
+Status: promoted in Module 24 Problem 24.11
+Source use: original, source-informed
+Source note: Standard anonymous-network symmetry argument from distributed graph algorithms, restated in the sheaf language of this module.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+Each node of a four-cycle holds a value in `{red, blue}` and every edge requires its endpoints to differ. Nodes carry no names. Decide whether a global section exists, and whether a deterministic radius-1 rule can produce one.
+
+## Answer Check
+
+```text
+global section: red, blue, red, blue
+                4 is even, so alternating colors satisfies every edge
+
+radius-1 view: node plus its two neighbors, a path of 3
+               identical at all four nodes
+
+deterministic rule, identical inputs, identical outputs
+all four nodes get the same value
+every edge then joins two equal values, so the constraint fails
+```
+
+## Intuition
+
+The obstruction is symmetry, not radius size. A transitive automorphism group means no local view can distinguish one node from another.
+
+## Modeling Implication
+
+Showing that a consistent global state exists is a weaker claim than showing a system's own local updates can reach one.
+
+## Reserve Notes
+
+Same argument as the six-cycle in the lecture, on the smallest cycle where it works.
+
+## 24.locality.parity-indistinguishable.b
+
+```text
+Module: 24
+Topic: two graphs with identical local views and different answers
+Role: failure mode
+Status: reserve
+Source use: original, source-informed
+Source note: Standard indistinguishability argument for bounded-radius rules on cycles.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+Take the same two-coloring sheaf on a six-cycle and on a seven-cycle, with anonymous nodes. State the radius-1 view in each, decide which has a global section, and conclude what this rules out.
+
+## Answer Check
+
+```text
+radius-1 view in both: a path of 3 nodes, identical at every node
+                       both cycles are longer than 2(1)+1 = 3
+
+six-cycle:   even, alternating coloring works, global section exists
+seven-cycle: odd, alternating fails at the closing edge, none exists
+
+A radius-1 rule sees the same input in both graphs and must answer
+the same way. The correct answers differ, so no radius-1 rule decides
+whether a global section exists.
+```
+
+## Intuition
+
+Parity is a property of the whole cycle. Nothing inside a radius-1 window records it.
+
+## Modeling Implication
+
+Some consistency questions are not answerable from any bounded neighborhood, however well the local rule is written.
+
+## Reserve Notes
+
+Generalizes: use cycles longer than `2r+1` to rule out radius `r`.

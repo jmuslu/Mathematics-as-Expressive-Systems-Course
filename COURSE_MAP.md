@@ -93,11 +93,11 @@ The product thread emphasizes slots, dual spaces, non-degenerate Hermitian forms
 | 28 | Dynamical Systems on Graphs and Playlist Attention | Study reinforcement, decay, convergence, and attractors |
 | 29 | Rewriting Systems and Structured Edits | Control legal edits, guards, and normal forms |
 | 30 | Evaluating Arguments and Failure Modes | Test relevance, coherence, invariance, and calibration |
-| 32 | Transforms, Operator Spectra, and Group Chat Rhythm | Read a spectrum when there is no matrix and no characteristic polynomial |
-| 33 | Feedback, Gain, and Study-Group Workload | Steer a system to a target by choosing a gain |
-| 34 | Controllability, Observability, and the Outside Judge | Test whether a state can be reached and whether it can be seen |
-| 35 | Adaptive Control, Gain Scheduling, and Selective Plasticity | Vary a gain by context without destabilizing the loop |
-| 36 | Evidence Board Architecture Studio | Design a debate evidence-board math spec |
+| 31 | Transforms, Operator Spectra, and Group Chat Rhythm | Read a spectrum when there is no matrix and no characteristic polynomial |
+| 32 | Feedback, Gain, and Study-Group Workload | Steer a system to a target by choosing a gain |
+| 33 | Controllability, Observability, and the Outside Judge | Test whether a state can be reached and whether it can be seen |
+| 34 | Adaptive Control, Gain Scheduling, and Selective Plasticity | Vary a gain by context without destabilizing the loop |
+| 35 | Evidence Board Architecture Studio | Design a debate evidence-board math spec |
 
 ## Study Output
 

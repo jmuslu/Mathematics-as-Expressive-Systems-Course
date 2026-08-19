@@ -83,6 +83,25 @@ b_Bea(true)=0.1/0.5=0.2
 
 The uninformative message does not change Ari's ratio. It only participates in the local multiplication and normalization.
 
+## How Far Information Travels
+
+A message crosses one edge per round, so after `t` rounds a node's belief can depend only on nodes within `t` hops of it.
+
+On a five-node chain:
+
+```text
+A - B - C - D - E
+
+round 1: A's evidence reaches B
+round 2: it reaches C
+round 3: it reaches D
+round 4: it reaches E
+```
+
+Four rounds pass before `E` can respond to anything `A` observed. A schedule that stops after three rounds is not slightly wrong about `E`; it has not seen `A` at all, and no amount of care in the update rule repairs that.
+
+This makes the round count a resource rather than a tuning detail. The number of rounds a system runs sets a radius, and that radius fixes which questions the system is able to answer. Module 24 supplies the companion result: some questions cannot be answered from a bounded radius however the local rule is written.
+
 ## Invariants
 
 Belief propagation preserves the graph's local adjacency pattern: messages travel along edges, and each update uses only the neighboring information allowed by the graph.
@@ -92,6 +111,8 @@ On trees, the important invariant is no double counting: once a message has summ
 ## Failure Mode
 
 Loops can double-count evidence. Correlated messages can produce false confidence.
+
+Stopping early is a separate failure. Running a fixed number of rounds on a graph whose diameter is larger leaves beliefs that look settled locally while the evidence that would change them has not arrived yet. A converged-looking belief is a claim about the radius reached, not about the graph.
 
 ## Problem Ladder
 

@@ -876,3 +876,86 @@ Low energy is only good if the energy function penalizes the right failures.
 ## Reserve Notes
 
 Important design-interpretation problem for Module 27.
+
+## 25.rounds.diameter.a
+
+```text
+Module: 25
+Topic: rounds needed for evidence to cross a graph
+Role: computation
+Status: reserve
+Source use: original, source-informed
+Source note: Standard observation that one message-passing round advances information by one hop.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+Six people form a chain `A - B - C - D - E - F`. Evidence starts at `A`. After how many rounds can `F`'s belief depend on it, and which nodes are reachable after three rounds?
+
+## Answer Check
+
+```text
+one round advances information one hop
+
+round 1: B
+round 2: C
+round 3: D
+round 4: E
+round 5: F
+
+F needs 5 rounds
+after 3 rounds A's evidence has reached B, C, and D only
+```
+
+## Intuition
+
+The round count is a radius. Nodes beyond it have not been reached at all.
+
+## Modeling Implication
+
+A schedule's round budget should be compared against the graph's diameter before its output is treated as settled.
+
+## Reserve Notes
+
+Pairs with the bounded-radius impossibility entries for Module 24.
+
+## 25.rounds.early-stop.b
+
+```text
+Module: 25
+Topic: a converged-looking belief that has not seen the evidence
+Role: failure mode
+Status: reserve
+Source use: original, source-informed
+Source note: Original failure-mode framing built on the one-hop-per-round fact.
+License note: No source problem text copied.
+Verification status: checked by hand
+```
+
+## Problem
+
+A system runs exactly three rounds on the chain `A - B - C - D - E - F` and reports that every belief has stopped changing. Contradicting evidence sits at `A`. Is the report evidence of convergence at `F`?
+
+## Answer Check
+
+```text
+after 3 rounds A's evidence has travelled 3 hops, reaching D
+F is 5 hops from A, so nothing from A has arrived at F
+
+F's belief is unchanged because no new information reached it,
+not because the information reached it and left it unmoved
+```
+
+## Intuition
+
+Stability under a round budget smaller than the diameter says nothing about the far side of the graph.
+
+## Modeling Implication
+
+Convergence claims need the radius reached attached to them, otherwise silence and agreement look identical.
+
+## Reserve Notes
+
+The observability analogue is Problem 33.6, where a quiet output hides a diverging state.
